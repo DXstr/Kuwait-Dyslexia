@@ -1,11 +1,6 @@
-# Replace the two placeholders with real GitHub usernames before enabling "Require review from Code Owners".
-# AYMAN_GH  = Ayman (workstream A)    MAHMOUD_GH = Mahmoud (workstream B)
-*               @AYMAN_GH @MAHMOUD_GH
-/ai/            @AYMAN_GH
-/content/       @AYMAN_GH
-/web/           @MAHMOUD_GH
-/supabase/      @MAHMOUD_GH
-/contracts/     @AYMAN_GH @MAHMOUD_GH
-/docs/          @AYMAN_GH @MAHMOUD_GH
-/.github/       @AYMAN_GH @MAHMOUD_GH
-/CLAUDE.md      @AYMAN_GH @MAHMOUD_GH
+# Both people are listed on every path so the PR author's teammate is always requested and can approve.
+# (A single owner per folder would block that owner's own PRs when "Require review from Code Owners" is on.)
+# Folder ownership for editing (A: ai/, content/  B: web/, supabase/) is defined in CLAUDE.md.
+#   @DXstr   = Ayman   (workstream A)
+#   @mvvhmxd = Mahmoud (workstream B)
+*   @DXstr @mvvhmxd

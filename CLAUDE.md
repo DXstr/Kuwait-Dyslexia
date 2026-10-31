@@ -6,8 +6,8 @@ Two people build this in parallel, each with their own Claude. Read this file fu
 
 | Workstream | Person | Owns (may edit) | Must not edit |
 | --- | --- | --- | --- |
-| A — AI & scoring | Ayman | `ai/`, `content/` | `web/`, `supabase/` |
-| B — Product & app | Mahmoud | `web/`, `supabase/` | `ai/`, `content/` |
+| A — AI & scoring | Ayman (@DXstr) | `ai/`, `content/` | `web/`, `supabase/` |
+| B — Product & app | Mahmoud (@mvvhmxd) | `web/`, `supabase/` | `ai/`, `content/` |
 | Shared | both | `contracts/`, `docs/`, `.github/`, root files | — (change only in a dedicated PR both approve) |
 
 If your task seems to need a change outside your folders, STOP and tell your human. Propose a contracts PR
