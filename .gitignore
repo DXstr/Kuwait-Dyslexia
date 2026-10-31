@@ -1,0 +1,30 @@
+# secrets
+.env
+.env.*
+!.env.example
+# python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+# node
+node_modules/
+dist/
+!content/dist/
+.vite/
+# model weights and audio scratch
+*.bin
+*.safetensors
+*.onnx
+/ai/models/
+/scratch/
+# os/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+# supabase local
+supabase/.branches/
+supabase/.temp/

@@ -1,0 +1,375 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://basira.local/contracts/basira.schema.json",
+  "title": "Basira shared contracts v0.1.0",
+  "description": "Single source of truth for every payload exchanged between workstream A (ai/, content/) and workstream B (web/, supabase/). Change only through a contracts PR approved by both.",
+  "$defs": {
+    "SkillId": {
+      "type": "string",
+      "pattern": "^(ls|dot|emph|vowel|pos|decode|fluency)\\.[a-z_-]+$",
+      "description": "Must exist in contracts/skill-graph.json"
+    },
+    "ErrorCategory": {
+      "enum": ["dot_confusion", "emphatic_confusion", "short_vowel", "positional", "omission", "insertion", "substitution"]
+    },
+    "ReviewStatus": {
+      "enum": ["draft", "pending_review", "approved", "rejected", "delivered"]
+    },
+    "ItemType": {
+      "enum": ["letter_sound", "real_word", "pseudoword", "passage_vowelized", "passage_unvowelized", "probe_passage", "minimal_pair", "vowel_tap"]
+    },
+
+    "PhonemeResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["index", "word_index", "expected_letter", "expected_ipa", "heard_ipa", "score", "status", "error_category", "dialect_rule_id", "start_ms", "end_ms"],
+      "properties": {
+        "index": { "type": "integer", "minimum": 0 },
+        "word_index": { "type": "integer", "minimum": 0 },
+        "expected_letter": { "type": ["string", "null"], "description": "Letter id from taxonomy.json, null for a vowel-only unit" },
+        "expected_ipa": { "type": "string" },
+        "heard_ipa": { "type": ["string", "null"], "description": "Best competing phoneme the model heard; null on omission" },
+        "score": { "type": "number", "minimum": 0, "maximum": 1, "description": "Goodness-of-pronunciation mapped to 0-1" },
+        "status": { "enum": ["correct", "dialect_variant", "error", "unscored"] },
+        "error_category": { "oneOf": [{ "$ref": "#/$defs/ErrorCategory" }, { "type": "null" }] },
+        "dialect_rule_id": { "type": ["string", "null"], "description": "Rule id from dialect-lexicons.json when status=dialect_variant" },
+        "start_ms": { "type": "integer", "minimum": 0 },
+        "end_ms": { "type": "integer", "minimum": 0 }
+      }
+    },
+
+    "SkillEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["skill_id", "correct", "source"],
+      "properties": {
+        "skill_id": { "$ref": "#/$defs/SkillId" },
+        "correct": { "type": "boolean" },
+        "source": { "enum": ["audio", "tap", "probe"] }
+      }
+    },
+
+    "ScoreItemRequestMeta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_id", "item_type", "expected_text", "dialect_lexicon_id"],
+      "properties": {
+        "item_id": { "type": "string" },
+        "item_type": { "$ref": "#/$defs/ItemType" },
+        "expected_text": { "type": "string", "minLength": 1, "description": "Fully diacritized Arabic target text" },
+        "dialect_lexicon_id": { "type": "string", "description": "Lexicon id from dialect-lexicons.json, e.g. kw or msa" }
+      }
+    },
+
+    "ScoreItemResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_id", "item_type", "model_version", "synthetic", "audio_duration_ms", "words", "phonemes", "skill_evidence", "warnings"],
+      "properties": {
+        "item_id": { "type": "string" },
+        "item_type": { "$ref": "#/$defs/ItemType" },
+        "model_version": { "type": "string" },
+        "synthetic": { "type": "boolean", "description": "true when the audio is TTS/synthetic or a fixture; must be shown wherever the result is shown" },
+        "audio_duration_ms": { "type": "integer", "minimum": 0 },
+        "words": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["index", "text", "correct"],
+            "properties": {
+              "index": { "type": "integer", "minimum": 0 },
+              "text": { "type": "string" },
+              "correct": { "type": "boolean", "description": "true when every phoneme is correct or dialect_variant" }
+            }
+          }
+        },
+        "phonemes": { "type": "array", "items": { "$ref": "#/$defs/PhonemeResult" } },
+        "skill_evidence": { "type": "array", "items": { "$ref": "#/$defs/SkillEvidence" } },
+        "wcpm": { "type": ["number", "null"], "description": "Words correct per minute; passages only" },
+        "warnings": { "type": "array", "items": { "enum": ["low_audio_level", "clipped_audio", "too_short", "too_long", "no_speech_detected"] } }
+      }
+    },
+
+    "FingerprintRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["session_id", "grade", "duration_ms", "items", "tap_results"],
+      "properties": {
+        "session_id": { "type": "string" },
+        "grade": { "type": "integer", "minimum": 1, "maximum": 6 },
+        "duration_ms": { "type": "integer", "minimum": 0 },
+        "items": { "type": "array", "items": { "$ref": "#/$defs/ScoreItemResponse" } },
+        "tap_results": { "type": "array", "items": { "$ref": "#/$defs/SkillEvidence" }, "description": "Short-vowel and discrimination tap tasks recorded by the web app" }
+      }
+    },
+
+    "FingerprintResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["session_id", "model_version", "rules_version", "synthetic", "features", "referral", "review_status"],
+      "properties": {
+        "session_id": { "type": "string" },
+        "model_version": { "type": "string" },
+        "rules_version": { "type": "string" },
+        "synthetic": { "type": "boolean" },
+        "features": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["dot_confusion_rate", "emphatic_confusion_rate", "short_vowel_error_rate", "positional_error_rate", "omission_rate", "insertion_rate", "substitution_rate", "wcpm", "self_correction_rate", "pseudoword_gap", "vowelization_gap"],
+          "properties": {
+            "dot_confusion_rate": { "type": ["number", "null"] },
+            "emphatic_confusion_rate": { "type": ["number", "null"] },
+            "short_vowel_error_rate": { "type": ["number", "null"], "description": "From tap_results only" },
+            "positional_error_rate": { "type": ["number", "null"] },
+            "omission_rate": { "type": ["number", "null"] },
+            "insertion_rate": { "type": ["number", "null"] },
+            "substitution_rate": { "type": ["number", "null"] },
+            "wcpm": { "type": ["number", "null"] },
+            "self_correction_rate": { "type": ["number", "null"] },
+            "pseudoword_gap": { "type": ["number", "null"], "description": "real-word accuracy minus pseudoword accuracy" },
+            "vowelization_gap": { "type": ["number", "null"], "description": "vowelized minus unvowelized passage accuracy" }
+          }
+        },
+        "referral": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["decision", "rules_fired"],
+          "properties": {
+            "decision": { "enum": ["no_referral_indicated", "refer_for_specialist_assessment", "specialist_decision_needed"] },
+            "rules_fired": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["rule_id", "text_en", "text_ar"],
+                "properties": {
+                  "rule_id": { "type": "string" },
+                  "text_en": { "type": "string" },
+                  "text_ar": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "review_status": { "const": "pending_review", "description": "Every fingerprint starts pending; only a specialist approves (enforced in the database)" }
+      }
+    },
+
+    "ProbeRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["session_id", "practised", "unseen"],
+      "properties": {
+        "session_id": { "type": "string" },
+        "practised": { "type": "array", "items": { "$ref": "#/$defs/ScoreItemResponse" } },
+        "unseen": { "type": "array", "items": { "$ref": "#/$defs/ScoreItemResponse" } }
+      }
+    },
+
+    "ProbeResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["session_id", "model_version", "synthetic", "per_skill"],
+      "properties": {
+        "session_id": { "type": "string" },
+        "model_version": { "type": "string" },
+        "synthetic": { "type": "boolean" },
+        "per_skill": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["skill_id", "practised_accuracy", "unseen_accuracy", "n_practised", "n_unseen", "transfer"],
+            "properties": {
+              "skill_id": { "$ref": "#/$defs/SkillId" },
+              "practised_accuracy": { "type": ["number", "null"] },
+              "unseen_accuracy": { "type": ["number", "null"] },
+              "n_practised": { "type": "integer", "minimum": 0 },
+              "n_unseen": { "type": "integer", "minimum": 0 },
+              "transfer": { "enum": ["transfer_shown", "no_transfer_yet", "insufficient_data"] }
+            }
+          }
+        }
+      }
+    },
+
+    "Stage0Construct": {
+      "enum": ["itpa", "reversal", "nonverbal_iq", "visual_agnosia", "dyscalculia", "phonological_awareness", "reading_fluency"]
+    },
+
+    "Stage0ScoreRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["construct", "instrument_id", "child_age_months", "grade", "responses"],
+      "properties": {
+        "construct": { "$ref": "#/$defs/Stage0Construct" },
+        "instrument_id": { "type": "string" },
+        "child_age_months": { "type": "integer", "minimum": 60, "maximum": 160 },
+        "grade": { "type": "integer", "minimum": 1, "maximum": 6 },
+        "responses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["item_id", "response"],
+            "properties": {
+              "item_id": { "type": "string" },
+              "response": { "type": ["string", "number", "boolean"] },
+              "time_ms": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+
+    "Stage0ScoreResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["construct", "instrument_id", "licence_status", "raw_score", "scaled_score", "norm_source", "note_en", "scorer_version", "synthetic"],
+      "properties": {
+        "construct": { "$ref": "#/$defs/Stage0Construct" },
+        "instrument_id": { "type": "string" },
+        "licence_status": { "enum": ["licensed", "public_domain", "license_pending"] },
+        "raw_score": { "type": ["number", "null"] },
+        "scaled_score": { "type": ["number", "null"], "description": "Always null when licence_status=license_pending or no norms are available" },
+        "norm_source": { "type": ["string", "null"] },
+        "note_en": { "type": "string" },
+        "scorer_version": { "type": "string" },
+        "synthetic": { "type": "boolean" }
+      }
+    },
+
+    "Health": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "model_loaded", "model_version", "rules_version", "contracts_version"],
+      "properties": {
+        "status": { "enum": ["ok", "warming", "degraded"] },
+        "model_loaded": { "type": "boolean" },
+        "model_version": { "type": "string" },
+        "rules_version": { "type": "string" },
+        "contracts_version": { "type": "string" }
+      }
+    },
+
+    "Error": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["error"],
+      "properties": {
+        "error": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "message"],
+          "properties": {
+            "code": { "enum": ["unauthorized", "forbidden", "invalid_request", "audio_invalid", "rate_limited", "model_unavailable", "internal"] },
+            "message": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "ItemBank": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "generated_at", "synthetic_audio", "items"],
+      "properties": {
+        "version": { "type": "string" },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "synthetic_audio": { "type": "boolean", "description": "true: item audio is TTS" },
+        "items": { "type": "array", "items": { "$ref": "#/$defs/Item" } }
+      }
+    },
+
+    "Item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "skill_ids", "grade_band", "text", "text_plain", "audio_path", "options", "answer_index", "probe_only", "validation", "review"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "$ref": "#/$defs/ItemType" },
+        "skill_ids": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/SkillId" } },
+        "grade_band": { "enum": ["2-3", "4-6"] },
+        "text": { "type": "string", "description": "Fully diacritized" },
+        "text_plain": { "type": "string", "description": "Without diacritics" },
+        "audio_path": { "type": ["string", "null"], "description": "Relative to the item-bank folder" },
+        "options": { "type": ["array", "null"], "items": { "type": "string" }, "description": "Tap tasks and minimal pairs only" },
+        "answer_index": { "type": ["integer", "null"], "minimum": 0 },
+        "probe_only": { "type": "boolean", "description": "true: never used in practice, only in unseen-passage probes" },
+        "validation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["passed", "validators"],
+          "properties": {
+            "passed": { "const": true, "description": "Items that fail validation are discarded, never shipped" },
+            "validators": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "review": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "reviewer"],
+          "properties": {
+            "status": { "enum": ["unreviewed", "approved", "rejected"] },
+            "reviewer": { "type": ["string", "null"] }
+          }
+        }
+      }
+    },
+
+    "ParentReport": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Deliberately has no field that can carry a score, a risk level or a label (non-negotiable 2).",
+      "required": ["language", "child_first_name", "session_date", "duration_min", "practised", "progress_notes", "home_plan", "next_focus_ar", "specialist"],
+      "properties": {
+        "language": { "const": "ar" },
+        "child_first_name": { "type": "string" },
+        "session_date": { "type": "string", "format": "date" },
+        "duration_min": { "type": "integer", "minimum": 0 },
+        "practised": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["skill_id", "plain_ar"],
+            "properties": { "skill_id": { "$ref": "#/$defs/SkillId" }, "plain_ar": { "type": "string" } }
+          }
+        },
+        "progress_notes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["skill_id", "note_ar"],
+            "properties": { "skill_id": { "$ref": "#/$defs/SkillId" }, "note_ar": { "type": "string" } }
+          }
+        },
+        "home_plan": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["title_ar", "minutes", "words", "how_ar"],
+            "properties": {
+              "title_ar": { "type": "string" },
+              "minutes": { "type": "integer", "minimum": 5, "maximum": 10 },
+              "words": { "type": "array", "items": { "type": "string" } },
+              "how_ar": { "type": "string" }
+            }
+          }
+        },
+        "next_focus_ar": { "type": "string" },
+        "specialist": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "contact"],
+          "properties": { "name": { "type": "string" }, "contact": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

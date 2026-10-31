@@ -1,0 +1,13 @@
+{
+  "construct": "itpa",
+  "instrument_id": "itpa-ar-azzam-2007",
+  "child_age_months": 96,
+  "grade": 3,
+  "responses": [
+    {
+      "item_id": "itpa-1",
+      "response": "LICENSE PENDING placeholder",
+      "time_ms": 4000
+    }
+  ]
+}

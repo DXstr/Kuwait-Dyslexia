@@ -1,0 +1,15 @@
+{
+  "session_id": "demo-probe-1",
+  "model_version": "fixture-0.1.0",
+  "synthetic": true,
+  "per_skill": [
+    {
+      "skill_id": "dot.baa-taa-thaa-nuun-yaa",
+      "practised_accuracy": 0.0,
+      "unseen_accuracy": null,
+      "n_practised": 1,
+      "n_unseen": 0,
+      "transfer": "insufficient_data"
+    }
+  ]
+}

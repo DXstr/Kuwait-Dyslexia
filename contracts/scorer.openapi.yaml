@@ -1,0 +1,133 @@
+openapi: 3.1.0
+info:
+  title: Basira Scorer API
+  version: 0.1.0
+  description: |
+    Stateless scoring service owned by workstream A (ai/). It never reads or writes the database:
+    the web app (workstream B) sends everything the scorer needs and stores what it returns.
+    All payload shapes live in schemas/basira.schema.json; this file only defines transport.
+
+    Auth: every endpoint except /health requires `Authorization: Bearer <Supabase access token>`.
+    The scorer verifies the signature against the Supabase project's JWKS and requires the custom
+    claim `app_role` to be one of `specialist`, `examiner`, `admin` (B adds this claim with a Supabase
+    custom access token hook). Child and guardian tokens are rejected with 403.
+
+    CORS: allowed origins come from the env var ALLOWED_ORIGINS. Rate limit: 120 requests/min per user (429).
+servers:
+  - url: http://localhost:8000
+    description: docker compose (dev)
+  - url: https://{scorerHost}
+    description: production (Hugging Face Space or Cloud Run), set in web/.env as VITE_SCORER_URL
+    variables:
+      scorerHost:
+        default: basira-scorer.example
+security:
+  - supabaseJwt: []
+paths:
+  /health:
+    get:
+      security: []
+      summary: Liveness, model status and versions (also used as warm-up ping)
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: "schemas/basira.schema.json#/$defs/Health" }
+  /score-item:
+    post:
+      summary: Score one recorded item against its known target text
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [audio, meta]
+              properties:
+                audio:
+                  type: string
+                  format: binary
+                  description: WAV, 16 kHz, mono, 16-bit PCM, 0.3 to 15 seconds
+                meta:
+                  description: JSON string matching ScoreItemRequestMeta
+                  $ref: "schemas/basira.schema.json#/$defs/ScoreItemRequestMeta"
+            encoding:
+              meta:
+                contentType: application/json
+      responses:
+        "200":
+          description: Scored
+          content:
+            application/json:
+              schema: { $ref: "schemas/basira.schema.json#/$defs/ScoreItemResponse" }
+        "400": { $ref: "#/components/responses/Error" }
+        "401": { $ref: "#/components/responses/Error" }
+        "403": { $ref: "#/components/responses/Error" }
+        "422": { $ref: "#/components/responses/Error" }
+        "429": { $ref: "#/components/responses/Error" }
+        "503": { $ref: "#/components/responses/Error" }
+  /fingerprint:
+    post:
+      summary: Session-level features and explainable referral output
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "schemas/basira.schema.json#/$defs/FingerprintRequest" }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: "schemas/basira.schema.json#/$defs/FingerprintResponse" }
+        "400": { $ref: "#/components/responses/Error" }
+        "401": { $ref: "#/components/responses/Error" }
+        "403": { $ref: "#/components/responses/Error" }
+  /probe:
+    post:
+      summary: Practised vs unseen accuracy per skill (Prove stage)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "schemas/basira.schema.json#/$defs/ProbeRequest" }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: "schemas/basira.schema.json#/$defs/ProbeResponse" }
+        "400": { $ref: "#/components/responses/Error" }
+        "401": { $ref: "#/components/responses/Error" }
+        "403": { $ref: "#/components/responses/Error" }
+  /stage0/score:
+    post:
+      summary: Score one Stage 0 construct with the instrument's own rules
+      description: Requires app_role examiner or admin. Unlicensed instruments return licence_status=license_pending and scaled_score=null.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "schemas/basira.schema.json#/$defs/Stage0ScoreRequest" }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: "schemas/basira.schema.json#/$defs/Stage0ScoreResponse" }
+        "400": { $ref: "#/components/responses/Error" }
+        "401": { $ref: "#/components/responses/Error" }
+        "403": { $ref: "#/components/responses/Error" }
+components:
+  securitySchemes:
+    supabaseJwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  responses:
+    Error:
+      description: Error
+      content:
+        application/json:
+          schema: { $ref: "schemas/basira.schema.json#/$defs/Error" }

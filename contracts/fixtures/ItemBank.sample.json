@@ -1,0 +1,67 @@
+{
+  "version": "0.0.1-sample",
+  "generated_at": "2026-10-31T00:00:00Z",
+  "synthetic_audio": true,
+  "items": [
+    {
+      "id": "mp-0001",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.baa-taa-thaa-nuun-yaa"
+      ],
+      "grade_band": "2-3",
+      "text": "ثَوْب / تَوْب",
+      "text_plain": "ثوب / توب",
+      "audio_path": null,
+      "options": [
+        "ثَوْب",
+        "تَوْب"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "length",
+          "dot_group_pair"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-0001",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.kasra"
+      ],
+      "grade_band": "2-3",
+      "text": "بِ",
+      "text_plain": "ب",
+      "audio_path": null,
+      "options": [
+        "بَ",
+        "بِ",
+        "بُ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "vowel_options"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    }
+  ]
+}

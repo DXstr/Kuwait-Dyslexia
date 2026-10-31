@@ -1,0 +1,35 @@
+{
+  "language": "ar",
+  "child_first_name": "سارة (ملف تجريبي)",
+  "session_date": "2026-11-01",
+  "duration_min": 12,
+  "practised": [
+    {
+      "skill_id": "dot.baa-taa-thaa-nuun-yaa",
+      "plain_ar": "الحروف المتشابهة بالنقاط: ب ت ث"
+    }
+  ],
+  "progress_notes": [
+    {
+      "skill_id": "dot.baa-taa-thaa-nuun-yaa",
+      "note_ar": "تزداد ثقتها في التمييز بين ب و ت."
+    }
+  ],
+  "home_plan": [
+    {
+      "title_ar": "لعبة النقاط",
+      "minutes": 5,
+      "words": [
+        "ثَوْب",
+        "تَوْب",
+        "بَاب"
+      ],
+      "how_ar": "اقرآ الكلمات معًا، وشجّعيها بلطف عند كل محاولة."
+    }
+  ],
+  "next_focus_ar": "سنكمل التمييز بين الحروف المتشابهة بالنقاط.",
+  "specialist": {
+    "name": "الأخصائية (ملف تجريبي)",
+    "contact": "demo@example.com"
+  }
+}

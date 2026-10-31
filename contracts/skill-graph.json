@@ -1,0 +1,779 @@
+{
+  "version": "0.1.0",
+  "status": "DRAFT - reviewer sign-off pending",
+  "mastery_bands": {
+    "working_on": [
+      0,
+      0.6
+    ],
+    "growing": [
+      0.6,
+      0.85
+    ],
+    "probe_due": [
+      0.85,
+      1.0
+    ]
+  },
+  "mastered_rule": "A skill is mastered only when mastery >= 0.85 AND the latest unseen-passage probe for it shows transfer_shown.",
+  "skills": [
+    {
+      "id": "ls.alif",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Alif (ا)",
+      "label_ar": "صوت حرف ا",
+      "letters": [
+        "alif"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.baa",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Baa (ب)",
+      "label_ar": "صوت حرف ب",
+      "letters": [
+        "baa"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.taa",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Taa (ت)",
+      "label_ar": "صوت حرف ت",
+      "letters": [
+        "taa"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.thaa",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Thaa (ث)",
+      "label_ar": "صوت حرف ث",
+      "letters": [
+        "thaa"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.jiim",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Jiim (ج)",
+      "label_ar": "صوت حرف ج",
+      "letters": [
+        "jiim"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.hhaa",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Haa (pharyngeal) (ح)",
+      "label_ar": "صوت حرف ح",
+      "letters": [
+        "hhaa"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.khaa",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Khaa (خ)",
+      "label_ar": "صوت حرف خ",
+      "letters": [
+        "khaa"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.daal",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Daal (د)",
+      "label_ar": "صوت حرف د",
+      "letters": [
+        "daal"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.dhaal",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Dhaal (ذ)",
+      "label_ar": "صوت حرف ذ",
+      "letters": [
+        "dhaal"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.raa",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Raa (ر)",
+      "label_ar": "صوت حرف ر",
+      "letters": [
+        "raa"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.zaay",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Zaay (ز)",
+      "label_ar": "صوت حرف ز",
+      "letters": [
+        "zaay"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.siin",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Siin (س)",
+      "label_ar": "صوت حرف س",
+      "letters": [
+        "siin"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.shiin",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Shiin (ش)",
+      "label_ar": "صوت حرف ش",
+      "letters": [
+        "shiin"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.saad",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Saad (ص)",
+      "label_ar": "صوت حرف ص",
+      "letters": [
+        "saad"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.daad",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Daad (ض)",
+      "label_ar": "صوت حرف ض",
+      "letters": [
+        "daad"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.ttaa",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Taa (emphatic) (ط)",
+      "label_ar": "صوت حرف ط",
+      "letters": [
+        "ttaa"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.zhaa",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Dhaa (emphatic) (ظ)",
+      "label_ar": "صوت حرف ظ",
+      "letters": [
+        "zhaa"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.ayn",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Ayn (ع)",
+      "label_ar": "صوت حرف ع",
+      "letters": [
+        "ayn"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.ghayn",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Ghayn (غ)",
+      "label_ar": "صوت حرف غ",
+      "letters": [
+        "ghayn"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.faa",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Faa (ف)",
+      "label_ar": "صوت حرف ف",
+      "letters": [
+        "faa"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.qaaf",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Qaaf (ق)",
+      "label_ar": "صوت حرف ق",
+      "letters": [
+        "qaaf"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.kaaf",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Kaaf (ك)",
+      "label_ar": "صوت حرف ك",
+      "letters": [
+        "kaaf"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.laam",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Laam (ل)",
+      "label_ar": "صوت حرف ل",
+      "letters": [
+        "laam"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.miim",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Miim (م)",
+      "label_ar": "صوت حرف م",
+      "letters": [
+        "miim"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.nuun",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Nuun (ن)",
+      "label_ar": "صوت حرف ن",
+      "letters": [
+        "nuun"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.haa",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Haa (ه)",
+      "label_ar": "صوت حرف ه",
+      "letters": [
+        "haa"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.waaw",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Waaw (و)",
+      "label_ar": "صوت حرف و",
+      "letters": [
+        "waaw"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "ls.yaa",
+      "type": "letter_sound",
+      "label_en": "Letter-sound: Yaa (ي)",
+      "label_ar": "صوت حرف ي",
+      "letters": [
+        "yaa"
+      ],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "dot.baa-taa-thaa-nuun-yaa",
+      "type": "dot_discrimination",
+      "label_en": "Dot discrimination: ب ت ث ن ي",
+      "label_ar": "التمييز بين النقاط: ب ت ث ن ي",
+      "letters": [
+        "baa",
+        "taa",
+        "thaa",
+        "nuun",
+        "yaa"
+      ],
+      "prerequisites": [
+        "ls.baa",
+        "ls.taa",
+        "ls.thaa",
+        "ls.nuun",
+        "ls.yaa"
+      ],
+      "evidence": [
+        "audio",
+        "tap"
+      ]
+    },
+    {
+      "id": "dot.jiim-hhaa-khaa",
+      "type": "dot_discrimination",
+      "label_en": "Dot discrimination: ج ح خ",
+      "label_ar": "التمييز بين النقاط: ج ح خ",
+      "letters": [
+        "jiim",
+        "hhaa",
+        "khaa"
+      ],
+      "prerequisites": [
+        "ls.jiim",
+        "ls.hhaa",
+        "ls.khaa"
+      ],
+      "evidence": [
+        "audio",
+        "tap"
+      ]
+    },
+    {
+      "id": "dot.daal-dhaal",
+      "type": "dot_discrimination",
+      "label_en": "Dot discrimination: د ذ",
+      "label_ar": "التمييز بين النقاط: د ذ",
+      "letters": [
+        "daal",
+        "dhaal"
+      ],
+      "prerequisites": [
+        "ls.daal",
+        "ls.dhaal"
+      ],
+      "evidence": [
+        "audio",
+        "tap"
+      ]
+    },
+    {
+      "id": "dot.raa-zaay",
+      "type": "dot_discrimination",
+      "label_en": "Dot discrimination: ر ز",
+      "label_ar": "التمييز بين النقاط: ر ز",
+      "letters": [
+        "raa",
+        "zaay"
+      ],
+      "prerequisites": [
+        "ls.raa",
+        "ls.zaay"
+      ],
+      "evidence": [
+        "audio",
+        "tap"
+      ]
+    },
+    {
+      "id": "dot.siin-shiin",
+      "type": "dot_discrimination",
+      "label_en": "Dot discrimination: س ش",
+      "label_ar": "التمييز بين النقاط: س ش",
+      "letters": [
+        "siin",
+        "shiin"
+      ],
+      "prerequisites": [
+        "ls.siin",
+        "ls.shiin"
+      ],
+      "evidence": [
+        "audio",
+        "tap"
+      ]
+    },
+    {
+      "id": "dot.saad-daad",
+      "type": "dot_discrimination",
+      "label_en": "Dot discrimination: ص ض",
+      "label_ar": "التمييز بين النقاط: ص ض",
+      "letters": [
+        "saad",
+        "daad"
+      ],
+      "prerequisites": [
+        "ls.saad",
+        "ls.daad"
+      ],
+      "evidence": [
+        "audio",
+        "tap"
+      ]
+    },
+    {
+      "id": "dot.ttaa-zhaa",
+      "type": "dot_discrimination",
+      "label_en": "Dot discrimination: ط ظ",
+      "label_ar": "التمييز بين النقاط: ط ظ",
+      "letters": [
+        "ttaa",
+        "zhaa"
+      ],
+      "prerequisites": [
+        "ls.ttaa",
+        "ls.zhaa"
+      ],
+      "evidence": [
+        "audio",
+        "tap"
+      ]
+    },
+    {
+      "id": "dot.ayn-ghayn",
+      "type": "dot_discrimination",
+      "label_en": "Dot discrimination: ع غ",
+      "label_ar": "التمييز بين النقاط: ع غ",
+      "letters": [
+        "ayn",
+        "ghayn"
+      ],
+      "prerequisites": [
+        "ls.ayn",
+        "ls.ghayn"
+      ],
+      "evidence": [
+        "audio",
+        "tap"
+      ]
+    },
+    {
+      "id": "dot.faa-qaaf",
+      "type": "dot_discrimination",
+      "label_en": "Dot discrimination: ف ق",
+      "label_ar": "التمييز بين النقاط: ف ق",
+      "letters": [
+        "faa",
+        "qaaf"
+      ],
+      "prerequisites": [
+        "ls.faa",
+        "ls.qaaf"
+      ],
+      "evidence": [
+        "audio",
+        "tap"
+      ]
+    },
+    {
+      "id": "emph.saad-siin",
+      "type": "emphatic_contrast",
+      "label_en": "Emphatic vs plain: ص / س",
+      "label_ar": "المفخم والمرقق: ص / س",
+      "letters": [
+        "saad",
+        "siin"
+      ],
+      "prerequisites": [
+        "ls.saad",
+        "ls.siin"
+      ],
+      "evidence": [
+        "audio",
+        "tap"
+      ]
+    },
+    {
+      "id": "emph.daad-daal",
+      "type": "emphatic_contrast",
+      "label_en": "Emphatic vs plain: ض / د",
+      "label_ar": "المفخم والمرقق: ض / د",
+      "letters": [
+        "daad",
+        "daal"
+      ],
+      "prerequisites": [
+        "ls.daad",
+        "ls.daal"
+      ],
+      "evidence": [
+        "audio",
+        "tap"
+      ]
+    },
+    {
+      "id": "emph.ttaa-taa",
+      "type": "emphatic_contrast",
+      "label_en": "Emphatic vs plain: ط / ت",
+      "label_ar": "المفخم والمرقق: ط / ت",
+      "letters": [
+        "ttaa",
+        "taa"
+      ],
+      "prerequisites": [
+        "ls.ttaa",
+        "ls.taa"
+      ],
+      "evidence": [
+        "audio",
+        "tap"
+      ]
+    },
+    {
+      "id": "emph.zhaa-dhaal",
+      "type": "emphatic_contrast",
+      "label_en": "Emphatic vs plain: ظ / ذ",
+      "label_ar": "المفخم والمرقق: ظ / ذ",
+      "letters": [
+        "zhaa",
+        "dhaal"
+      ],
+      "prerequisites": [
+        "ls.zhaa",
+        "ls.dhaal"
+      ],
+      "evidence": [
+        "audio",
+        "tap"
+      ]
+    },
+    {
+      "id": "vowel.fatha",
+      "type": "short_vowel",
+      "label_en": "Short vowel: Fatha",
+      "label_ar": "فتحة",
+      "letters": [],
+      "prerequisites": [],
+      "evidence": [
+        "tap"
+      ]
+    },
+    {
+      "id": "vowel.kasra",
+      "type": "short_vowel",
+      "label_en": "Short vowel: Kasra",
+      "label_ar": "كسرة",
+      "letters": [],
+      "prerequisites": [],
+      "evidence": [
+        "tap"
+      ]
+    },
+    {
+      "id": "vowel.damma",
+      "type": "short_vowel",
+      "label_en": "Short vowel: Damma",
+      "label_ar": "ضمة",
+      "letters": [],
+      "prerequisites": [],
+      "evidence": [
+        "tap"
+      ]
+    },
+    {
+      "id": "vowel.sukun",
+      "type": "short_vowel",
+      "label_en": "Short vowel: Sukun",
+      "label_ar": "سكون",
+      "letters": [],
+      "prerequisites": [
+        "vowel.fatha",
+        "vowel.kasra",
+        "vowel.damma"
+      ],
+      "evidence": [
+        "tap"
+      ]
+    },
+    {
+      "id": "vowel.shadda",
+      "type": "short_vowel",
+      "label_en": "Short vowel: Shadda",
+      "label_ar": "شدة",
+      "letters": [],
+      "prerequisites": [
+        "vowel.sukun"
+      ],
+      "evidence": [
+        "tap"
+      ]
+    },
+    {
+      "id": "vowel.tanwin",
+      "type": "short_vowel",
+      "label_en": "Short vowel: Tanwin",
+      "label_ar": "تنوين",
+      "letters": [],
+      "prerequisites": [
+        "vowel.fatha",
+        "vowel.kasra",
+        "vowel.damma"
+      ],
+      "evidence": [
+        "tap"
+      ]
+    },
+    {
+      "id": "pos.initial",
+      "type": "positional_form",
+      "label_en": "Letter forms: initial",
+      "label_ar": "شكل الحرف في أول الكلمة",
+      "letters": [],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "pos.medial",
+      "type": "positional_form",
+      "label_en": "Letter forms: medial",
+      "label_ar": "شكل الحرف في وسط الكلمة",
+      "letters": [],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "pos.final",
+      "type": "positional_form",
+      "label_en": "Letter forms: final",
+      "label_ar": "شكل الحرف في آخر الكلمة",
+      "letters": [],
+      "prerequisites": [],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "decode.real",
+      "type": "word_decoding",
+      "label_en": "Decoding real words",
+      "label_ar": "قراءة كلمات حقيقية",
+      "letters": [],
+      "prerequisites": [
+        "vowel.fatha",
+        "vowel.kasra",
+        "vowel.damma"
+      ],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "decode.pseudo",
+      "type": "word_decoding",
+      "label_en": "Decoding pseudowords",
+      "label_ar": "قراءة كلمات غير حقيقية",
+      "letters": [],
+      "prerequisites": [
+        "vowel.fatha",
+        "vowel.kasra",
+        "vowel.damma"
+      ],
+      "evidence": [
+        "audio"
+      ]
+    },
+    {
+      "id": "fluency.passage",
+      "type": "fluency",
+      "label_en": "Passage fluency",
+      "label_ar": "طلاقة قراءة النص",
+      "letters": [],
+      "prerequisites": [
+        "decode.real"
+      ],
+      "evidence": [
+        "audio"
+      ]
+    }
+  ]
+}

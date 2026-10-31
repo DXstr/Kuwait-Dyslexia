@@ -1,0 +1,105 @@
+{
+  "item_id": "rw-0001",
+  "item_type": "real_word",
+  "model_version": "fixture-0.1.0",
+  "synthetic": true,
+  "audio_duration_ms": 1240,
+  "words": [
+    {
+      "index": 0,
+      "text": "قَلَم",
+      "correct": true
+    }
+  ],
+  "phonemes": [
+    {
+      "index": 0,
+      "word_index": 0,
+      "expected_letter": "qaaf",
+      "expected_ipa": "q",
+      "heard_ipa": "g",
+      "score": 0.91,
+      "status": "dialect_variant",
+      "error_category": null,
+      "dialect_rule_id": "kw.qaaf-g",
+      "start_ms": 180,
+      "end_ms": 300
+    },
+    {
+      "index": 1,
+      "word_index": 0,
+      "expected_letter": null,
+      "expected_ipa": "a",
+      "heard_ipa": "a",
+      "score": 0.88,
+      "status": "correct",
+      "error_category": null,
+      "dialect_rule_id": null,
+      "start_ms": 300,
+      "end_ms": 390
+    },
+    {
+      "index": 2,
+      "word_index": 0,
+      "expected_letter": "laam",
+      "expected_ipa": "l",
+      "heard_ipa": "l",
+      "score": 0.93,
+      "status": "correct",
+      "error_category": null,
+      "dialect_rule_id": null,
+      "start_ms": 390,
+      "end_ms": 480
+    },
+    {
+      "index": 3,
+      "word_index": 0,
+      "expected_letter": null,
+      "expected_ipa": "a",
+      "heard_ipa": "a",
+      "score": 0.86,
+      "status": "correct",
+      "error_category": null,
+      "dialect_rule_id": null,
+      "start_ms": 480,
+      "end_ms": 560
+    },
+    {
+      "index": 4,
+      "word_index": 0,
+      "expected_letter": "miim",
+      "expected_ipa": "m",
+      "heard_ipa": "m",
+      "score": 0.95,
+      "status": "correct",
+      "error_category": null,
+      "dialect_rule_id": null,
+      "start_ms": 560,
+      "end_ms": 700
+    }
+  ],
+  "skill_evidence": [
+    {
+      "skill_id": "ls.qaaf",
+      "correct": true,
+      "source": "audio"
+    },
+    {
+      "skill_id": "ls.laam",
+      "correct": true,
+      "source": "audio"
+    },
+    {
+      "skill_id": "ls.miim",
+      "correct": true,
+      "source": "audio"
+    },
+    {
+      "skill_id": "decode.real",
+      "correct": true,
+      "source": "audio"
+    }
+  ],
+  "wcpm": null,
+  "warnings": []
+}

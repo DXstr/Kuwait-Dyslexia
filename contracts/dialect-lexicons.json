@@ -1,0 +1,49 @@
+{
+  "version": "0.1.0",
+  "status": "DRAFT - every rule needs confirmed=true from the named phonetics reviewer before it is claimed in the pitch",
+  "lexicons": [
+    {
+      "id": "msa",
+      "label_en": "Modern Standard Arabic only (no dialect variants accepted)",
+      "label_ar": "الفصحى فقط",
+      "rules": []
+    },
+    {
+      "id": "kw",
+      "label_en": "Kuwaiti Arabic",
+      "label_ar": "اللهجة الكويتية",
+      "rules": [
+        {
+          "id": "kw.qaaf-g",
+          "letter": "qaaf",
+          "msa_ipa": "q",
+          "accepted_ipa": "g",
+          "context": "all positions",
+          "example_ar": "قَلَم → [g]alam",
+          "source": "TODO: reviewer to cite",
+          "confirmed": false
+        },
+        {
+          "id": "kw.jiim-j",
+          "letter": "jiim",
+          "msa_ipa": "dʒ",
+          "accepted_ipa": "j",
+          "context": "lexical; common in Kuwaiti speech",
+          "example_ar": "دَجَاج → da[j]a[j]",
+          "source": "TODO: reviewer to cite",
+          "confirmed": false
+        },
+        {
+          "id": "kw.kaaf-tsh",
+          "letter": "kaaf",
+          "msa_ipa": "k",
+          "accepted_ipa": "tʃ",
+          "context": "lexical (some words) and 2nd-person feminine suffix",
+          "example_ar": "كَلْب → [tʃ]alb",
+          "source": "TODO: reviewer to cite",
+          "confirmed": false
+        }
+      ]
+    }
+  ]
+}

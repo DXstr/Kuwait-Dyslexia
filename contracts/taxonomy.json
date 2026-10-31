@@ -1,0 +1,404 @@
+{
+  "version": "0.1.0",
+  "status": "DRAFT - to be signed off by the named clinical/phonetics reviewer (Idea Lock non-negotiable 13)",
+  "letters": [
+    {
+      "id": "alif",
+      "char": "ا",
+      "ipa": "ʔ",
+      "name_en": "Alif",
+      "name_ar": "ألف",
+      "emphatic": false
+    },
+    {
+      "id": "baa",
+      "char": "ب",
+      "ipa": "b",
+      "name_en": "Baa",
+      "name_ar": "باء",
+      "emphatic": false
+    },
+    {
+      "id": "taa",
+      "char": "ت",
+      "ipa": "t",
+      "name_en": "Taa",
+      "name_ar": "تاء",
+      "emphatic": false
+    },
+    {
+      "id": "thaa",
+      "char": "ث",
+      "ipa": "θ",
+      "name_en": "Thaa",
+      "name_ar": "ثاء",
+      "emphatic": false
+    },
+    {
+      "id": "jiim",
+      "char": "ج",
+      "ipa": "dʒ",
+      "name_en": "Jiim",
+      "name_ar": "جيم",
+      "emphatic": false
+    },
+    {
+      "id": "hhaa",
+      "char": "ح",
+      "ipa": "ħ",
+      "name_en": "Haa (pharyngeal)",
+      "name_ar": "حاء",
+      "emphatic": false
+    },
+    {
+      "id": "khaa",
+      "char": "خ",
+      "ipa": "x",
+      "name_en": "Khaa",
+      "name_ar": "خاء",
+      "emphatic": false
+    },
+    {
+      "id": "daal",
+      "char": "د",
+      "ipa": "d",
+      "name_en": "Daal",
+      "name_ar": "دال",
+      "emphatic": false
+    },
+    {
+      "id": "dhaal",
+      "char": "ذ",
+      "ipa": "ð",
+      "name_en": "Dhaal",
+      "name_ar": "ذال",
+      "emphatic": false
+    },
+    {
+      "id": "raa",
+      "char": "ر",
+      "ipa": "r",
+      "name_en": "Raa",
+      "name_ar": "راء",
+      "emphatic": false
+    },
+    {
+      "id": "zaay",
+      "char": "ز",
+      "ipa": "z",
+      "name_en": "Zaay",
+      "name_ar": "زاي",
+      "emphatic": false
+    },
+    {
+      "id": "siin",
+      "char": "س",
+      "ipa": "s",
+      "name_en": "Siin",
+      "name_ar": "سين",
+      "emphatic": false
+    },
+    {
+      "id": "shiin",
+      "char": "ش",
+      "ipa": "ʃ",
+      "name_en": "Shiin",
+      "name_ar": "شين",
+      "emphatic": false
+    },
+    {
+      "id": "saad",
+      "char": "ص",
+      "ipa": "sˤ",
+      "name_en": "Saad",
+      "name_ar": "صاد",
+      "emphatic": true
+    },
+    {
+      "id": "daad",
+      "char": "ض",
+      "ipa": "dˤ",
+      "name_en": "Daad",
+      "name_ar": "ضاد",
+      "emphatic": true
+    },
+    {
+      "id": "ttaa",
+      "char": "ط",
+      "ipa": "tˤ",
+      "name_en": "Taa (emphatic)",
+      "name_ar": "طاء",
+      "emphatic": true
+    },
+    {
+      "id": "zhaa",
+      "char": "ظ",
+      "ipa": "ðˤ",
+      "name_en": "Dhaa (emphatic)",
+      "name_ar": "ظاء",
+      "emphatic": true
+    },
+    {
+      "id": "ayn",
+      "char": "ع",
+      "ipa": "ʕ",
+      "name_en": "Ayn",
+      "name_ar": "عين",
+      "emphatic": false
+    },
+    {
+      "id": "ghayn",
+      "char": "غ",
+      "ipa": "ɣ",
+      "name_en": "Ghayn",
+      "name_ar": "غين",
+      "emphatic": false
+    },
+    {
+      "id": "faa",
+      "char": "ف",
+      "ipa": "f",
+      "name_en": "Faa",
+      "name_ar": "فاء",
+      "emphatic": false
+    },
+    {
+      "id": "qaaf",
+      "char": "ق",
+      "ipa": "q",
+      "name_en": "Qaaf",
+      "name_ar": "قاف",
+      "emphatic": false
+    },
+    {
+      "id": "kaaf",
+      "char": "ك",
+      "ipa": "k",
+      "name_en": "Kaaf",
+      "name_ar": "كاف",
+      "emphatic": false
+    },
+    {
+      "id": "laam",
+      "char": "ل",
+      "ipa": "l",
+      "name_en": "Laam",
+      "name_ar": "لام",
+      "emphatic": false
+    },
+    {
+      "id": "miim",
+      "char": "م",
+      "ipa": "m",
+      "name_en": "Miim",
+      "name_ar": "ميم",
+      "emphatic": false
+    },
+    {
+      "id": "nuun",
+      "char": "ن",
+      "ipa": "n",
+      "name_en": "Nuun",
+      "name_ar": "نون",
+      "emphatic": false
+    },
+    {
+      "id": "haa",
+      "char": "ه",
+      "ipa": "h",
+      "name_en": "Haa",
+      "name_ar": "هاء",
+      "emphatic": false
+    },
+    {
+      "id": "waaw",
+      "char": "و",
+      "ipa": "w",
+      "name_en": "Waaw",
+      "name_ar": "واو",
+      "emphatic": false
+    },
+    {
+      "id": "yaa",
+      "char": "ي",
+      "ipa": "j",
+      "name_en": "Yaa",
+      "name_ar": "ياء",
+      "emphatic": false
+    }
+  ],
+  "dot_groups": [
+    {
+      "id": "dot.baa-taa-thaa-nuun-yaa",
+      "letters": [
+        "baa",
+        "taa",
+        "thaa",
+        "nuun",
+        "yaa"
+      ]
+    },
+    {
+      "id": "dot.jiim-hhaa-khaa",
+      "letters": [
+        "jiim",
+        "hhaa",
+        "khaa"
+      ]
+    },
+    {
+      "id": "dot.daal-dhaal",
+      "letters": [
+        "daal",
+        "dhaal"
+      ]
+    },
+    {
+      "id": "dot.raa-zaay",
+      "letters": [
+        "raa",
+        "zaay"
+      ]
+    },
+    {
+      "id": "dot.siin-shiin",
+      "letters": [
+        "siin",
+        "shiin"
+      ]
+    },
+    {
+      "id": "dot.saad-daad",
+      "letters": [
+        "saad",
+        "daad"
+      ]
+    },
+    {
+      "id": "dot.ttaa-zhaa",
+      "letters": [
+        "ttaa",
+        "zhaa"
+      ]
+    },
+    {
+      "id": "dot.ayn-ghayn",
+      "letters": [
+        "ayn",
+        "ghayn"
+      ]
+    },
+    {
+      "id": "dot.faa-qaaf",
+      "letters": [
+        "faa",
+        "qaaf"
+      ]
+    }
+  ],
+  "emphatic_pairs": [
+    {
+      "id": "emph.saad-siin",
+      "emphatic": "saad",
+      "plain": "siin"
+    },
+    {
+      "id": "emph.daad-daal",
+      "emphatic": "daad",
+      "plain": "daal"
+    },
+    {
+      "id": "emph.ttaa-taa",
+      "emphatic": "ttaa",
+      "plain": "taa"
+    },
+    {
+      "id": "emph.zhaa-dhaal",
+      "emphatic": "zhaa",
+      "plain": "dhaal"
+    }
+  ],
+  "short_vowels": [
+    {
+      "id": "fatha",
+      "mark": "َ",
+      "ipa": "a",
+      "name_en": "Fatha",
+      "name_ar": "فتحة"
+    },
+    {
+      "id": "kasra",
+      "mark": "ِ",
+      "ipa": "i",
+      "name_en": "Kasra",
+      "name_ar": "كسرة"
+    },
+    {
+      "id": "damma",
+      "mark": "ُ",
+      "ipa": "u",
+      "name_en": "Damma",
+      "name_ar": "ضمة"
+    },
+    {
+      "id": "sukun",
+      "mark": "ْ",
+      "ipa": null,
+      "name_en": "Sukun",
+      "name_ar": "سكون"
+    },
+    {
+      "id": "shadda",
+      "mark": "ّ",
+      "ipa": null,
+      "name_en": "Shadda",
+      "name_ar": "شدة"
+    },
+    {
+      "id": "tanwin",
+      "mark": null,
+      "ipa": "n",
+      "name_en": "Tanwin",
+      "name_ar": "تنوين"
+    }
+  ],
+  "positions": [
+    "initial",
+    "medial",
+    "final",
+    "isolated"
+  ],
+  "error_categories": [
+    {
+      "id": "dot_confusion",
+      "definition": "Produced letter shares the target's skeleton but differs in dots (same dot_group)."
+    },
+    {
+      "id": "emphatic_confusion",
+      "definition": "Emphatic letter produced as its plain pair or vice versa (emphatic_pairs)."
+    },
+    {
+      "id": "short_vowel",
+      "definition": "Wrong or missing short vowel. NOT detectable from audio with the current model; measured by tap tasks."
+    },
+    {
+      "id": "positional",
+      "definition": "Error rate on a letter that rises in a specific word position (initial/medial/final)."
+    },
+    {
+      "id": "omission",
+      "definition": "Expected phoneme not produced."
+    },
+    {
+      "id": "insertion",
+      "definition": "Extra phoneme produced."
+    },
+    {
+      "id": "substitution",
+      "definition": "Any other wrong phoneme, or a whole-word substitution."
+    }
+  ],
+  "sources": [
+    "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reference named in the Idea Lock; reviewer to confirm each row)"
+  ]
+}

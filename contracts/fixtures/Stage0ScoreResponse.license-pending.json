@@ -1,0 +1,11 @@
+{
+  "construct": "itpa",
+  "instrument_id": "itpa-ar-azzam-2007",
+  "licence_status": "license_pending",
+  "raw_score": null,
+  "scaled_score": null,
+  "norm_source": null,
+  "note_en": "LICENSE PENDING: full Azzam (2007) norms not yet obtained; no score is produced.",
+  "scorer_version": "fixture-0.1.0",
+  "synthetic": true
+}

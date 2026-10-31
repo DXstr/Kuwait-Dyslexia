@@ -1,0 +1,30 @@
+{
+  "session_id": "demo-session-1",
+  "model_version": "fixture-0.1.0",
+  "rules_version": "rules-0.0.0-synthetic",
+  "synthetic": true,
+  "features": {
+    "dot_confusion_rate": 0.5,
+    "emphatic_confusion_rate": 0.0,
+    "short_vowel_error_rate": 0.5,
+    "positional_error_rate": null,
+    "omission_rate": 0.0,
+    "insertion_rate": 0.0,
+    "substitution_rate": 0.0,
+    "wcpm": null,
+    "self_correction_rate": null,
+    "pseudoword_gap": null,
+    "vowelization_gap": null
+  },
+  "referral": {
+    "decision": "specialist_decision_needed",
+    "rules_fired": [
+      {
+        "rule_id": "R-boundary",
+        "text_en": "Too few items to separate cases: specialist decision needed.",
+        "text_ar": "عدد البنود غير كافٍ للفصل: القرار للأخصائي."
+      }
+    ]
+  },
+  "review_status": "pending_review"
+}

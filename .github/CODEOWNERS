@@ -1,0 +1,11 @@
+# Replace the two placeholders with real GitHub usernames before enabling "Require review from Code Owners".
+# AYMAN_GH  = Ayman (workstream A)    MAHMOUD_GH = Mahmoud (workstream B)
+*               @AYMAN_GH @MAHMOUD_GH
+/ai/            @AYMAN_GH
+/content/       @AYMAN_GH
+/web/           @MAHMOUD_GH
+/supabase/      @MAHMOUD_GH
+/contracts/     @AYMAN_GH @MAHMOUD_GH
+/docs/          @AYMAN_GH @MAHMOUD_GH
+/.github/       @AYMAN_GH @MAHMOUD_GH
+/CLAUDE.md      @AYMAN_GH @MAHMOUD_GH
