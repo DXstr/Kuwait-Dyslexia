@@ -26,25 +26,37 @@ jobs:
 
   ai:
     runs-on: ubuntu-latest
-    if: ${{ hashFiles('ai/pyproject.toml') != '' }}
-    defaults: { run: { working-directory: ai } }
     steps:
       - uses: actions/checkout@v4
+      - name: Skip until ai/ is scaffolded
+        if: ${{ hashFiles('ai/pyproject.toml') == '' }}
+        run: echo "ai/pyproject.toml not found yet - nothing to test"
       - uses: actions/setup-python@v5
+        if: ${{ hashFiles('ai/pyproject.toml') != '' }}
         with: { python-version: "3.11" }
-      - run: pip install -e ".[dev]"
-      - run: ruff check .
-      - run: pytest -q
+      - name: Lint and test
+        if: ${{ hashFiles('ai/pyproject.toml') != '' }}
+        working-directory: ai
+        run: |
+          pip install -e ".[dev]"
+          ruff check .
+          pytest -q
 
   web:
     runs-on: ubuntu-latest
-    if: ${{ hashFiles('web/package.json') != '' }}
-    defaults: { run: { working-directory: web } }
     steps:
       - uses: actions/checkout@v4
+      - name: Skip until web/ is scaffolded
+        if: ${{ hashFiles('web/package.json') == '' }}
+        run: echo "web/package.json not found yet - nothing to test"
       - uses: actions/setup-node@v4
+        if: ${{ hashFiles('web/package.json') != '' }}
         with: { node-version: "22" }
-      - run: npm ci
-      - run: npm run typecheck
-      - run: npm test --if-present
-      - run: npm run build
+      - name: Typecheck, test, build
+        if: ${{ hashFiles('web/package.json') != '' }}
+        working-directory: web
+        run: |
+          npm ci
+          npm run typecheck
+          npm test --if-present
+          npm run build
