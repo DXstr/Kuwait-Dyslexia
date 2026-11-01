@@ -160,7 +160,11 @@ def score_pronunciation(
                 continue  # indistinguishable in the phone model (e.g. emphatic vs plain): skip, never guess
             by_model["phone"][ipa] = _mean_lp(phone, span, tok)
 
-        probs = {m: _softmax(v) for m, v in by_model.items()}
+        # a model that only saw the expected sound carries no evidence (e.g. the phone model for ص vs س)
+        probs = {m: _softmax(v) for m, v in by_model.items() if len(v) > 1}
+        if not probs:
+            evidence.append(UnitEvidence(unit, span, 1.0, unit.ipa, unit.letter, "none", (), degraded))
+            continue
         winner, decided_by, margin = unit.ipa, "phone", -1.0
         score = min(p[unit.ipa] for p in probs.values())
         for m, p in probs.items():

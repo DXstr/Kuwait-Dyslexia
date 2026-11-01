@@ -82,6 +82,9 @@ def test_correct_emphatic_with_letter_model():
     ev, units = run("صَبَاح", ["s", "a", "b", "aː", "ħ"], heard_letters=["ص", "ب", "ا", "ح"])
     sad = consonant(ev, units, "saad")
     assert sad.winner_ipa == "sˤ" and sad.score > 0.5
+    # ص vs س was judged by the letter model; the phone model only judged ص vs its dot mate ض
+    assert any(c.model == "letter" and c.letter == "siin" for c in sad.candidates)
+    assert not any(c.model == "phone" and c.letter == "siin" for c in sad.candidates)
 
 
 def test_without_letter_model_emphatic_contrast_is_flagged_degraded_not_guessed():
@@ -124,3 +127,4 @@ def test_read_vocab_flat_and_nested(tmp_path):
     nested.write_text(json.dumps({"ar": {"<pad>": 0, "ق": 1}}), encoding="utf-8")
     assert read_vocab(str(flat)) == {"<pad>": 0, "q": 1}
     assert read_vocab(str(nested)) == {"<pad>": 0, "ق": 1}
+
