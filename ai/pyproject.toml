@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "basira-ai"
+version = "0.1.0"
+description = "Basira workstream A: dialect-aware Arabic reading scorer (stateless) and content pipeline"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.7,<3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+    "jsonschema>=4.18",
+    # pinned: the generated models are checked byte-for-byte, and the generator formats with black + isort
+    "datamodel-code-generator==0.26.3",
+    "black==26.10.1",
+    "isort==5.13.2",
+]
+
+[tool.setuptools.packages.find]
+include = ["basira_ai*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = ["basira_ai/contracts_gen/models.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

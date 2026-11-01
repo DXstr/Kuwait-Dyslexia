@@ -9,5 +9,16 @@ Read the root `CLAUDE.md` and `docs/briefs/A-ai.md` first.
 - Every response validates against `contracts/schemas/basira.schema.json` (contract tests in `ai/tests/`).
 - Set `synthetic=true` for TTS or fixture audio. Short-vowel errors are never inferred from audio.
 - Stubs raise `NotImplementedError`; never return fake scores.
+- Contract models are generated into `basira_ai/contracts_gen/models.py`; never edit that file by hand.
 
-Commands are added here by the scaffold PR (install, test, lint, run service, build image).
+## Commands (run inside `ai/`)
+
+```
+python -m venv .venv                      # once
+.venv/Scripts/activate                    # Windows  (source .venv/bin/activate on macOS/Linux)
+pip install -e ".[dev]"                   # install with dev tools
+ruff check .                              # lint
+pytest -q                                 # tests (includes contract + generated-model drift checks)
+python scripts/gen_contracts.py           # regenerate models after a contracts change
+python scripts/gen_contracts.py --check   # verify generated models are current
+```
