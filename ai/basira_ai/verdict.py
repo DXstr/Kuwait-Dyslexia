@@ -9,7 +9,8 @@ Vowels are always "unscored": short-vowel errors are never inferred from audio (
 
 Not detected yet (stated, not faked): omissions and insertions. A free-decoding comparison was tried in the
 notebooks and drops real sounds (it missed both [j]s in "dayay"), so thresholds must be calibrated on real recordings
-first (docs/ROADMAP.md, phase 3; issue #32). Until then a missing sound shows up as a low-scoring unit, never as a category.
+first (docs/ROADMAP.md, phase 3; issue #32). Until then a missing sound shows up as a low-scoring unit, never as a
+category.
 """
 
 from __future__ import annotations
