@@ -28,7 +28,7 @@ include = ["basira_ai*"]
 [tool.ruff]
 line-length = 120
 target-version = "py311"
-extend-exclude = ["basira_ai/contracts_gen/models.py"]
+extend-exclude = ["basira_ai/contracts_gen/models.py", "notebooks"]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "B", "UP"]
