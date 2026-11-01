@@ -24,7 +24,8 @@ from pathlib import Path
 from typing import Annotated
 
 import numpy as np
-from fastapi import FastAPI, File, Form, Header, Request, UploadFile
+from fastapi import Depends, FastAPI, File, Form, Header, Request, UploadFile
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import ValidationError
@@ -169,6 +170,15 @@ def create_app(
     async def _auth_error(_: Request, e: AuthError) -> JSONResponse:
         return error_response(e.status, e.code, e.message)
 
+    @app.exception_handler(RequestValidationError)
+    async def _invalid(_: Request, e: RequestValidationError) -> JSONResponse:
+        fields = sorted({".".join(str(p) for p in err.get("loc", [])[1:]) for err in e.errors()})
+        return error_response(422, "invalid_request", f"invalid or missing fields: {', '.join(fields) or 'request'}")
+
+    def scorer_claims(authorization: Annotated[str | None, Header()] = None) -> dict:
+        """Runs before body validation, so an unauthenticated caller always gets 401, never a field error."""
+        return auth.require(authorization, SCORING_ROLES)
+
     @app.exception_handler(Exception)
     async def _unexpected(_: Request, e: Exception) -> JSONResponse:
         log.exception("unhandled error")
@@ -189,9 +199,8 @@ def create_app(
     async def score_item(
         audio: Annotated[UploadFile, File()],
         meta: Annotated[str, Form()],
-        authorization: Annotated[str | None, Header()] = None,
+        claims: dict = Depends(scorer_claims),  # noqa: B008 - local dependency; Annotated cannot see it under PEP 563
     ) -> JSONResponse:
-        claims = auth.require(authorization, SCORING_ROLES)
         limiter.check(str(claims.get("sub", "anonymous")))
         try:
             request_meta = ScoreItemRequestMeta.model_validate_json(meta)

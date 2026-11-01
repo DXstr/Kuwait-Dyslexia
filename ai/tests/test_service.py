@@ -196,3 +196,15 @@ def test_warming_returns_503_until_models_load():
 def test_decode_wav_scales_to_unit_range():
     wav = decode_wav(wav_bytes(amplitude=0.5))
     assert wav.dtype == np.float32 and 0.45 < np.abs(wav).max() <= 0.5
+
+
+def test_missing_token_is_401_even_when_the_body_is_empty(client):
+    r = client.post("/score-item")
+    assert r.status_code == 401 and r.json()["error"]["code"] == "unauthorized"
+
+
+def test_missing_upload_is_contract_invalid_request(client):
+    r = client.post("/score-item", headers={"Authorization": token(sub="empty")}, data={"meta": META})
+    assert r.status_code == 422 and r.json()["error"]["code"] == "invalid_request"
+    assert "audio" in r.json()["error"]["message"]
+    assert valid("Error", r.json()) == []

@@ -15,7 +15,7 @@ dependencies = [
 [project.optional-dependencies]
 # heavy: only for running the real acoustic models (Colab, Docker image); CI does not install it
 model = [
-    "torch>=2.2",
+    "torch>=2.6",  # transformers refuses .bin weights on older torch (CVE-2025-32434)
     "transformers>=4.40,<5",
     "huggingface_hub>=0.23",
     "librosa>=0.10",
