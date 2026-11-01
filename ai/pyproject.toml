@@ -9,6 +9,7 @@ description = "Basira workstream A: dialect-aware Arabic reading scorer (statele
 requires-python = ">=3.11"
 dependencies = [
     "pydantic>=2.7,<3",
+    "numpy>=1.26",
 ]
 
 [project.optional-dependencies]
