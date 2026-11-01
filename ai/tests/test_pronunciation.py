@@ -111,3 +111,16 @@ def test_acoustic_module_imports_without_torch():
     import basira_ai.acoustic as acoustic
 
     assert acoustic.SAMPLE_RATE == 16_000
+
+
+def test_read_vocab_flat_and_nested(tmp_path):
+    import json
+
+    from basira_ai.acoustic import read_vocab
+
+    flat = tmp_path / "flat.json"
+    flat.write_text(json.dumps({"<pad>": 0, "q": 1}), encoding="utf-8")
+    nested = tmp_path / "nested.json"
+    nested.write_text(json.dumps({"ar": {"<pad>": 0, "ق": 1}}), encoding="utf-8")
+    assert read_vocab(str(flat)) == {"<pad>": 0, "q": 1}
+    assert read_vocab(str(nested)) == {"<pad>": 0, "ق": 1}
