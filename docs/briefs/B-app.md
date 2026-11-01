@@ -20,8 +20,10 @@ You own `web/` and `supabase/`. You never edit `ai/` or `content/`. Everything y
 
 ## Your tasks, in order (each = one GitHub Issue, one PR)
 
-1. **Web scaffold** — Vite + React + TypeScript; Arabic RTL (`dir="rtl"`), a font with full diacritics (e.g. Noto Naskh
-   Arabic), tablet-first layout, routing by role, installable PWA, Vitest + Playwright, ESLint. Add the `web` CI job.
+1. **Web scaffold** — Vite + React + TypeScript; **Arabic first**: `<html lang="ar" dir="rtl">`, a font with full
+   diacritics (e.g. Noto Naskh Arabic), all UI strings in an Arabic-first message catalogue (i18n) with an English
+   catalogue used only by the specialist/examiner language switch; tablet-first layout, routing by role, installable
+   PWA, Vitest + Playwright, ESLint. Add the `web` CI job.
 2. **Generated types** — `json-schema-to-typescript` from `contracts/schemas/basira.schema.json` into
    `web/src/contracts/` (generated, never hand-edited); an npm script regenerates them.
 3. **Supabase platform** — Supabase CLI local stack; migrations for every table in `contracts/data-model.md`; RLS per

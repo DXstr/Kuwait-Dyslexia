@@ -1,6 +1,6 @@
 # Basira (بصيرة)
 
-Dialect aware Arabic reading screening and adaptive practice for primary-school children in Kuwait.
+Dialect-aware Arabic reading screening and adaptive practice for primary-school children in Kuwait.
 Screening and progress tracking only — Basira never diagnoses. ADC 2026 AI Innovation Competition entry.
 
 ## Repo map
