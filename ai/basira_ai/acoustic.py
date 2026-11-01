@@ -11,9 +11,11 @@ from dataclasses import dataclass, field
 
 import numpy as np
 
+from basira_ai.contracts_gen import ScoreItemRequestMeta, ScoreItemResponse
 from basira_ai.g2p import to_units
 from basira_ai.pronunciation import AcousticOutput, UnitEvidence, missing_phone_tokens, routing, score_pronunciation
 from basira_ai.reference import ReferenceData, reference_data
+from basira_ai.verdict import audio_warnings, build_response
 
 SAMPLE_RATE = 16_000
 
@@ -84,6 +86,21 @@ class Listener:
         units = to_units(text, self.ref.taxonomy)
         letter_out = self.letter(wav) if self.letter is not None else None
         return score_pronunciation(text, units, self.phone(wav), letter_out, self.ref)
+
+    def score_item(self, wav: np.ndarray, meta: ScoreItemRequestMeta, *, synthetic: bool) -> ScoreItemResponse:
+        """The full contract response for one recorded item."""
+        units = to_units(meta.expected_text, self.ref.taxonomy)
+        letter_out = self.letter(wav) if self.letter is not None else None
+        evidence = score_pronunciation(meta.expected_text, units, self.phone(wav), letter_out, self.ref)
+        return build_response(
+            meta,
+            units,
+            evidence,
+            self.ref,
+            audio_duration_ms=int(1000 * len(wav) / SAMPLE_RATE),
+            synthetic=synthetic,
+            warnings=audio_warnings(wav),
+        )
 
 
 def load_audio(path: str) -> np.ndarray:
