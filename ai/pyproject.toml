@@ -13,6 +13,13 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# heavy: only for running the real acoustic models (Colab, Docker image); CI does not install it
+model = [
+    "torch>=2.2",
+    "transformers>=4.40",
+    "librosa>=0.10",
+    "soundfile>=0.12",
+]
 dev = [
     "pytest>=8",
     "ruff>=0.6",
@@ -25,6 +32,9 @@ dev = [
 
 [tool.setuptools.packages.find]
 include = ["basira_ai*"]
+
+[tool.setuptools.package-data]
+basira_ai = ["data/*.json"]
 
 [tool.ruff]
 line-length = 120

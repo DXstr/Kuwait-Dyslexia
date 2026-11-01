@@ -59,3 +59,17 @@ def test_single_consonant_word_is_isolated():
 def test_unsupported_text_raises(bad):
     with pytest.raises(G2PError):
         to_units(bad, TAX)
+
+
+def test_units_point_to_their_written_letter():
+    from basira_ai.g2p import written_letters
+
+    text = "دَجَاج قَلَم"
+    units = to_units(text, TAX)
+    letters = written_letters(text)
+    assert [ch for _, ch in letters] == list("دجاجقلم")
+    for u in units:
+        if u.kind == "consonant" and u.letter != "alif":
+            assert TAX.letter(u.letter).char == letters[u.char_index][1]
+    long_a = next(u for u in units if u.ipa == "aː")
+    assert letters[long_a.char_index][1] in "جا"

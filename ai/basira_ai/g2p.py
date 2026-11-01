@@ -43,6 +43,7 @@ class Unit:
     ipa: str  # canonical IPA from the taxonomy (vowels: a i u aː iː uː)
     letter: str | None  # taxonomy letter id for consonants, None for vowels
     position: str | None  # initial | medial | final | isolated (consonants only)
+    char_index: int  # index into written_letters(text) of the letter this unit comes from
 
 
 def _split_letters(word: str) -> list[tuple[str, set[str]]]:
@@ -65,35 +66,37 @@ def _vowel_marks(marks: set[str]) -> bool:
 
 def to_units(text: str, taxonomy: Taxonomy) -> list[Unit]:
     """Convert fully diacritized Arabic text into expected sound units. Raises G2PError on anything unsupported."""
-    raw: list[tuple[int, str, str, str | None]] = []  # (word_index, kind, ipa, letter)
+    raw: list[tuple[int, str, str, str | None, int]] = []  # (word_index, kind, ipa, letter, char_index)
+    base = 0
     for w_idx, word in enumerate(text.split()):
         letters = _split_letters(word)
         for i, (ch, marks) in enumerate(letters):
+            c_idx = base + i
             prev_vowel = raw[-1][2] if raw and raw[-1][0] == w_idx and raw[-1][1] == "vowel" else None
 
             if ch == ALIF and not _vowel_marks(marks):
                 if prev_vowel == "a":
-                    raw[-1] = (w_idx, "vowel", "aː", None)
+                    raw[-1] = (w_idx, "vowel", "aː", None, raw[-1][4])
                 elif i == 0:  # word-initial bare alif (e.g. the article): read as a glottal onset + a
-                    raw.append((w_idx, "consonant", "ʔ", "alif"))
-                    raw.append((w_idx, "vowel", "a", None))
+                    raw.append((w_idx, "consonant", "ʔ", "alif", c_idx))
+                    raw.append((w_idx, "vowel", "a", None, c_idx))
                 continue  # otherwise silent (e.g. the alif after tanwin fath)
             if ch == ALIF_MAQSURA:
                 if prev_vowel == "a":
-                    raw[-1] = (w_idx, "vowel", "aː", None)
+                    raw[-1] = (w_idx, "vowel", "aː", None, raw[-1][4])
                 continue
             if ch in (WAW, YAA) and not _vowel_marks(marks):
                 long_of = {"u": "uː"} if ch == WAW else {"i": "iː"}
                 if prev_vowel in long_of:
-                    raw[-1] = (w_idx, "vowel", long_of[prev_vowel], None)
+                    raw[-1] = (w_idx, "vowel", long_of[prev_vowel], None, raw[-1][4])
                     continue
             if ch == TAA_MARBUTA:
                 if not (marks & set(VOWEL_OF)):
                     continue  # pausal form: silent
                 letter_id = "taa"
             elif ch == MADDA_ALIF:
-                raw.append((w_idx, "consonant", "ʔ", "alif"))
-                raw.append((w_idx, "vowel", "aː", None))
+                raw.append((w_idx, "consonant", "ʔ", "alif", c_idx))
+                raw.append((w_idx, "vowel", "aː", None, c_idx))
                 continue
             elif ch in HAMZA_FORMS or ch == ALIF:
                 letter_id = "alif"
@@ -110,20 +113,21 @@ def to_units(text: str, taxonomy: Taxonomy) -> list[Unit]:
                     continue
             ipa = taxonomy.letter(letter_id).ipa
             for _ in range(2 if SHADDA in marks else 1):
-                raw.append((w_idx, "consonant", ipa, letter_id))
+                raw.append((w_idx, "consonant", ipa, letter_id, c_idx))
             vowel = next((VOWEL_OF[m] for m in marks if m in VOWEL_OF), None)
             if vowel:
-                raw.append((w_idx, "vowel", vowel, None))
+                raw.append((w_idx, "vowel", vowel, None, c_idx))
             if marks & TANWIN:
-                raw.append((w_idx, "consonant", "n", "nuun"))
+                raw.append((w_idx, "consonant", "n", "nuun", c_idx))
             if SUPERSCRIPT_ALIF in marks:
-                raw.append((w_idx, "vowel", "aː", None))
+                raw.append((w_idx, "vowel", "aː", None, c_idx))
+        base += len(letters)
 
     units: list[Unit] = []
     for w_idx in sorted({r[0] for r in raw}):
         word_units = [r for r in raw if r[0] == w_idx]
         cons_idx = [k for k, r in enumerate(word_units) if r[1] == "consonant"]
-        for k, (_, kind, ipa, letter) in enumerate(word_units):
+        for k, (_, kind, ipa, letter, c_idx) in enumerate(word_units):
             position = None
             if kind == "consonant":
                 if len(cons_idx) == 1:
@@ -134,10 +138,15 @@ def to_units(text: str, taxonomy: Taxonomy) -> list[Unit]:
                     position = "final"
                 else:
                     position = "medial"
-            units.append(Unit(len(units), w_idx, kind, ipa, letter, position))
+            units.append(Unit(len(units), w_idx, kind, ipa, letter, position, c_idx))
     if not units:
         raise G2PError("empty text")
     return units
+
+
+def written_letters(text: str) -> list[tuple[int, str]]:
+    """(word_index, character) for every written letter, without diacritics; Unit.char_index points into this."""
+    return [(w_idx, ch) for w_idx, word in enumerate(text.split()) for ch, _ in _split_letters(word)]
 
 
 def ipa_string(units: list[Unit]) -> str:
