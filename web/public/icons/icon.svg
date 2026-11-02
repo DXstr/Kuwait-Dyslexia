@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">بصيرة</title>
+  <desc id="desc">علامة عين مبسطة داخل دائرة</desc>
+  <rect width="512" height="512" rx="112" fill="#0f766e"/>
+  <circle cx="256" cy="256" r="178" fill="#f6fbfa" opacity=".98"/>
+  <path d="M111 256c39-61 91-92 145-92s106 31 145 92c-39 61-91 92-145 92s-106-31-145-92Z" fill="#0f766e"/>
+  <circle cx="256" cy="256" r="54" fill="#f6fbfa"/>
+  <circle cx="256" cy="256" r="26" fill="#0f766e"/>
+</svg>

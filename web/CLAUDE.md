@@ -13,4 +13,15 @@ Read the root `CLAUDE.md` and `docs/briefs/B-app.md` first.
 - Parent and child views only ever read `approved` / `delivered` rows.
 - Env: copy `.env.example` → `.env.local`; never commit it.
 
-Commands are added here by the scaffold PR (dev, test, typecheck, build, regenerate types).
+## Commands (from `web/`, Node.js 22)
+
+- `npm ci` — install the locked dependencies.
+- `npm run dev` — local Vite server.
+- `npm run typecheck` — TypeScript check only.
+- `npm run lint` — ESLint, with warnings treated as failures.
+- `npm test` / `npm run test:watch` — Vitest once / watch mode.
+- `npx playwright install chromium && npm run test:e2e` — browser smoke tests against the production build.
+- `npm run build` / `npm run preview` — static `dist/` for Cloudflare Pages / local production preview.
+
+Contract type regeneration is B2, not implemented in the B1 scaffold. Do not hand-write payload types meanwhile.
+See `README.md` for the fail-closed role seam, PWA cache boundaries and unfinished integrations.
