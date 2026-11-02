@@ -6,6 +6,7 @@
 Never edit basira_ai/contracts_gen/models.py by hand; change contracts/schemas/basira.schema.json in a contracts PR.
 """
 import argparse
+import os
 import subprocess
 import sys
 import tempfile
@@ -36,6 +37,7 @@ def generate(target: Path) -> None:
     subprocess.run(
         [sys.executable, "-m", "datamodel_code_generator", "--input", str(SCHEMA), "--output", str(target), *ARGS],
         check=True,
+        env={**os.environ, "PYTHONUTF8": "1"},  # the schema has Arabic text; Windows defaults to cp1252
     )
 
 
