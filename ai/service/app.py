@@ -31,9 +31,11 @@ from fastapi.responses import JSONResponse
 from pydantic import ValidationError
 
 from basira_ai.contracts_gen import ScoreItemRequestMeta
+from basira_ai.contracts_gen.models import FingerprintRequest, FingerprintResponse
+from basira_ai.fingerprint import fingerprint
 from basira_ai.g2p import G2PError
 from basira_ai.pronunciation import routing
-from basira_ai.reference import contracts_dir
+from basira_ai.reference import contracts_dir, reference_data
 from service.auth import AuthError, JWKSResolver, SecretResolver, Verifier
 
 log = logging.getLogger("basira.scorer")
@@ -216,6 +218,21 @@ def create_app(
             raise ApiError(422, "invalid_request", str(e).strip("'\"")) from e
         log.info("scored item %s for %s", request_meta.item_id, claims.get("sub"))
         return JSONResponse(result.model_dump(mode="json", by_alias=True))
+
+    @app.post("/fingerprint")
+    async def fingerprint_session(
+        request: Request,
+        claims: dict = Depends(scorer_claims),  # noqa: B008 - see /score-item
+    ) -> JSONResponse:
+        limiter.check(str(claims.get("sub", "anonymous")))
+        try:
+            body = FingerprintRequest.model_validate_json(await request.body())
+        except ValidationError as e:
+            raise ApiError(422, "invalid_request", f"body does not match FingerprintRequest: {e.errors()[:3]}") from e
+        result = fingerprint(body.model_dump(mode="json", by_alias=True), reference_data())
+        log.info("fingerprint for session %s by %s: %s", body.session_id, claims.get("sub"),
+                 result["referral"]["decision"])
+        return JSONResponse(FingerprintResponse.model_validate(result).model_dump(mode="json", by_alias=True))
 
     return app
 

@@ -1,0 +1,775 @@
+{
+ "version": "0.1.0",
+ "status": "DRAFT - provisional thresholds and decisions for demonstration on synthetic sessions; a specialist must review every row and threshold before any real child (non-negotiables 1 and 13)",
+ "derivation": "Written from scratch for Basira (the old 16-profile table is not reused). Draft principle used to fill the rows: no concern -> no_referral_indicated; decoding gap plus at least one other concern, or three or more other concerns -> refer_for_specialist_assessment; anything else -> specialist_decision_needed. Edit any row; the rules are re-induced from the table at load time.",
+ "sources": [
+  "Pawlak, Z. (1982) Rough sets. International Journal of Computer & Information Sciences 11(5), 341-356.",
+  "Kryszkiewicz, M. (1998) Rough set approach to incomplete information systems. Information Sciences 112, 39-49 (tolerance relation for missing evidence).",
+  "Rack, J.P., Snowling, M.J. & Olson, R.K. (1992) The nonword reading deficit in developmental dyslexia: a review. Reading Research Quarterly 27(1), 28-53 (why the pseudoword gap is a decoding marker)."
+ ],
+ "thresholds_note": "A feature at or above its threshold is 'concern'; below is 'ok'; null (too little evidence) is unknown. Thresholds are design values to be calibrated in the pilot, not norms.",
+ "attributes": [
+  {
+   "id": "D",
+   "feature": "dot_confusion_rate",
+   "threshold": 0.2,
+   "label_en": "dot-group confusion",
+   "label_ar": "الخلط بين الحروف المتشابهة في النقاط"
+  },
+  {
+   "id": "E",
+   "feature": "emphatic_confusion_rate",
+   "threshold": 0.25,
+   "label_en": "emphatic/plain confusion",
+   "label_ar": "الخلط بين الحروف المفخمة والمرققة"
+  },
+  {
+   "id": "V",
+   "feature": "short_vowel_error_rate",
+   "threshold": 0.25,
+   "label_en": "short-vowel errors (tap tasks)",
+   "label_ar": "أخطاء الحركات القصيرة في مهام النقر"
+  },
+  {
+   "id": "P",
+   "feature": "positional_error_rate",
+   "threshold": 0.25,
+   "label_en": "letter-position errors (tap tasks)",
+   "label_ar": "أخطاء أشكال الحروف حسب موضعها"
+  },
+  {
+   "id": "S",
+   "feature": "substitution_rate",
+   "threshold": 0.15,
+   "label_en": "other sound substitutions",
+   "label_ar": "استبدال الأصوات الأخرى"
+  },
+  {
+   "id": "G",
+   "feature": "pseudoword_gap",
+   "threshold": 0.25,
+   "label_en": "decoding gap (made-up words clearly harder than real words)",
+   "label_ar": "فجوة فك الترميز (الكلمات غير الحقيقية أصعب بوضوح من الحقيقية)"
+  }
+ ],
+ "decision_text": {
+  "no_referral_indicated": {
+   "en": "no referral indicated",
+   "ar": "لا تظهر حاجة إلى إحالة"
+  },
+  "refer_for_specialist_assessment": {
+   "en": "suggest a specialist assessment",
+   "ar": "يُقترح تقييم لدى أخصائي"
+  },
+  "specialist_decision_needed": {
+   "en": "specialist decision needed",
+   "ar": "القرار للأخصائي"
+  }
+ },
+ "rows": [
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "ok",
+    "P": "ok",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "no_referral_indicated"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "ok",
+    "P": "ok",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "ok",
+    "P": "ok",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "ok",
+    "P": "ok",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "ok",
+    "P": "concern",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "ok",
+    "P": "concern",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "ok",
+    "P": "concern",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "ok",
+    "P": "concern",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "concern",
+    "P": "ok",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "concern",
+    "P": "ok",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "concern",
+    "P": "ok",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "concern",
+    "P": "ok",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "concern",
+    "P": "concern",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "concern",
+    "P": "concern",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "concern",
+    "P": "concern",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "ok",
+    "V": "concern",
+    "P": "concern",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "ok",
+    "P": "ok",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "ok",
+    "P": "ok",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "ok",
+    "P": "ok",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "ok",
+    "P": "ok",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "ok",
+    "P": "concern",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "ok",
+    "P": "concern",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "ok",
+    "P": "concern",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "ok",
+    "P": "concern",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "concern",
+    "P": "ok",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "concern",
+    "P": "ok",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "concern",
+    "P": "ok",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "concern",
+    "P": "ok",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "concern",
+    "P": "concern",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "concern",
+    "P": "concern",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "concern",
+    "P": "concern",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "ok",
+    "E": "concern",
+    "V": "concern",
+    "P": "concern",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "ok",
+    "P": "ok",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "ok",
+    "P": "ok",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "ok",
+    "P": "ok",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "ok",
+    "P": "ok",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "ok",
+    "P": "concern",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "ok",
+    "P": "concern",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "ok",
+    "P": "concern",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "ok",
+    "P": "concern",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "concern",
+    "P": "ok",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "concern",
+    "P": "ok",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "concern",
+    "P": "ok",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "concern",
+    "P": "ok",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "concern",
+    "P": "concern",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "concern",
+    "P": "concern",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "concern",
+    "P": "concern",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "ok",
+    "V": "concern",
+    "P": "concern",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "ok",
+    "P": "ok",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "specialist_decision_needed"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "ok",
+    "P": "ok",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "ok",
+    "P": "ok",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "ok",
+    "P": "ok",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "ok",
+    "P": "concern",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "ok",
+    "P": "concern",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "ok",
+    "P": "concern",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "ok",
+    "P": "concern",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "concern",
+    "P": "ok",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "concern",
+    "P": "ok",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "concern",
+    "P": "ok",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "concern",
+    "P": "ok",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "concern",
+    "P": "concern",
+    "S": "ok",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "concern",
+    "P": "concern",
+    "S": "ok",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "concern",
+    "P": "concern",
+    "S": "concern",
+    "G": "ok"
+   },
+   "decision": "refer_for_specialist_assessment"
+  },
+  {
+   "values": {
+    "D": "concern",
+    "E": "concern",
+    "V": "concern",
+    "P": "concern",
+    "S": "concern",
+    "G": "concern"
+   },
+   "decision": "refer_for_specialist_assessment"
+  }
+ ]
+}
