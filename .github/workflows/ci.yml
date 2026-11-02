@@ -46,17 +46,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Skip until web/ is scaffolded
-        if: ${{ hashFiles('web/package.json') == '' }}
-        run: echo "web/package.json not found yet - nothing to test"
       - uses: actions/setup-node@v4
-        if: ${{ hashFiles('web/package.json') != '' }}
-        with: { node-version: "22" }
-      - name: Typecheck, test, build
-        if: ${{ hashFiles('web/package.json') != '' }}
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install dependencies
         working-directory: web
-        run: |
-          npm ci
-          npm run typecheck
-          npm test --if-present
-          npm run build
+        run: npm ci
+      - name: Typecheck
+        working-directory: web
+        run: npm run typecheck
+      - name: Lint
+        working-directory: web
+        run: npm run lint
+      - name: Unit tests
+        working-directory: web
+        run: npm test
+      - name: Build
+        working-directory: web
+        run: npm run build
+      - name: Install Chromium
+        working-directory: web
+        run: npx playwright install --with-deps chromium
+      - name: End-to-end tests
+        working-directory: web
+        run: npm run test:e2e
