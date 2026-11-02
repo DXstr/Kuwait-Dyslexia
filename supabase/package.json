@@ -1,0 +1,27 @@
+{
+  "name": "basira-database",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "prepare:local": "node scripts/prepare-local-functions.mjs",
+    "start": "npm run prepare:local && supabase start --workdir ..",
+    "stop": "supabase stop --workdir ..",
+    "reset": "supabase db reset --local --workdir ..",
+    "generate:contracts": "node scripts/generate-contract-validation.mjs",
+    "check:contracts": "node scripts/generate-contract-validation.mjs --check",
+    "typecheck": "npm run check:contracts && tsc --noEmit",
+    "test:db": "supabase test db --workdir ..",
+    "test:cleanup": "node --experimental-strip-types --test tests/cleanup.test.ts",
+    "test:unit": "node --experimental-strip-types --test tests/*.test.ts",
+    "test:integration": "node --experimental-strip-types --test tests/cleanup.integration.ts"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "supabase": "3.0.0",
+    "typescript": "6.0.3"
+  }
+}
