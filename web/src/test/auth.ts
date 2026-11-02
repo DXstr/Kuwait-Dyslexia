@@ -8,6 +8,9 @@ export function createTestAuth(initial: AuthSnapshot) {
   const listeners = new Set<() => void>()
   const controller: AuthController = {
     getSnapshot: () => snapshot,
+    getVerifiedSession: () => snapshot.status === 'signedIn' && snapshot.role
+      ? { id: 'synthetic-adult-test-id', role: snapshot.role, accessToken: 'synthetic-test-token-not-valid-anywhere' }
+      : null,
     subscribe: (listener) => { listeners.add(listener); return () => { listeners.delete(listener) } },
     start: vi.fn(() => () => {}),
     retry: vi.fn(async () => {}),

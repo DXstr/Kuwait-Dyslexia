@@ -87,6 +87,22 @@ describe('createAuthController', () => {
     controller.start()()
   })
 
+  it('exposes scorer credentials only while the current identity is server-verified', async () => {
+    const client = makeClient()
+    const controller = controllerFor(client)
+    expect(controller.getVerifiedSession()).toBeNull()
+    const stop = controller.start()
+    expect(controller.getVerifiedSession()).toBeNull()
+    await waitForStatus(controller, 'signedIn')
+    expect(controller.getVerifiedSession()).toEqual({ id: 'candidate-id', role: 'specialist', accessToken: 'access-token' })
+    expect(client.auth.getUser).toHaveBeenCalled()
+    expect(client.auth.getClaims).toHaveBeenCalled()
+    client.auth.emit('SIGNED_OUT')
+    expect(controller.getVerifiedSession()).toBeNull()
+    stop()
+    expect(controller.getVerifiedSession()).toBeNull()
+  })
+
   it('redeems a callback code once and scrubs the callback URL', async () => {
     const client = makeClient()
     const clearCallbackUrl = vi.fn()

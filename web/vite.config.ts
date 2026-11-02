@@ -3,6 +3,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { defineConfig } from 'vitest/config'
 import { loadEnv } from 'vite'
 import { readAuthConfig } from './src/auth/config.ts'
+import { readScorerConfig } from './src/scorer/config.ts'
 import { ar } from './src/i18n/messages.ts'
 
 export default defineConfig(({ mode }) => ({
@@ -10,7 +11,11 @@ export default defineConfig(({ mode }) => ({
     react(),
     {
       name: 'browser-safe-auth-configuration',
-      config: () => { readAuthConfig(loadEnv(mode, process.cwd(), 'VITE_')) },
+      config: () => {
+        const environment = loadEnv(mode, process.cwd(), 'VITE_')
+        readAuthConfig(environment)
+        readScorerConfig(environment)
+      },
     },
     {
       name: 'arabic-shell-metadata',
@@ -60,7 +65,7 @@ export default defineConfig(({ mode }) => ({
               navigateFallback: 'index.html',
               navigateFallbackDenylist: [
                 /^\/(?:api|supabase|auth|rest|storage|functions|realtime)(?:[/?]|$)/,
-                /^\/(?:score-item|fingerprint|probe|stage0\/score)(?:[/?]|$)/,
+                /^\/(?:health|score-item|fingerprint|probe|stage0\/score)(?:[/?]|$)/,
                 /^\/(?:audio|reports)(?:[/?]|$)/,
               ],
               cleanupOutdatedCaches: true,

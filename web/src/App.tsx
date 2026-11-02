@@ -7,6 +7,7 @@ import { useI18n } from './i18n/context'
 import type { MessageKey } from './i18n/messages'
 import { canAccess, canUseEnglish, roleHome } from './routing/roles'
 import type { AppRole } from './routing/roles'
+import { ScorerNotice } from './scorer/ScorerNotice'
 
 const authMessages: Record<AuthIssue, MessageKey> = {
   configuration: 'authConfiguration',
@@ -54,6 +55,7 @@ function Shell({ role, children }: { role: AppRole | null; children: ReactNode }
           )}
         </div>
       </header>
+      <ScorerNotice />
       {role && !isChildScreen && (
         <nav className="workspace-nav" aria-label={t('navigation')}>
           <NavLink to={roleHome[role]}>{t(homeLabel)}</NavLink>

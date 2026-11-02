@@ -20,8 +20,15 @@ export type AuthSnapshot = {
   issue: AuthIssue | null
 }
 
+export type VerifiedAuthSession = {
+  id: string
+  role: AppRole
+  accessToken: string
+}
+
 export interface AuthController {
   getSnapshot(): AuthSnapshot
+  getVerifiedSession(): VerifiedAuthSession | null
   subscribe(listener: () => void): () => void
   start(): () => void
   retry(): Promise<void>
@@ -439,6 +446,14 @@ export function createAuthController(
 
   const controller: AuthController = {
     getSnapshot: () => snapshot,
+
+    // Never read SDK storage or decode a JWT here. Verification has already
+    // checked server identity, current profile and signed claims; any transition
+    // away from signedIn immediately makes scorer authorization unavailable.
+    getVerifiedSession: () => started && snapshot.status === 'signedIn' &&
+      snapshot.role && trustedIdentityId && trustedAccessToken
+      ? { id: trustedIdentityId, role: snapshot.role, accessToken: trustedAccessToken }
+      : null,
 
     subscribe: (listener) => {
       listeners.add(listener)

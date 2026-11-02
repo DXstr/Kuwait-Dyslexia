@@ -53,3 +53,5 @@ Required by the competition and by non-negotiable 10. Add a row in the same PR t
 | PostgreSQL | Canonical relational data, transactions, roles and audit/approval triggers | [PostgreSQL](https://www.postgresql.org/about/licence/) | B3 | 2026-11-02 |
 | @supabase/supabase-js 2.118.0 | Official browser SDK for Supabase Google PKCE sign-in, server-verified identity and RLS-protected profile lookup | [MIT](https://github.com/supabase/supabase-js/blob/master/LICENSE) | B4 | 2026-11-02 |
 | Google OAuth / OpenID Connect | Adult identity provider through Supabase Auth; activation requires a real registration | [Google APIs Terms of Service](https://developers.google.com/terms) and applicable user-data policies | B4 | 2026-11-02 |
+| ajv 8.20.0 | Browser-side, non-mutating JSON Schema draft 2020-12 validation of canonical scorer requests, responses and errors | [MIT](https://github.com/ajv-validator/ajv/blob/master/LICENSE) | B5 | 2026-11-02 |
+| ajv-formats 3.0.1 | Canonical date/date-time format checks in contract validators; no remote schema fetching | [MIT](https://github.com/ajv-validator/ajv-formats/blob/master/LICENSE) | B5 | 2026-11-02 |
