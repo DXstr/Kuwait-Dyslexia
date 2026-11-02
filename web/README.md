@@ -1,6 +1,6 @@
 # Basira web
 
-A clean-room, standalone Vite + React + TypeScript application. Arabic and RTL are the defaults and the Arabic font is self-hosted. Authentication uses Google through the official Supabase SDK, not a hosted-platform login portal. Production web hosting remains Cloudflare Pages. The Google-only B4 scope is recorded in `../docs/DECISIONS.md` and awaits Ayman's PR review.
+A clean-room, standalone Vite + React + TypeScript application. Arabic and RTL are the defaults and the Arabic font is self-hosted. Authentication uses Google through the official Supabase SDK, not a hosted-platform login portal. Production web hosting remains Cloudflare Pages. The Google-only B4 scope and the separate unverified provider gate are recorded in `../docs/DECISIONS.md`.
 
 ## Run locally
 
@@ -33,7 +33,7 @@ SDK session tokens and the PKCE verifier use **per-tab `sessionStorage`**, not `
 
 All React UI copy is in `src/i18n/messages.ts`. English preference stays in memory and applies only to an authorized professional screen; child/public/guardian/admin or failed-auth screens immediately return to Arabic, including document language/direction. No child profiles, reading results, recordings, reports or session mutations are implemented by B4; the only application-data query is the signed-in adult's own profile role.
 
-**B4 is not complete until genuine Google sign-in with profile-backed roles applied is demonstrated and the Google-only scope is reviewed.** No hosted project or working OAuth credentials are supplied by this repository. Automated mocked transport tests prove wiring, not actual provider configuration. Keep the implementation PR in draft until the manual gate passes; do not substitute seeded demo identities for real OAuth.
+**B4's genuine Google sign-in demonstration remains unverified.** Its code merged separately in PR #41, but the sandbox sign-in attempt was blocked by Google's unrecognized-device protection before a Google identity reached Supabase. No hosted project or working OAuth credentials are supplied by this repository. Automated mocked transport tests prove wiring, not actual provider configuration; do not substitute seeded demo identities for real OAuth or interpret the merge/CI as manual verification.
 
 ## Validation
 
@@ -48,7 +48,7 @@ npm run test:e2e
 
 `typecheck` includes the read-only generated-contract drift check. Vitest covers routing, catalogues, configuration, PKCE callback handling and controller races. `test:watch` enables watch mode. On a fresh Linux CI machine use `npx playwright install --with-deps chromium`.
 
-Playwright runs two isolated projects: `chromium` tests the unconfigured production/PWA build; `mocked-auth-sdk` uses a separate Vite server with a synthetic public key and intercepted loopback HTTP. The latter exercises the real SDK's PKCE verifier/challenge, Google options, server identity/profile verification, guardian and specialist role isolation, logout and failure paths. Every mocked identity is synthetic, no live service accepts the fixture key, and none of this is a runtime application feature or real provider demonstration. Tests never contact Google or use real child data.
+Playwright runs three isolated projects: `chromium` tests the unconfigured production/PWA build; `mocked-auth-sdk` tests the real SDK with synthetic intercepted Auth HTTP and fixture-mode notices; `real-mode-scorer-http` changes only scorer environment values and tests anonymous health requests, verification order, deduplication and failure/retry handling through intercepted HTTP. The SDK cases also cover PKCE verifier/challenge, Google options, server identity/profile verification, role isolation and logout. Every mocked identity/response is synthetic, no live service accepts the fixture key, and none of this is a runtime mock-auth feature or genuine provider/model demonstration. Tests never contact Google or use real child data.
 
 For real-provider verification, complete the Google registration in `supabase/README.md`, enable it locally, and preserve the same browser origin/tab across sign-in and callback. The browser must reach both the frontend and the chosen Supabase endpoint: `localhost` in a user's browser is their computer, not a cloud sandbox. Run the local stack/frontend on that computer, or use an operator-configured first-party development endpoint with exact matching callbacks. Demonstrate sign-in, check the profile-backed destination and Arabic default, sign out, and confirm a protected deep link cannot reopen a workspace. Never capture tokens, provider secrets or real child data in evidence. Hosted testing additionally requires migrations, the Auth hook, exact redirect allowlists and server-side Google settings on the actual Supabase project.
 
@@ -67,7 +67,21 @@ Generation is deterministic, uses LF line endings and records the canonical sche
 import type { ScoreItemResponse, Error as ContractError } from './contracts/basira'
 ```
 
-Generated TypeScript is not runtime validation. The scorer client, full response validation and warm-up remain B5; this auth task does not call the scorer. Contract changes require their own approved contracts PR.
+Generated TypeScript is not runtime validation. B5 supplies runtime validation through the canonical schema; contract changes still require their own approved contracts PR.
+
+## Scorer client and fixture mode (B5)
+
+All scorer calls go through `src/scorer/`. `createScorerClient` implements the five operations in `../contracts/scorer.openapi.yaml`: anonymous `health()`, WAV/multipart `scoreItem(audio, meta)`, and JSON `fingerprint(request)`, `probe(request)`, `stage0(request)`. Requests and every success/error response are validated with Ajv2020 against the directly imported canonical JSON Schema. Types are the existing generated exports, not hand-written payloads. Validation never coerces values, removes fields, inserts defaults or rewrites results. A successful call returns the validated response JSON unchanged; this module never writes to Supabase or changes approval states.
+
+In ignored `web/.env.local`, set `VITE_SCORER_MODE=mock` and preconfigure `VITE_SCORER_URL` with the actual scorer base URL. With that URL in place, switching to `VITE_SCORER_MODE=real` is the only configuration change needed; restart Vite or rebuild Cloudflare Pages because Vite variables are build-time settings. Omitted mode defaults to mock. Invalid modes, a missing real URL, credential-bearing/query/fragment URLs, insecure non-loopback HTTP and the obsolete `VITE_SCORER_BASE_URL` fail closed at startup/build. Production requires the operator's HTTPS scorer URL and an exact frontend origin in the scorer's `ALLOWED_ORIGINS`. There is no hosted-platform endpoint or automatic real-to-mock fallback.
+
+Fixture mode returns fresh clones of the existing contract fixtures, always with their original identifiers and `synthetic=true` on scoring results. It makes no scorer network requests and never uploads recording bytes. It supports the two known score-item cases (`rw-0001` dialect variant and `rw-0002` dot confusion), plus the canonical fingerprint, probe and Stage 0 request fixtures. Unsupported or mismatched scenarios throw `fixtureUnavailable`; the client never manufactures results for arbitrary recordings/sessions. Professional screens show a visible Arabic synthetic-fixture banner, with English only through the specialist/examiner language switch. Future professional result views must include `ScorerFixtureNotice` with the response's `synthetic` flag, including in real mode. No score, referral, service detail or fixture-result renderer is added to child or guardian screens by B5.
+
+Protected calls obtain only the controller's current, server-verified in-memory session. Guardians cannot score; specialist/examiner/admin can use the general endpoints, while Stage 0 requires examiner/admin. Bearer tokens are sent only in the Authorization header to the configured scorer, never on `/health`, in URLs or cookies. Redirects are rejected, API requests use `no-store`, and an auth change during a call discards its response. The client verifies WAV framing, 16 kHz mono 16-bit PCM and 0.3–15-second duration without resampling or altering audio. Metadata is an `application/json` multipart string without a filename; audio uses a fixed non-identifying filename. B6 must obtain valid guardian consent and an authorized session before recording/uploading; B5 does not start sessions.
+
+The runtime performs one non-blocking anonymous `/health` warm-up after a restored or newly server-verified sign-in. Repeated notifications, token refreshes and focus revalidation for the same identity are deduplicated. Sign-out invalidates pending status and aborts the request; a late response cannot revive it. A failed health check never blocks navigation or changes auth state. Readiness/error notices and an explicit retry are professional/admin only; no polling or automatic scoring retry is added. Requests have a 30-second timeout, caller cancellation and a bounded 2 MiB response reader. Errors expose fixed safe categories/status/code, not raw service messages, audio, URLs or tokens. Future callers must catch these errors and use role-appropriate catalogue messages; B6 owns upload-queue retries.
+
+Tests exercise every canonical fixture, all endpoint transports, role restrictions, immutable results, invalid/mismatched responses, malformed WAVs, cancellation, timeouts and sign-in/sign-out races. Intercepted browser HTTP is labelled synthetic testing, not evidence of a live model or genuine Google login. The genuine-provider B4 limitation above remains open independently of B5.
 
 ## Cloudflare Pages and PWA
 

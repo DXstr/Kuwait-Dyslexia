@@ -85,13 +85,13 @@ test('offline support caches only the static shell, never private endpoints', as
   })
   expect(cachedURLs.length).toBeGreaterThan(0)
   expect(cachedURLs.every((url) => new URL(url).origin === new URL(page.url()).origin)).toBe(true)
-  expect(cachedURLs.some((url) => /\/auth\/|\/rest\/|\/storage\/|\/score-item|\/reports\/|\/audio\//.test(url))).toBe(false)
+  expect(cachedURLs.some((url) => /\/auth\/|\/rest\/|\/storage\/|\/health|\/score-item|\/reports\/|\/audio\//.test(url))).toBe(false)
   await context.setOffline(true)
   await page.reload()
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(ar.welcomeTitle)
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl')
   // A navigation to a private endpoint must fail offline, not return cached HTML.
-  for (const path of ['/auth/v1/token', '/rest/v1/children', '/storage/v1/object/audio', '/score-item?item=1', '/reports/private.pdf']) {
+  for (const path of ['/health', '/auth/v1/token', '/rest/v1/children', '/storage/v1/object/audio', '/score-item?item=1', '/reports/private.pdf']) {
     const privatePage = await context.newPage()
     await expect(privatePage.goto(path)).rejects.toThrow(/ERR_INTERNET_DISCONNECTED|ERR_FAILED/)
     await privatePage.close()

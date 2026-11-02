@@ -23,12 +23,17 @@ export default defineConfig({
       testMatch: 'auth.spec.ts',
       use: { ...devices['Desktop Chrome'], viewport: { width: 820, height: 1180 }, baseURL: 'http://127.0.0.1:4174' },
     },
+    {
+      name: 'real-mode-scorer-http',
+      testMatch: 'scorer.spec.ts',
+      use: { ...devices['Desktop Chrome'], viewport: { width: 820, height: 1180 }, baseURL: 'http://127.0.0.1:4175' },
+    },
   ],
   webServer: [
     {
       command: 'npm run build && npm run preview -- --host 127.0.0.1 --port 4173 --strictPort',
       url: 'http://127.0.0.1:4173',
-      env: { VITE_SUPABASE_URL: '', VITE_SUPABASE_ANON_KEY: '' },
+      env: { VITE_SUPABASE_URL: '', VITE_SUPABASE_ANON_KEY: '', VITE_SCORER_MODE: 'mock', VITE_SCORER_URL: '' },
       reuseExistingServer: false,
       timeout: 120_000,
       stdout: 'pipe',
@@ -37,7 +42,16 @@ export default defineConfig({
     {
       command: 'npm run dev -- --host 127.0.0.1 --port 4174 --strictPort',
       url: 'http://127.0.0.1:4174',
-      env: { VITE_SUPABASE_URL: 'http://127.0.0.1:54329', VITE_SUPABASE_ANON_KEY: syntheticAnon },
+      env: { VITE_SUPABASE_URL: 'http://127.0.0.1:54329', VITE_SUPABASE_ANON_KEY: syntheticAnon, VITE_SCORER_MODE: 'mock', VITE_SCORER_URL: 'http://127.0.0.1:54328' },
+      reuseExistingServer: false,
+      timeout: 120_000,
+      stdout: 'pipe',
+      stderr: 'pipe',
+    },
+    {
+      command: 'npm run dev -- --host 127.0.0.1 --port 4175 --strictPort',
+      url: 'http://127.0.0.1:4175',
+      env: { VITE_SUPABASE_URL: 'http://127.0.0.1:54329', VITE_SUPABASE_ANON_KEY: syntheticAnon, VITE_SCORER_MODE: 'real', VITE_SCORER_URL: 'http://127.0.0.1:54328' },
       reuseExistingServer: false,
       timeout: 120_000,
       stdout: 'pipe',

@@ -27,4 +27,5 @@ Read the root `CLAUDE.md` and `docs/briefs/B-app.md` first.
 
 Never edit `src/contracts/basira.ts` by hand. Schema changes require a separate contracts PR; regenerate after it merges.
 Auth uses the official Supabase SDK, server-verified identity and profile-backed roles. Never trust cached metadata/URL roles or add a production mock-login/role picker. Public frontend configuration is validated before build; provider secrets belong only in the local repository-root `.env` or hosted Auth settings, never `VITE_*`. No genuine provider sign-in may be claimed from mocked transport tests.
-See `README.md` for auth setup, fail-closed role routing, PWA cache boundaries and unfinished integrations.
+Scorer requests use `src/scorer/`, `VITE_SCORER_MODE=mock|real` and canonical `VITE_SCORER_URL`; no real-to-mock fallback. Keep response JSON unchanged and validate it against the directly imported canonical schema. Fixture outputs keep their original IDs and `synthetic=true`; unknown scenarios throw rather than fabricate data. Include `ScorerFixtureNotice` with each professional result's synthetic flag, never render raw scorer data to children/guardians, and obtain recorded consent before B6 starts a session.
+See `README.md` for auth/scorer setup, fail-closed role routing, PWA cache boundaries and unfinished integrations.
