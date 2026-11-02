@@ -3,18 +3,27 @@ import userEvent from '@testing-library/user-event'
 import { createMemoryRouter, RouterProvider } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 import { AppRoutes } from './App'
+import { AuthProvider } from './auth/AuthProvider'
+import type { AuthSnapshot } from './auth/controller'
 import { ar, en } from './i18n/messages'
 import type { MessageKey } from './i18n/messages'
 import { roleHome } from './routing/roles'
 import type { AppRole } from './routing/roles'
+import { createTestAuth } from './test/auth'
 
-function renderApp(path = '/', role: AppRole | null = null) {
+function renderAuth(path: string, fixture: ReturnType<typeof createTestAuth>) {
   const router = createMemoryRouter(
-    [{ path: '*', element: <AppRoutes role={role} /> }],
+    [{ path: '*', element: <AppRoutes /> }],
     { initialEntries: [path] },
   )
-  render(<RouterProvider router={router} />)
+  render(<AuthProvider controller={fixture.controller}><RouterProvider router={router} /></AuthProvider>)
   return router
+}
+
+function renderApp(path = '/', role: AppRole | null = null) {
+  return renderAuth(path, createTestAuth({
+    status: role ? 'signedIn' : 'unconfigured', role, issue: role ? null : 'configuration',
+  }))
 }
 
 const workspaces: { role: AppRole; title: MessageKey }[] = [
@@ -27,7 +36,7 @@ const workspaces: { role: AppRole; title: MessageKey }[] = [
 const paths = ['/guardian', '/specialist', '/examiner', '/admin', '/child']
 
 describe('Arabic-first scaffold', () => {
-  it('renders an honest Arabic-only public shell without a pretend sign-in', () => {
+  it('renders Arabic sign-in controls that stay disabled without configuration', () => {
     renderApp()
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(ar.welcomeTitle)
     expect(screen.getByText(ar.scaffoldBadge)).toBeVisible()
@@ -35,7 +44,9 @@ describe('Arabic-first scaffold', () => {
     expect(document.documentElement).toHaveAttribute('lang', 'ar')
     expect(document.documentElement).toHaveAttribute('dir', 'rtl')
     expect(document.title).toBe(ar.appTitle)
-    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: ar.authGoogle })).toBeDisabled()
+    expect(screen.queryByRole('button', { name: /Microsoft|مايكروسوفت/i })).not.toBeInTheDocument()
+    expect(screen.getByRole('alert')).toHaveTextContent(ar.authConfiguration)
     expect(screen.getByRole('link', { name: ar.skipToContent })).toHaveAttribute('href', '#main-content')
   })
 
@@ -100,7 +111,8 @@ describe('professional-only English catalogue', () => {
 
   it.each(['guardian', 'admin'] as const)('does not offer an English switch to %s', (role) => {
     renderApp(roleHome[role], role)
-    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: ar.languageSwitch })).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: ar.authSignOut })).toBeVisible()
     expect(document.documentElement).toHaveAttribute('lang', 'ar')
   })
 
@@ -123,7 +135,70 @@ describe('professional-only English catalogue', () => {
 
   it('does not offer English on an unauthorized professional route', () => {
     renderApp('/specialist', 'examiner')
-    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: ar.languageSwitch })).not.toBeInTheDocument()
     expect(document.documentElement).toHaveAttribute('lang', 'ar')
+  })
+})
+
+describe('Supabase auth UI boundary (in-memory component fixtures only)', () => {
+  it('offers only Google and does not offer role selection', async () => {
+    const fixture = createTestAuth({ status: 'signedOut', role: null, issue: null })
+    renderAuth('/', fixture)
+    const user = userEvent.setup()
+    await user.click(screen.getByRole('button', { name: ar.authGoogle }))
+    expect(fixture.controller.signIn).toHaveBeenCalledExactlyOnceWith('google')
+    expect(screen.queryByRole('button', { name: /Microsoft|مايكروسوفت/i })).not.toBeInTheDocument()
+    expect(screen.queryByRole('combobox')).not.toBeInTheDocument()
+    expect(screen.queryByRole('textbox')).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: ar.languageSwitch })).not.toBeInTheDocument()
+  })
+
+  it('does not render a protected workspace while identity verification is pending', () => {
+    const fixture = createTestAuth({ status: 'loading', role: null, issue: null })
+    const router = renderAuth('/specialist', fixture)
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(ar.authLoadingTitle)
+    expect(screen.queryByRole('navigation')).not.toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/specialist')
+    act(() => fixture.update({ status: 'signedIn', role: 'specialist', issue: null }))
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(ar.specialistTitle)
+  })
+
+  it('removes the workspace and English preference immediately on auth failure', async () => {
+    const fixture = createTestAuth({ status: 'signedIn', role: 'specialist', issue: null })
+    renderAuth('/specialist', fixture)
+    await userEvent.setup().click(screen.getByRole('button', { name: ar.languageSwitch }))
+    expect(document.documentElement).toHaveAttribute('lang', 'en')
+    act(() => fixture.update({ status: 'error', role: null, issue: 'unavailable' }))
+    expect(await screen.findByRole('alert')).toHaveTextContent(ar.authUnavailable)
+    expect(screen.queryByRole('navigation')).not.toBeInTheDocument()
+    expect(document.documentElement).toHaveAttribute('lang', 'ar')
+    expect(document.documentElement).toHaveAttribute('dir', 'rtl')
+  })
+
+  it('routes a verified callback only by server-backed role, never next or role parameters', async () => {
+    const fixture = createTestAuth({ status: 'signedIn', role: 'guardian', issue: null })
+    const router = renderAuth('/auth/callback?next=https://evil.invalid&role=admin', fixture)
+    expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent(ar.guardianTitle)
+    expect(router.state.location.pathname).toBe('/guardian')
+  })
+
+  it.each(['callback', 'session', 'profile', 'role', 'signIn', 'signOut', 'unavailable'] as const)(
+    'surfaces a safe Arabic %s issue with an explicit retry', async (issue) => {
+      const snapshot: AuthSnapshot = { status: 'error', role: null, issue }
+      const fixture = createTestAuth(snapshot)
+      renderAuth('/auth/callback', fixture)
+      expect(screen.getByRole('alert')).toBeVisible()
+      expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(ar.authCallbackTitle)
+      await userEvent.setup().click(screen.getByRole('button', { name: ar.authRetry }))
+      expect(fixture.controller.retry).toHaveBeenCalledOnce()
+      expect(document.documentElement).toHaveAttribute('dir', 'rtl')
+    },
+  )
+
+  it('supports adult signout without adding controls to the child screen', async () => {
+    const fixture = createTestAuth({ status: 'signedIn', role: 'guardian', issue: null })
+    renderAuth('/guardian', fixture)
+    await userEvent.setup().click(screen.getByRole('button', { name: ar.authSignOut }))
+    expect(fixture.controller.signOut).toHaveBeenCalledOnce()
   })
 })

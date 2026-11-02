@@ -5,6 +5,7 @@ Newest first.
 
 | Date | Decision | Why | By | ADR |
 | --- | --- | --- | --- | --- |
+| 2026-11-02 | B4 uses Google-only sign-in through Supabase Auth; remove Microsoft from the app UI and local provider configuration | Mahmoud explicitly reduced B4 scope to Google only. Supersedes the original two-provider wording; no change to role verification, consent/approval gates, Arabic-first UI or standalone hosting. Genuine Google sign-in with applied roles is still required before completion. | Mahmoud (approved); Ayman (review pending) | — |
 | 2026-11-02 | Teach uses pre-recorded, specialist-approved Arabic voice prompts (gender-neutral "let us" form) chosen from the scorer result; no live voice agent | Interactive feel without child audio reaching an LLM, without unreviewed sentences, at $0 | Ayman (proposed), Mahmoud (to approve) | ADR-003 |
 | 2026-11-01 | Arabic first: every screen defaults to Arabic; child screens and parent PDF Arabic only; English only as a specialist/examiner switch | Children learn to read Arabic; English switch lets English-speaking judges follow the demo | Ayman | — |
 | 2026-11-01 | Branches named by task code (`feat/a1-...`, `feat/b3-...`); tasks tracked as GitHub issues #1-#26 | Matches the issues and briefs; one issue = one branch = one PR | Ayman | — |

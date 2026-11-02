@@ -1,18 +1,21 @@
 import { expect, test } from '@playwright/test'
 import { ar } from '../src/i18n/messages'
 
-test('Arabic tablet shell loads, self-hosts its font and remains keyboard accessible', async ({ page }) => {
+test('Arabic tablet shell loads, self-hosts its font and remains keyboard accessible', async ({ page }, testInfo) => {
   await page.goto('/')
   await expect(page.locator('html')).toHaveAttribute('lang', 'ar')
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl')
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(ar.welcomeTitle)
   await expect(page.getByText(ar.scaffoldBadge)).toBeVisible()
-  await expect(page.getByRole('button')).toHaveCount(0)
+  await expect(page.getByRole('button', { name: ar.authGoogle })).toBeDisabled()
+  await expect(page.getByRole('button', { name: /Microsoft|مايكروسوفت/i })).toHaveCount(0)
+  await expect(page.getByRole('alert')).toHaveText(ar.authConfiguration)
   await expect(page.locator('.brand-mark')).toHaveJSProperty('complete', true)
   expect(await page.locator('.brand-mark').evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0)
   await page.evaluate(() => document.fonts.ready)
   expect(await page.evaluate(() => document.fonts.check('20px "Noto Naskh Arabic"', 'بِصِيرَةٌ'))).toBe(true)
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+  await page.screenshot({ path: testInfo.outputPath('unconfigured-tablet.png'), fullPage: true })
   await page.keyboard.press('Tab')
   await expect(page.getByRole('link', { name: ar.skipToContent })).toBeFocused()
   await page.keyboard.press('Enter')
@@ -32,6 +35,15 @@ test('small screens do not overflow', async ({ page }) => {
   await page.setViewportSize({ width: 360, height: 800 })
   await page.goto('/')
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+})
+
+test('unconfigured callbacks still remove codes, errors and untrusted destinations from the URL', async ({ page }) => {
+  await page.goto('/auth/callback?code=synthetic-test-code&next=https://evil.invalid#access_token=synthetic-test-token')
+  await expect(page).toHaveURL(/\/auth\/callback$/)
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(ar.authCallbackTitle)
+  await expect(page.getByRole('alert')).toHaveText(ar.authConfiguration)
+  await expect(page.getByRole('button', { name: ar.authGoogle })).toBeDisabled()
+  await expect(page.getByText('synthetic-test-token')).toHaveCount(0)
 })
 
 test('ships Arabic install metadata and real icon assets', async ({ page, request }) => {

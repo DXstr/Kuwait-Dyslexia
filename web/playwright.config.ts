@@ -1,5 +1,9 @@
 import { defineConfig, devices } from '@playwright/test'
 
+// Test-only public key for an intercepted loopback API. No live service accepts
+// this unsigned synthetic key; it is never a production runtime fallback.
+const syntheticAnon = `${Buffer.from('{}').toString('base64url')}.${Buffer.from('{"role":"anon"}').toString('base64url')}.synthetic`
+
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
@@ -7,23 +11,37 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: process.env.CI ? 'github' : 'list',
-  use: {
-    baseURL: 'http://127.0.0.1:4173',
-    trace: 'on-first-retry',
-  },
+  use: { trace: 'on-first-retry' },
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], viewport: { width: 820, height: 1180 } },
+      testMatch: 'scaffold.spec.ts',
+      use: { ...devices['Desktop Chrome'], viewport: { width: 820, height: 1180 }, baseURL: 'http://127.0.0.1:4173' },
+    },
+    {
+      name: 'mocked-auth-sdk',
+      testMatch: 'auth.spec.ts',
+      use: { ...devices['Desktop Chrome'], viewport: { width: 820, height: 1180 }, baseURL: 'http://127.0.0.1:4174' },
     },
   ],
-  webServer: {
-    command:
-      'npm run build && npm run preview -- --host 127.0.0.1 --port 4173 --strictPort',
-    url: 'http://127.0.0.1:4173',
-    reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
-    stdout: 'pipe',
-    stderr: 'pipe',
-  },
+  webServer: [
+    {
+      command: 'npm run build && npm run preview -- --host 127.0.0.1 --port 4173 --strictPort',
+      url: 'http://127.0.0.1:4173',
+      env: { VITE_SUPABASE_URL: '', VITE_SUPABASE_ANON_KEY: '' },
+      reuseExistingServer: false,
+      timeout: 120_000,
+      stdout: 'pipe',
+      stderr: 'pipe',
+    },
+    {
+      command: 'npm run dev -- --host 127.0.0.1 --port 4174 --strictPort',
+      url: 'http://127.0.0.1:4174',
+      env: { VITE_SUPABASE_URL: 'http://127.0.0.1:54329', VITE_SUPABASE_ANON_KEY: syntheticAnon },
+      reuseExistingServer: false,
+      timeout: 120_000,
+      stdout: 'pipe',
+      stderr: 'pipe',
+    },
+  ],
 })

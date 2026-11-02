@@ -11,7 +11,7 @@ Live version: https://claude.ai/artifact/12yjDSeX8pCETkkGuUUwND. Repo copy, upda
      auth + data    │          audio + token   │      JSON results       │ static item bank + audio
                     ▼                          ▼                         │
       ┌──────── Supabase · B ───────┐   ┌──── Scorer · A ────┐   ┌── Content pipeline · A ──┐
-      │ Auth (Google, Microsoft)    │   │ stateless REST     │   │ offline: LLM items,      │
+      │ Auth (Google only)          │   │ stateless REST     │   │ offline: LLM items,      │
       │ Postgres + RLS + triggers   │   │ HF ZeroGPU / Cloud │   │ validators, TTS audio    │
       │ Storage (audio w/ expiry)   │   │ Run / docker       │   │ → content/dist/          │
       └─────────────────────────────┘   └────────────────────┘   └──────────────────────────┘
@@ -36,7 +36,7 @@ credentials. Practice content is built offline and shipped as static files, so t
 
 ## One assessment session
 
-1. Specialist signs in (Google or Microsoft via Supabase Auth); app calls `GET /health` to warm the scorer.
+1. Specialist signs in with Google through Supabase Auth (Google-only scope per the 2026-11-02 decision); app calls `GET /health` to warm the scorer (B5).
 2. App creates the session; a database trigger refuses it without valid consent.
 3. Child reads an item; browser records 16 kHz mono WAV; next item shows immediately.
 4. In the background the app posts audio + `ScoreItemRequestMeta` to `/score-item` with the user's token.

@@ -1,6 +1,29 @@
 # Basira Supabase
 
-B3 supplies the standalone database platform, private Storage policies and a server-only audio-cleanup function. It does **not** provision a hosted project, deploy functions, activate a hosted schedule or implement Google/Microsoft sign-in. OAuth provider integration is B4; web hosting remains Cloudflare Pages. No platform-specific OAuth, storage or database service is required.
+B3 supplies the standalone database platform, private Storage policies and a server-only audio-cleanup function. B4 adds the repository shape for Google sign-in through stock Supabase Auth; it does **not** provision a hosted project, deploy functions or activate a hosted schedule. Web hosting remains Cloudflare Pages. No platform-specific OAuth, storage or database service is required.
+
+## B4 Google OAuth
+
+The local configuration contains an optional Google provider, **disabled by default**. This is intentional: CI and a fresh local stack start without provider credentials, and no placeholder value can create a working login. Email/password, SMS and anonymous sign-in also remain disabled. The existing custom access-token hook remains enabled and derives `app_role` from the trusted `profiles.role` row.
+
+Provider credentials are server-side Auth configuration. From the repository root, copy [`supabase/auth.env.example`](auth.env.example) to the ignored root `.env` and fill only real Google registration values when ready to test. The [CLI reads root `.env` for `config.toml` references](https://supabase.com/docs/guides/local-development/managing-config), **not** `supabase/.env`. `web/.env.local` is reserved for public frontend URLs only; never put these provider values in it, `VITE_*` variables, frontend source, migrations or this repository. The Google provider block uses `env(SUPABASE_AUTH_EXTERNAL_...)` references and must stay `enabled = false` until registration is complete. The separate `.env.example` is for server-side cleanup deployment, not OAuth setup.
+
+Local frontend redirects are an exact allowlist, with no wildcard: `http://localhost:5173/auth/callback` and `http://127.0.0.1:5173/auth/callback`. The local API external URL is explicitly `http://localhost:54321`; this is supported by the pinned Supabase CLI **3.0.0** and must match the registered Google callback.
+
+### Scope status
+
+The decision log records the approved B4 reduction to Google-only sign-in; Ayman's review is still pending. This README records that scope agreement without claiming that B4 is complete: a genuine Google OAuth flow with the database-applied role hook must still be demonstrated.
+
+### Real Google provider registration (local only)
+
+1. Follow the [Supabase Google provider setup](https://supabase.com/docs/guides/auth/social-sign-in/auth-google). Create a web OAuth client, register `http://localhost:54321/auth/v1/callback`, and put its client ID/secret in the two Google variables in the ignored root `.env`. Add `http://localhost:5173` as the authorized JavaScript origin when testing there. Scopes are standard OIDC identity only: `openid email profile`.
+2. Set Google `enabled = true` locally only after both credentials and the callback registration are real. Restart the local stack so Auth reads the environment. The frontend should redirect only to one of the two exact allowlisted port-5173 URLs.
+
+No hosted Supabase project is required to test Google against the local stack. The person signing in must use a browser on the same machine/origin where the frontend and Supabase are running; a different browser/device does not have the PKCE verifier. Actual Google sign-in with the applied role hook must be demonstrated before B4 is complete; mocked transport tests are not a substitute. Current environment blocker: the local backend is this cloud sandbox while My Browser is on the user's computer, so local real OAuth must run both the app and backend on the computer whose browser is used, or use operator-configured reachable first-party development endpoints. This setup has no Manus-managed hosting dependency and must not use ephemeral Manus URLs in documentation or configuration.
+
+OAuth identity alone never provisions `specialist`, `examiner` or `admin`. Every new Auth user receives a `guardian` profile regardless of forged `raw_user_meta_data` role claims. Professional roles require trusted provisioning through the database-admin path; do not assign roles from provider email domains or user metadata. There are no demo OAuth credentials and no seeded account that can sign in.
+
+Hosted deployment is a separate operator action: create the Supabase project, register each production callback with Google, configure the project Auth URL/redirect allowlist and server-side provider secrets in the hosted secret manager, deploy the migrations/functions, and verify the custom hook. No hosted project, hosted credentials or hosted-resource change is represented by this repository configuration.
 
 ## Local setup
 
@@ -81,7 +104,7 @@ See [`functions/audio-cleanup/README.md`](functions/audio-cleanup/README.md) for
 
 ## Demo seed and tests
 
-The seed contains six `.invalid` identities without passwords and two `is_demo = true` children. Every profile/child name includes `(ملف تجريبي)`. There are no seed consents, sessions, signatures, scores, audio or real child data. Seed accounts cannot sign in; B4's real Google/Microsoft integration is not replaced by a demo login.
+The seed contains six `.invalid` identities without passwords and two `is_demo = true` children. Every profile/child name includes `(ملف تجريبي)`. There are no seed consents, sessions, signatures, scores, audio or real child data. Seed accounts cannot sign in; B4's real Google integration is not replaced by a demo login.
 
 `test:db` runs adversarial pgTAP tests for role isolation, cross-family access, consent bypasses, approval states, attribution, raw evidence, canonical references, auditing, Storage policies, retention and scheduler secrecy. `test:unit` covers cleanup failures/authentication/batch limits, deterministic contract generation and local-only environment preparation. `test:integration` uploads a silent synthetic WAV, proves its bytes are deleted before pointer acknowledgement, preserves canonical synthetic scorer JSON, checks canonical report validation and SQL-to-handler HMAC compatibility, exercises approved-PDF HTTP update/upsert/copy/move/delete denial, and authenticates the actual Deno entrypoint. It mints short-lived **localhost test JWTs** from the disposable stack key; this is not an application sign-in flow.
 
