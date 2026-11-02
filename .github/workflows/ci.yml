@@ -72,3 +72,43 @@ jobs:
       - name: End-to-end tests
         working-directory: web
         run: npm run test:e2e
+
+  database:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: supabase/package-lock.json
+      - name: Install dependencies
+        working-directory: supabase
+        run: npm ci
+      - name: Check generated contracts and TypeScript
+        working-directory: supabase
+        run: npm run typecheck
+      - name: Install PostgreSQL client for local integration tests
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - name: Start Supabase local stack
+        working-directory: supabase
+        run: npm start
+      - name: Reset local database with seed
+        working-directory: supabase
+        run: npm run reset
+      - name: Run pgTAP database tests
+        working-directory: supabase
+        run: npm run test:db
+      - name: Lint database functions
+        working-directory: supabase
+        run: npx supabase db lint --local --level error --workdir ..
+      - name: Run database tooling and cleanup unit tests
+        working-directory: supabase
+        run: npm run test:unit
+      - name: Test live Storage deletion and approval policies
+        working-directory: supabase
+        run: npm run test:integration
+      - name: Stop Supabase local stack
+        if: ${{ always() }}
+        working-directory: supabase
+        run: npm run stop

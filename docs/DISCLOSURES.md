@@ -36,3 +36,16 @@ Required by the competition and by non-negotiable 10. Add a row in the same PR t
 | eslint-plugin-react-hooks, eslint-plugin-react-refresh | React lint rules (dev only) | MIT | B1 | 2026-11-02 |
 | @types/node, @types/react, @types/react-dom | Type declarations (dev only) | MIT | B1 | 2026-11-02 |
 | json-schema-to-typescript 16.0.0 | Generates web contract types from the canonical JSON Schema; read-only drift checks (dev/CI only) | [MIT](https://github.com/bcherny/json-schema-to-typescript/blob/master/LICENSE) | B2 | 2026-11-02 |
+| Supabase CLI 3.0.0 | Pinned local/CI stack and migration/test commands; service versions in `supabase/supabase.lock` | [MIT](https://github.com/supabase/cli/blob/develop/LICENSE) | B3 | 2026-11-02 |
+| pg_jsonschema | Database validation of parent-facing JSON using generated canonical `ParentReport` schema | [Apache-2.0](https://github.com/supabase/pg_jsonschema/blob/master/LICENSE) | B3 | 2026-11-02 |
+| pgTAP | Adversarial database policy/trigger tests (dev/CI only) | [PostgreSQL](https://github.com/theory/pgtap#copyright-and-license) | B3 | 2026-11-02 |
+| pg_cron | Supabase-native five-minute audio cleanup scheduling; activation requires deployment configuration | [PostgreSQL](https://github.com/citusdata/pg_cron/blob/main/LICENSE) | B3 | 2026-11-02 |
+| pg_net | Supabase-native HTTP invocation of the cleanup function | [Apache-2.0](https://github.com/supabase/pg_net/blob/master/LICENSE) | B3 | 2026-11-02 |
+| Supabase Vault | Server-only encrypted cleanup scheduling secret | [Apache-2.0](https://github.com/supabase/vault/blob/main/LICENSE) | B3 | 2026-11-02 |
+| Supabase Edge Runtime, Deno | Server-only cleanup function using Fetch/Web Crypto; no third-party JavaScript runtime dependencies | [MIT](https://github.com/supabase/edge-runtime/blob/main/LICENSE), [MIT](https://github.com/denoland/deno/blob/main/LICENSE.md) | B3 | 2026-11-02 |
+| pgcrypto | PostgreSQL HMAC-SHA256 for short-lived cleanup scheduler signatures; long-lived secret remains in Vault | [PostgreSQL](https://www.postgresql.org/about/licence/) | B3 | 2026-11-02 |
+| typescript 6.0.3, @types/node 26.6.6 | Strict checking of database cleanup/tooling/tests (dev/CI only), matching the existing web toolchain | Apache-2.0, MIT | B3 | 2026-11-02 |
+| Supabase Auth (GoTrue) | Standard backend authentication service; Google/Microsoft integration remains B4 | [MIT](https://github.com/supabase/auth/blob/master/LICENSE) | B3 | 2026-11-02 |
+| Supabase Storage | Private audio/PDF objects and API-based deletion | [Apache-2.0](https://github.com/supabase/storage/blob/master/LICENSE) | B3 | 2026-11-02 |
+| PostgREST | Standard Supabase Data API with PostgreSQL RLS | [MIT](https://github.com/PostgREST/postgrest/blob/main/LICENSE) | B3 | 2026-11-02 |
+| PostgreSQL | Canonical relational data, transactions, roles and audit/approval triggers | [PostgreSQL](https://www.postgresql.org/about/licence/) | B3 | 2026-11-02 |
