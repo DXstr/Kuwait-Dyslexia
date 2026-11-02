@@ -1,6 +1,26 @@
 # Basira Supabase
 
-B3 supplies the standalone database platform, private Storage policies and a server-only audio-cleanup function. It does **not** provision a hosted project, deploy functions, activate a hosted schedule or implement Google/Microsoft sign-in. OAuth provider integration is B4; web hosting remains Cloudflare Pages. No platform-specific OAuth, storage or database service is required.
+B3 supplies the standalone database platform, private Storage policies and a server-only audio-cleanup function. B4 adds the repository shape for Google and Microsoft sign-in through stock Supabase Auth; it does **not** provision a hosted project, deploy functions or activate a hosted schedule. Web hosting remains Cloudflare Pages. No platform-specific OAuth, storage or database service is required.
+
+## B4 OAuth providers
+
+The local configuration contains optional Google and Microsoft Entra ID (Azure) providers, both **disabled by default**. This is intentional: CI and a fresh local stack start without provider credentials, and no placeholder value can create a working login. Email/password, SMS and anonymous sign-in also remain disabled. The existing custom access-token hook remains enabled and derives `app_role` from the trusted `profiles.role` row.
+
+Provider credentials are server-side Auth configuration. From the repository root, copy [`supabase/auth.env.example`](auth.env.example) to the ignored root `.env` and fill only real registration values when ready to test a provider. The [CLI reads root `.env` for `config.toml` references](https://supabase.com/docs/guides/local-development/managing-config), **not** `supabase/.env`. Never put these values in `web/.env.local`, `VITE_*` variables, frontend source, migrations or this repository. The two provider blocks use `env(SUPABASE_AUTH_EXTERNAL_...)` references and must stay `enabled = false` until registration is complete. The separate `.env.example` is for server-side cleanup deployment, not OAuth setup.
+
+Local frontend redirects are an exact allowlist, with no wildcard: `http://localhost:5173/auth/callback` and `http://127.0.0.1:5173/auth/callback`. The local API external URL is explicitly `http://localhost:54321`; this is supported by the pinned Supabase CLI **3.0.0** and is required for Microsoft's localhost callback behavior.
+
+### Real provider registration (local only)
+
+1. **Google:** follow the [Supabase Google provider setup](https://supabase.com/docs/guides/auth/social-sign-in/auth-google). Create a web OAuth client, register `http://localhost:54321/auth/v1/callback`, and put its client ID/secret in the two Google variables in the ignored root `.env`. This repository uses `localhost` for **both** providers because `api.external_url` determines Auth's generated callback. Add `http://localhost:5173` as the authorized JavaScript origin when testing there. Scopes are standard OIDC identity only: `openid email profile`.
+2. **Microsoft Entra ID:** follow the [Supabase Microsoft provider setup](https://supabase.com/docs/guides/auth/social-sign-in/auth-azure). Register the web redirect `http://localhost:54321/auth/v1/callback` (not `127.0.0.1`), create a client secret, and put the two Azure values in the ignored root `.env`. This config uses `https://login.microsoftonline.com/common`; choose registration account types consistent with the intended tenant. The frontend requests `email` (not `offline_access`). Configure `xms_edov` as recommended by Supabase; never assign application roles from email domains.
+3. Set the corresponding provider's `enabled = true` locally only after both credentials and the provider callback registration are real. Restart the local stack so Auth reads the environment. The frontend should redirect only to one of the two exact allowlisted port-5173 URLs.
+
+No hosted Supabase project is required to test these real providers against the local stack. The person signing in must use a browser on the same machine/origin where the frontend and Supabase are running; a different browser/device does not have the PKCE verifier. Actual Google and Microsoft sign-ins with applied roles must be demonstrated before B4 is complete; mocked transport tests are not a substitute.
+
+OAuth identity alone never provisions `specialist`, `examiner` or `admin`. Every new Auth user receives a `guardian` profile regardless of forged `raw_user_meta_data` role claims. Professional roles require trusted provisioning through the database-admin path; do not assign roles from provider email domains or user metadata. There are no demo OAuth credentials and no seeded account that can sign in.
+
+Hosted deployment is a separate operator action: create the Supabase project, register each production callback with Google/Entra, configure the project Auth URL/redirect allowlist and server-side provider secrets in the hosted secret manager, deploy the migrations/functions, and verify the custom hook. No hosted project, hosted credentials or hosted-resource change is represented by this repository configuration.
 
 ## Local setup
 

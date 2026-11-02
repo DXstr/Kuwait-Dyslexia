@@ -1,11 +1,17 @@
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 import { defineConfig } from 'vitest/config'
+import { loadEnv } from 'vite'
+import { readAuthConfig } from './src/auth/config.ts'
 import { ar } from './src/i18n/messages.ts'
 
 export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
+    {
+      name: 'browser-safe-auth-configuration',
+      config: () => { readAuthConfig(loadEnv(mode, process.cwd(), 'VITE_')) },
+    },
     {
       name: 'arabic-shell-metadata',
       transformIndexHtml: (html) => html

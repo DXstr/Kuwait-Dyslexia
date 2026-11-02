@@ -49,3 +49,6 @@ Required by the competition and by non-negotiable 10. Add a row in the same PR t
 | Supabase Storage | Private audio/PDF objects and API-based deletion | [Apache-2.0](https://github.com/supabase/storage/blob/master/LICENSE) | B3 | 2026-11-02 |
 | PostgREST | Standard Supabase Data API with PostgreSQL RLS | [MIT](https://github.com/PostgREST/postgrest/blob/main/LICENSE) | B3 | 2026-11-02 |
 | PostgreSQL | Canonical relational data, transactions, roles and audit/approval triggers | [PostgreSQL](https://www.postgresql.org/about/licence/) | B3 | 2026-11-02 |
+| @supabase/supabase-js 2.118.0 | Official browser SDK for Supabase Google/Microsoft PKCE sign-in, server-verified identity and RLS-protected profile lookup | [MIT](https://github.com/supabase/supabase-js/blob/master/LICENSE) | B4 | 2026-11-02 |
+| Google OAuth / OpenID Connect | Adult identity provider through Supabase Auth; activation requires a real registration | [Google APIs Terms of Service](https://developers.google.com/terms) and applicable user-data policies | B4 | 2026-11-02 |
+| Microsoft identity platform (Entra ID / Azure OAuth) | Adult Microsoft identity provider through Supabase Auth; activation requires a real registration | [Microsoft APIs Terms of Use](https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use) and applicable registration/tenant terms | B4 | 2026-11-02 |

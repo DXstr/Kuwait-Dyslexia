@@ -22,8 +22,9 @@ Read the root `CLAUDE.md` and `docs/briefs/B-app.md` first.
 - `npm run typecheck` — check generated-contract drift, then TypeScript.
 - `npm run lint` — ESLint, with warnings treated as failures.
 - `npm test` / `npm run test:watch` — Vitest once / watch mode.
-- `npx playwright install chromium && npm run test:e2e` — browser smoke tests against the production build.
+- `npx playwright install chromium && npm run test:e2e` — production/PWA smoke tests plus an isolated mocked-HTTP SDK flow project (not genuine OAuth).
 - `npm run build` / `npm run preview` — static `dist/` for Cloudflare Pages / local production preview.
 
 Never edit `src/contracts/basira.ts` by hand. Schema changes require a separate contracts PR; regenerate after it merges.
-See `README.md` for the fail-closed role seam, PWA cache boundaries and unfinished integrations.
+Auth uses the official Supabase SDK, server-verified identity and profile-backed roles. Never trust cached metadata/URL roles or add a production mock-login/role picker. Public frontend configuration is validated before build; provider secrets belong only in the local repository-root `.env` or hosted Auth settings, never `VITE_*`. No genuine provider sign-in may be claimed from mocked transport tests.
+See `README.md` for auth setup, fail-closed role routing, PWA cache boundaries and unfinished integrations.
