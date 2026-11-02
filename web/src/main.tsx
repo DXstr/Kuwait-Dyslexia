@@ -9,6 +9,8 @@ import { AuthProvider } from './auth/AuthProvider'
 import { startBrowserAuth } from './auth/runtime'
 import { ScorerProvider } from './scorer/ScorerProvider'
 import { startScorerRuntime } from './scorer/runtime'
+import { AssessmentProvider } from './assessment/AssessmentProvider'
+import { createAssessmentRuntime } from './assessment/runtime'
 import './styles.css'
 
 const root = document.getElementById('root')
@@ -16,15 +18,18 @@ if (!root) throw new Error('Application root element is missing')
 
 const runtime = startBrowserAuth(import.meta.env)
 const scorer = startScorerRuntime(import.meta.env, runtime.controller)
-import.meta.hot?.dispose(() => { scorer.dispose(); runtime.dispose() })
+const assessment = createAssessmentRuntime(runtime.client, runtime.controller, scorer.getClient())
+import.meta.hot?.dispose(() => { assessment.dispose(); scorer.dispose(); runtime.dispose() })
 
 createRoot(root).render(
   <StrictMode>
     <AuthProvider controller={runtime.controller}>
       <ScorerProvider runtime={scorer}>
-        <BrowserRouter>
-          <AppRoutes />
-        </BrowserRouter>
+        <AssessmentProvider runtime={assessment}>
+          <BrowserRouter>
+            <AppRoutes />
+          </BrowserRouter>
+        </AssessmentProvider>
       </ScorerProvider>
     </AuthProvider>
   </StrictMode>,

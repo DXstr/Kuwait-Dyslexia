@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 import type { PublicAuthConfig } from './config'
+import { boundedSupabaseFetch } from './fetch'
 
 export function createAuthClient(config: PublicAuthConfig, storage: Storage) {
   const storageKey = `basira.auth:${config.url}`
@@ -9,6 +10,7 @@ export function createAuthClient(config: PublicAuthConfig, storage: Storage) {
   storage.setItem(probeKey, '1')
   storage.removeItem(probeKey)
   const client = createClient(config.url, config.key, {
+    global: { fetch: boundedSupabaseFetch },
     auth: {
       flowType: 'pkce',
       detectSessionInUrl: false,

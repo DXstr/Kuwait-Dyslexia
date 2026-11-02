@@ -12,6 +12,7 @@ describe('stock Supabase browser client', () => {
   it('uses PKCE with explicit callback handling and tab-local SDK storage', () => {
     createAuthClient(config, sessionStorage)
     expect(createClient).toHaveBeenCalledWith(config.url, config.key, {
+      global: { fetch: expect.any(Function) },
       auth: expect.objectContaining({ flowType: 'pkce', detectSessionInUrl: false, persistSession: true, autoRefreshToken: true, storage: sessionStorage }),
     })
   })
