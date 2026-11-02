@@ -8,8 +8,8 @@ from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, RootModel
 
 
-class BasiraSharedContractsV020(RootModel[Any]):
-    root: Any = Field(..., title='Basira shared contracts v0.2.0')
+class BasiraSharedContractsV030(RootModel[Any]):
+    root: Any = Field(..., title='Basira shared contracts v0.3.0')
     """
     Single source of truth for every payload exchanged between workstream A (ai/, content/) and workstream B (web/, supabase/). Change only through a contracts PR approved by both.
     """
@@ -511,6 +511,154 @@ class PromptBank(BaseModel):
     true: prompt audio is TTS
     """
     prompts: list[PromptClip]
+
+
+class PhoneticReview(BaseModel):
+    """
+    Sign-off by the named linguist / speech-language pathologist (non-negotiable 13)
+    """
+
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    status: Literal['unreviewed', 'approved', 'rejected']
+    reviewer: str | None = None
+    reviewed_on: date | None = None
+
+
+class TongueTip(BaseModel):
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    raise_: float = Field(..., alias='raise', ge=0.0, le=1.0)
+    target: Literal[
+        'rest', 'between_teeth', 'upper_teeth', 'alveolar_ridge', 'postalveolar'
+    ]
+
+
+class TongueDorsum(BaseModel):
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    raise_: float = Field(..., alias='raise', ge=0.0, le=1.0)
+    target: Literal['rest', 'palate', 'velum', 'uvula']
+
+
+class MouthShape(BaseModel):
+    """
+    Parametric mouth targets for the renderer (IDEA: jaw, lip rounding, lip closure, tongue tip, tongue dorsum, pharyngeal constriction). 0 = rest, 1 = maximum. Draft values until reviewed
+    """
+
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    jaw_open: float = Field(..., ge=0.0, le=1.0)
+    lip_closure: float = Field(..., ge=0.0, le=1.0)
+    lip_rounding: float = Field(..., ge=0.0, le=1.0)
+    lower_lip_to_teeth: bool
+    """
+    Labiodental contact (ف)
+    """
+    tongue_tip: TongueTip
+    tongue_dorsum: TongueDorsum
+    pharyngeal_constriction: float = Field(..., ge=0.0, le=1.0)
+    """
+    Pharyngeals ح ع and the emphatic secondary articulation
+    """
+
+
+class PhoneticLetter(BaseModel):
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    letter_id: str
+    """
+    Letter id from taxonomy.json
+    """
+    char: str
+    ipa: str
+    """
+    Must equal the taxonomy IPA
+    """
+    place: Literal[
+        'bilabial',
+        'labiodental',
+        'interdental',
+        'dental_alveolar',
+        'alveolar',
+        'postalveolar',
+        'palatal',
+        'labial_velar',
+        'velar',
+        'uvular',
+        'pharyngeal',
+        'glottal',
+    ]
+    manner: Literal[
+        'stop', 'fricative', 'affricate', 'nasal', 'trill', 'lateral', 'approximant'
+    ]
+    voiced: bool
+    emphatic: bool
+    """
+    Must equal the taxonomy flag; emphatics add pharyngeal constriction
+    """
+    mouth: MouthShape
+    cue_ar: str
+    """
+    Fully vowelled, gender-neutral (first-person plural) articulation cue; shown to a child only after approval
+    """
+    note_en: str
+    """
+    Rendering note for the specialist view and reviewers
+    """
+    sources: list[str] = Field(..., min_length=1)
+    review: PhoneticReview
+
+
+class VowelModifier(BaseModel):
+    """
+    Vowels and sukun/shadda modify the consonant shape (IDEA: 28 letters x each vowel modifier)
+    """
+
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    vowel_id: str
+    """
+    Short-vowel id from taxonomy.json, or a long vowel: fatha_long, kasra_long, damma_long
+    """
+    ipa: str | None = None
+    jaw_open: float | None = Field(..., ge=0.0, le=1.0)
+    """
+    null: keep the consonant's value
+    """
+    lip_rounding: float | None = Field(..., ge=0.0, le=1.0)
+    lip_spread: float | None = Field(..., ge=0.0, le=1.0)
+    tongue_body: Literal['front', 'central', 'back'] | None = None
+    """
+    null: keep the consonant's tongue
+    """
+    duration_factor: float = Field(..., gt=0.0)
+    """
+    Hold time relative to a short vowel (shadda doubles the consonant)
+    """
+    note_en: str
+    review: PhoneticReview
+
+
+class PhoneticInventory(BaseModel):
+    """
+    Drives the mouth-shape generator (IDEA: Mouth-shape generator). Data: contracts/phonetic-inventory.json
+    """
+
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    version: str
+    status: str
+    sources: list[str] = Field(..., min_length=1)
+    letters: list[PhoneticLetter]
+    vowel_modifiers: list[VowelModifier]
 
 
 class PractisedItem(BaseModel):

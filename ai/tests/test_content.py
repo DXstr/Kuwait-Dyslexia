@@ -38,7 +38,8 @@ def test_strip_diacritics():
 
 
 @pytest.mark.parametrize(
-    "word", ["كِتَاب", "الشَّمْس", "الْقَمَر", "مَدْرَسَة", "عُصْفُورًا", "إِلَى", "مُسْتَشْفَى", "فِيهِ", "نُور", "قَلَم"]
+    "word",
+    ["كِتَاب", "الشَّمْس", "الْقَمَر", "مَدْرَسَة", "عُصْفُورًا", "إِلَى", "مُسْتَشْفَى", "فِيهِ", "نُور", "قَلَم", "وَالِد"],
 )
 def test_fully_vowelled_words_pass(word):
     assert arabic.undiacritized_letters(word, REF.taxonomy) == []
@@ -53,6 +54,8 @@ def test_fully_vowelled_words_pass(word):
         "قَلّم",  # shadda without a vowel mid-word
         "بِال",  # article alif not word-initial
         "َب",  # stray mark
+        "وَالْبَيْت",  # proclitic + article: read in isolation it would be a long "aa"
+        "كَالصَّفِير",  # same, before a sun letter
     ],
 )
 def test_missing_vowels_are_caught(word):

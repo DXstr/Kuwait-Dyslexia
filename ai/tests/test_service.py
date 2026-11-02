@@ -88,7 +88,7 @@ def post(client, auth=None, audio=None, meta=META):
 
 def test_health_needs_no_auth_and_matches_contract(client):
     r = client.get("/health")
-    assert r.status_code == 200 and r.json()["status"] == "ok" and r.json()["contracts_version"] == "0.2.0"
+    assert r.status_code == 200 and r.json()["status"] == "ok" and r.json()["contracts_version"] == "0.3.0"
     assert valid("Health", r.json()) == []
 
 

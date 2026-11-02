@@ -1,0 +1,1083 @@
+{
+  "version": "0.1.0",
+  "status": "DRAFT - every row unreviewed; mouth values are approximate until a linguist/SLP signs off (non-negotiable 13)",
+  "sources": [
+    "Watson, J. (2002) The Phonology and Morphology of Arabic. Oxford University Press."
+  ],
+  "letters": [
+    {
+      "letter_id": "alif",
+      "char": "ا",
+      "ipa": "ʔ",
+      "place": "glottal",
+      "manner": "stop",
+      "voiced": false,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.35,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نُغْلِقُ الْحَلْقَ لَحْظَةً ثُمَّ نَفْتَحُهُ",
+      "note_en": "Hamza: glottal stop; the mouth stays neutral, closure is in the larynx (show on the sagittal view).",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "baa",
+      "char": "ب",
+      "ipa": "b",
+      "place": "bilabial",
+      "manner": "stop",
+      "voiced": true,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.15,
+        "lip_closure": 1.0,
+        "lip_rounding": 0.1,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نُطْبِقُ شَفَتَيْنَا ثُمَّ نَفْتَحُهُمَا",
+      "note_en": "Full lip closure, then release.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "taa",
+      "char": "ت",
+      "ipa": "t",
+      "place": "dental_alveolar",
+      "manner": "stop",
+      "voiced": false,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.2,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 1.0,
+          "target": "upper_teeth"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نَلْمِسُ خَلْفَ الْأَسْنَانِ الْعُلْيَا بِطَرَفِ اللِّسَانِ",
+      "note_en": "Tongue tip closure behind the upper teeth; voiceless.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "thaa",
+      "char": "ث",
+      "ipa": "θ",
+      "place": "interdental",
+      "manner": "fricative",
+      "voiced": false,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.25,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.6,
+          "target": "between_teeth"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نُخْرِجُ طَرَفَ اللِّسَانِ قَلِيلًا بَيْنَ الْأَسْنَانِ",
+      "note_en": "Tongue tip visible between the teeth; voiceless airflow.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "jiim",
+      "char": "ج",
+      "ipa": "dʒ",
+      "place": "postalveolar",
+      "manner": "affricate",
+      "voiced": true,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.2,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.3,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.9,
+          "target": "postalveolar"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نَرْفَعُ اللِّسَانَ إِلَى سَقْفِ الْفَمِ ثُمَّ نُطْلِقُهُ",
+      "note_en": "MSA [dʒ]: closure behind the alveolar ridge released into friction. Kuwaiti speakers may say [j] (dialect variant, never an error).",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "hhaa",
+      "char": "ح",
+      "ipa": "ħ",
+      "place": "pharyngeal",
+      "manner": "fricative",
+      "voiced": false,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.4,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.9
+      },
+      "cue_ar": "نَضُمُّ الْحَلْقَ قَلِيلًا وَيَخْرُجُ الْهَوَاءُ دَافِئًا",
+      "note_en": "Pharyngeal constriction; voiceless; mouth open and neutral.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "khaa",
+      "char": "خ",
+      "ipa": "x",
+      "place": "velar",
+      "manner": "fricative",
+      "voiced": false,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.3,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "tongue_dorsum": {
+          "raise": 0.8,
+          "target": "velum"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نَرْفَعُ مُؤَخِّرَةَ اللِّسَانِ وَيَخْرُجُ الْهَوَاءُ بِقُوَّةٍ",
+      "note_en": "Taxonomy IPA x (velar); often described as uvular [χ]: reviewer to confirm place against Watson (2002).",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "daal",
+      "char": "د",
+      "ipa": "d",
+      "place": "dental_alveolar",
+      "manner": "stop",
+      "voiced": true,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.2,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 1.0,
+          "target": "upper_teeth"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نَلْمِسُ خَلْفَ الْأَسْنَانِ الْعُلْيَا بِطَرَفِ اللِّسَانِ وَنُصْدِرُ صَوْتًا",
+      "note_en": "As ت but voiced.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "dhaal",
+      "char": "ذ",
+      "ipa": "ð",
+      "place": "interdental",
+      "manner": "fricative",
+      "voiced": true,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.25,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.6,
+          "target": "between_teeth"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نُخْرِجُ طَرَفَ اللِّسَانِ بَيْنَ الْأَسْنَانِ وَنُصْدِرُ صَوْتًا",
+      "note_en": "As ث but voiced.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "raa",
+      "char": "ر",
+      "ipa": "r",
+      "place": "alveolar",
+      "manner": "trill",
+      "voiced": true,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.25,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.8,
+          "target": "alveolar_ridge"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نَهُزُّ طَرَفَ اللِّسَانِ خَلْفَ الْأَسْنَانِ",
+      "note_en": "Trill or tap at the alveolar ridge; animate a short tongue-tip vibration.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "zaay",
+      "char": "ز",
+      "ipa": "z",
+      "place": "alveolar",
+      "manner": "fricative",
+      "voiced": true,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.15,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.7,
+          "target": "alveolar_ridge"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نُقَرِّبُ طَرَفَ اللِّسَانِ مِنَ الْأَسْنَانِ وَيَخْرُجُ صَوْتٌ كَطَنِينِ النَّحْلَةِ",
+      "note_en": "As س but voiced (buzz).",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "siin",
+      "char": "س",
+      "ipa": "s",
+      "place": "alveolar",
+      "manner": "fricative",
+      "voiced": false,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.15,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.7,
+          "target": "alveolar_ridge"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نُقَرِّبُ طَرَفَ اللِّسَانِ مِنَ الْأَسْنَانِ وَيَخْرُجُ الْهَوَاءُ بِصَفِيرٍ",
+      "note_en": "Narrow groove at the alveolar ridge, teeth nearly closed; voiceless hiss.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "shiin",
+      "char": "ش",
+      "ipa": "ʃ",
+      "place": "postalveolar",
+      "manner": "fricative",
+      "voiced": false,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.15,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.4,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.7,
+          "target": "postalveolar"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نَدْفَعُ شَفَتَيْنَا قَلِيلًا إِلَى الْأَمَامِ وَيَخْرُجُ الْهَوَاءُ",
+      "note_en": "Wider channel behind the ridge, lips slightly protruded; voiceless.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "saad",
+      "char": "ص",
+      "ipa": "sˤ",
+      "place": "alveolar",
+      "manner": "fricative",
+      "voiced": false,
+      "emphatic": true,
+      "mouth": {
+        "jaw_open": 0.3,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.7,
+          "target": "alveolar_ridge"
+        },
+        "tongue_dorsum": {
+          "raise": 0.5,
+          "target": "uvula"
+        },
+        "pharyngeal_constriction": 0.6
+      },
+      "cue_ar": "نُقَرِّبُ طَرَفَ اللِّسَانِ مِنَ الْأَسْنَانِ وَنُفَخِّمُ الصَّوْتَ",
+      "note_en": "Emphatic س: same tip, plus tongue-root retraction (pharyngeal constriction) and raised back of the tongue.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "daad",
+      "char": "ض",
+      "ipa": "dˤ",
+      "place": "dental_alveolar",
+      "manner": "stop",
+      "voiced": true,
+      "emphatic": true,
+      "mouth": {
+        "jaw_open": 0.3,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 1.0,
+          "target": "upper_teeth"
+        },
+        "tongue_dorsum": {
+          "raise": 0.5,
+          "target": "uvula"
+        },
+        "pharyngeal_constriction": 0.6
+      },
+      "cue_ar": "نَلْمِسُ خَلْفَ الْأَسْنَانِ الْعُلْيَا بِطَرَفِ اللِّسَانِ وَنُفَخِّمُ الصَّوْتَ",
+      "note_en": "Emphatic د (MSA voiced stop); same tip as د plus emphatic secondary articulation.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "ttaa",
+      "char": "ط",
+      "ipa": "tˤ",
+      "place": "dental_alveolar",
+      "manner": "stop",
+      "voiced": false,
+      "emphatic": true,
+      "mouth": {
+        "jaw_open": 0.3,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 1.0,
+          "target": "upper_teeth"
+        },
+        "tongue_dorsum": {
+          "raise": 0.5,
+          "target": "uvula"
+        },
+        "pharyngeal_constriction": 0.6
+      },
+      "cue_ar": "نَلْمِسُ خَلْفَ الْأَسْنَانِ الْعُلْيَا بِطَرَفِ اللِّسَانِ وَنُفَخِّمُ الصَّوْتَ",
+      "note_en": "Emphatic ت (voiceless in MSA); same tip as ت plus emphatic secondary articulation.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "zhaa",
+      "char": "ظ",
+      "ipa": "ðˤ",
+      "place": "interdental",
+      "manner": "fricative",
+      "voiced": true,
+      "emphatic": true,
+      "mouth": {
+        "jaw_open": 0.3,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.6,
+          "target": "between_teeth"
+        },
+        "tongue_dorsum": {
+          "raise": 0.5,
+          "target": "uvula"
+        },
+        "pharyngeal_constriction": 0.6
+      },
+      "cue_ar": "نُخْرِجُ طَرَفَ اللِّسَانِ بَيْنَ الْأَسْنَانِ وَنُفَخِّمُ الصَّوْتَ",
+      "note_en": "Emphatic ذ; tongue tip between the teeth plus emphatic secondary articulation.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "ayn",
+      "char": "ع",
+      "ipa": "ʕ",
+      "place": "pharyngeal",
+      "manner": "fricative",
+      "voiced": true,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.4,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.9
+      },
+      "cue_ar": "نَضُمُّ الْحَلْقَ وَنُصْدِرُ صَوْتًا مِنْهُ",
+      "note_en": "Voiced pharyngeal, often realised as an approximant: reviewer to confirm manner.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "ghayn",
+      "char": "غ",
+      "ipa": "ɣ",
+      "place": "velar",
+      "manner": "fricative",
+      "voiced": true,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.3,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "tongue_dorsum": {
+          "raise": 0.8,
+          "target": "velum"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نَرْفَعُ مُؤَخِّرَةَ اللِّسَانِ وَنُصْدِرُ صَوْتًا يُشْبِهُ الْغَرْغَرَةَ",
+      "note_en": "Taxonomy IPA ɣ (velar); often described as uvular [ʁ]: reviewer to confirm.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "faa",
+      "char": "ف",
+      "ipa": "f",
+      "place": "labiodental",
+      "manner": "fricative",
+      "voiced": false,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.15,
+        "lip_closure": 0.3,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": true,
+        "tongue_tip": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نَضَعُ أَسْنَانَنَا الْعُلْيَا عَلَى الشَّفَةِ السُّفْلَى",
+      "note_en": "Upper teeth on the lower lip; voiceless.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "qaaf",
+      "char": "ق",
+      "ipa": "q",
+      "place": "uvular",
+      "manner": "stop",
+      "voiced": false,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.3,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "tongue_dorsum": {
+          "raise": 1.0,
+          "target": "uvula"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نَرْفَعُ أَقْصَى اللِّسَانِ إِلَى أَقْصَى الْفَمِ",
+      "note_en": "MSA [q]; Kuwaiti [g] is a dialect variant, never an error.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "kaaf",
+      "char": "ك",
+      "ipa": "k",
+      "place": "velar",
+      "manner": "stop",
+      "voiced": false,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.25,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "tongue_dorsum": {
+          "raise": 1.0,
+          "target": "velum"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نَرْفَعُ مُؤَخِّرَةَ اللِّسَانِ إِلَى سَقْفِ الْفَمِ",
+      "note_en": "Velar closure, released.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "laam",
+      "char": "ل",
+      "ipa": "l",
+      "place": "alveolar",
+      "manner": "lateral",
+      "voiced": true,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.25,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 1.0,
+          "target": "alveolar_ridge"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نَرْفَعُ طَرَفَ اللِّسَانِ خَلْفَ الْأَسْنَانِ وَيَخْرُجُ الْهَوَاءُ مِنَ الْجَانِبَيْنِ",
+      "note_en": "Tip contact at the ridge, air around the sides.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "miim",
+      "char": "م",
+      "ipa": "m",
+      "place": "bilabial",
+      "manner": "nasal",
+      "voiced": true,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.1,
+        "lip_closure": 1.0,
+        "lip_rounding": 0.1,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نُطْبِقُ شَفَتَيْنَا وَيَخْرُجُ الصَّوْتُ مِنَ الْأَنْفِ",
+      "note_en": "Lip closure held; nasal airflow.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "nuun",
+      "char": "ن",
+      "ipa": "n",
+      "place": "alveolar",
+      "manner": "nasal",
+      "voiced": true,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.2,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 1.0,
+          "target": "alveolar_ridge"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نَرْفَعُ طَرَفَ اللِّسَانِ خَلْفَ الْأَسْنَانِ وَيَخْرُجُ الصَّوْتُ مِنَ الْأَنْفِ",
+      "note_en": "Tip closure at the ridge held; nasal airflow.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "haa",
+      "char": "ه",
+      "ipa": "h",
+      "place": "glottal",
+      "manner": "fricative",
+      "voiced": false,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.4,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "يَخْرُجُ الْهَوَاءُ مِنَ الصَّدْرِ بِلُطْفٍ، وَفَمُنَا مَفْتُوحٌ",
+      "note_en": "Breathy glottal friction; mouth open and neutral.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "waaw",
+      "char": "و",
+      "ipa": "w",
+      "place": "labial_velar",
+      "manner": "approximant",
+      "voiced": true,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.15,
+        "lip_closure": 0.3,
+        "lip_rounding": 0.9,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "tongue_dorsum": {
+          "raise": 0.6,
+          "target": "velum"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نَضُمُّ شَفَتَيْنَا كَأَنَّنَا نَنْفُخُ شَمْعَةً",
+      "note_en": "Rounded lips with raised back of the tongue.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "yaa",
+      "char": "ي",
+      "ipa": "j",
+      "place": "palatal",
+      "manner": "approximant",
+      "voiced": true,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.15,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "tongue_dorsum": {
+          "raise": 0.8,
+          "target": "palate"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نَرْفَعُ وَسَطَ اللِّسَانِ نَحْوَ سَقْفِ الْفَمِ",
+      "note_en": "Front of the tongue body raised towards the hard palate.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    }
+  ],
+  "vowel_modifiers": [
+    {
+      "vowel_id": "fatha",
+      "ipa": "a",
+      "jaw_open": 0.6,
+      "lip_rounding": 0.0,
+      "lip_spread": 0.2,
+      "tongue_body": "central",
+      "duration_factor": 1,
+      "note_en": "Open jaw, neutral lips.",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "vowel_id": "kasra",
+      "ipa": "i",
+      "jaw_open": 0.25,
+      "lip_rounding": 0.0,
+      "lip_spread": 0.7,
+      "tongue_body": "front",
+      "duration_factor": 1,
+      "note_en": "Near-closed jaw, spread lips, front tongue body.",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "vowel_id": "damma",
+      "ipa": "u",
+      "jaw_open": 0.25,
+      "lip_rounding": 0.9,
+      "lip_spread": 0.0,
+      "tongue_body": "back",
+      "duration_factor": 1,
+      "note_en": "Near-closed jaw, rounded lips, back tongue body.",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "vowel_id": "fatha_long",
+      "ipa": "aː",
+      "jaw_open": 0.6,
+      "lip_rounding": 0.0,
+      "lip_spread": 0.2,
+      "tongue_body": "central",
+      "duration_factor": 2,
+      "note_en": "As fatha, held twice as long (alif madd).",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "vowel_id": "kasra_long",
+      "ipa": "iː",
+      "jaw_open": 0.25,
+      "lip_rounding": 0.0,
+      "lip_spread": 0.7,
+      "tongue_body": "front",
+      "duration_factor": 2,
+      "note_en": "As kasra, held twice as long (yaa madd).",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "vowel_id": "damma_long",
+      "ipa": "uː",
+      "jaw_open": 0.25,
+      "lip_rounding": 0.9,
+      "lip_spread": 0.0,
+      "tongue_body": "back",
+      "duration_factor": 2,
+      "note_en": "As damma, held twice as long (waaw madd).",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "vowel_id": "sukun",
+      "ipa": null,
+      "jaw_open": null,
+      "lip_rounding": null,
+      "lip_spread": null,
+      "tongue_body": null,
+      "duration_factor": 1,
+      "note_en": "No vowel: the consonant shape is shown alone.",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "vowel_id": "shadda",
+      "ipa": null,
+      "jaw_open": null,
+      "lip_rounding": null,
+      "lip_spread": null,
+      "tongue_body": null,
+      "duration_factor": 2,
+      "note_en": "Gemination: the consonant shape is held twice as long; combine with the vowel that follows.",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    }
+  ]
+}
