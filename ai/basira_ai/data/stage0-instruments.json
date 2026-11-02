@@ -1,0 +1,70 @@
+{
+  "version": "0.1.0",
+  "status": "DRAFT - no licensed instrument or norm table has been obtained yet; never invent norms (IDEA, Stage 0)",
+  "licence_note": "public_domain here means no third-party licence is needed (a public procedure or Basira-authored task); it does not mean the items are validated.",
+  "instruments": [
+    {
+      "instrument_id": "itpa-ar-azzam-2007",
+      "construct": "itpa",
+      "licence_status": "license_pending",
+      "scoring": "none",
+      "norm_source": null,
+      "note_en": "LICENSE PENDING: ITPA with Arabic norms (candidate: Azzam 2007, Ain Shams; full thesis requested). No score is produced.",
+      "source": "IDEA Stage 0 construct 1"
+    },
+    {
+      "instrument_id": "reversal-houbben-vannuscorps-2022",
+      "construct": "reversal",
+      "licence_status": "license_pending",
+      "scoring": "none",
+      "norm_source": null,
+      "note_en": "LICENSE PENDING: directional/reversal screening after Houbben & Vannuscorps (2022); materials and permission not yet obtained. Supplementary only. No score is produced.",
+      "source": "IDEA Stage 0 construct 2"
+    },
+    {
+      "instrument_id": "nonverbal-raven-spm",
+      "construct": "nonverbal_iq",
+      "licence_status": "license_pending",
+      "scoring": "none",
+      "norm_source": null,
+      "note_en": "LICENSE PENDING: Raven's Progressive Matrices (commercially licensed) with regional norms. Exclusionary use only. No score is produced.",
+      "source": "IDEA Stage 0 construct 3"
+    },
+    {
+      "instrument_id": "visual-agnosia-protocol-tbd",
+      "construct": "visual_agnosia",
+      "licence_status": "license_pending",
+      "scoring": "none",
+      "norm_source": null,
+      "note_en": "LICENSE PENDING: published visual agnosia screening protocol not yet named; a physician must confirm inclusion. No score is produced.",
+      "source": "IDEA Stage 0 construct 4"
+    },
+    {
+      "instrument_id": "dyscalculia-screener-tbd",
+      "construct": "dyscalculia",
+      "licence_status": "license_pending",
+      "scoring": "none",
+      "norm_source": null,
+      "note_en": "LICENSE PENDING: dyscalculia screener not yet selected (IDEA cites a 2025 comorbidity review). No score is produced.",
+      "source": "IDEA Stage 0 construct 5"
+    },
+    {
+      "instrument_id": "pa-basira-v0",
+      "construct": "phonological_awareness",
+      "licence_status": "public_domain",
+      "scoring": "proportion_correct",
+      "norm_source": null,
+      "note_en": "Raw score = proportion of phonological-awareness items correct (rhyme, blending, segmentation, syllables; Basira-authored, unreviewed). No norms exist yet, so no scaled score.",
+      "source": "IDEA Stage 0 construct 6"
+    },
+    {
+      "instrument_id": "fluency-cbm-basira-v0",
+      "construct": "reading_fluency",
+      "licence_status": "public_domain",
+      "scoring": "wcpm",
+      "norm_source": null,
+      "note_en": "Raw score = words correct per minute on timed Basira passages (curriculum-based measurement, Deno 1985). No Arabic age-band WCPM norms are available yet, so no scaled score.",
+      "source": "IDEA Stage 0 construct 7; Deno, S.L. (1985) Curriculum-based measurement: the emerging alternative. Exceptional Children 52(3), 219-232."
+    }
+  ]
+}

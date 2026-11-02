@@ -31,17 +31,25 @@ from fastapi.responses import JSONResponse
 from pydantic import ValidationError
 
 from basira_ai.contracts_gen import ScoreItemRequestMeta
-from basira_ai.contracts_gen.models import FingerprintRequest, FingerprintResponse
+from basira_ai.contracts_gen.models import (
+    FingerprintRequest,
+    FingerprintResponse,
+    Stage0ScoreRequest,
+    Stage0ScoreResponse,
+)
 from basira_ai.fingerprint import fingerprint
 from basira_ai.g2p import G2PError
 from basira_ai.pronunciation import routing
 from basira_ai.reference import contracts_dir, reference_data
+from basira_ai.stage0 import Stage0Error
+from basira_ai.stage0 import score as score_stage0
 from service.auth import AuthError, JWKSResolver, SecretResolver, Verifier
 
 log = logging.getLogger("basira.scorer")
 SAMPLE_RATE = 16_000
 MIN_S, MAX_S = 0.3, 15.0
 SCORING_ROLES = {"specialist", "examiner", "admin"}
+STAGE0_ROLES = {"examiner", "admin"}  # scorer.openapi.yaml: /stage0/score requires examiner or admin
 
 
 class ApiError(Exception):
@@ -233,6 +241,27 @@ def create_app(
         log.info("fingerprint for session %s by %s: %s", body.session_id, claims.get("sub"),
                  result["referral"]["decision"])
         return JSONResponse(FingerprintResponse.model_validate(result).model_dump(mode="json", by_alias=True))
+
+    def examiner_claims(authorization: Annotated[str | None, Header()] = None) -> dict:
+        return auth.require(authorization, STAGE0_ROLES)
+
+    @app.post("/stage0/score")
+    async def stage0_score(
+        request: Request,
+        claims: dict = Depends(examiner_claims),  # noqa: B008 - see /score-item
+    ) -> JSONResponse:
+        limiter.check(str(claims.get("sub", "anonymous")))
+        try:
+            body = Stage0ScoreRequest.model_validate_json(await request.body())
+        except ValidationError as e:
+            raise ApiError(422, "invalid_request", f"body does not match Stage0ScoreRequest: {e.errors()[:3]}") from e
+        try:
+            result = score_stage0(body.model_dump(mode="json", by_alias=True, exclude_none=True))
+        except Stage0Error as e:
+            raise ApiError(422, "invalid_request", str(e)) from e
+        log.info("stage0 %s/%s by %s: %s", result["construct"], body.instrument_id, claims.get("sub"),
+                 result["licence_status"])
+        return JSONResponse(Stage0ScoreResponse.model_validate(result).model_dump(mode="json", by_alias=True))
 
     return app
 
