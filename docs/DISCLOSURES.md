@@ -22,7 +22,9 @@ Required by the competition and by non-negotiable 10. Add a row in the same PR t
 | pytest | Tests (dev only) | MIT | A1 | 2026-11-01 |
 | ruff | Lint (dev only) | MIT | A1 | 2026-11-01 |
 | numpy | Alignment and scoring math in `ai/` (runtime) | BSD-3-Clause | A3 | 2026-11-01 |
-| jsonschema | Contract validation (dev/CI only) | MIT | bootstrap | 2026-11-01 |
+| jsonschema | Contract validation (dev/CI only); also validates the built item bank against `$defs/ItemBank` (content build, offline) | MIT | bootstrap, A11 | 2026-11-02 |
+| Azure AI Speech, text-to-speech (voice `ar-YE-MaryamNeural`, pitch +9%, rate -20%) | Pre-rendered item audio in `content/dist/audio/`, built offline once; every clip is synthetic (`synthetic_audio = true`); no child data is sent | Microsoft Product Terms for Azure AI services (paid/free Azure subscription); no runtime calls from the app | A11 | 2026-11-02 |
+| Claude (Anthropic, `claude-opus-5-5`) | Authored the candidate words, minimal pairs and passages in `content/source/` offline; the prompt held only skill targets and constraints (`content/prompts/candidates.md`); every candidate passes deterministic validators and is shipped `unreviewed` | Anthropic Commercial/Consumer Terms; outputs owned by the user | A11 | 2026-11-02 |
 | react, react-dom | Standalone web UI | MIT | B1 | 2026-11-02 |
 | react-router-dom | Role-based client navigation (not database authorization) | MIT | B1 | 2026-11-02 |
 | @fontsource/noto-naskh-arabic | Self-hosted Arabic/diacritic font; copyright 2022 The Noto Project Authors; licence shipped in `web/public/licenses/` | [OFL-1.1](https://fontsource.org/fonts/noto-naskh-arabic/about) | B1 | 2026-11-02 |

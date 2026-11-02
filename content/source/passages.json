@@ -1,0 +1,47 @@
+{
+  "source": "llm:claude-opus-5-5 (offline, prompt in content/prompts/candidates.md)",
+  "passages": [
+    {
+      "use": "passage_vowelized",
+      "grade_band": "2-3",
+      "text": "ذَهَبَ سَامِي إِلَى الْحَدِيقَةِ. رَأَى شَجَرَةً كَبِيرَةً وَعُصْفُورًا صَغِيرًا. فَرِحَ سَامِي وَجَلَسَ تَحْتَ الشَّجَرَةِ.",
+      "gloss": "Sami went to the garden. He saw a big tree and a small sparrow. Sami was happy and sat under the tree."
+    },
+    {
+      "use": "passage_vowelized",
+      "grade_band": "2-3",
+      "text": "فِي الصَّبَاحِ تُشْرِقُ الشَّمْسُ. تَأْكُلُ مَرْيَمُ الْخُبْزَ وَتَشْرَبُ الْحَلِيبَ، ثُمَّ تَذْهَبُ إِلَى الْمَدْرَسَةِ.",
+      "gloss": "In the morning the sun rises. Maryam eats bread and drinks milk, then goes to school."
+    },
+    {
+      "use": "passage_unvowelized",
+      "grade_band": "2-3",
+      "text": "عِنْدَ جَدِّي بُسْتَانٌ جَمِيلٌ. فِيهِ نَخْلٌ وَتِينٌ وَعِنَبٌ. نَزُورُ جَدِّي كُلَّ يَوْمِ جُمُعَةٍ.",
+      "gloss": "My grandfather has a beautiful orchard. In it are palm trees, figs and grapes. We visit my grandfather every Friday."
+    },
+    {
+      "use": "passage_vowelized",
+      "grade_band": "4-6",
+      "text": "يَعِيشُ الْجَمَلُ فِي الصَّحْرَاءِ. يَصْبِرُ الْجَمَلُ عَلَى الْعَطَشِ أَيَّامًا كَثِيرَةً، وَيَحْمِلُ الْمُسَافِرِينَ مِنْ مَكَانٍ إِلَى مَكَانٍ. وَيُسَمِّيهِ النَّاسُ سَفِينَةَ الصَّحْرَاءِ.",
+      "gloss": "The camel lives in the desert. It endures thirst for many days and carries travellers from place to place. People call it the ship of the desert."
+    },
+    {
+      "use": "passage_unvowelized",
+      "grade_band": "4-6",
+      "text": "تَعِيشُ السَّلَاحِفُ مُدَّةً طَوِيلَةً، وَبَعْضُهَا يَعِيشُ أَكْثَرَ مِنْ مِئَةِ سَنَةٍ. تَحْمِلُ السُّلَحْفَاةُ بَيْتَهَا عَلَى ظَهْرِهَا، وَتَخْتَبِئُ فِيهِ عِنْدَمَا تَشْعُرُ أَنَّهَا فِي خَطَرٍ.",
+      "gloss": "Tortoises live a long time, and some live more than a hundred years. A tortoise carries its house on its back and hides in it when it feels it is in danger."
+    },
+    {
+      "use": "probe_passage",
+      "grade_band": "2-3",
+      "text": "خَرَجَ عُمَرُ مَعَ أَبِيهِ إِلَى السُّوقِ. اِشْتَرَى عُمَرُ تُفَّاحًا وَمَوْزًا، وَحَمَلَ الْكِيسَ إِلَى الْبَيْتِ.",
+      "gloss": "Omar went out with his father to the market. Omar bought apples and bananas, and carried the bag home."
+    },
+    {
+      "use": "probe_passage",
+      "grade_band": "4-6",
+      "text": "يَبْنِي النَّحْلُ بُيُوتَهُ مِنَ الشَّمْعِ، وَيَجْمَعُ الرَّحِيقَ مِنَ الْأَزْهَارِ لِيَصْنَعَ الْعَسَلَ. يَعْمَلُ النَّحْلُ طُولَ النَّهَارِ، وَيَعُودُ إِلَى الْخَلِيَّةِ فِي الْمَسَاءِ.",
+      "gloss": "Bees build their homes from wax and collect nectar from flowers to make honey. Bees work all day long and return to the hive in the evening."
+    }
+  ]
+}

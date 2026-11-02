@@ -1,0 +1,8910 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-11-02T00:00:00Z",
+  "synthetic_audio": true,
+  "items": [
+    {
+      "id": "ls-1bf86f42",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.khaa"
+      ],
+      "grade_band": "2-3",
+      "text": "خَ",
+      "text_plain": "خ",
+      "audio_path": "audio/ls-1bf86f42.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-1d9ced20",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.raa"
+      ],
+      "grade_band": "2-3",
+      "text": "رَ",
+      "text_plain": "ر",
+      "audio_path": "audio/ls-1d9ced20.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-1f6ba06a",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.miim"
+      ],
+      "grade_band": "2-3",
+      "text": "مَ",
+      "text_plain": "م",
+      "audio_path": "audio/ls-1f6ba06a.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-29ccb2d8",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.saad"
+      ],
+      "grade_band": "2-3",
+      "text": "صَ",
+      "text_plain": "ص",
+      "audio_path": "audio/ls-29ccb2d8.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-2d234488",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.haa"
+      ],
+      "grade_band": "2-3",
+      "text": "هَ",
+      "text_plain": "ه",
+      "audio_path": "audio/ls-2d234488.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-30a51dba",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.siin"
+      ],
+      "grade_band": "2-3",
+      "text": "سَ",
+      "text_plain": "س",
+      "audio_path": "audio/ls-30a51dba.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-35672891",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.thaa"
+      ],
+      "grade_band": "2-3",
+      "text": "ثَ",
+      "text_plain": "ث",
+      "audio_path": "audio/ls-35672891.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-39d86d87",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.zhaa"
+      ],
+      "grade_band": "2-3",
+      "text": "ظَ",
+      "text_plain": "ظ",
+      "audio_path": "audio/ls-39d86d87.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-3a8f23ab",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.jiim"
+      ],
+      "grade_band": "2-3",
+      "text": "جَ",
+      "text_plain": "ج",
+      "audio_path": "audio/ls-3a8f23ab.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-4a665061",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.kaaf"
+      ],
+      "grade_band": "2-3",
+      "text": "كَ",
+      "text_plain": "ك",
+      "audio_path": "audio/ls-4a665061.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-59efc7d5",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.daal"
+      ],
+      "grade_band": "2-3",
+      "text": "دَ",
+      "text_plain": "د",
+      "audio_path": "audio/ls-59efc7d5.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-5a784db2",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.alif"
+      ],
+      "grade_band": "2-3",
+      "text": "أَ",
+      "text_plain": "أ",
+      "audio_path": "audio/ls-5a784db2.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-5d8fd22e",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.zaay"
+      ],
+      "grade_band": "2-3",
+      "text": "زَ",
+      "text_plain": "ز",
+      "audio_path": "audio/ls-5d8fd22e.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-65c345b2",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.shiin"
+      ],
+      "grade_band": "2-3",
+      "text": "شَ",
+      "text_plain": "ش",
+      "audio_path": "audio/ls-65c345b2.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-6c6174c0",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.daad"
+      ],
+      "grade_band": "2-3",
+      "text": "ضَ",
+      "text_plain": "ض",
+      "audio_path": "audio/ls-6c6174c0.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-6f32cb53",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.faa"
+      ],
+      "grade_band": "2-3",
+      "text": "فَ",
+      "text_plain": "ف",
+      "audio_path": "audio/ls-6f32cb53.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-7ab8af74",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.ttaa"
+      ],
+      "grade_band": "2-3",
+      "text": "طَ",
+      "text_plain": "ط",
+      "audio_path": "audio/ls-7ab8af74.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-87457aca",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.taa"
+      ],
+      "grade_band": "2-3",
+      "text": "تَ",
+      "text_plain": "ت",
+      "audio_path": "audio/ls-87457aca.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-87c73163",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.ghayn"
+      ],
+      "grade_band": "2-3",
+      "text": "غَ",
+      "text_plain": "غ",
+      "audio_path": "audio/ls-87c73163.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-8a5972de",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.yaa"
+      ],
+      "grade_band": "2-3",
+      "text": "يَ",
+      "text_plain": "ي",
+      "audio_path": "audio/ls-8a5972de.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-8a5cb792",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.waaw"
+      ],
+      "grade_band": "2-3",
+      "text": "وَ",
+      "text_plain": "و",
+      "audio_path": "audio/ls-8a5cb792.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-8ac4b74e",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.dhaal"
+      ],
+      "grade_band": "2-3",
+      "text": "ذَ",
+      "text_plain": "ذ",
+      "audio_path": "audio/ls-8ac4b74e.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-a58e0ad4",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.nuun"
+      ],
+      "grade_band": "2-3",
+      "text": "نَ",
+      "text_plain": "ن",
+      "audio_path": "audio/ls-a58e0ad4.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-b0882cb0",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.hhaa"
+      ],
+      "grade_band": "2-3",
+      "text": "حَ",
+      "text_plain": "ح",
+      "audio_path": "audio/ls-b0882cb0.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-b965a450",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.baa"
+      ],
+      "grade_band": "2-3",
+      "text": "بَ",
+      "text_plain": "ب",
+      "audio_path": "audio/ls-b965a450.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-d3f41bb5",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.qaaf"
+      ],
+      "grade_band": "2-3",
+      "text": "قَ",
+      "text_plain": "ق",
+      "audio_path": "audio/ls-d3f41bb5.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-e7f58a59",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.laam"
+      ],
+      "grade_band": "2-3",
+      "text": "لَ",
+      "text_plain": "ل",
+      "audio_path": "audio/ls-e7f58a59.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "ls-f5497458",
+      "type": "letter_sound",
+      "skill_ids": [
+        "ls.ayn"
+      ],
+      "grade_band": "2-3",
+      "text": "عَ",
+      "text_plain": "ع",
+      "audio_path": "audio/ls-f5497458.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "letter_sound",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-011e570e",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.damma"
+      ],
+      "grade_band": "2-3",
+      "text": "سُ",
+      "text_plain": "س",
+      "audio_path": "audio/vt-011e570e.mp3",
+      "options": [
+        "سِ",
+        "سُ",
+        "سَ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-07f0d84f",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.tanwin"
+      ],
+      "grade_band": "2-3",
+      "text": "كِتَابٌ",
+      "text_plain": "كتاب",
+      "audio_path": "audio/vt-07f0d84f.mp3",
+      "options": [
+        "كِتَابًا",
+        "كِتَابٌ",
+        "كِتَابٍ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-0b88d866",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.sukun"
+      ],
+      "grade_band": "2-3",
+      "text": "فَرْ",
+      "text_plain": "فر",
+      "audio_path": "audio/vt-0b88d866.mp3",
+      "options": [
+        "فَرُ",
+        "فَرْ",
+        "فَرَ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-0f1ee74a",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.fatha"
+      ],
+      "grade_band": "2-3",
+      "text": "نَ",
+      "text_plain": "ن",
+      "audio_path": "audio/vt-0f1ee74a.mp3",
+      "options": [
+        "نَ",
+        "نِ",
+        "نُ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-15d6a8ea",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.sukun"
+      ],
+      "grade_band": "2-3",
+      "text": "بَتْ",
+      "text_plain": "بت",
+      "audio_path": "audio/vt-15d6a8ea.mp3",
+      "options": [
+        "بَتْ",
+        "بَتَ",
+        "بَتُ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-1db30fb6",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.damma"
+      ],
+      "grade_band": "2-3",
+      "text": "فُ",
+      "text_plain": "ف",
+      "audio_path": "audio/vt-1db30fb6.mp3",
+      "options": [
+        "فُ",
+        "فَ",
+        "فِ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-2526ace0",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.sukun"
+      ],
+      "grade_band": "2-3",
+      "text": "مَنْ",
+      "text_plain": "من",
+      "audio_path": "audio/vt-2526ace0.mp3",
+      "options": [
+        "مَنُ",
+        "مَنْ",
+        "مَنَ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-2e101310",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.damma"
+      ],
+      "grade_band": "2-3",
+      "text": "رُ",
+      "text_plain": "ر",
+      "audio_path": "audio/vt-2e101310.mp3",
+      "options": [
+        "رَ",
+        "رِ",
+        "رُ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-3095cc65",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.damma"
+      ],
+      "grade_band": "2-3",
+      "text": "دُ",
+      "text_plain": "د",
+      "audio_path": "audio/vt-3095cc65.mp3",
+      "options": [
+        "دُ",
+        "دَ",
+        "دِ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-331baf7e",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.tanwin"
+      ],
+      "grade_band": "2-3",
+      "text": "بَيْتٌ",
+      "text_plain": "بيت",
+      "audio_path": "audio/vt-331baf7e.mp3",
+      "options": [
+        "بَيْتٍ",
+        "بَيْتًا",
+        "بَيْتٌ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-38854258",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.shadda"
+      ],
+      "grade_band": "2-3",
+      "text": "قَمَّ",
+      "text_plain": "قم",
+      "audio_path": "audio/vt-38854258.mp3",
+      "options": [
+        "قَمْ",
+        "قَمَّ",
+        "قَمَ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-3c02eba4",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.shadda"
+      ],
+      "grade_band": "2-3",
+      "text": "فَرَّ",
+      "text_plain": "فر",
+      "audio_path": "audio/vt-3c02eba4.mp3",
+      "options": [
+        "فَرَّ",
+        "فَرَ",
+        "فَرْ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-3d817ae9",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.kasra"
+      ],
+      "grade_band": "2-3",
+      "text": "نِ",
+      "text_plain": "ن",
+      "audio_path": "audio/vt-3d817ae9.mp3",
+      "options": [
+        "نَ",
+        "نِ",
+        "نُ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-52513ce9",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.fatha"
+      ],
+      "grade_band": "2-3",
+      "text": "مَ",
+      "text_plain": "م",
+      "audio_path": "audio/vt-52513ce9.mp3",
+      "options": [
+        "مُ",
+        "مَ",
+        "مِ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-588e0c01",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.fatha"
+      ],
+      "grade_band": "2-3",
+      "text": "رَ",
+      "text_plain": "ر",
+      "audio_path": "audio/vt-588e0c01.mp3",
+      "options": [
+        "رَ",
+        "رِ",
+        "رُ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-5f6479cb",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.tanwin"
+      ],
+      "grade_band": "2-3",
+      "text": "كِتَابًا",
+      "text_plain": "كتابا",
+      "audio_path": "audio/vt-5f6479cb.mp3",
+      "options": [
+        "كِتَابًا",
+        "كِتَابٌ",
+        "كِتَابٍ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-669073d5",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.kasra"
+      ],
+      "grade_band": "2-3",
+      "text": "كِ",
+      "text_plain": "ك",
+      "audio_path": "audio/vt-669073d5.mp3",
+      "options": [
+        "كَ",
+        "كِ",
+        "كُ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-69100517",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.kasra"
+      ],
+      "grade_band": "2-3",
+      "text": "بِ",
+      "text_plain": "ب",
+      "audio_path": "audio/vt-69100517.mp3",
+      "options": [
+        "بَ",
+        "بِ",
+        "بُ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-69edb6d1",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.damma"
+      ],
+      "grade_band": "2-3",
+      "text": "كُ",
+      "text_plain": "ك",
+      "audio_path": "audio/vt-69edb6d1.mp3",
+      "options": [
+        "كَ",
+        "كِ",
+        "كُ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-71ed3f61",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.fatha"
+      ],
+      "grade_band": "2-3",
+      "text": "كَ",
+      "text_plain": "ك",
+      "audio_path": "audio/vt-71ed3f61.mp3",
+      "options": [
+        "كَ",
+        "كِ",
+        "كُ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-7220f1d6",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.fatha"
+      ],
+      "grade_band": "2-3",
+      "text": "بَ",
+      "text_plain": "ب",
+      "audio_path": "audio/vt-7220f1d6.mp3",
+      "options": [
+        "بَ",
+        "بِ",
+        "بُ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-78f2b7f2",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.kasra"
+      ],
+      "grade_band": "2-3",
+      "text": "سِ",
+      "text_plain": "س",
+      "audio_path": "audio/vt-78f2b7f2.mp3",
+      "options": [
+        "سِ",
+        "سُ",
+        "سَ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-7e3d7a41",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.tanwin"
+      ],
+      "grade_band": "2-3",
+      "text": "قَلَمٍ",
+      "text_plain": "قلم",
+      "audio_path": "audio/vt-7e3d7a41.mp3",
+      "options": [
+        "قَلَمٌ",
+        "قَلَمٍ",
+        "قَلَمًا"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-8186e60d",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.shadda"
+      ],
+      "grade_band": "2-3",
+      "text": "سَدَّ",
+      "text_plain": "سد",
+      "audio_path": "audio/vt-8186e60d.mp3",
+      "options": [
+        "سَدَ",
+        "سَدْ",
+        "سَدَّ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-8b7c0a45",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.tanwin"
+      ],
+      "grade_band": "2-3",
+      "text": "قَلَمًا",
+      "text_plain": "قلما",
+      "audio_path": "audio/vt-8b7c0a45.mp3",
+      "options": [
+        "قَلَمٌ",
+        "قَلَمٍ",
+        "قَلَمًا"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-8f91a24d",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.tanwin"
+      ],
+      "grade_band": "2-3",
+      "text": "بَيْتٍ",
+      "text_plain": "بيت",
+      "audio_path": "audio/vt-8f91a24d.mp3",
+      "options": [
+        "بَيْتٍ",
+        "بَيْتًا",
+        "بَيْتٌ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-97820fc4",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.kasra"
+      ],
+      "grade_band": "2-3",
+      "text": "تِ",
+      "text_plain": "ت",
+      "audio_path": "audio/vt-97820fc4.mp3",
+      "options": [
+        "تِ",
+        "تُ",
+        "تَ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-9a7a9eb2",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.damma"
+      ],
+      "grade_band": "2-3",
+      "text": "لُ",
+      "text_plain": "ل",
+      "audio_path": "audio/vt-9a7a9eb2.mp3",
+      "options": [
+        "لِ",
+        "لُ",
+        "لَ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-9bb593de",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.shadda"
+      ],
+      "grade_band": "2-3",
+      "text": "مَنَّ",
+      "text_plain": "من",
+      "audio_path": "audio/vt-9bb593de.mp3",
+      "options": [
+        "مَنَّ",
+        "مَنَ",
+        "مَنْ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-a44a7868",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.kasra"
+      ],
+      "grade_band": "2-3",
+      "text": "رِ",
+      "text_plain": "ر",
+      "audio_path": "audio/vt-a44a7868.mp3",
+      "options": [
+        "رَ",
+        "رِ",
+        "رُ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-a6b55d88",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.tanwin"
+      ],
+      "grade_band": "2-3",
+      "text": "وَلَدٌ",
+      "text_plain": "ولد",
+      "audio_path": "audio/vt-a6b55d88.mp3",
+      "options": [
+        "وَلَدًا",
+        "وَلَدٌ",
+        "وَلَدٍ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-b2fda23a",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.fatha"
+      ],
+      "grade_band": "2-3",
+      "text": "لَ",
+      "text_plain": "ل",
+      "audio_path": "audio/vt-b2fda23a.mp3",
+      "options": [
+        "لِ",
+        "لُ",
+        "لَ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-b3c3c066",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.shadda"
+      ],
+      "grade_band": "2-3",
+      "text": "بَتَّ",
+      "text_plain": "بت",
+      "audio_path": "audio/vt-b3c3c066.mp3",
+      "options": [
+        "بَتَ",
+        "بَتْ",
+        "بَتَّ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-b774f5db",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.fatha"
+      ],
+      "grade_band": "2-3",
+      "text": "دَ",
+      "text_plain": "د",
+      "audio_path": "audio/vt-b774f5db.mp3",
+      "options": [
+        "دُ",
+        "دَ",
+        "دِ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-b7876f95",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.kasra"
+      ],
+      "grade_band": "2-3",
+      "text": "مِ",
+      "text_plain": "م",
+      "audio_path": "audio/vt-b7876f95.mp3",
+      "options": [
+        "مُ",
+        "مَ",
+        "مِ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-b7ef83b4",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.sukun"
+      ],
+      "grade_band": "2-3",
+      "text": "قَمْ",
+      "text_plain": "قم",
+      "audio_path": "audio/vt-b7ef83b4.mp3",
+      "options": [
+        "قَمَ",
+        "قَمُ",
+        "قَمْ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-b9cd56bc",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.tanwin"
+      ],
+      "grade_band": "2-3",
+      "text": "بَيْتًا",
+      "text_plain": "بيتا",
+      "audio_path": "audio/vt-b9cd56bc.mp3",
+      "options": [
+        "بَيْتٍ",
+        "بَيْتًا",
+        "بَيْتٌ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-bcb833f4",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.kasra"
+      ],
+      "grade_band": "2-3",
+      "text": "لِ",
+      "text_plain": "ل",
+      "audio_path": "audio/vt-bcb833f4.mp3",
+      "options": [
+        "لِ",
+        "لُ",
+        "لَ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-bf1bf5a6",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.tanwin"
+      ],
+      "grade_band": "2-3",
+      "text": "قَلَمٌ",
+      "text_plain": "قلم",
+      "audio_path": "audio/vt-bf1bf5a6.mp3",
+      "options": [
+        "قَلَمٌ",
+        "قَلَمٍ",
+        "قَلَمًا"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-c473ed86",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.tanwin"
+      ],
+      "grade_band": "2-3",
+      "text": "وَلَدٍ",
+      "text_plain": "ولد",
+      "audio_path": "audio/vt-c473ed86.mp3",
+      "options": [
+        "وَلَدًا",
+        "وَلَدٌ",
+        "وَلَدٍ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-c6070140",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.tanwin"
+      ],
+      "grade_band": "2-3",
+      "text": "كِتَابٍ",
+      "text_plain": "كتاب",
+      "audio_path": "audio/vt-c6070140.mp3",
+      "options": [
+        "كِتَابًا",
+        "كِتَابٌ",
+        "كِتَابٍ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-c938517f",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.shadda"
+      ],
+      "grade_band": "2-3",
+      "text": "كَلَّ",
+      "text_plain": "كل",
+      "audio_path": "audio/vt-c938517f.mp3",
+      "options": [
+        "كَلْ",
+        "كَلَّ",
+        "كَلَ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-d5abe8dd",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.damma"
+      ],
+      "grade_band": "2-3",
+      "text": "نُ",
+      "text_plain": "ن",
+      "audio_path": "audio/vt-d5abe8dd.mp3",
+      "options": [
+        "نَ",
+        "نِ",
+        "نُ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-d6226b3e",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.sukun"
+      ],
+      "grade_band": "2-3",
+      "text": "كَلْ",
+      "text_plain": "كل",
+      "audio_path": "audio/vt-d6226b3e.mp3",
+      "options": [
+        "كَلَ",
+        "كَلُ",
+        "كَلْ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-d681ae06",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.fatha"
+      ],
+      "grade_band": "2-3",
+      "text": "سَ",
+      "text_plain": "س",
+      "audio_path": "audio/vt-d681ae06.mp3",
+      "options": [
+        "سِ",
+        "سُ",
+        "سَ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-d9f08575",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.damma"
+      ],
+      "grade_band": "2-3",
+      "text": "مُ",
+      "text_plain": "م",
+      "audio_path": "audio/vt-d9f08575.mp3",
+      "options": [
+        "مُ",
+        "مَ",
+        "مِ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-dbe2bdbc",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.damma"
+      ],
+      "grade_band": "2-3",
+      "text": "تُ",
+      "text_plain": "ت",
+      "audio_path": "audio/vt-dbe2bdbc.mp3",
+      "options": [
+        "تِ",
+        "تُ",
+        "تَ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-e3bb65c7",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.damma"
+      ],
+      "grade_band": "2-3",
+      "text": "بُ",
+      "text_plain": "ب",
+      "audio_path": "audio/vt-e3bb65c7.mp3",
+      "options": [
+        "بَ",
+        "بِ",
+        "بُ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-e3dbab71",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.kasra"
+      ],
+      "grade_band": "2-3",
+      "text": "دِ",
+      "text_plain": "د",
+      "audio_path": "audio/vt-e3dbab71.mp3",
+      "options": [
+        "دُ",
+        "دَ",
+        "دِ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-ed2ff1a4",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.fatha"
+      ],
+      "grade_band": "2-3",
+      "text": "فَ",
+      "text_plain": "ف",
+      "audio_path": "audio/vt-ed2ff1a4.mp3",
+      "options": [
+        "فُ",
+        "فَ",
+        "فِ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-f3d0699f",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.kasra"
+      ],
+      "grade_band": "2-3",
+      "text": "فِ",
+      "text_plain": "ف",
+      "audio_path": "audio/vt-f3d0699f.mp3",
+      "options": [
+        "فُ",
+        "فَ",
+        "فِ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-f44db860",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.fatha"
+      ],
+      "grade_band": "2-3",
+      "text": "تَ",
+      "text_plain": "ت",
+      "audio_path": "audio/vt-f44db860.mp3",
+      "options": [
+        "تِ",
+        "تُ",
+        "تَ"
+      ],
+      "answer_index": 2,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-f4874afb",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.tanwin"
+      ],
+      "grade_band": "2-3",
+      "text": "وَلَدًا",
+      "text_plain": "ولدا",
+      "audio_path": "audio/vt-f4874afb.mp3",
+      "options": [
+        "وَلَدًا",
+        "وَلَدٌ",
+        "وَلَدٍ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "vt-f520dc16",
+      "type": "vowel_tap",
+      "skill_ids": [
+        "vowel.sukun"
+      ],
+      "grade_band": "2-3",
+      "text": "سَدْ",
+      "text_plain": "سد",
+      "audio_path": "audio/vt-f520dc16.mp3",
+      "options": [
+        "سَدْ",
+        "سَدَ",
+        "سَدُ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "vowel_options",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-01d798e8",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.daad-daal",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "ضَرْب / دَرْب",
+      "text_plain": "ضرب / درب",
+      "audio_path": "audio/mp-01d798e8.mp3",
+      "options": [
+        "ضَرْب",
+        "دَرْب"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-0223176c",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.saad-siin",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "صَار / سَار",
+      "text_plain": "صار / سار",
+      "audio_path": "audio/mp-0223176c.mp3",
+      "options": [
+        "صَار",
+        "سَار"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-041fde23",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.baa-taa-thaa-nuun-yaa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "نَوْم / يَوْم",
+      "text_plain": "نوم / يوم",
+      "audio_path": "audio/mp-041fde23.mp3",
+      "options": [
+        "نَوْم",
+        "يَوْم"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-04269750",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.siin-shiin",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "سِعْر / شِعْر",
+      "text_plain": "سعر / شعر",
+      "audio_path": "audio/mp-04269750.mp3",
+      "options": [
+        "سِعْر",
+        "شِعْر"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-0b76f6b7",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.raa-zaay",
+        "pos.final"
+      ],
+      "grade_band": "4-6",
+      "text": "خُبْر / خُبْز",
+      "text_plain": "خبر / خبز",
+      "audio_path": "audio/mp-0b76f6b7.mp3",
+      "options": [
+        "خُبْر",
+        "خُبْز"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-0c097ab5",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.zhaa-dhaal",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "نَظِير / نَذِير",
+      "text_plain": "نظير / نذير",
+      "audio_path": "audio/mp-0c097ab5.mp3",
+      "options": [
+        "نَظِير",
+        "نَذِير"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-0fb43cfb",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.siin-shiin",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "سِعْر / شِعْر",
+      "text_plain": "سعر / شعر",
+      "audio_path": "audio/mp-0fb43cfb.mp3",
+      "options": [
+        "سِعْر",
+        "شِعْر"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-11770f4d",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.ayn-ghayn",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "عِطَاء / غِطَاء",
+      "text_plain": "عطاء / غطاء",
+      "audio_path": "audio/mp-11770f4d.mp3",
+      "options": [
+        "عِطَاء",
+        "غِطَاء"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-138ecde1",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.jiim-hhaa-khaa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "جَدّ / خَدّ",
+      "text_plain": "جد / خد",
+      "audio_path": "audio/mp-138ecde1.mp3",
+      "options": [
+        "جَدّ",
+        "خَدّ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-1742765e",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.jiim-hhaa-khaa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "جَمَل / حَمَل",
+      "text_plain": "جمل / حمل",
+      "audio_path": "audio/mp-1742765e.mp3",
+      "options": [
+        "جَمَل",
+        "حَمَل"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-1868f8d6",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.ayn-ghayn",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "عَار / غَار",
+      "text_plain": "عار / غار",
+      "audio_path": "audio/mp-1868f8d6.mp3",
+      "options": [
+        "عَار",
+        "غَار"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-18d8953a",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.daal-dhaal",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "قَدَر / قَذَر",
+      "text_plain": "قدر / قذر",
+      "audio_path": "audio/mp-18d8953a.mp3",
+      "options": [
+        "قَدَر",
+        "قَذَر"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-1965de15",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.jiim-hhaa-khaa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "جَمَل / حَمَل",
+      "text_plain": "جمل / حمل",
+      "audio_path": "audio/mp-1965de15.mp3",
+      "options": [
+        "جَمَل",
+        "حَمَل"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-1d14afa2",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.ayn-ghayn",
+        "pos.medial"
+      ],
+      "grade_band": "2-3",
+      "text": "نَعَم / نَغَم",
+      "text_plain": "نعم / نغم",
+      "audio_path": "audio/mp-1d14afa2.mp3",
+      "options": [
+        "نَعَم",
+        "نَغَم"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-24a25e65",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.ttaa-zhaa",
+        "pos.final"
+      ],
+      "grade_band": "4-6",
+      "text": "حَطّ / حَظّ",
+      "text_plain": "حط / حظ",
+      "audio_path": "audio/mp-24a25e65.mp3",
+      "options": [
+        "حَطّ",
+        "حَظّ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-253c08e9",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.baa-taa-thaa-nuun-yaa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "بَاب / نَاب",
+      "text_plain": "باب / ناب",
+      "audio_path": "audio/mp-253c08e9.mp3",
+      "options": [
+        "بَاب",
+        "نَاب"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-259102fc",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.ayn-ghayn",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "عَار / غَار",
+      "text_plain": "عار / غار",
+      "audio_path": "audio/mp-259102fc.mp3",
+      "options": [
+        "عَار",
+        "غَار"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-2ab2721d",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.siin-shiin",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "سَهْم / شَهْم",
+      "text_plain": "سهم / شهم",
+      "audio_path": "audio/mp-2ab2721d.mp3",
+      "options": [
+        "سَهْم",
+        "شَهْم"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-2f03731d",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.raa-zaay",
+        "pos.final"
+      ],
+      "grade_band": "4-6",
+      "text": "جَرّ / جَزّ",
+      "text_plain": "جر / جز",
+      "audio_path": "audio/mp-2f03731d.mp3",
+      "options": [
+        "جَرّ",
+        "جَزّ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-385aab8f",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.ttaa-zhaa",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "طَلّ / ظَلّ",
+      "text_plain": "طل / ظل",
+      "audio_path": "audio/mp-385aab8f.mp3",
+      "options": [
+        "طَلّ",
+        "ظَلّ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-38a4393d",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.ttaa-taa",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "طَاب / تَاب",
+      "text_plain": "طاب / تاب",
+      "audio_path": "audio/mp-38a4393d.mp3",
+      "options": [
+        "طَاب",
+        "تَاب"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-3aa5ee35",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.siin-shiin",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "سَرَاب / شَرَاب",
+      "text_plain": "سراب / شراب",
+      "audio_path": "audio/mp-3aa5ee35.mp3",
+      "options": [
+        "سَرَاب",
+        "شَرَاب"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-3c92b405",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.baa-taa-thaa-nuun-yaa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "بَاب / نَاب",
+      "text_plain": "باب / ناب",
+      "audio_path": "audio/mp-3c92b405.mp3",
+      "options": [
+        "بَاب",
+        "نَاب"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-3e83ecfd",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.daal-dhaal",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "بَدْر / بَذْر",
+      "text_plain": "بدر / بذر",
+      "audio_path": "audio/mp-3e83ecfd.mp3",
+      "options": [
+        "بَدْر",
+        "بَذْر"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-410bb9d6",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.jiim-hhaa-khaa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "جَدّ / خَدّ",
+      "text_plain": "جد / خد",
+      "audio_path": "audio/mp-410bb9d6.mp3",
+      "options": [
+        "جَدّ",
+        "خَدّ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-428099d7",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.zhaa-dhaal",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "ظَلّ / ذَلّ",
+      "text_plain": "ظل / ذل",
+      "audio_path": "audio/mp-428099d7.mp3",
+      "options": [
+        "ظَلّ",
+        "ذَلّ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-450c5891",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.daal-dhaal",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "بَدْر / بَذْر",
+      "text_plain": "بدر / بذر",
+      "audio_path": "audio/mp-450c5891.mp3",
+      "options": [
+        "بَدْر",
+        "بَذْر"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-4b58a140",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.jiim-hhaa-khaa",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "فَجْر / فَخْر",
+      "text_plain": "فجر / فخر",
+      "audio_path": "audio/mp-4b58a140.mp3",
+      "options": [
+        "فَجْر",
+        "فَخْر"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-4c2c185a",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.ayn-ghayn",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "عِطَاء / غِطَاء",
+      "text_plain": "عطاء / غطاء",
+      "audio_path": "audio/mp-4c2c185a.mp3",
+      "options": [
+        "عِطَاء",
+        "غِطَاء"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-4c81069d",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.ttaa-taa",
+        "pos.final"
+      ],
+      "grade_band": "2-3",
+      "text": "بَطّ / بَتّ",
+      "text_plain": "بط / بت",
+      "audio_path": "audio/mp-4c81069d.mp3",
+      "options": [
+        "بَطّ",
+        "بَتّ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-5168d5ce",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.ttaa-zhaa",
+        "pos.final"
+      ],
+      "grade_band": "4-6",
+      "text": "حَطّ / حَظّ",
+      "text_plain": "حط / حظ",
+      "audio_path": "audio/mp-5168d5ce.mp3",
+      "options": [
+        "حَطّ",
+        "حَظّ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-5171c1ce",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.raa-zaay",
+        "pos.final"
+      ],
+      "grade_band": "4-6",
+      "text": "جَرّ / جَزّ",
+      "text_plain": "جر / جز",
+      "audio_path": "audio/mp-5171c1ce.mp3",
+      "options": [
+        "جَرّ",
+        "جَزّ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-5a327f66",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.siin-shiin",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "سَرَاب / شَرَاب",
+      "text_plain": "سراب / شراب",
+      "audio_path": "audio/mp-5a327f66.mp3",
+      "options": [
+        "سَرَاب",
+        "شَرَاب"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-63f83305",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.saad-siin",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "صَدّ / سَدّ",
+      "text_plain": "صد / سد",
+      "audio_path": "audio/mp-63f83305.mp3",
+      "options": [
+        "صَدّ",
+        "سَدّ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-649d0d2e",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.jiim-hhaa-khaa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "حَال / خَال",
+      "text_plain": "حال / خال",
+      "audio_path": "audio/mp-649d0d2e.mp3",
+      "options": [
+        "حَال",
+        "خَال"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-66032a20",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.zhaa-dhaal",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "مَحْظُور / مَحْذُور",
+      "text_plain": "محظور / محذور",
+      "audio_path": "audio/mp-66032a20.mp3",
+      "options": [
+        "مَحْظُور",
+        "مَحْذُور"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-6b774334",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.jiim-hhaa-khaa",
+        "pos.medial"
+      ],
+      "grade_band": "2-3",
+      "text": "نَحْل / نَخْل",
+      "text_plain": "نحل / نخل",
+      "audio_path": "audio/mp-6b774334.mp3",
+      "options": [
+        "نَحْل",
+        "نَخْل"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-6bd01839",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.faa-qaaf",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "فِيل / قِيل",
+      "text_plain": "فيل / قيل",
+      "audio_path": "audio/mp-6bd01839.mp3",
+      "options": [
+        "فِيل",
+        "قِيل"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-72dc2cde",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.zhaa-dhaal",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "نَظِير / نَذِير",
+      "text_plain": "نظير / نذير",
+      "audio_path": "audio/mp-72dc2cde.mp3",
+      "options": [
+        "نَظِير",
+        "نَذِير"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-742ad44d",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.baa-taa-thaa-nuun-yaa",
+        "pos.final"
+      ],
+      "grade_band": "2-3",
+      "text": "بَيْت / بَيْن",
+      "text_plain": "بيت / بين",
+      "audio_path": "audio/mp-742ad44d.mp3",
+      "options": [
+        "بَيْت",
+        "بَيْن"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-748b5f6d",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.baa-taa-thaa-nuun-yaa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "بَحْر / نَحْر",
+      "text_plain": "بحر / نحر",
+      "audio_path": "audio/mp-748b5f6d.mp3",
+      "options": [
+        "بَحْر",
+        "نَحْر"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-7525a5e3",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.ttaa-taa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "طِين / تِين",
+      "text_plain": "طين / تين",
+      "audio_path": "audio/mp-7525a5e3.mp3",
+      "options": [
+        "طِين",
+        "تِين"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-7773bdff",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.ttaa-taa",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "طَاب / تَاب",
+      "text_plain": "طاب / تاب",
+      "audio_path": "audio/mp-7773bdff.mp3",
+      "options": [
+        "طَاب",
+        "تَاب"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-7c82844b",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.raa-zaay",
+        "pos.final"
+      ],
+      "grade_band": "4-6",
+      "text": "خُبْر / خُبْز",
+      "text_plain": "خبر / خبز",
+      "audio_path": "audio/mp-7c82844b.mp3",
+      "options": [
+        "خُبْر",
+        "خُبْز"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-7dcb6952",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.saad-siin",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "صَيْف / سَيْف",
+      "text_plain": "صيف / سيف",
+      "audio_path": "audio/mp-7dcb6952.mp3",
+      "options": [
+        "صَيْف",
+        "سَيْف"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-8894fb0b",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.faa-qaaf",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "رَفِيق / رَقِيق",
+      "text_plain": "رفيق / رقيق",
+      "audio_path": "audio/mp-8894fb0b.mp3",
+      "options": [
+        "رَفِيق",
+        "رَقِيق"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-8c60fdf4",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.daad-daal",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "ضَلّ / دَلّ",
+      "text_plain": "ضل / دل",
+      "audio_path": "audio/mp-8c60fdf4.mp3",
+      "options": [
+        "ضَلّ",
+        "دَلّ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-8c9db47c",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.saad-siin",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "صَدّ / سَدّ",
+      "text_plain": "صد / سد",
+      "audio_path": "audio/mp-8c9db47c.mp3",
+      "options": [
+        "صَدّ",
+        "سَدّ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-8d5dcb82",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.jiim-hhaa-khaa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "حَال / خَال",
+      "text_plain": "حال / خال",
+      "audio_path": "audio/mp-8d5dcb82.mp3",
+      "options": [
+        "حَال",
+        "خَال"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-8e917478",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.baa-taa-thaa-nuun-yaa",
+        "pos.final"
+      ],
+      "grade_band": "2-3",
+      "text": "زَيْت / زَيْن",
+      "text_plain": "زيت / زين",
+      "audio_path": "audio/mp-8e917478.mp3",
+      "options": [
+        "زَيْت",
+        "زَيْن"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-922e34bf",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.daad-daal",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "ضَلّ / دَلّ",
+      "text_plain": "ضل / دل",
+      "audio_path": "audio/mp-922e34bf.mp3",
+      "options": [
+        "ضَلّ",
+        "دَلّ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-96a2a7e6",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.baa-taa-thaa-nuun-yaa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "بَحْر / نَحْر",
+      "text_plain": "بحر / نحر",
+      "audio_path": "audio/mp-96a2a7e6.mp3",
+      "options": [
+        "بَحْر",
+        "نَحْر"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-9720b676",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.saad-daad",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "صَبّ / ضَبّ",
+      "text_plain": "صب / ضب",
+      "audio_path": "audio/mp-9720b676.mp3",
+      "options": [
+        "صَبّ",
+        "ضَبّ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-97e7cc09",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.saad-siin",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "صُور / سُور",
+      "text_plain": "صور / سور",
+      "audio_path": "audio/mp-97e7cc09.mp3",
+      "options": [
+        "صُور",
+        "سُور"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-9ad1dfd6",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.faa-qaaf",
+        "pos.final"
+      ],
+      "grade_band": "4-6",
+      "text": "غَرَف / غَرَق",
+      "text_plain": "غرف / غرق",
+      "audio_path": "audio/mp-9ad1dfd6.mp3",
+      "options": [
+        "غَرَف",
+        "غَرَق"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-a056c49f",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.ttaa-taa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "طَلّ / تَلّ",
+      "text_plain": "طل / تل",
+      "audio_path": "audio/mp-a056c49f.mp3",
+      "options": [
+        "طَلّ",
+        "تَلّ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-a0f8b270",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.saad-siin",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "صَار / سَار",
+      "text_plain": "صار / سار",
+      "audio_path": "audio/mp-a0f8b270.mp3",
+      "options": [
+        "صَار",
+        "سَار"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-a2e70ee3",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.zhaa-dhaal",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "ظَلّ / ذَلّ",
+      "text_plain": "ظل / ذل",
+      "audio_path": "audio/mp-a2e70ee3.mp3",
+      "options": [
+        "ظَلّ",
+        "ذَلّ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-a9503248",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.ttaa-taa",
+        "pos.final"
+      ],
+      "grade_band": "2-3",
+      "text": "بَطّ / بَتّ",
+      "text_plain": "بط / بت",
+      "audio_path": "audio/mp-a9503248.mp3",
+      "options": [
+        "بَطّ",
+        "بَتّ"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-aa80deaa",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.baa-taa-thaa-nuun-yaa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "نَوْم / يَوْم",
+      "text_plain": "نوم / يوم",
+      "audio_path": "audio/mp-aa80deaa.mp3",
+      "options": [
+        "نَوْم",
+        "يَوْم"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-b0363427",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.baa-taa-thaa-nuun-yaa",
+        "pos.medial"
+      ],
+      "grade_band": "2-3",
+      "text": "حَبَّة / حَيَّة",
+      "text_plain": "حبة / حية",
+      "audio_path": "audio/mp-b0363427.mp3",
+      "options": [
+        "حَبَّة",
+        "حَيَّة"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-b04154f8",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.ayn-ghayn",
+        "pos.medial"
+      ],
+      "grade_band": "2-3",
+      "text": "نَعَم / نَغَم",
+      "text_plain": "نعم / نغم",
+      "audio_path": "audio/mp-b04154f8.mp3",
+      "options": [
+        "نَعَم",
+        "نَغَم"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-b41a9d89",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.daad-daal",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "ضَرْب / دَرْب",
+      "text_plain": "ضرب / درب",
+      "audio_path": "audio/mp-b41a9d89.mp3",
+      "options": [
+        "ضَرْب",
+        "دَرْب"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-b4711f0e",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.faa-qaaf",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "رَفِيق / رَقِيق",
+      "text_plain": "رفيق / رقيق",
+      "audio_path": "audio/mp-b4711f0e.mp3",
+      "options": [
+        "رَفِيق",
+        "رَقِيق"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-b81f4a73",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.ttaa-zhaa",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "طَلّ / ظَلّ",
+      "text_plain": "طل / ظل",
+      "audio_path": "audio/mp-b81f4a73.mp3",
+      "options": [
+        "طَلّ",
+        "ظَلّ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-b870a266",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.jiim-hhaa-khaa",
+        "pos.medial"
+      ],
+      "grade_band": "2-3",
+      "text": "نَحْل / نَخْل",
+      "text_plain": "نحل / نخل",
+      "audio_path": "audio/mp-b870a266.mp3",
+      "options": [
+        "نَحْل",
+        "نَخْل"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-bc8fc7fd",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.saad-siin",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "صَيْف / سَيْف",
+      "text_plain": "صيف / سيف",
+      "audio_path": "audio/mp-bc8fc7fd.mp3",
+      "options": [
+        "صَيْف",
+        "سَيْف"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-cc3ebe0f",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.faa-qaaf",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "فِيل / قِيل",
+      "text_plain": "فيل / قيل",
+      "audio_path": "audio/mp-cc3ebe0f.mp3",
+      "options": [
+        "فِيل",
+        "قِيل"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-ccebfbf8",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.saad-daad",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "صَبّ / ضَبّ",
+      "text_plain": "صب / ضب",
+      "audio_path": "audio/mp-ccebfbf8.mp3",
+      "options": [
+        "صَبّ",
+        "ضَبّ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-cd7911a0",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.baa-taa-thaa-nuun-yaa",
+        "pos.final"
+      ],
+      "grade_band": "2-3",
+      "text": "زَيْت / زَيْن",
+      "text_plain": "زيت / زين",
+      "audio_path": "audio/mp-cd7911a0.mp3",
+      "options": [
+        "زَيْت",
+        "زَيْن"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-d5d3aa09",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.saad-daad",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "حَصَر / حَضَر",
+      "text_plain": "حصر / حضر",
+      "audio_path": "audio/mp-d5d3aa09.mp3",
+      "options": [
+        "حَصَر",
+        "حَضَر"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-d5f60597",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.raa-zaay",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "مَرَح / مَزَح",
+      "text_plain": "مرح / مزح",
+      "audio_path": "audio/mp-d5f60597.mp3",
+      "options": [
+        "مَرَح",
+        "مَزَح"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-da57a88d",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.ttaa-taa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "طِين / تِين",
+      "text_plain": "طين / تين",
+      "audio_path": "audio/mp-da57a88d.mp3",
+      "options": [
+        "طِين",
+        "تِين"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-da938627",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.faa-qaaf",
+        "pos.final"
+      ],
+      "grade_band": "4-6",
+      "text": "غَرَف / غَرَق",
+      "text_plain": "غرف / غرق",
+      "audio_path": "audio/mp-da938627.mp3",
+      "options": [
+        "غَرَف",
+        "غَرَق"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-db071a3d",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.daal-dhaal",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "قَدَر / قَذَر",
+      "text_plain": "قدر / قذر",
+      "audio_path": "audio/mp-db071a3d.mp3",
+      "options": [
+        "قَدَر",
+        "قَذَر"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-dc282eef",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.zhaa-dhaal",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "مَحْظُور / مَحْذُور",
+      "text_plain": "محظور / محذور",
+      "audio_path": "audio/mp-dc282eef.mp3",
+      "options": [
+        "مَحْظُور",
+        "مَحْذُور"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-e05659ad",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.jiim-hhaa-khaa",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "فَجْر / فَخْر",
+      "text_plain": "فجر / فخر",
+      "audio_path": "audio/mp-e05659ad.mp3",
+      "options": [
+        "فَجْر",
+        "فَخْر"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-e1cef8cc",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.saad-daad",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "حَصَر / حَضَر",
+      "text_plain": "حصر / حضر",
+      "audio_path": "audio/mp-e1cef8cc.mp3",
+      "options": [
+        "حَصَر",
+        "حَضَر"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-ebe7f11f",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.baa-taa-thaa-nuun-yaa",
+        "pos.medial"
+      ],
+      "grade_band": "2-3",
+      "text": "حَبَّة / حَيَّة",
+      "text_plain": "حبة / حية",
+      "audio_path": "audio/mp-ebe7f11f.mp3",
+      "options": [
+        "حَبَّة",
+        "حَيَّة"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-ebf86012",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.saad-siin",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "صُور / سُور",
+      "text_plain": "صور / سور",
+      "audio_path": "audio/mp-ebf86012.mp3",
+      "options": [
+        "صُور",
+        "سُور"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-ed935b26",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.baa-taa-thaa-nuun-yaa",
+        "pos.final"
+      ],
+      "grade_band": "2-3",
+      "text": "بَيْت / بَيْن",
+      "text_plain": "بيت / بين",
+      "audio_path": "audio/mp-ed935b26.mp3",
+      "options": [
+        "بَيْت",
+        "بَيْن"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-f2787aef",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.siin-shiin",
+        "pos.initial"
+      ],
+      "grade_band": "4-6",
+      "text": "سَهْم / شَهْم",
+      "text_plain": "سهم / شهم",
+      "audio_path": "audio/mp-f2787aef.mp3",
+      "options": [
+        "سَهْم",
+        "شَهْم"
+      ],
+      "answer_index": 1,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-f4944433",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "emph.ttaa-taa",
+        "pos.initial"
+      ],
+      "grade_band": "2-3",
+      "text": "طَلّ / تَلّ",
+      "text_plain": "طل / تل",
+      "audio_path": "audio/mp-f4944433.mp3",
+      "options": [
+        "طَلّ",
+        "تَلّ"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "emphatic_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "mp-ffdbd984",
+      "type": "minimal_pair",
+      "skill_ids": [
+        "dot.raa-zaay",
+        "pos.medial"
+      ],
+      "grade_band": "4-6",
+      "text": "مَرَح / مَزَح",
+      "text_plain": "مرح / مزح",
+      "audio_path": "audio/mp-ffdbd984.mp3",
+      "options": [
+        "مَرَح",
+        "مَزَح"
+      ],
+      "answer_index": 0,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "dot_group_pair",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-077026bc",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "سَمَاء",
+      "text_plain": "سماء",
+      "audio_path": "audio/rw-077026bc.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-0e906f00",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "نَار",
+      "text_plain": "نار",
+      "audio_path": "audio/rw-0e906f00.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-11fd7d1c",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "حِصَان",
+      "text_plain": "حصان",
+      "audio_path": "audio/rw-11fd7d1c.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-15252e5c",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "بَيْت",
+      "text_plain": "بيت",
+      "audio_path": "audio/rw-15252e5c.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-1f7ddde1",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "ضِفْدَع",
+      "text_plain": "ضفدع",
+      "audio_path": "audio/rw-1f7ddde1.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-210e9bd8",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "مُسْتَشْفَى",
+      "text_plain": "مستشفى",
+      "audio_path": "audio/rw-210e9bd8.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-22cc6c28",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "سَيَّارَة",
+      "text_plain": "سيارة",
+      "audio_path": "audio/rw-22cc6c28.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-272eec35",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "سُلَحْفَاة",
+      "text_plain": "سلحفاة",
+      "audio_path": "audio/rw-272eec35.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-29f04730",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "دَرَّاجَة",
+      "text_plain": "دراجة",
+      "audio_path": "audio/rw-29f04730.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-2cac9c61",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "عُصْفُور",
+      "text_plain": "عصفور",
+      "audio_path": "audio/rw-2cac9c61.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-311d4bb5",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "تُفَّاحَة",
+      "text_plain": "تفاحة",
+      "audio_path": "audio/rw-311d4bb5.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-32c88c1b",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "مِفْتَاح",
+      "text_plain": "مفتاح",
+      "audio_path": "audio/rw-32c88c1b.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-351bb8b8",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "عَيْن",
+      "text_plain": "عين",
+      "audio_path": "audio/rw-351bb8b8.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-3878bcc3",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "قِطّ",
+      "text_plain": "قط",
+      "audio_path": "audio/rw-3878bcc3.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-38cf4ef0",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "ثَعْلَب",
+      "text_plain": "ثعلب",
+      "audio_path": "audio/rw-38cf4ef0.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-3de686b5",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "أُذُن",
+      "text_plain": "أذن",
+      "audio_path": "audio/rw-3de686b5.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-4975e4eb",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "جَامِعَة",
+      "text_plain": "جامعة",
+      "audio_path": "audio/rw-4975e4eb.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-4c5d0bb9",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "نَجْم",
+      "text_plain": "نجم",
+      "audio_path": "audio/rw-4c5d0bb9.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-52a4aa72",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "بُرْتُقَال",
+      "text_plain": "برتقال",
+      "audio_path": "audio/rw-52a4aa72.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-5329a3d4",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "ظَرْف",
+      "text_plain": "ظرف",
+      "audio_path": "audio/rw-5329a3d4.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-56231af3",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "مُسْتَقْبَل",
+      "text_plain": "مستقبل",
+      "audio_path": "audio/rw-56231af3.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-5e8c8ac3",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "اِخْتِبَار",
+      "text_plain": "اختبار",
+      "audio_path": "audio/rw-5e8c8ac3.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-5f8e4d79",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "وَلَد",
+      "text_plain": "ولد",
+      "audio_path": "audio/rw-5f8e4d79.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-677c371b",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "مُهَنْدِس",
+      "text_plain": "مهندس",
+      "audio_path": "audio/rw-677c371b.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-68446434",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "حَلِيب",
+      "text_plain": "حليب",
+      "audio_path": "audio/rw-68446434.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-68a1575f",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "دُبّ",
+      "text_plain": "دب",
+      "audio_path": "audio/rw-68a1575f.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-68ea2c99",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "رَأْس",
+      "text_plain": "رأس",
+      "audio_path": "audio/rw-68ea2c99.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-6bbf4557",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "حَدِيقَة",
+      "text_plain": "حديقة",
+      "audio_path": "audio/rw-6bbf4557.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-7384448d",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "صَيْدَلِيَّة",
+      "text_plain": "صيدلية",
+      "audio_path": "audio/rw-7384448d.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-7968ba64",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "بِنْت",
+      "text_plain": "بنت",
+      "audio_path": "audio/rw-7968ba64.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-8116660a",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "نَافِذَة",
+      "text_plain": "نافذة",
+      "audio_path": "audio/rw-8116660a.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-83ca09ee",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "خُبْز",
+      "text_plain": "خبز",
+      "audio_path": "audio/rw-83ca09ee.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-878b0fc6",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "قَلَم",
+      "text_plain": "قلم",
+      "audio_path": "audio/rw-878b0fc6.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-8d178d75",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "كِتَاب",
+      "text_plain": "كتاب",
+      "audio_path": "audio/rw-8d178d75.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-906b3ac5",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "شَجَرَة",
+      "text_plain": "شجرة",
+      "audio_path": "audio/rw-906b3ac5.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-93afeb77",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "مَكْتَبَة",
+      "text_plain": "مكتبة",
+      "audio_path": "audio/rw-93afeb77.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-987bda53",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "وَرْد",
+      "text_plain": "ورد",
+      "audio_path": "audio/rw-987bda53.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-9986451b",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "بَطَّة",
+      "text_plain": "بطة",
+      "audio_path": "audio/rw-9986451b.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-99aa4f67",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "مَطَر",
+      "text_plain": "مطر",
+      "audio_path": "audio/rw-99aa4f67.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-9dc535c6",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "مَدْرَسَة",
+      "text_plain": "مدرسة",
+      "audio_path": "audio/rw-9dc535c6.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-a05724ae",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "مَوْز",
+      "text_plain": "موز",
+      "audio_path": "audio/rw-a05724ae.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-a5ef129e",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "شَمْس",
+      "text_plain": "شمس",
+      "audio_path": "audio/rw-a5ef129e.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-a6846a4f",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "زَهْرَة",
+      "text_plain": "زهرة",
+      "audio_path": "audio/rw-a6846a4f.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-a931e72e",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "أَرْنَب",
+      "text_plain": "أرنب",
+      "audio_path": "audio/rw-a931e72e.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-ad0ae438",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "مُغَامَرَة",
+      "text_plain": "مغامرة",
+      "audio_path": "audio/rw-ad0ae438.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-b1ff68fc",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "مِلْعَقَة",
+      "text_plain": "ملعقة",
+      "audio_path": "audio/rw-b1ff68fc.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-b4091fef",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "يَد",
+      "text_plain": "يد",
+      "audio_path": "audio/rw-b4091fef.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-b7a224af",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "أُمّ",
+      "text_plain": "أم",
+      "audio_path": "audio/rw-b7a224af.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-bae2408c",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "تَمْر",
+      "text_plain": "تمر",
+      "audio_path": "audio/rw-bae2408c.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-bdc0c1e1",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "قَمَر",
+      "text_plain": "قمر",
+      "audio_path": "audio/rw-bdc0c1e1.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-c4d2f4ba",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "طَبِيب",
+      "text_plain": "طبيب",
+      "audio_path": "audio/rw-c4d2f4ba.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-ce099c40",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "كُرَة",
+      "text_plain": "كرة",
+      "audio_path": "audio/rw-ce099c40.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-d6a7fb04",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "صَدِيق",
+      "text_plain": "صديق",
+      "audio_path": "audio/rw-d6a7fb04.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-d87b6985",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "غَيْمَة",
+      "text_plain": "غيمة",
+      "audio_path": "audio/rw-d87b6985.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-daa2cb9d",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "سَمَكَة",
+      "text_plain": "سمكة",
+      "audio_path": "audio/rw-daa2cb9d.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-e8381ffe",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "4-6",
+      "text": "فَرَاشَة",
+      "text_plain": "فراشة",
+      "audio_path": "audio/rw-e8381ffe.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-f988ddff",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "مَاء",
+      "text_plain": "ماء",
+      "audio_path": "audio/rw-f988ddff.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "rw-fe08e25c",
+      "type": "real_word",
+      "skill_ids": [
+        "decode.real"
+      ],
+      "grade_band": "2-3",
+      "text": "أَسَد",
+      "text_plain": "أسد",
+      "audio_path": "audio/rw-fe08e25c.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-0079bb4f",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "4-6",
+      "text": "زَكْبُت",
+      "text_plain": "زكبت",
+      "audio_path": "audio/pw-0079bb4f.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-04be1cff",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "خُنُك",
+      "text_plain": "خنك",
+      "audio_path": "audio/pw-04be1cff.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-18e8ad82",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "نِرِف",
+      "text_plain": "نرف",
+      "audio_path": "audio/pw-18e8ad82.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-2cc41f47",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "مُبِح",
+      "text_plain": "مبح",
+      "audio_path": "audio/pw-2cc41f47.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-34ae174a",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "جُقَل",
+      "text_plain": "جقل",
+      "audio_path": "audio/pw-34ae174a.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-3792144f",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "4-6",
+      "text": "شُقْخِد",
+      "text_plain": "شقخد",
+      "audio_path": "audio/pw-3792144f.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-3ce1a45f",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "شَخُر",
+      "text_plain": "شخر",
+      "audio_path": "audio/pw-3ce1a45f.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-426307fc",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "بَمِت",
+      "text_plain": "بمت",
+      "audio_path": "audio/pw-426307fc.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-49cc4f4c",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "شِفِل",
+      "text_plain": "شفل",
+      "audio_path": "audio/pw-49cc4f4c.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-4dcc8fe3",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "4-6",
+      "text": "دَمْجُر",
+      "text_plain": "دمجر",
+      "audio_path": "audio/pw-4dcc8fe3.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-4de2b061",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "شِحُت",
+      "text_plain": "شحت",
+      "audio_path": "audio/pw-4de2b061.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-5e9513c7",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "4-6",
+      "text": "جَشْدَل",
+      "text_plain": "جشدل",
+      "audio_path": "audio/pw-5e9513c7.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-60f03e36",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "خُدُن",
+      "text_plain": "خدن",
+      "audio_path": "audio/pw-60f03e36.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-643568e8",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "كُخُم",
+      "text_plain": "كخم",
+      "audio_path": "audio/pw-643568e8.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-6a84e462",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "4-6",
+      "text": "لَخْكُس",
+      "text_plain": "لخكس",
+      "audio_path": "audio/pw-6a84e462.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-713c8b7e",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "خِفُت",
+      "text_plain": "خفت",
+      "audio_path": "audio/pw-713c8b7e.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-7220544f",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "4-6",
+      "text": "لِنْجَخ",
+      "text_plain": "لنجخ",
+      "audio_path": "audio/pw-7220544f.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-7a50a84c",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "4-6",
+      "text": "زِمْقِل",
+      "text_plain": "زمقل",
+      "audio_path": "audio/pw-7a50a84c.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-834dfe2f",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "شَلُخ",
+      "text_plain": "شلخ",
+      "audio_path": "audio/pw-834dfe2f.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-91e08022",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "لَبُخ",
+      "text_plain": "لبخ",
+      "audio_path": "audio/pw-91e08022.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-99c6a24a",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "خُبِح",
+      "text_plain": "خبح",
+      "audio_path": "audio/pw-99c6a24a.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-abaac997",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "شُجِخ",
+      "text_plain": "شجخ",
+      "audio_path": "audio/pw-abaac997.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-ac37b5b2",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "رِقِم",
+      "text_plain": "رقم",
+      "audio_path": "audio/pw-ac37b5b2.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-b5192766",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "4-6",
+      "text": "سُخْدُج",
+      "text_plain": "سخدج",
+      "audio_path": "audio/pw-b5192766.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-bdd19e3c",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "4-6",
+      "text": "شِكْلُج",
+      "text_plain": "شكلج",
+      "audio_path": "audio/pw-bdd19e3c.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-bf89eaec",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "زُحُب",
+      "text_plain": "زحب",
+      "audio_path": "audio/pw-bf89eaec.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-c63a3a22",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "4-6",
+      "text": "تِحْزِس",
+      "text_plain": "تحزس",
+      "audio_path": "audio/pw-c63a3a22.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-dbc0bb0d",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "4-6",
+      "text": "خِجْلِك",
+      "text_plain": "خجلك",
+      "audio_path": "audio/pw-dbc0bb0d.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-e19c09c8",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "جُنُز",
+      "text_plain": "جنز",
+      "audio_path": "audio/pw-e19c09c8.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-e2261d2b",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "شِجَف",
+      "text_plain": "شجف",
+      "audio_path": "audio/pw-e2261d2b.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-e9c8208c",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "4-6",
+      "text": "لُكْدَف",
+      "text_plain": "لكدف",
+      "audio_path": "audio/pw-e9c8208c.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pw-ef8c6331",
+      "type": "pseudoword",
+      "skill_ids": [
+        "decode.pseudo"
+      ],
+      "grade_band": "2-3",
+      "text": "نُتِل",
+      "text_plain": "نتل",
+      "audio_path": "audio/pw-ef8c6331.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "not_real_word",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pv-0e92724f",
+      "type": "passage_vowelized",
+      "skill_ids": [
+        "fluency.passage"
+      ],
+      "grade_band": "4-6",
+      "text": "يَعِيشُ الْجَمَلُ فِي الصَّحْرَاءِ. يَصْبِرُ الْجَمَلُ عَلَى الْعَطَشِ أَيَّامًا كَثِيرَةً، وَيَحْمِلُ الْمُسَافِرِينَ مِنْ مَكَانٍ إِلَى مَكَانٍ. وَيُسَمِّيهِ النَّاسُ سَفِينَةَ الصَّحْرَاءِ.",
+      "text_plain": "يعيش الجمل في الصحراء. يصبر الجمل على العطش أياما كثيرة، ويحمل المسافرين من مكان إلى مكان. ويسميه الناس سفينة الصحراء.",
+      "audio_path": "audio/pv-0e92724f.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pv-6efc7c4a",
+      "type": "passage_vowelized",
+      "skill_ids": [
+        "fluency.passage"
+      ],
+      "grade_band": "2-3",
+      "text": "فِي الصَّبَاحِ تُشْرِقُ الشَّمْسُ. تَأْكُلُ مَرْيَمُ الْخُبْزَ وَتَشْرَبُ الْحَلِيبَ، ثُمَّ تَذْهَبُ إِلَى الْمَدْرَسَةِ.",
+      "text_plain": "في الصباح تشرق الشمس. تأكل مريم الخبز وتشرب الحليب، ثم تذهب إلى المدرسة.",
+      "audio_path": "audio/pv-6efc7c4a.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pv-73ec0cf3",
+      "type": "passage_vowelized",
+      "skill_ids": [
+        "fluency.passage"
+      ],
+      "grade_band": "2-3",
+      "text": "ذَهَبَ سَامِي إِلَى الْحَدِيقَةِ. رَأَى شَجَرَةً كَبِيرَةً وَعُصْفُورًا صَغِيرًا. فَرِحَ سَامِي وَجَلَسَ تَحْتَ الشَّجَرَةِ.",
+      "text_plain": "ذهب سامي إلى الحديقة. رأى شجرة كبيرة وعصفورا صغيرا. فرح سامي وجلس تحت الشجرة.",
+      "audio_path": "audio/pv-73ec0cf3.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pu-8d738237",
+      "type": "passage_unvowelized",
+      "skill_ids": [
+        "fluency.passage"
+      ],
+      "grade_band": "4-6",
+      "text": "تَعِيشُ السَّلَاحِفُ مُدَّةً طَوِيلَةً، وَبَعْضُهَا يَعِيشُ أَكْثَرَ مِنْ مِئَةِ سَنَةٍ. تَحْمِلُ السُّلَحْفَاةُ بَيْتَهَا عَلَى ظَهْرِهَا، وَتَخْتَبِئُ فِيهِ عِنْدَمَا تَشْعُرُ أَنَّهَا فِي خَطَرٍ.",
+      "text_plain": "تعيش السلاحف مدة طويلة، وبعضها يعيش أكثر من مئة سنة. تحمل السلحفاة بيتها على ظهرها، وتختبئ فيه عندما تشعر أنها في خطر.",
+      "audio_path": "audio/pu-8d738237.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pu-e9f3c944",
+      "type": "passage_unvowelized",
+      "skill_ids": [
+        "fluency.passage"
+      ],
+      "grade_band": "2-3",
+      "text": "عِنْدَ جَدِّي بُسْتَانٌ جَمِيلٌ. فِيهِ نَخْلٌ وَتِينٌ وَعِنَبٌ. نَزُورُ جَدِّي كُلَّ يَوْمِ جُمُعَةٍ.",
+      "text_plain": "عند جدي بستان جميل. فيه نخل وتين وعنب. نزور جدي كل يوم جمعة.",
+      "audio_path": "audio/pu-e9f3c944.mp3",
+      "options": null,
+      "answer_index": null,
+      "probe_only": false,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pp-0f32386c",
+      "type": "probe_passage",
+      "skill_ids": [
+        "fluency.passage"
+      ],
+      "grade_band": "2-3",
+      "text": "خَرَجَ عُمَرُ مَعَ أَبِيهِ إِلَى السُّوقِ. اِشْتَرَى عُمَرُ تُفَّاحًا وَمَوْزًا، وَحَمَلَ الْكِيسَ إِلَى الْبَيْتِ.",
+      "text_plain": "خرج عمر مع أبيه إلى السوق. اشترى عمر تفاحا وموزا، وحمل الكيس إلى البيت.",
+      "audio_path": null,
+      "options": null,
+      "answer_index": null,
+      "probe_only": true,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "pp-fe200672",
+      "type": "probe_passage",
+      "skill_ids": [
+        "fluency.passage"
+      ],
+      "grade_band": "4-6",
+      "text": "يَبْنِي النَّحْلُ بُيُوتَهُ مِنَ الشَّمْعِ، وَيَجْمَعُ الرَّحِيقَ مِنَ الْأَزْهَارِ لِيَصْنَعَ الْعَسَلَ. يَعْمَلُ النَّحْلُ طُولَ النَّهَارِ، وَيَعُودُ إِلَى الْخَلِيَّةِ فِي الْمَسَاءِ.",
+      "text_plain": "يبني النحل بيوته من الشمع، ويجمع الرحيق من الأزهار ليصنع العسل. يعمل النحل طول النهار، ويعود إلى الخلية في المساء.",
+      "audio_path": null,
+      "options": null,
+      "answer_index": null,
+      "probe_only": true,
+      "validation": {
+        "passed": true,
+        "validators": [
+          "script",
+          "diacritized",
+          "g2p",
+          "length",
+          "skills",
+          "answer",
+          "probe",
+          "unique"
+        ]
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null
+      }
+    }
+  ]
+}

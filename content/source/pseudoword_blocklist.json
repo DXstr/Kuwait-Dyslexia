@@ -1,0 +1,4 @@
+{
+  "purpose": "Real Arabic words that the pseudoword generator produced and review caught. They join the lexicon, so the generator skips them; the item is discarded, never repaired.",
+  "real_words": ["رُسُل"]
+}
