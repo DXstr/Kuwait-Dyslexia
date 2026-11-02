@@ -1,0 +1,8 @@
+# context is the repo root; send only what the scorer image needs
+*
+!ai/pyproject.toml
+!ai/basira_ai/**
+!ai/service/**
+!contracts/**
+**/__pycache__
+**/*.pyc

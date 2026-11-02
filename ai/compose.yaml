@@ -1,0 +1,17 @@
+# Local scorer:  docker compose -f ai/compose.yaml up --build     (from the repo root)
+# Configure via ../.env (copy .env.example): SUPABASE_JWKS_URL or SUPABASE_JWT_SECRET, ALLOWED_ORIGINS, ...
+services:
+  scorer:
+    build:
+      context: ..
+      dockerfile: ai/Dockerfile
+    image: basira-scorer:local
+    ports:
+      - "8000:8000"
+    env_file:
+      - path: ../.env
+        required: false
+    environment:
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:5173}
+      RATE_LIMIT_PER_MIN: ${RATE_LIMIT_PER_MIN:-120}
+      LOAD_LETTER_MODEL: ${LOAD_LETTER_MODEL:-1}

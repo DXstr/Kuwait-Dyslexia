@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "evidence": "ai/notebooks/a3_results_v4.md; decision: docs/ADR/ADR-002-acoustic-models.md",
+  "phone_model": {
+    "id": "facebook/wav2vec2-xlsr-53-espeak-cv-ft",
+    "licence": "Apache-2.0",
+    "tokens": {
+      "ʔ": "ʔ", "b": "b", "t": "t", "θ": "θ", "dʒ": "dʒ", "ħ": "ħ", "x": "x", "d": "d", "ð": "ð", "r": "r",
+      "z": "z", "s": "s", "ʃ": "ʃ", "sˤ": "s", "dˤ": "dˤ", "tˤ": "t", "ðˤ": "ð", "ʕ": "ʕ", "ɣ": "ɣ", "f": "f",
+      "q": "q", "k": "k", "l": "l", "m": "m", "n": "n", "h": "h", "w": "w", "j": "j", "g": "ɡ", "tʃ": "tʃ",
+      "a": "a", "i": "i", "u": "u", "aː": "aː", "iː": "iː", "uː": "uː"
+    },
+    "notes": "Emphatics sˤ tˤ ðˤ have no own token: aligned with the plain token; their contrast is routed to the letter model. The model emits x (not espeak's χ) for خ."
+  },
+  "letter_model": {
+    "id": "jonatasgrosman/wav2vec2-large-xlsr-53-arabic",
+    "licence": "Apache-2.0",
+    "word_delimiter": "|"
+  },
+  "letter_model_pairs": [
+    ["saad", "siin"], ["daad", "daal"], ["ttaa", "taa"], ["zhaa", "dhaal"], ["khaa", "hhaa"]
+  ],
+  "extra_competitors": {
+    "qaaf": ["g", "ʔ", "k"],
+    "jiim": ["j", "g"],
+    "kaaf": ["tʃ"]
+  },
+  "untested": ["daad-daal", "ttaa-taa", "zhaa-dhaal", "kaaf-tʃ"]
+}
