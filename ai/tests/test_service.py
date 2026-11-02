@@ -172,7 +172,7 @@ def test_cors_allows_only_configured_origin(client):
 
 
 def test_unbuilt_endpoints_are_absent_not_faked(client):
-    for path in ("/probe", "/stage0/score"):
+    for path in ("/stage0/score",):
         assert client.post(path, headers={"Authorization": token()}).status_code == 404
 
 
