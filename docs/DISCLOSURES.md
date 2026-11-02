@@ -35,3 +35,4 @@ Required by the competition and by non-negotiable 10. Add a row in the same PR t
 | eslint, @eslint/js, typescript-eslint, globals | Web lint configuration and language rules (dev only) | MIT | B1 | 2026-11-02 |
 | eslint-plugin-react-hooks, eslint-plugin-react-refresh | React lint rules (dev only) | MIT | B1 | 2026-11-02 |
 | @types/node, @types/react, @types/react-dom | Type declarations (dev only) | MIT | B1 | 2026-11-02 |
+| json-schema-to-typescript 16.0.0 | Generates web contract types from the canonical JSON Schema; read-only drift checks (dev/CI only) | [MIT](https://github.com/bcherny/json-schema-to-typescript/blob/master/LICENSE) | B2 | 2026-11-02 |

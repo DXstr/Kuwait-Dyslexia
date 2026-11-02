@@ -17,11 +17,13 @@ Read the root `CLAUDE.md` and `docs/briefs/B-app.md` first.
 
 - `npm ci` — install the locked dependencies.
 - `npm run dev` — local Vite server.
-- `npm run typecheck` — TypeScript check only.
+- `npm run generate:contracts` — regenerate `src/contracts/basira.ts` from the canonical JSON Schema.
+- `npm run check:contracts` — fail on missing/stale generated output without overwriting it.
+- `npm run typecheck` — check generated-contract drift, then TypeScript.
 - `npm run lint` — ESLint, with warnings treated as failures.
 - `npm test` / `npm run test:watch` — Vitest once / watch mode.
 - `npx playwright install chromium && npm run test:e2e` — browser smoke tests against the production build.
 - `npm run build` / `npm run preview` — static `dist/` for Cloudflare Pages / local production preview.
 
-Contract type regeneration is B2, not implemented in the B1 scaffold. Do not hand-write payload types meanwhile.
+Never edit `src/contracts/basira.ts` by hand. Schema changes require a separate contracts PR; regenerate after it merges.
 See `README.md` for the fail-closed role seam, PWA cache boundaries and unfinished integrations.
