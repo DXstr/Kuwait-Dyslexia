@@ -30,7 +30,7 @@ You own `web/` and `supabase/`. You never edit `ai/` or `content/`. Everything y
    role; consent trigger (no session without valid consent); approval state-machine trigger; append-only `audit_log`;
    custom access token hook putting `app_role` in the JWT; storage buckets with audio expiry; labelled demo seed data.
    Database tests (pgTAP or SQL tests) for every policy and trigger, run in CI.
-4. **Auth** — Google and Microsoft sign-in through Supabase Auth (two identity providers, both working).
+4. **Auth** — Google-only sign-in through Supabase Auth; genuine Google sign-in must be demonstrated with profile-backed roles applied. Microsoft is out of scope, per Mahmoud's 2026-11-02 decision in `docs/DECISIONS.md`, subject to Ayman's PR review.
 5. **Scorer client** — one module `web/src/scorer/` that implements `contracts/scorer.openapi.yaml`, validates every
    response against the schema, and has the mock/real switch. Warm-up `GET /health` at sign-in.
 6. **Assessment session (child)** — 16 kHz mono WAV recorder; next item shows immediately; background upload queue with

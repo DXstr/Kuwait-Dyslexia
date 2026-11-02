@@ -2,7 +2,7 @@ import type { Session, SupabaseClient } from '@supabase/supabase-js'
 import type { AppRole } from '../routing/roles'
 import { roleHome } from '../routing/roles'
 
-export type OAuthProvider = 'google' | 'azure'
+export type OAuthProvider = 'google'
 
 export type AuthIssue =
   | 'configuration'
@@ -497,7 +497,7 @@ export function createAuthController(
         return controller.signIn(provider)
       }
       if (signInOperation) return signInOperation
-      if (!client || (provider !== 'google' && provider !== 'azure')) {
+      if (!client || provider !== 'google') {
         const issue = client ? 'signIn' : 'configuration'
         safeWarning('signIn', issue)
         fail(issue)
@@ -510,13 +510,9 @@ export function createAuthController(
       const redirectTo = `${normalizeOrigin(options.origin)}/auth/callback`
       signInOperation = (async () => {
         try {
-          const oauthOptions =
-            provider === 'azure'
-              ? { redirectTo, scopes: 'email', queryParams: { prompt: 'select_account' } }
-              : { redirectTo, queryParams: { prompt: 'select_account' } }
           const response = await client.auth.signInWithOAuth({
-            provider,
-            options: oauthOptions,
+            provider: 'google',
+            options: { redirectTo, queryParams: { prompt: 'select_account' } },
           })
           if (!isCurrent(workGeneration)) return
           if (response.error) {

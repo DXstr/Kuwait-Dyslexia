@@ -45,7 +45,7 @@ describe('Arabic-first scaffold', () => {
     expect(document.documentElement).toHaveAttribute('dir', 'rtl')
     expect(document.title).toBe(ar.appTitle)
     expect(screen.getByRole('button', { name: ar.authGoogle })).toBeDisabled()
-    expect(screen.getByRole('button', { name: ar.authMicrosoft })).toBeDisabled()
+    expect(screen.queryByRole('button', { name: /Microsoft|مايكروسوفت/i })).not.toBeInTheDocument()
     expect(screen.getByRole('alert')).toHaveTextContent(ar.authConfiguration)
     expect(screen.getByRole('link', { name: ar.skipToContent })).toHaveAttribute('href', '#main-content')
   })
@@ -141,14 +141,13 @@ describe('professional-only English catalogue', () => {
 })
 
 describe('Supabase auth UI boundary (in-memory component fixtures only)', () => {
-  it('calls only the selected stock provider and does not offer role selection', async () => {
+  it('offers only Google and does not offer role selection', async () => {
     const fixture = createTestAuth({ status: 'signedOut', role: null, issue: null })
     renderAuth('/', fixture)
     const user = userEvent.setup()
     await user.click(screen.getByRole('button', { name: ar.authGoogle }))
-    await user.click(screen.getByRole('button', { name: ar.authMicrosoft }))
-    expect(fixture.controller.signIn).toHaveBeenNthCalledWith(1, 'google')
-    expect(fixture.controller.signIn).toHaveBeenNthCalledWith(2, 'azure')
+    expect(fixture.controller.signIn).toHaveBeenCalledExactlyOnceWith('google')
+    expect(screen.queryByRole('button', { name: /Microsoft|مايكروسوفت/i })).not.toBeInTheDocument()
     expect(screen.queryByRole('combobox')).not.toBeInTheDocument()
     expect(screen.queryByRole('textbox')).not.toBeInTheDocument()
     expect(screen.queryByRole('button', { name: ar.languageSwitch })).not.toBeInTheDocument()

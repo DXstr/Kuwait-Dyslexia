@@ -1,6 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { createAuthController, type AuthSnapshot } from './controller'
+import { createAuthController, type AuthSnapshot, type OAuthProvider } from './controller'
 
 type TestSession = ReturnType<typeof session>
 type FakeAuth = {
@@ -235,12 +235,12 @@ describe('createAuthController', () => {
     expect(controller.getSnapshot()).toEqual({ status: 'error', role: null, issue: 'unavailable' })
   })
 
-  it('sends only approved OAuth providers with same-origin callback options and rejects redirect duplicates', async () => {
+  it('sends only Google OAuth with same-origin callback options and rejects redirect duplicates', async () => {
     const client = makeClient()
     const controller = controllerFor(client)
     controller.start()
     await controller.signIn('google')
-    await controller.signIn('azure')
+    await controller.signIn('google')
     expect(client.auth.signInWithOAuth).toHaveBeenCalledTimes(1)
     expect(client.auth.signInWithOAuth).toHaveBeenCalledWith({
       provider: 'google',
@@ -251,15 +251,25 @@ describe('createAuthController', () => {
     })
 
     await controller.signOut()
-    await controller.signIn('azure')
+    await controller.signIn('google')
     expect(client.auth.signInWithOAuth).toHaveBeenLastCalledWith({
-      provider: 'azure',
+      provider: 'google',
       options: {
         redirectTo: 'https://app.test/auth/callback',
-        scopes: 'email',
         queryParams: { prompt: 'select_account' },
       },
     })
+  })
+
+  it('rejects unsupported OAuth providers at runtime', async () => {
+    const client = makeClient()
+    const controller = controllerFor(client)
+    controller.start()
+
+    await controller.signIn('microsoft' as unknown as OAuthProvider)
+
+    expect(client.auth.signInWithOAuth).not.toHaveBeenCalled()
+    expect(controller.getSnapshot()).toEqual({ status: 'error', role: null, issue: 'signIn' })
   })
 
   it('does not restore late hydration after signout and always invokes local cleanup', async () => {
@@ -300,7 +310,7 @@ describe('createAuthController', () => {
     controller.start()
     const firstSignIn = controller.signIn('google')
     const signOut = controller.signOut()
-    const secondSignIn = controller.signIn('azure')
+    const secondSignIn = controller.signIn('google')
     expect(client.auth.signInWithOAuth).toHaveBeenCalledTimes(1)
 
     releaseOAuth?.({ data: { provider: 'google', url: 'https://accounts.test' }, error: null })

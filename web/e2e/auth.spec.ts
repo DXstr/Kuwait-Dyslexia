@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
 import { ar } from '../src/i18n/messages'
 
-// These are synthetic HTTP fixtures, not Google/Microsoft accounts or evidence
+// These are synthetic HTTP fixtures, not Google accounts or evidence
 // of genuine OAuth. The normal application has no mock-auth runtime switch.
 const api = 'http://127.0.0.1:54329'
 const userId = '11111111-1111-4111-8111-111111111111'
@@ -39,7 +39,7 @@ async function syntheticSession(role: Role, provider = 'google') {
 async function mockSupabase(page: Page, role: Role, options: { rejectUser?: boolean; rejectExchange?: boolean } = {}) {
   const session = await syntheticSession(role)
   let challenge = ''
-  const observed = { provider: '', scopedEmail: false, exchanged: 0, profileReads: 0, userReads: 0, logout: false }
+  const observed = { provider: '', exchanged: 0, profileReads: 0, userReads: 0, logout: false }
   const cors = {
     'access-control-allow-origin': testOrigin,
     'access-control-allow-headers': '*',
@@ -52,7 +52,7 @@ async function mockSupabase(page: Page, role: Role, options: { rejectUser?: bool
     if (request.method() === 'OPTIONS') return route.fulfill({ status: 204, headers: cors })
     if (url.pathname === '/auth/v1/authorize') {
       observed.provider = url.searchParams.get('provider') ?? ''
-      observed.scopedEmail = (url.searchParams.get('scopes') ?? '').split(' ').includes('email')
+      expect(url.searchParams.get('scopes') ?? '').not.toContain('offline_access')
       expect(url.searchParams.get('redirect_to')).toBe(`${testOrigin}/auth/callback`)
       expect(url.searchParams.get('prompt')).toBe('select_account')
       expect(url.searchParams.get('code_challenge_method')?.toLowerCase()).toBe('s256')
@@ -91,22 +91,21 @@ async function mockSupabase(page: Page, role: Role, options: { rejectUser?: bool
 }
 
 for (const entry of [
-  { provider: 'google', role: 'guardian', button: ar.authGoogle, title: ar.guardianTitle },
-  { provider: 'azure', role: 'specialist', button: ar.authMicrosoft, title: ar.specialistTitle },
+  { role: 'guardian', title: ar.guardianTitle },
+  { role: 'specialist', title: ar.specialistTitle },
 ] as const) {
-  test(`mocked ${entry.provider} transport completes real SDK PKCE and applies the verified profile role`, async ({ page }) => {
+  test(`mocked Google transport completes real SDK PKCE and applies the verified ${entry.role} role`, async ({ page }) => {
     const { observed } = await mockSupabase(page, entry.role)
     await page.goto('/')
-    await expect(page.getByRole('button', { name: entry.button })).toBeEnabled()
-    await page.getByRole('button', { name: entry.button }).click()
+    await expect(page.getByRole('button', { name: ar.authGoogle })).toBeEnabled()
+    await page.getByRole('button', { name: ar.authGoogle }).click()
     await expect(page).toHaveURL(`${testOrigin}/${entry.role}`)
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(entry.title)
     await expect(page.locator('html')).toHaveAttribute('lang', 'ar')
-    expect(observed.provider).toBe(entry.provider)
+    expect(observed.provider).toBe('google')
     expect(observed.exchanged).toBe(1)
     expect(observed.profileReads).toBeGreaterThan(0)
     expect(observed.userReads).toBeGreaterThan(0)
-    if (entry.provider === 'azure') expect(observed.scopedEmail).toBe(true)
     await page.getByRole('button', { name: ar.authSignOut }).click()
     await expect(page).toHaveURL(`${testOrigin}/`)
     await expect(page.getByRole('button', { name: ar.authGoogle })).toBeEnabled()

@@ -4,7 +4,7 @@ project_id = "basira"
 [api]
 enabled = true
 port = 54321
-# Microsoft/Azure must use the localhost Auth callback in the local stack.
+# Google must use the localhost Auth callback in the local stack.
 # Supabase CLI 3.0.0 supports this field and passes it to Auth/provider setup.
 external_url = "http://localhost:54321"
 schemas = ["public"]
@@ -74,14 +74,6 @@ enabled = false
 client_id = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID)"
 secret = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_SECRET)"
 scopes = "openid email profile"
-skip_nonce_check = false
-
-[auth.external.azure]
-enabled = false
-client_id = "env(SUPABASE_AUTH_EXTERNAL_AZURE_CLIENT_ID)"
-secret = "env(SUPABASE_AUTH_EXTERNAL_AZURE_SECRET)"
-url = "https://login.microsoftonline.com/common"
-scopes = "openid profile email"
 skip_nonce_check = false
 
 # Password/email, SMS, anonymous sign-in, and other non-B4 sign-in paths stay off.

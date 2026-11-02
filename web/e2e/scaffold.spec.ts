@@ -8,7 +8,7 @@ test('Arabic tablet shell loads, self-hosts its font and remains keyboard access
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(ar.welcomeTitle)
   await expect(page.getByText(ar.scaffoldBadge)).toBeVisible()
   await expect(page.getByRole('button', { name: ar.authGoogle })).toBeDisabled()
-  await expect(page.getByRole('button', { name: ar.authMicrosoft })).toBeDisabled()
+  await expect(page.getByRole('button', { name: /Microsoft|مايكروسوفت/i })).toHaveCount(0)
   await expect(page.getByRole('alert')).toHaveText(ar.authConfiguration)
   await expect(page.locator('.brand-mark')).toHaveJSProperty('complete', true)
   expect(await page.locator('.brand-mark').evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0)

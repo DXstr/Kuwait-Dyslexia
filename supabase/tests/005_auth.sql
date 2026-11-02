@@ -3,7 +3,7 @@ begin;
 select no_plan();
 
 -- Synthetic identities only: these .invalid users are database fixtures, not
--- Google/Microsoft authentication and never contain working credentials.
+-- Google authentication and never contain working credentials.
 create function pg_temp.set_actor(p_actor uuid, p_app_role text default 'forged-admin')
 returns void
 language sql

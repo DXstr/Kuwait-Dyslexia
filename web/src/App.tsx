@@ -83,9 +83,6 @@ function AuthControls() {
         <button className="action-button" type="button" disabled={disabled} onClick={() => { void controller.signIn('google') }}>
           {t('authGoogle')}
         </button>
-        <button className="action-button" type="button" disabled={disabled} onClick={() => { void controller.signIn('azure') }}>
-          {t('authMicrosoft')}
-        </button>
       </div>
       {issue && !unconfigured && (
         <button className="action-button" type="button" onClick={() => { void controller.retry() }}>{t('authRetry')}</button>
