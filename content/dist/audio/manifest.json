@@ -1,0 +1,1568 @@
+{
+ "ls-1bf86f42.mp3": {
+  "text_sha256": "aa3441b91e7b18b36e310c3579a87bbc5f5b2d45175019b0cc9c23fb25d3f5f0",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "خَ"
+ },
+ "ls-1d9ced20.mp3": {
+  "text_sha256": "b807059067a6b0b48b9764f5b1fe58ebd907527cdd5d7663649075700c9e77b5",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "رَ"
+ },
+ "ls-1f6ba06a.mp3": {
+  "text_sha256": "c6d8e385cec41db3a2b8d45e04e4c1fd36e7446ca9a57b7823fcc5c597f51e83",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مَ"
+ },
+ "ls-29ccb2d8.mp3": {
+  "text_sha256": "2fc77ed9dded64bd50b19ad7cf7e1a47211a9cd77db54cdc2ff8292306387d99",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "صَ"
+ },
+ "ls-2d234488.mp3": {
+  "text_sha256": "6bced61a144b47b67dc8890f485da1990547a84e57170a928a7a20a2cd2d095d",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "هَ"
+ },
+ "ls-30a51dba.mp3": {
+  "text_sha256": "22839bf188f181ce23d43f4443959f1f38978e6dfc95c78922c8c16e94639fb1",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سَ"
+ },
+ "ls-35672891.mp3": {
+  "text_sha256": "32fc863baf7b3c54ec5cc45c8037745495712e8e4a61dfb150ff603e3549a35b",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "ثَ"
+ },
+ "ls-39d86d87.mp3": {
+  "text_sha256": "8196bea5b73d8ef5cf23f652ea802c46e262aa2d51b465968bf650a90a0ccdcf",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "ظَ"
+ },
+ "ls-3a8f23ab.mp3": {
+  "text_sha256": "ed6518ed36925d7c31eb3fe5432640c59288f53815b275aa3d49eca5252e604f",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "جَ"
+ },
+ "ls-4a665061.mp3": {
+  "text_sha256": "a6d89d1c46f57e0684a298eadc459e67f53a3bcd33fc0b02c1502fe5867c86a3",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "كَ"
+ },
+ "ls-59efc7d5.mp3": {
+  "text_sha256": "3edb86ba6199f99b227f7795e24872bd60ca0b5104b2ce0812b9187deb2543d4",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "دَ"
+ },
+ "ls-5a784db2.mp3": {
+  "text_sha256": "dbcb02a528baa2c2f5e874e05ea11f9d88797ab7da3d0c7d2e4989ff0c4faba1",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "أَ"
+ },
+ "ls-5d8fd22e.mp3": {
+  "text_sha256": "a5970e1fa6b26b4ea0e4938be35832e12e4a4ec5fb2c9238e6003373466b5cde",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "زَ"
+ },
+ "ls-65c345b2.mp3": {
+  "text_sha256": "78e7c6e6566841ba7a3b383ff7ab26922110fa009cacf93531bb420f50c043eb",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "شَ"
+ },
+ "ls-6c6174c0.mp3": {
+  "text_sha256": "6a0eba42e8545985d7d813514b91df54bd85b65c7fb503e77c99ee1524ce517a",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "ضَ"
+ },
+ "ls-6f32cb53.mp3": {
+  "text_sha256": "840fe1ef38df772b43c177f1bad0894b38c26ba104c0091f9099be13402a6ec8",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "فَ"
+ },
+ "ls-7ab8af74.mp3": {
+  "text_sha256": "727b27359e32bc837f508602ad617386c52b7684a5cefe92f774b0d21ede1f30",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "طَ"
+ },
+ "ls-87457aca.mp3": {
+  "text_sha256": "3da9e0dd0c5895e7674aee1c33ecf56116832c74fd601e9be5381fc96aed8f06",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "تَ"
+ },
+ "ls-87c73163.mp3": {
+  "text_sha256": "8a4303761466dd016b3d7fc29de910a611383b7b5627ad94251b9e33ba3ee537",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "غَ"
+ },
+ "ls-8a5972de.mp3": {
+  "text_sha256": "3124dcbb51f9795012f90e1607e0761e9eb33f1fc4f09f10ecfb5cef9da466db",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "يَ"
+ },
+ "ls-8a5cb792.mp3": {
+  "text_sha256": "5fdc7408ba14761c20025d61c38146b7b8be3b1c6961e7e8b209dcdfb47a845f",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "وَ"
+ },
+ "ls-8ac4b74e.mp3": {
+  "text_sha256": "3aa084514a37ee65d5c85a7791bb7cc6afa2e41f51912e29906ba93b7bbb8779",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "ذَ"
+ },
+ "ls-a58e0ad4.mp3": {
+  "text_sha256": "2406245b0b10a3ba93fc08c9fafc7171ed684678cf79778e0c7717df2f11e7bb",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نَ"
+ },
+ "ls-b0882cb0.mp3": {
+  "text_sha256": "f9258bb552cc3ee58bdfacbcd108b4a1a6f706e258471ed0d67337135585e631",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "حَ"
+ },
+ "ls-b965a450.mp3": {
+  "text_sha256": "690a74e4a39e38808b0080f2770f3ff714d197098bd06f78be8296fbdd58c0ae",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَ"
+ },
+ "ls-d3f41bb5.mp3": {
+  "text_sha256": "68d758bca375d3f2feb88a9051534e7138f7e65a1545e11461f7901449958607",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "قَ"
+ },
+ "ls-e7f58a59.mp3": {
+  "text_sha256": "0319e1bd72d973facc412aa543fe96351b24c2ad6a2d75115f0d17bae0277432",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "لَ"
+ },
+ "ls-f5497458.mp3": {
+  "text_sha256": "4bf7f322e5412f7bdfbbf7849a345581dabf38574ccba6e194c3562b437a228c",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "عَ"
+ },
+ "vt-011e570e.mp3": {
+  "text_sha256": "0e0cc64d89213ccc9063c950ea01b98ce85b8568e15364d3a81d0f58ae6a78bf",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سُ"
+ },
+ "vt-07f0d84f.mp3": {
+  "text_sha256": "bf71b2202f5befae2eaf7adf8659099a28c25eadef3845acca14f0b093c441af",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "كِتَابٌ"
+ },
+ "vt-0b88d866.mp3": {
+  "text_sha256": "82ddaab81b05d95c7bca64c4c2f6a21c45907ca995e28d37700673a66a7b9c03",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "فَرْ"
+ },
+ "vt-0f1ee74a.mp3": {
+  "text_sha256": "2406245b0b10a3ba93fc08c9fafc7171ed684678cf79778e0c7717df2f11e7bb",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نَ"
+ },
+ "vt-15d6a8ea.mp3": {
+  "text_sha256": "499cb25e865e6c1d269822941490c52476221a8f75ea33a878379b9d1ca481ee",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَتْ"
+ },
+ "vt-1db30fb6.mp3": {
+  "text_sha256": "c7504bd29b06a96f1dcbd6eb52362b93bb13ed403637b3fedf3bec2406abb9e4",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "فُ"
+ },
+ "vt-2526ace0.mp3": {
+  "text_sha256": "b88dbad9ade580e45127448bc5214f11e35147f70917361bcba581c78549f6fa",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مَنْ"
+ },
+ "vt-2e101310.mp3": {
+  "text_sha256": "b8d15524caadcaf21dd44da9aa19ec28c617d88d8725c96263e202bbfc36a5f1",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "رُ"
+ },
+ "vt-3095cc65.mp3": {
+  "text_sha256": "fa0ae1adebe78c0290779e54d59ffc53b0fb07f7a78e91b6a842c30f6517f2d5",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "دُ"
+ },
+ "vt-331baf7e.mp3": {
+  "text_sha256": "72cbb643a00ee7ca6b1a43b8fc12f5815299ba0e96c87de1ef6cd148dac00f42",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَيْتٌ"
+ },
+ "vt-38854258.mp3": {
+  "text_sha256": "abe4129e4d9d8073bb5fec2e5abf4ac1c16efda5c103d8aacd5ff5f194bd4868",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "قَمَّ"
+ },
+ "vt-3c02eba4.mp3": {
+  "text_sha256": "e358f520d0ca96a37145521c686ca2ac987001e930e0e5623a6ab36768586238",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "فَرَّ"
+ },
+ "vt-3d817ae9.mp3": {
+  "text_sha256": "7e58732a831018e0090a930e37a66751eba77c8d8bc36b4cacd942d41c1934fa",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نِ"
+ },
+ "vt-52513ce9.mp3": {
+  "text_sha256": "c6d8e385cec41db3a2b8d45e04e4c1fd36e7446ca9a57b7823fcc5c597f51e83",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مَ"
+ },
+ "vt-588e0c01.mp3": {
+  "text_sha256": "b807059067a6b0b48b9764f5b1fe58ebd907527cdd5d7663649075700c9e77b5",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "رَ"
+ },
+ "vt-5f6479cb.mp3": {
+  "text_sha256": "ea44919ca528ac6c3ca0d6360bb9400e7af2754185d701d8b15fdc55d0864441",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "كِتَابًا"
+ },
+ "vt-669073d5.mp3": {
+  "text_sha256": "a3279297bc956cd8467ca1e8d30433e027d66fbe9e09bb1f83fad76a3010d90e",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "كِ"
+ },
+ "vt-69100517.mp3": {
+  "text_sha256": "a19503ce8c6bd4e87398ef2e996918ee42336ea1b84b29a48189ae3c3aa85901",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بِ"
+ },
+ "vt-69edb6d1.mp3": {
+  "text_sha256": "dafb0dacb1b26fcf4034ac879be7dfd61357a45c37bb4c44da7262942e89c475",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "كُ"
+ },
+ "vt-71ed3f61.mp3": {
+  "text_sha256": "a6d89d1c46f57e0684a298eadc459e67f53a3bcd33fc0b02c1502fe5867c86a3",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "كَ"
+ },
+ "vt-7220f1d6.mp3": {
+  "text_sha256": "690a74e4a39e38808b0080f2770f3ff714d197098bd06f78be8296fbdd58c0ae",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَ"
+ },
+ "vt-78f2b7f2.mp3": {
+  "text_sha256": "be463d8d40208dcf4567b1dc7cd45c9d066e66ccac3c872af4478d697afa07da",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سِ"
+ },
+ "vt-7e3d7a41.mp3": {
+  "text_sha256": "7a13789a835d6c6ca2ed35123cd066f2caa69947ffd26bf208381b53c95ca1b7",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "قَلَمٍ"
+ },
+ "vt-8186e60d.mp3": {
+  "text_sha256": "366cf9f55de2ca2c98f1a1c016699b689edb277bb43f22dcf8600264be79f5f3",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سَدَّ"
+ },
+ "vt-8b7c0a45.mp3": {
+  "text_sha256": "ac110c3d9546853a0dff1d222d51919346513430d67dff626c09e01dc243e02a",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "قَلَمًا"
+ },
+ "vt-8f91a24d.mp3": {
+  "text_sha256": "00a29befb9fa407bb66dac234a4f2b9d3da0673897de4709a401273bcb8e608c",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَيْتٍ"
+ },
+ "vt-97820fc4.mp3": {
+  "text_sha256": "d76927f509d85b80706e4e7156dc3d99b257f72d392f3dbb2edabda0262f38b6",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "تِ"
+ },
+ "vt-9a7a9eb2.mp3": {
+  "text_sha256": "151c01dff3bf690e5fe452fabca7b98a03ce6e6fa8c5640d9f8f3e7da2295d0d",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "لُ"
+ },
+ "vt-9bb593de.mp3": {
+  "text_sha256": "3873c93eca361370c4501323ce88b5ce608289df208e567ddbb353a766a46e74",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مَنَّ"
+ },
+ "vt-a44a7868.mp3": {
+  "text_sha256": "7d724d22b4aded8e71c48ffefb079fd6feafd503bb5cda549189cda47697a798",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "رِ"
+ },
+ "vt-a6b55d88.mp3": {
+  "text_sha256": "975f7b7af9305159d62c0be5f6cee195280337cd562794a5a2307f9f99240c69",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "وَلَدٌ"
+ },
+ "vt-b2fda23a.mp3": {
+  "text_sha256": "0319e1bd72d973facc412aa543fe96351b24c2ad6a2d75115f0d17bae0277432",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "لَ"
+ },
+ "vt-b3c3c066.mp3": {
+  "text_sha256": "f722312f9f3a63baa22a4dac94d20b572dae609328f618fae9a74df8dd06b746",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَتَّ"
+ },
+ "vt-b774f5db.mp3": {
+  "text_sha256": "3edb86ba6199f99b227f7795e24872bd60ca0b5104b2ce0812b9187deb2543d4",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "دَ"
+ },
+ "vt-b7876f95.mp3": {
+  "text_sha256": "ec1ef11ebbc4c3debca64e4a96d114935d3d6c5a4f02aaae61bb06ebeb40e15d",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مِ"
+ },
+ "vt-b7ef83b4.mp3": {
+  "text_sha256": "397359902c602f91ce7de169781104fa28136da063b575ec43f3fcf224bfc76c",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "قَمْ"
+ },
+ "vt-b9cd56bc.mp3": {
+  "text_sha256": "cc27df345e5da7b64037fe059d61694634be7a5de0a1bac8f7612682082b4027",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَيْتًا"
+ },
+ "vt-bcb833f4.mp3": {
+  "text_sha256": "c099abbdf09440c47fb2210faee463c3bcbec05a867d9ff5fa9f3665666cb9e7",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "لِ"
+ },
+ "vt-bf1bf5a6.mp3": {
+  "text_sha256": "8230a5b6fb9218df3607bd6e8fa5074f09da73629ea74171df4fd6cffe235e27",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "قَلَمٌ"
+ },
+ "vt-c473ed86.mp3": {
+  "text_sha256": "378935a84cb88f793b8fc2f0c29135edabe4851449622c5104d8cec42e0931bd",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "وَلَدٍ"
+ },
+ "vt-c6070140.mp3": {
+  "text_sha256": "ed827f6d72fd63d6e1cb852c0b65e1e027e0ed5af26b2b6cb6398e8ef6f16a2d",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "كِتَابٍ"
+ },
+ "vt-c938517f.mp3": {
+  "text_sha256": "5e7d0c9bc84ea12a74703e35e5138cc888313d3a3ad88181c3c3642d62dc8399",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "كَلَّ"
+ },
+ "vt-d5abe8dd.mp3": {
+  "text_sha256": "b8c00e91cdf6b3e8a1a038bca507c118933c2f15c64b0596d390902deb2cb1a0",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نُ"
+ },
+ "vt-d6226b3e.mp3": {
+  "text_sha256": "80c22bad05f87d05bb0a1d33c21c68cacb6c6ec1537123b5971068015b938b07",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "كَلْ"
+ },
+ "vt-d681ae06.mp3": {
+  "text_sha256": "22839bf188f181ce23d43f4443959f1f38978e6dfc95c78922c8c16e94639fb1",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سَ"
+ },
+ "vt-d9f08575.mp3": {
+  "text_sha256": "55a56357259f07a02b0e949a22077738576bfea6251aff90603f4739bc10be4b",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مُ"
+ },
+ "vt-dbe2bdbc.mp3": {
+  "text_sha256": "d1f34cbdea3401e8f2499a812182f7d70748118790729045c329d65f9fb177c0",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "تُ"
+ },
+ "vt-e3bb65c7.mp3": {
+  "text_sha256": "8e49d71bc76e34bc5c5115935b53aa0c5b4b393e13733d30467cecc2f3444220",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بُ"
+ },
+ "vt-e3dbab71.mp3": {
+  "text_sha256": "a2ed828d3868263c744eb5097510656ad6f6f2c55a9f00bfac1ef4fa6e5c3433",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "دِ"
+ },
+ "vt-ed2ff1a4.mp3": {
+  "text_sha256": "840fe1ef38df772b43c177f1bad0894b38c26ba104c0091f9099be13402a6ec8",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "فَ"
+ },
+ "vt-f3d0699f.mp3": {
+  "text_sha256": "15fed6a08f06be5e0671799e16d59762f8ddcf6525d659183947cf040f157728",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "فِ"
+ },
+ "vt-f44db860.mp3": {
+  "text_sha256": "3da9e0dd0c5895e7674aee1c33ecf56116832c74fd601e9be5381fc96aed8f06",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "تَ"
+ },
+ "vt-f4874afb.mp3": {
+  "text_sha256": "75125b32fc8d4bc64dae061f5243c93fb110eb6aa7e8ce83c58682a8ae48e227",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "وَلَدًا"
+ },
+ "vt-f520dc16.mp3": {
+  "text_sha256": "7f8397dae28cd380e216a16373cd108caeb3082ccc9ed9403a1f58d367ff8390",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سَدْ"
+ },
+ "mp-01d798e8.mp3": {
+  "text_sha256": "1d505b41f4cf94eb361984758691c197e20ac2712389c571cb09335e3be31306",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "ضَرْب"
+ },
+ "mp-0223176c.mp3": {
+  "text_sha256": "52f2daa6b152cd1bbfa732ba621a0a79f710c45b5b03c4eaa654bec4a7ead462",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "صَار"
+ },
+ "mp-041fde23.mp3": {
+  "text_sha256": "5534d283fbbe5ea87d2c11deec8eecf4cc6771526a4d76aa7d607c58443332cf",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "يَوْم"
+ },
+ "mp-04269750.mp3": {
+  "text_sha256": "150f47c99d9404b7c4a8b27f0777384e63ea0cb62b602143afd0a9e32fc56d4b",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "شِعْر"
+ },
+ "mp-0b76f6b7.mp3": {
+  "text_sha256": "2e1792b3fb965c7909845ddd687d4f18bfa7d5ffd7fbcba336577fce986a3f2f",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "خُبْر"
+ },
+ "mp-0c097ab5.mp3": {
+  "text_sha256": "09aaa62003ad14b6e1b4f652bda0d8930bc49fc0bfb8e2bf0e320a9f86d847d1",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نَظِير"
+ },
+ "mp-0fb43cfb.mp3": {
+  "text_sha256": "67124b683d5764109108625b194fa2bfa82f8f31285f611ac3ae80bfe2ae2bab",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سِعْر"
+ },
+ "mp-11770f4d.mp3": {
+  "text_sha256": "78d20c9938da4ff2f4bc4157e44385c7a46d51ecc5c9cb5744fdf6ead41012bf",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "غِطَاء"
+ },
+ "mp-138ecde1.mp3": {
+  "text_sha256": "8e4331beb3ee052a8211808a67a16aedfa9740e7a9138cc5fe812288ec7a7255",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "خَدّ"
+ },
+ "mp-1742765e.mp3": {
+  "text_sha256": "90c196fb102a9bb4631f1e196802074096e2b57097252d1511597b9bad90adc3",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "جَمَل"
+ },
+ "mp-1868f8d6.mp3": {
+  "text_sha256": "dff690b817a68afb769b276c04277553b00d7de0ad7fca70ab4f44b75069a989",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "غَار"
+ },
+ "mp-18d8953a.mp3": {
+  "text_sha256": "380238e996a56b3d89f0c65f16c0d7ec7a64fe74219f5a36728988015b706124",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "قَدَر"
+ },
+ "mp-1965de15.mp3": {
+  "text_sha256": "53e41f5a460cc1870c37166a412ffb4900a4409b0826c82e3ea03c8804957beb",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "حَمَل"
+ },
+ "mp-1d14afa2.mp3": {
+  "text_sha256": "7134eef11f079cf2a44bae5631a7e030282c4eacfd84fe0d68795ba08018c5fb",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نَغَم"
+ },
+ "mp-24a25e65.mp3": {
+  "text_sha256": "dee2da8bdf3ec5da7a289107c9e9f63cc457b8e20e4ec43646a91069f577219a",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "حَظّ"
+ },
+ "mp-253c08e9.mp3": {
+  "text_sha256": "3f3c3e7a7002169fc5008ba941f85c3be8200d6689084e023c00e2401ff0a83c",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَاب"
+ },
+ "mp-259102fc.mp3": {
+  "text_sha256": "eea927995b9e6f6d108580de0886b9f8908493f78a1a840ffa22ebc3dee5c303",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "عَار"
+ },
+ "mp-2ab2721d.mp3": {
+  "text_sha256": "d6e16ce10caa8c17bc642e4a1bfadb9c64fc051bb579c8bc4d4a513b137d99d3",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سَهْم"
+ },
+ "mp-2f03731d.mp3": {
+  "text_sha256": "2955e7c8f68ee5de6ee077f1787235af8171864100744dc8ef1c5e784c47722c",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "جَرّ"
+ },
+ "mp-385aab8f.mp3": {
+  "text_sha256": "b511fe795803c589cd019a0e5b54546466da8af1194ff842206618afc319be10",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "ظَلّ"
+ },
+ "mp-38a4393d.mp3": {
+  "text_sha256": "c1ca384433dd9a1b3a411f37ad4ae3d59d80cc913e7620552497bd1e718e47d9",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "طَاب"
+ },
+ "mp-3aa5ee35.mp3": {
+  "text_sha256": "ab6de5d3e2c0656d729e4bf0e93fcf23f224f98fee52fd5d70b763c87d23497a",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "شَرَاب"
+ },
+ "mp-3c92b405.mp3": {
+  "text_sha256": "cd722470349fc17d6df294430bec5c691c58ac69f164ac6c8d7472cc3793b060",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نَاب"
+ },
+ "mp-3e83ecfd.mp3": {
+  "text_sha256": "eb4761ed83cff221db5a9142ea2b85dc730f84e360e45d43f1e553802b8123dd",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَدْر"
+ },
+ "mp-410bb9d6.mp3": {
+  "text_sha256": "23b220a1bb0ca1fd7aff546b3a8eb27f19d9e0f5e9d45ee7e05cd53a51e4c1c0",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "جَدّ"
+ },
+ "mp-428099d7.mp3": {
+  "text_sha256": "b511fe795803c589cd019a0e5b54546466da8af1194ff842206618afc319be10",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "ظَلّ"
+ },
+ "mp-450c5891.mp3": {
+  "text_sha256": "853f5e5bb48c33672cfa363dc0729d9b5e696d136fce5541445f4b8f7d030aab",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَذْر"
+ },
+ "mp-4b58a140.mp3": {
+  "text_sha256": "7a4788ee812a7d010bdeff398acab36c7d85f360bd4ddf5d5a36a792ee7eabfc",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "فَخْر"
+ },
+ "mp-4c2c185a.mp3": {
+  "text_sha256": "8b7bfb38d17bdb689c64da15afb0e0ac7cf15705e3c7f75447af9d9797f963ad",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "عِطَاء"
+ },
+ "mp-4c81069d.mp3": {
+  "text_sha256": "47ab784c7bf0aa186d66b9b20f131e7d1c823f2c7033adce3da13da3c6018d41",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَطّ"
+ },
+ "mp-5168d5ce.mp3": {
+  "text_sha256": "12eebcd469cfba2e56c57c01befa1aa8d8b7f26f48973cb524d5ecb5e0667e3e",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "حَطّ"
+ },
+ "mp-5171c1ce.mp3": {
+  "text_sha256": "1f9e30fe659d979f221b08ef214bab1319f01e0f4cccc9c9424a3ae54acea47b",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "جَزّ"
+ },
+ "mp-5a327f66.mp3": {
+  "text_sha256": "283fcb1392ac776f4b79593cb166ac2f3c4ceca2f41c7ea64060a4c97bcd3fe4",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سَرَاب"
+ },
+ "mp-63f83305.mp3": {
+  "text_sha256": "777dc6732020502e8552cacb52e2a5a2e79ba8e43cf4f3dc95e976a2da19f568",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سَدّ"
+ },
+ "mp-649d0d2e.mp3": {
+  "text_sha256": "232ccc3cb42e0e8e9369ec419d92a07215430b1e0dd9346f1db051c0d37f61f7",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "حَال"
+ },
+ "mp-66032a20.mp3": {
+  "text_sha256": "e4dd416da07380df62822807de24e9429282c474baf383f276fdcb022cc2d31e",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مَحْذُور"
+ },
+ "mp-6b774334.mp3": {
+  "text_sha256": "aade1cd375be8ab55f2db2149d4b34db989aa21a941cd000a4dec652e07d24ac",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نَخْل"
+ },
+ "mp-6bd01839.mp3": {
+  "text_sha256": "db7b48c558331d0150b97a378bc66eeac29d2d285b79f541034e452a14565f4b",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "قِيل"
+ },
+ "mp-72dc2cde.mp3": {
+  "text_sha256": "bbcaae28806644b7a58bd80f1a6610efc2fe89dd5069fa2b4c8d5af08bb07aeb",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نَذِير"
+ },
+ "mp-742ad44d.mp3": {
+  "text_sha256": "140cd6fc7cbbcb5260d8707879a1c01b881d2203956b89b1c4d4df5e1ce9e199",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَيْت"
+ },
+ "mp-748b5f6d.mp3": {
+  "text_sha256": "a671f5897ae719b91dd30a5d4bf1e7ff49a1a689a7eb69588893e3f818e4b19a",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نَحْر"
+ },
+ "mp-7525a5e3.mp3": {
+  "text_sha256": "e8c87b9af241a7e6457cf91e3ed1a503e5a9c93d90f926069ca0eeb8af616edc",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "طِين"
+ },
+ "mp-7773bdff.mp3": {
+  "text_sha256": "eafd703bf74c99a60133ec68a8438f1046209af990165af62a5060128e8309b6",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "تَاب"
+ },
+ "mp-7c82844b.mp3": {
+  "text_sha256": "fa2711d42fe20ff062739238fa1d96f935123e1731cb7e099700e4515516cd20",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "خُبْز"
+ },
+ "mp-7dcb6952.mp3": {
+  "text_sha256": "e70d88550f020b3821fd4581b0a406a1ce4e072b6618cefc36d5b4de29012468",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "صَيْف"
+ },
+ "mp-8894fb0b.mp3": {
+  "text_sha256": "18278b1e1d8ee8b0737457d4832644c6b70023f149270d321ad60d701469e70d",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "رَقِيق"
+ },
+ "mp-8c60fdf4.mp3": {
+  "text_sha256": "ffe02918b3c2b4311c72ae9b4ceb8ab592d73ea173d4721c44525424783f12e4",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "ضَلّ"
+ },
+ "mp-8c9db47c.mp3": {
+  "text_sha256": "6aa1470ecca318208d09b39969e6b0fdb60544ccaeca7690754765a9ddabe42b",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "صَدّ"
+ },
+ "mp-8d5dcb82.mp3": {
+  "text_sha256": "d7cc774b2f0294b530b056ecb3e20b5d4bad134db48c310f12db2a44ce54c57f",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "خَال"
+ },
+ "mp-8e917478.mp3": {
+  "text_sha256": "019c0a198ff8dd59bd54c009960d1a3f18232261f779baccc1a237615e8992e9",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "زَيْن"
+ },
+ "mp-922e34bf.mp3": {
+  "text_sha256": "caf61a1a14520ae5275d7b884133be1084274314e0fefaa20dc40023c1bd466e",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "دَلّ"
+ },
+ "mp-96a2a7e6.mp3": {
+  "text_sha256": "64f9e7576200bba8cd6ed48b27e03e6bab843caf00d341b309adde2a7ac78698",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَحْر"
+ },
+ "mp-9720b676.mp3": {
+  "text_sha256": "c08f46b0e628d8b85a30f52148929ebb2d730c001dd4c6f972f8e15226bfc264",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "ضَبّ"
+ },
+ "mp-97e7cc09.mp3": {
+  "text_sha256": "4157b780ca4042462350defcd394f90b0d97fb044389a73b1aef76789b0f0651",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "صُور"
+ },
+ "mp-9ad1dfd6.mp3": {
+  "text_sha256": "4615db577838d857be466d3a5db10fa1dc93ac2f88b3b37d61918fda4f378d24",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "غَرَق"
+ },
+ "mp-a056c49f.mp3": {
+  "text_sha256": "0997af04c1c7bc1e80c6be58558d0297d1e1a8e2610b3003fc177991360c36e5",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "تَلّ"
+ },
+ "mp-a0f8b270.mp3": {
+  "text_sha256": "2d8684a9ba3199ea0083fab99f4d46bee2a1a0f39968975fb8a5fab3327e0741",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سَار"
+ },
+ "mp-a2e70ee3.mp3": {
+  "text_sha256": "08e01279eb09990f1452bd94777458f0031ba6a75b097b7131104be1d9ec0659",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "ذَلّ"
+ },
+ "mp-a9503248.mp3": {
+  "text_sha256": "9dd3e47cb2e4eda8d4b8e92fe8c208d60619e19ade952769545c8345a52bf8cd",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَتّ"
+ },
+ "mp-aa80deaa.mp3": {
+  "text_sha256": "7c74c4578ed21dcceaf4b4ad6050fa775dd8e409971bae22670d031123d156a5",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نَوْم"
+ },
+ "mp-b0363427.mp3": {
+  "text_sha256": "ee61d0cf1384e678d7c50d3b659d70ff3e57a1c723aa56350b6c6d72fec414ae",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "حَيَّة"
+ },
+ "mp-b04154f8.mp3": {
+  "text_sha256": "15b2f6ec09abf36f3e5bb569a79788b0b78de40cc4d69d752249a21089d4fc7e",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نَعَم"
+ },
+ "mp-b41a9d89.mp3": {
+  "text_sha256": "bf4b1a870c4d551df89030e72cd69c255d375659c1c7a28ee6c4ea1f64ec8eaa",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "دَرْب"
+ },
+ "mp-b4711f0e.mp3": {
+  "text_sha256": "ef3d50f7d21a4585c3d7001b322113ded323c3923143243aa858bb3b0f174904",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "رَفِيق"
+ },
+ "mp-b81f4a73.mp3": {
+  "text_sha256": "7a825eb653e0781db6188b9fd47b1ef4c83361d72fb25d4dab733caf63c2380f",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "طَلّ"
+ },
+ "mp-b870a266.mp3": {
+  "text_sha256": "0bcb08ae12b0c1b6533a4cf64b6664957262813ce200e391b2edeaea498359e6",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نَحْل"
+ },
+ "mp-bc8fc7fd.mp3": {
+  "text_sha256": "a8a5a8fcfe269fd7bd17eb6f85f3f7d222ec44b6db1308014111e87d20149fa0",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سَيْف"
+ },
+ "mp-cc3ebe0f.mp3": {
+  "text_sha256": "4f906204b03f51777116312bd193ef78562ce3af045cfa492f7f449efd4eeaff",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "فِيل"
+ },
+ "mp-ccebfbf8.mp3": {
+  "text_sha256": "17134a42e5055c2f504f744b4aae43f09b38fae56ab073dfcfcb19f533068e1c",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "صَبّ"
+ },
+ "mp-cd7911a0.mp3": {
+  "text_sha256": "419194db8d9b1f4d524f9ffaa3ea7fdf995cf6c678dc89275e655ecd7fc525d5",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "زَيْت"
+ },
+ "mp-d5d3aa09.mp3": {
+  "text_sha256": "639cf23d7022da6585c677550a62bec1f8b7bee79427d9ad6c117be3e9dfa903",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "حَصَر"
+ },
+ "mp-d5f60597.mp3": {
+  "text_sha256": "4d1170f5a6ae61500958b4cd6c52896020ebb254cb546f1a462c3e94c3e4ae8b",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مَزَح"
+ },
+ "mp-da57a88d.mp3": {
+  "text_sha256": "77616480e85da90c1342311e127401518e58bc338904593372df5642477a6bc6",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "تِين"
+ },
+ "mp-da938627.mp3": {
+  "text_sha256": "7e2a121d4ab979e44ed20b4c95209ac0a71228134542314b3b03de55b5e6c458",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "غَرَف"
+ },
+ "mp-db071a3d.mp3": {
+  "text_sha256": "8174d438bdebaa85953d75a7e39fc979e22afad8c7b23ee7e2a936e19d4fac12",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "قَذَر"
+ },
+ "mp-dc282eef.mp3": {
+  "text_sha256": "3be3174a370678c70fa835dfc6e586d5c85a98e77441484c7bb3c5cb95953307",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مَحْظُور"
+ },
+ "mp-e05659ad.mp3": {
+  "text_sha256": "cc8a2cee13d88157290d237106b5ec9fb6bb502605bee2e831737a73e4f228d8",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "فَجْر"
+ },
+ "mp-e1cef8cc.mp3": {
+  "text_sha256": "981c4c9a57e83cf37b3d9875a1541b5056eca13f5c7dc782f6a1fd885cdf2eaf",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "حَضَر"
+ },
+ "mp-ebe7f11f.mp3": {
+  "text_sha256": "8adc1b9e1314ac1462eefb736b8353b547e4d7857cc85ec8f28a58f0eb51ef72",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "حَبَّة"
+ },
+ "mp-ebf86012.mp3": {
+  "text_sha256": "6e2b3b884f058240c951a38839fa007a7edd54ce5be7fd271b1e382e330f0c6e",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سُور"
+ },
+ "mp-ed935b26.mp3": {
+  "text_sha256": "e6df877e678be24456c53b5a39bc5ec4f7e15f346b217497149d35c774ab3fba",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَيْن"
+ },
+ "mp-f2787aef.mp3": {
+  "text_sha256": "f8bc256eb5994b8cf361974481b3a45d21f3620348ec4a3a9082108ff662bcd5",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "شَهْم"
+ },
+ "mp-f4944433.mp3": {
+  "text_sha256": "7a825eb653e0781db6188b9fd47b1ef4c83361d72fb25d4dab733caf63c2380f",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "طَلّ"
+ },
+ "mp-ffdbd984.mp3": {
+  "text_sha256": "bda4f8262fbd0a3e0b854e3f74eaae960ffa93c8570b49e66511d4e47d1f9911",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مَرَح"
+ },
+ "rw-077026bc.mp3": {
+  "text_sha256": "05e198c125de372d2f1811a0bf14be2492929c2c028591806bc02c4882ccbdbe",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سَمَاء"
+ },
+ "rw-0e906f00.mp3": {
+  "text_sha256": "87d320df0d3eea0890c95809210976c774854658f55ed2653139617ac273de73",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نَار"
+ },
+ "rw-11fd7d1c.mp3": {
+  "text_sha256": "58b8386c0191b88151882b04c71d309b521fbe42ac66c00ba77d2ce470b91866",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "حِصَان"
+ },
+ "rw-15252e5c.mp3": {
+  "text_sha256": "140cd6fc7cbbcb5260d8707879a1c01b881d2203956b89b1c4d4df5e1ce9e199",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَيْت"
+ },
+ "rw-1f7ddde1.mp3": {
+  "text_sha256": "dc3d6b2b364af40d1683709f8c89c2af3c1580679e8c5b4963acc04c4a8e63f0",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "ضِفْدَع"
+ },
+ "rw-210e9bd8.mp3": {
+  "text_sha256": "4b2fb401f127878856d608d72e4400bacfce298d51364a48fd4d7f8c7a1374fa",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مُسْتَشْفَى"
+ },
+ "rw-22cc6c28.mp3": {
+  "text_sha256": "cae3d4fbfdd0769007e7c47194a65f0a7e9081e0ad5f14d074795b985df32969",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سَيَّارَة"
+ },
+ "rw-272eec35.mp3": {
+  "text_sha256": "3a83fdc8c02195e15e7b0da46815d13599d4641788a872d1ffce72cc5a74b12c",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سُلَحْفَاة"
+ },
+ "rw-29f04730.mp3": {
+  "text_sha256": "8ad3f0ae6a2c5b57dda4795f972b271e50e042d69e2b277afb1d94cc84c3e5ab",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "دَرَّاجَة"
+ },
+ "rw-2cac9c61.mp3": {
+  "text_sha256": "de7a0efa4bfb1dc8bcc1bf34b228b565ec4964a6cda2b1a11fe6c5ba60a6f047",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "عُصْفُور"
+ },
+ "rw-311d4bb5.mp3": {
+  "text_sha256": "8b823ff5ee7dcd27d9dbabdd8d65818fd09f92254b8a30ebd84520f267da5e3c",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "تُفَّاحَة"
+ },
+ "rw-32c88c1b.mp3": {
+  "text_sha256": "4c0a3632f6ab9e36149d82c290bf07b27b67f1dd69d53cda6407af47bea59be8",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مِفْتَاح"
+ },
+ "rw-351bb8b8.mp3": {
+  "text_sha256": "3249dfc856fdf7a7b28755077d3fdc82be6ee917b3e3ac4e270498f82b5c3c3f",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "عَيْن"
+ },
+ "rw-3878bcc3.mp3": {
+  "text_sha256": "e4b5b14806b5595a591ababf65acb35318b0584997cf84210fe43ec13e591ff9",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "قِطّ"
+ },
+ "rw-38cf4ef0.mp3": {
+  "text_sha256": "df84faa90e4ecb2c8e2ce6f996c2a91f6b15fa2b0113033c0bad4d8427d8767c",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "ثَعْلَب"
+ },
+ "rw-3de686b5.mp3": {
+  "text_sha256": "0af6473347dafbb06cf6ba4de7bef61e5f363234027507ef4f4931668f097d72",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "أُذُن"
+ },
+ "rw-4975e4eb.mp3": {
+  "text_sha256": "2a1c1df7871d1e07749e65341cdb5ddb32d1e519080f23b9d1ea181160831219",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "جَامِعَة"
+ },
+ "rw-4c5d0bb9.mp3": {
+  "text_sha256": "10d86caf8e4f364122b579b501344e41b0c29b7d639516a4a4189b09cbdbc830",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نَجْم"
+ },
+ "rw-52a4aa72.mp3": {
+  "text_sha256": "296188574b4727558d13b03ad0b9c72e19fd9bb7df67cda010f36e5999824bfd",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بُرْتُقَال"
+ },
+ "rw-5329a3d4.mp3": {
+  "text_sha256": "583fc45d310860a878701fd67b21fdc5e1e3e7f2c4623abffc20acd1b0e4fb62",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "ظَرْف"
+ },
+ "rw-56231af3.mp3": {
+  "text_sha256": "497bfa97c9ece5afab64b072f5e3cee12b2af70b62d2b378a92a42aa39800f96",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مُسْتَقْبَل"
+ },
+ "rw-5e8c8ac3.mp3": {
+  "text_sha256": "a5ea46e2be0a337bdd3e6a8858ad92aedd7979cd37e4efc2bcbdb0761e5841f3",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "اِخْتِبَار"
+ },
+ "rw-5f8e4d79.mp3": {
+  "text_sha256": "1f2c26a835e4d1bef324bc81c0ed37652cf5a36fedc1469d923565645003337f",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "وَلَد"
+ },
+ "rw-677c371b.mp3": {
+  "text_sha256": "02d5de1e2f57a0d30a9bf5abb8575034a5b812202d7d408050b1eeb11125631b",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مُهَنْدِس"
+ },
+ "rw-68446434.mp3": {
+  "text_sha256": "0a5db37d1029a9e4966afca11d8e16e71c8564b1f15c87c81d3ed5ea2acc22f2",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "حَلِيب"
+ },
+ "rw-68a1575f.mp3": {
+  "text_sha256": "c10fd21e0386ddf0b6c75ee2589c3361d932cb47706958c725db689a2077a172",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "دُبّ"
+ },
+ "rw-68ea2c99.mp3": {
+  "text_sha256": "1dd3db20da877d9469ffc321bc9777abff5c385386a6cf6e73df7fb87a2a54bb",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "رَأْس"
+ },
+ "rw-6bbf4557.mp3": {
+  "text_sha256": "cb10cb96b641db0f9b322295c09a2c3d8baf8a6b73a3efbaf342984983422b88",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "حَدِيقَة"
+ },
+ "rw-7384448d.mp3": {
+  "text_sha256": "42766540f9c6be821031293cc1e92cf07b2b55f779697702d831a71988da1012",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "صَيْدَلِيَّة"
+ },
+ "rw-7968ba64.mp3": {
+  "text_sha256": "0c486722da08c54e16d3b1d21ebe7040f751943d751db003b1eea29365af467d",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بِنْت"
+ },
+ "rw-8116660a.mp3": {
+  "text_sha256": "e1e2c0dd8836d285b584b0e390e8ddf7938263c3713c9474f716a947c99b8eb2",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نَافِذَة"
+ },
+ "rw-83ca09ee.mp3": {
+  "text_sha256": "fa2711d42fe20ff062739238fa1d96f935123e1731cb7e099700e4515516cd20",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "خُبْز"
+ },
+ "rw-878b0fc6.mp3": {
+  "text_sha256": "dfa8043a7587497167703da7ec893fca0ccf2774fc8b64ee3b32ea6430b1e750",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "قَلَم"
+ },
+ "rw-8d178d75.mp3": {
+  "text_sha256": "aff6fc9a5f8f90176d7d0153b5b1a89750a46529d0b903a40c73e929fe963ccf",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "كِتَاب"
+ },
+ "rw-906b3ac5.mp3": {
+  "text_sha256": "03fa7832c8325e61833fbcabf1c26322515ae2a27f17e4be4fda4197784d8e3a",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "شَجَرَة"
+ },
+ "rw-93afeb77.mp3": {
+  "text_sha256": "ee48063561685793b13e5c5576d8c447639a643a1a558d7d7ddeef35ce77bdd9",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مَكْتَبَة"
+ },
+ "rw-987bda53.mp3": {
+  "text_sha256": "fba6b19f9c3e7b5d7e740f832dd9f42e759a8ee2784d211170b0b9a2c68c6dc0",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "وَرْد"
+ },
+ "rw-9986451b.mp3": {
+  "text_sha256": "9fdf20fbb857fed4133a59d0143a630324945d0c313ce4e7198c8d738bf26746",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَطَّة"
+ },
+ "rw-99aa4f67.mp3": {
+  "text_sha256": "5594ef9faf8a2e350d8464d4f225f734856cd0ca721ed44915d4ff3a87ec46bd",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مَطَر"
+ },
+ "rw-9dc535c6.mp3": {
+  "text_sha256": "cd3f7fcc995da4575ba0017d300c35392f0681a00337a87fe27f55193a44e103",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مَدْرَسَة"
+ },
+ "rw-a05724ae.mp3": {
+  "text_sha256": "b374366004eb30251f30a755af18361c82a05f60df238eac3ef827828e50b45f",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مَوْز"
+ },
+ "rw-a5ef129e.mp3": {
+  "text_sha256": "8c5e96bb05e7ebed1afa0a2551834046e186e191e85cb5379fe010903f22686e",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "شَمْس"
+ },
+ "rw-a6846a4f.mp3": {
+  "text_sha256": "3fa6f2a8e7c2ffc92a3e7dd19c26e61e5705b5c67acd8f30890926c70c398d50",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "زَهْرَة"
+ },
+ "rw-a931e72e.mp3": {
+  "text_sha256": "1f7b081924402cc3645abdd59e77445522690abff711b84f01296302b3092eb4",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "أَرْنَب"
+ },
+ "rw-ad0ae438.mp3": {
+  "text_sha256": "559a36653d408ebb488becca03e78cca3e335ccd73dc66e74f785f9eb46e53ec",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مُغَامَرَة"
+ },
+ "rw-b1ff68fc.mp3": {
+  "text_sha256": "e4fcd1333f2694bd6088be12b63ab2aa1a6c3f4224766185a23ea58e19f1b74d",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مِلْعَقَة"
+ },
+ "rw-b4091fef.mp3": {
+  "text_sha256": "3f3ff3a06e816e6bac47057bb26adbf849943cf30aa0259901c472bb78e82f08",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "يَد"
+ },
+ "rw-b7a224af.mp3": {
+  "text_sha256": "bafdadaba5000fed72f09f42e5eebaa6a50e6bb17f196b40634c525dbb15efaa",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "أُمّ"
+ },
+ "rw-bae2408c.mp3": {
+  "text_sha256": "843e31d81fbd2fcbd071c8083a7808196e5084b52c2c10916149dfc53f76dd0a",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "تَمْر"
+ },
+ "rw-bdc0c1e1.mp3": {
+  "text_sha256": "32593c89187be4ea8827a483ca60159564ea0845b76dcd7cf16132f0e76f3f58",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "قَمَر"
+ },
+ "rw-c4d2f4ba.mp3": {
+  "text_sha256": "fff4151b727d9dcce81782e387902583eb4d5e67dc9f34ff80e34cf55ed76b7d",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "طَبِيب"
+ },
+ "rw-ce099c40.mp3": {
+  "text_sha256": "4e097fdb07806ca781a67cc19a0939e06ef50872da1717933212cf44ba5d6b4e",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "كُرَة"
+ },
+ "rw-d6a7fb04.mp3": {
+  "text_sha256": "046a6afb98b9361b8e84d2d5a7b2cecd2f23704b4563dc0fe5b4ea4d52b1a2aa",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "صَدِيق"
+ },
+ "rw-d87b6985.mp3": {
+  "text_sha256": "7fabdc7664a186d787c537f8c974109cf4bb6af10d525e7ea8f9a5615e59bdc1",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "غَيْمَة"
+ },
+ "rw-daa2cb9d.mp3": {
+  "text_sha256": "ff7f3db4d381c7a08e6bf9e658cbb85ebb2a8d42162df63b62d56d09ffced293",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سَمَكَة"
+ },
+ "rw-e8381ffe.mp3": {
+  "text_sha256": "551c33471bf819489c97c6666de31931418b8ad08acb1b5336403ab8ab19458e",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "فَرَاشَة"
+ },
+ "rw-f988ddff.mp3": {
+  "text_sha256": "50ce168bbd4893c2c2e13d0f9816bea2db166c64124393171bf1362030dfa6ec",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مَاء"
+ },
+ "rw-fe08e25c.mp3": {
+  "text_sha256": "8d017879e8e3c66dd0cd6b5c97a276b4ea3819b8e2740835fb48e75ff8b402dd",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "أَسَد"
+ },
+ "pw-0079bb4f.mp3": {
+  "text_sha256": "cf29cdfc29978ab80139012ade4a2f317e4d8922f68ea5c6aadbf3feae8a0b8a",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "زَكْبُت"
+ },
+ "pw-04be1cff.mp3": {
+  "text_sha256": "21ce202a7c0cb57adbd617747c4412b6a51acb75f3f1aa03dd4e3a778fe7a00a",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "خُنُك"
+ },
+ "pw-18e8ad82.mp3": {
+  "text_sha256": "c73d7675e785bc744787cc812eafe391e824130900a56bb85e3348e145429068",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نِرِف"
+ },
+ "pw-2cc41f47.mp3": {
+  "text_sha256": "7a12de2614fc1f19f13f844e021baa82e546c92a1fcc5a5ba654787030d6c80c",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "مُبِح"
+ },
+ "pw-34ae174a.mp3": {
+  "text_sha256": "269c78a2ea16f585c9122d0afc8ddda5500f0af391878de16294d075cafa017c",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "جُقَل"
+ },
+ "pw-3792144f.mp3": {
+  "text_sha256": "3c3cec80abed7229f09cc240eae90651adbfae99cf8a40026de01b9a76bc89eb",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "شُقْخِد"
+ },
+ "pw-3ce1a45f.mp3": {
+  "text_sha256": "cfec51d5021dcb4b381eb05b9cf403ac19961db7d97d77cfe39f6a458b07ca43",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "شَخُر"
+ },
+ "pw-426307fc.mp3": {
+  "text_sha256": "d8e5b8635c30e8f6b70d631f3b76b6c99a1dc720827bfb1205e5f9eb5ec6882d",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "بَمِت"
+ },
+ "pw-49cc4f4c.mp3": {
+  "text_sha256": "b35a12c1dc3bd40d11ceec5438e3c3bb604e0b62293ccf2e7a89ef1172e5cb58",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "شِفِل"
+ },
+ "pw-4dcc8fe3.mp3": {
+  "text_sha256": "d99f83c632c25606b4be71d39dbee7d3b0cac8beb855ac3bafde93b5795ff8a9",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "دَمْجُر"
+ },
+ "pw-4de2b061.mp3": {
+  "text_sha256": "3be1dbe0ef65fe4427526c6b0253a944f135999637601eed618a92cb0283adbe",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "شِحُت"
+ },
+ "pw-5e9513c7.mp3": {
+  "text_sha256": "ed02f4abaff38c01efd36b4e41d4fcc9faff7a89a92f2ecafffe225a9a1e79f6",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "جَشْدَل"
+ },
+ "pw-60f03e36.mp3": {
+  "text_sha256": "0640928c1fef7330c92ba76134957e1d10cd2bb9eae2c19ad79b8763bba4520b",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "خُدُن"
+ },
+ "pw-643568e8.mp3": {
+  "text_sha256": "c9d5d59c698d567738dd4a496ae8a13364dd0f6e7aedd4537680bab1f959b8df",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "كُخُم"
+ },
+ "pw-6a84e462.mp3": {
+  "text_sha256": "dcc30ad57d70caa82d13b79f5c1b7deda81647f52cf8ad5e46a1fb5a6c6d939a",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "لَخْكُس"
+ },
+ "pw-713c8b7e.mp3": {
+  "text_sha256": "5e17c36a2edb06044322148d9c95a0bf288f6ee5d4eef2a7fad59945cc0064e8",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "خِفُت"
+ },
+ "pw-7220544f.mp3": {
+  "text_sha256": "e0478b34fbdafbbd1757ae05f8b6cb01e0ea7320ce591cc7c493f7b9863c5606",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "لِنْجَخ"
+ },
+ "pw-7a50a84c.mp3": {
+  "text_sha256": "76798b234257df9b825def0f142d605f053eb656245fa09b93a03f89dbc88725",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "زِمْقِل"
+ },
+ "pw-834dfe2f.mp3": {
+  "text_sha256": "dc10cb5e1bb22562b1d2ad737b1f9c777c51a0efd58961692490b781dd66ab99",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "شَلُخ"
+ },
+ "pw-91e08022.mp3": {
+  "text_sha256": "1091245f5c6f820b995a4a23adb66f7aaf3903492d192fd8a107b92588f3eeea",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "لَبُخ"
+ },
+ "pw-99c6a24a.mp3": {
+  "text_sha256": "1bd8e4fb2526c80bb31fe1c1950b0eaf0212a12f2383c8ffe7c54f9eed6964bf",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "خُبِح"
+ },
+ "pw-abaac997.mp3": {
+  "text_sha256": "f4f31ca90532166800da008fec98a5fd33edc8be5995a1534c968248e701e9c9",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "شُجِخ"
+ },
+ "pw-ac37b5b2.mp3": {
+  "text_sha256": "3d2320f43b0e27cdd36cbcf26a85331d63d834044abc7d216c31044b696bdf76",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "رِقِم"
+ },
+ "pw-b5192766.mp3": {
+  "text_sha256": "29c8abff04564f7623c6c4f8a583f72a39807f5928ea02215fb5c724a1e0baee",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "سُخْدُج"
+ },
+ "pw-bdd19e3c.mp3": {
+  "text_sha256": "2c44b3a48288c8047599170af9bc841332291f97af256c467f0e9b1da2d400ff",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "شِكْلُج"
+ },
+ "pw-bf89eaec.mp3": {
+  "text_sha256": "d66c2cbc478bfffdf530e6108858d8f2bf93299770d0970aab83d464fb474333",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "زُحُب"
+ },
+ "pw-c63a3a22.mp3": {
+  "text_sha256": "f282014a125d85b5d4b329b58cad11b24bb5967c9f4be18bb5e3420708871507",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "تِحْزِس"
+ },
+ "pw-dbc0bb0d.mp3": {
+  "text_sha256": "98e48f1395c7a4ad05c6f031ed0b5cc0ea7d49d22866b8a1e79072c1c4e8fbb3",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "خِجْلِك"
+ },
+ "pw-e19c09c8.mp3": {
+  "text_sha256": "ee676c9495f12a1d50dc5753b393ab7720d3785600c93c962ba4162edd16ad65",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "جُنُز"
+ },
+ "pw-e2261d2b.mp3": {
+  "text_sha256": "4afaf9c36d9a4dd59800b1c7cb47d5c862595a3f15bffb8e77394608de479c9b",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "شِجَف"
+ },
+ "pw-e9c8208c.mp3": {
+  "text_sha256": "ffc45b8d8e969dfb86645b67bd8b3bdaa0adc5167f39d18c2fd057aa47442f81",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "لُكْدَف"
+ },
+ "pw-ef8c6331.mp3": {
+  "text_sha256": "a84ebf987e43ad5593584d4170ba42375c7732d90535db0f15d25ca88f828e6a",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "نُتِل"
+ },
+ "pv-0e92724f.mp3": {
+  "text_sha256": "4f0b2e4bdf45b057ead8f9c86664311c71d36d49f2f43e527b8574337bf8fec0",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "يَعِيشُ الْجَمَلُ فِي الصَّحْرَاءِ. يَصْبِرُ الْجَمَلُ عَلَى الْعَطَشِ أَيَّامًا كَثِيرَةً، وَيَحْمِلُ الْمُسَافِرِينَ مِنْ مَكَانٍ إِلَى مَكَانٍ. وَيُسَمِّيهِ النَّاسُ سَفِينَةَ الصَّحْرَاءِ."
+ },
+ "pv-6efc7c4a.mp3": {
+  "text_sha256": "361f4c390ca90fd90d140919320834f88f4d9856de6b97153e2da0fb01c260c8",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "فِي الصَّبَاحِ تُشْرِقُ الشَّمْسُ. تَأْكُلُ مَرْيَمُ الْخُبْزَ وَتَشْرَبُ الْحَلِيبَ، ثُمَّ تَذْهَبُ إِلَى الْمَدْرَسَةِ."
+ },
+ "pv-73ec0cf3.mp3": {
+  "text_sha256": "62b0a1114590cab5411a1ceb288b9c627a8633ce336297c6a69d80bee5e730c2",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "ذَهَبَ سَامِي إِلَى الْحَدِيقَةِ. رَأَى شَجَرَةً كَبِيرَةً وَعُصْفُورًا صَغِيرًا. فَرِحَ سَامِي وَجَلَسَ تَحْتَ الشَّجَرَةِ."
+ },
+ "pu-8d738237.mp3": {
+  "text_sha256": "0fc68b5d65fad4410c62a2702d96f1c7ee0491746164d9282021989885b02beb",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "تَعِيشُ السَّلَاحِفُ مُدَّةً طَوِيلَةً، وَبَعْضُهَا يَعِيشُ أَكْثَرَ مِنْ مِئَةِ سَنَةٍ. تَحْمِلُ السُّلَحْفَاةُ بَيْتَهَا عَلَى ظَهْرِهَا، وَتَخْتَبِئُ فِيهِ عِنْدَمَا تَشْعُرُ أَنَّهَا فِي خَطَرٍ."
+ },
+ "pu-e9f3c944.mp3": {
+  "text_sha256": "d83fac2800bd0a728740960672050dfe6082e612346431d529e4d657ff03da51",
+  "engine": "azure-speech",
+  "voice": "ar-YE-MaryamNeural",
+  "text": "عِنْدَ جَدِّي بُسْتَانٌ جَمِيلٌ. فِيهِ نَخْلٌ وَتِينٌ وَعِنَبٌ. نَزُورُ جَدِّي كُلَّ يَوْمِ جُمُعَةٍ."
+ }
+}
