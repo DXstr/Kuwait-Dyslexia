@@ -1,7 +1,7 @@
 /**
  * GENERATED FILE — DO NOT EDIT.
  * Source: contracts/schemas/basira.schema.json
- * Source SHA-256: 2094a38cb5aee20862fff5204bfcfe04908b14cf65f9abf331b01a723543e655
+ * Source SHA-256: 86f4c152529298d6fb2d5a1a865fd5701989bb736005a49590b4ce5269a6db50
  * Generator: json-schema-to-typescript (version pinned in package-lock.json).
  * Regenerate from web/: npm run generate:contracts
  * These types are not runtime validation or database authorization.
@@ -10,12 +10,12 @@
 /**
  * Must exist in contracts/skill-graph.json
  *
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "SkillId".
  */
 export type SkillId = string
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "ErrorCategory".
  */
 export type ErrorCategory =
@@ -27,12 +27,12 @@ export type ErrorCategory =
   | 'insertion'
   | 'substitution'
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "ReviewStatus".
  */
 export type ReviewStatus = 'draft' | 'pending_review' | 'approved' | 'rejected' | 'delivered'
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "ItemType".
  */
 export type ItemType =
@@ -45,7 +45,7 @@ export type ItemType =
   | 'minimal_pair'
   | 'vowel_tap'
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "Stage0Construct".
  */
 export type Stage0Construct =
@@ -56,15 +56,31 @@ export type Stage0Construct =
   | 'dyscalculia'
   | 'phonological_awareness'
   | 'reading_fluency'
+/**
+ * When the app plays a prompt clip (ADR-003). item_retry is the neutral retry cue (non-negotiable 3); hint_* follow the item's error category; omission, insertion and substitution use item_retry
+ *
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * via the `definition` "PromptTrigger".
+ */
+export type PromptTrigger =
+  | 'session_start'
+  | 'listen_repeat'
+  | 'item_correct'
+  | 'item_retry'
+  | 'hint_dot_confusion'
+  | 'hint_emphatic_confusion'
+  | 'hint_short_vowel'
+  | 'hint_positional'
+  | 'session_end'
 
 /**
  * Single source of truth for every payload exchanged between workstream A (ai/, content/) and workstream B (web/, supabase/). Change only through a contracts PR approved by both.
  */
-export interface BasiraSharedContractsV010 {
+export interface BasiraSharedContractsV020 {
   [k: string]: unknown
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "PhonemeResult".
  */
 export interface PhonemeResult {
@@ -93,7 +109,7 @@ export interface PhonemeResult {
   end_ms: number
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "SkillEvidence".
  */
 export interface SkillEvidence {
@@ -102,7 +118,7 @@ export interface SkillEvidence {
   source: 'audio' | 'tap' | 'probe'
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "ScoreItemRequestMeta".
  */
 export interface ScoreItemRequestMeta {
@@ -118,7 +134,7 @@ export interface ScoreItemRequestMeta {
   dialect_lexicon_id: string
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "ScoreItemResponse".
  */
 export interface ScoreItemResponse {
@@ -149,7 +165,7 @@ export interface ScoreItemResponse {
   )[]
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "FingerprintRequest".
  */
 export interface FingerprintRequest {
@@ -163,7 +179,7 @@ export interface FingerprintRequest {
   tap_results: SkillEvidence[]
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "FingerprintResponse".
  */
 export interface FingerprintResponse {
@@ -208,7 +224,7 @@ export interface FingerprintResponse {
   review_status: 'pending_review'
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "ProbeRequest".
  */
 export interface ProbeRequest {
@@ -217,7 +233,7 @@ export interface ProbeRequest {
   unseen: ScoreItemResponse[]
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "ProbeResponse".
  */
 export interface ProbeResponse {
@@ -234,7 +250,7 @@ export interface ProbeResponse {
   }[]
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "Stage0ScoreRequest".
  */
 export interface Stage0ScoreRequest {
@@ -249,7 +265,7 @@ export interface Stage0ScoreRequest {
   }[]
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "Stage0ScoreResponse".
  */
 export interface Stage0ScoreResponse {
@@ -267,7 +283,7 @@ export interface Stage0ScoreResponse {
   synthetic: boolean
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "Health".
  */
 export interface Health {
@@ -278,7 +294,7 @@ export interface Health {
   contracts_version: string
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "Error".
  */
 export interface Error {
@@ -295,7 +311,7 @@ export interface Error {
   }
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "ItemBank".
  */
 export interface ItemBank {
@@ -308,7 +324,7 @@ export interface ItemBank {
   items: Item[]
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "Item".
  */
 export interface Item {
@@ -353,9 +369,55 @@ export interface Item {
   }
 }
 /**
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * via the `definition` "PromptClip".
+ */
+export interface PromptClip {
+  id: string
+  trigger: PromptTrigger
+  /**
+   * Fully diacritized Arabic, gender-neutral (first-person plural); never a word meaning wrong
+   */
+  text: string
+  /**
+   * Without diacritics
+   */
+  text_plain: string
+  /**
+   * Relative to the prompt-bank folder
+   */
+  audio_path: string | null
+  validation: {
+    /**
+     * Prompts that fail validation are discarded, never shipped
+     */
+    passed: true
+    validators: string[]
+  }
+  review: {
+    status: 'unreviewed' | 'approved' | 'rejected'
+    reviewer: string | null
+  }
+}
+/**
+ * Pre-recorded voice prompts the app plays around practice items (ADR-003); no runtime LLM, no live voice
+ *
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * via the `definition` "PromptBank".
+ */
+export interface PromptBank {
+  version: string
+  generated_at: string
+  /**
+   * true: prompt audio is TTS
+   */
+  synthetic_audio: boolean
+  prompts: PromptClip[]
+}
+/**
  * Deliberately has no field that can carry a score, a risk level or a label (non-negotiable 2).
  *
- * This interface was referenced by `BasiraSharedContractsV010`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
  * via the `definition` "ParentReport".
  */
 export interface ParentReport {

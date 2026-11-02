@@ -1,0 +1,25 @@
+{
+  "version": "0.0.1-sample",
+  "generated_at": "2026-11-02T00:00:00Z",
+  "synthetic_audio": true,
+  "prompts": [
+    {
+      "id": "pr-retry-1",
+      "trigger": "item_retry",
+      "text": "هَيَّا نُحَاوِلُ مَرَّةً أُخْرَى",
+      "text_plain": "هيا نحاول مرة أخرى",
+      "audio_path": "audio/pr-retry-1.mp3",
+      "validation": { "passed": true, "validators": ["script", "diacritized", "no_negative_words"] },
+      "review": { "status": "unreviewed", "reviewer": null }
+    },
+    {
+      "id": "pr-dot-1",
+      "trigger": "hint_dot_confusion",
+      "text": "لِنَنْظُرْ إِلَى النِّقَاطِ",
+      "text_plain": "لننظر إلى النقاط",
+      "audio_path": null,
+      "validation": { "passed": true, "validators": ["script", "diacritized", "no_negative_words"] },
+      "review": { "status": "unreviewed", "reviewer": null }
+    }
+  ]
+}

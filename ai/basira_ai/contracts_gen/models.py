@@ -8,8 +8,8 @@ from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, RootModel
 
 
-class BasiraSharedContractsV010(RootModel[Any]):
-    root: Any = Field(..., title='Basira shared contracts v0.1.0')
+class BasiraSharedContractsV020(RootModel[Any]):
+    root: Any = Field(..., title='Basira shared contracts v0.2.0')
     """
     Single source of truth for every payload exchanged between workstream A (ai/, content/) and workstream B (web/, supabase/). Change only through a contracts PR approved by both.
     """
@@ -419,7 +419,7 @@ class Item(BaseModel):
     """
     Relative to the item-bank folder
     """
-    options: list[str]
+    options: list[str] | None = None
     """
     Tap tasks and minimal pairs only
     """
@@ -430,6 +430,87 @@ class Item(BaseModel):
     """
     validation: Validation
     review: Review
+
+
+class PromptTrigger(
+    RootModel[
+        Literal[
+            'session_start',
+            'listen_repeat',
+            'item_correct',
+            'item_retry',
+            'hint_dot_confusion',
+            'hint_emphatic_confusion',
+            'hint_short_vowel',
+            'hint_positional',
+            'session_end',
+        ]
+    ]
+):
+    root: Literal[
+        'session_start',
+        'listen_repeat',
+        'item_correct',
+        'item_retry',
+        'hint_dot_confusion',
+        'hint_emphatic_confusion',
+        'hint_short_vowel',
+        'hint_positional',
+        'session_end',
+    ]
+    """
+    When the app plays a prompt clip (ADR-003). item_retry is the neutral retry cue (non-negotiable 3); hint_* follow the item's error category; omission, insertion and substitution use item_retry
+    """
+
+
+class Validation1(BaseModel):
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    passed: Literal[True]
+    """
+    Prompts that fail validation are discarded, never shipped
+    """
+    validators: list[str]
+
+
+class PromptClip(BaseModel):
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    id: str
+    trigger: PromptTrigger
+    text: str
+    """
+    Fully diacritized Arabic, gender-neutral (first-person plural); never a word meaning wrong
+    """
+    text_plain: str
+    """
+    Without diacritics
+    """
+    audio_path: str | None = None
+    """
+    Relative to the prompt-bank folder
+    """
+    validation: Validation1
+    review: Review
+
+
+class PromptBank(BaseModel):
+    """
+    Pre-recorded voice prompts the app plays around practice items (ADR-003); no runtime LLM, no live voice
+    """
+
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    version: str
+    generated_at: datetime
+    synthetic_audio: bool
+    """
+    true: prompt audio is TTS
+    """
+    prompts: list[PromptClip]
 
 
 class PractisedItem(BaseModel):

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://basira.local/contracts/basira.schema.json",
-  "title": "Basira shared contracts v0.1.0",
+  "title": "Basira shared contracts v0.2.0",
   "description": "Single source of truth for every payload exchanged between workstream A (ai/, content/) and workstream B (web/, supabase/). Change only through a contracts PR approved by both.",
   "$defs": {
     "SkillId": {
@@ -294,7 +294,7 @@
         "text": { "type": "string", "description": "Fully diacritized" },
         "text_plain": { "type": "string", "description": "Without diacritics" },
         "audio_path": { "type": ["string", "null"], "description": "Relative to the item-bank folder" },
-        "options": { "type": ["array", "null"], "items": { "type": "string" }, "description": "Tap tasks and minimal pairs only" },
+        "options": { "anyOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "null" }], "description": "Tap tasks and minimal pairs only" },
         "answer_index": { "type": ["integer", "null"], "minimum": 0 },
         "probe_only": { "type": "boolean", "description": "true: never used in practice, only in unseen-passage probes" },
         "validation": {
@@ -315,6 +315,55 @@
             "reviewer": { "type": ["string", "null"] }
           }
         }
+      }
+    },
+
+    "PromptTrigger": {
+      "enum": ["session_start", "listen_repeat", "item_correct", "item_retry", "hint_dot_confusion", "hint_emphatic_confusion", "hint_short_vowel", "hint_positional", "session_end"],
+      "description": "When the app plays a prompt clip (ADR-003). item_retry is the neutral retry cue (non-negotiable 3); hint_* follow the item's error category; omission, insertion and substitution use item_retry"
+    },
+
+    "PromptClip": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "trigger", "text", "text_plain", "audio_path", "validation", "review"],
+      "properties": {
+        "id": { "type": "string" },
+        "trigger": { "$ref": "#/$defs/PromptTrigger" },
+        "text": { "type": "string", "description": "Fully diacritized Arabic, gender-neutral (first-person plural); never a word meaning wrong" },
+        "text_plain": { "type": "string", "description": "Without diacritics" },
+        "audio_path": { "type": ["string", "null"], "description": "Relative to the prompt-bank folder" },
+        "validation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["passed", "validators"],
+          "properties": {
+            "passed": { "const": true, "description": "Prompts that fail validation are discarded, never shipped" },
+            "validators": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "review": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "reviewer"],
+          "properties": {
+            "status": { "enum": ["unreviewed", "approved", "rejected"] },
+            "reviewer": { "type": ["string", "null"] }
+          }
+        }
+      }
+    },
+
+    "PromptBank": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Pre-recorded voice prompts the app plays around practice items (ADR-003); no runtime LLM, no live voice",
+      "required": ["version", "generated_at", "synthetic_audio", "prompts"],
+      "properties": {
+        "version": { "type": "string" },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "synthetic_audio": { "type": "boolean", "description": "true: prompt audio is TTS" },
+        "prompts": { "type": "array", "items": { "$ref": "#/$defs/PromptClip" } }
       }
     },
 
