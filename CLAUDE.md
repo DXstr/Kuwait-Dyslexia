@@ -45,13 +45,19 @@ instead of working around the contract.
 - Unit tests for scoring, referral rules, validators, learning-map logic and database policies run in CI.
 - Errors are logged and surfaced to the right role, never swallowed.
 - Children's data is sensitive by default: pseudonymous ids, row-level security, audio expiry.
+- **Arabic first.** Arabic is the default language of every screen, message, audio prompt and document. Children learn
+  to read Arabic (MSA, fully vowelled, with Kuwaiti dialect variants accepted); child screens and the parent PDF are
+  Arabic only. English appears only as an optional switch on specialist/examiner screens, for English-speaking judges.
+  Every user-facing string lives in an Arabic-first message catalogue, never hard-coded in English.
 - Accessibility target: WCAG 2.1 AA on child screens; Arabic right-to-left; fonts with full diacritics.
 - Zero-cost hosting: Cloudflare Pages (web), Supabase Free (auth/db/storage), Hugging Face ZeroGPU Space or Cloud Run (scorer).
 
 ## Git workflow
 
-- `main` is protected. Branch `feat/<issue>-<short-name>` (or `contract/<name>` for contract changes).
-- One PR per issue, filled-in PR template, CI green, reviewed and merged by the **other** person.
+- `main` is protected. Branch `feat/<task-code>-<short-name>` named after the GitHub issue's task code, e.g.
+  `feat/a1-ai-scaffold`, `feat/b3-supabase` (or `contract/<name>` for contract changes, `chore/<name>` for docs/tooling).
+- One PR per issue (`Closes #N` in the PR body), filled-in PR template, CI green, reviewed and merged by the **other** person.
+- New task branches start from an up-to-date `main` after the previous PR merges; no long-lived branches.
 - Log any departure from `docs/IDEA.md` or `docs/DESIGN.md` in `docs/DECISIONS.md` before continuing.
 - Commit messages: imperative, scoped, e.g. `ai: add forced alignment`, `web: specialist review screen`.
 

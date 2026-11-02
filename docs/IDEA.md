@@ -81,6 +81,8 @@ friendly front-facing mouth; the sagittal view is for the specialist.
 
 ## Engineering standards
 
+Arabic first: every screen, message, audio prompt and document defaults to Arabic; child screens and the parent PDF
+are Arabic only; English exists only as an optional switch on specialist/examiner screens for English-speaking judges.
 Browser-based, tablet width. OAuth2/OIDC roles (guardian, child-supervised, specialist, examiner, admin) proven with two
 identity providers; PostgreSQL; secrets from env + CI secret scan; Docker/compose and a fresh-environment deploy proven
 from docs; approval state machine in code; CI unit tests; WCAG 2.1 AA; honest status; errors surfaced; children's data
