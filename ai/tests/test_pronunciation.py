@@ -1,29 +1,10 @@
 """Scorer behaviour on synthetic posteriors imitating the real models (see ai/notebooks/a3_results_v4.md)."""
 
-import numpy as np
 import pytest
+from _synthetic import LETTER_VOCAB, PHONE_VOCAB, REF, frames
 
 from basira_ai.g2p import to_units
-from basira_ai.pronunciation import AcousticOutput, missing_phone_tokens, routing, score_pronunciation
-from basira_ai.reference import reference_data
-
-REF = reference_data()
-PHONE_TOKENS = ["<pad>"] + sorted(set(routing()["phone_model"]["tokens"].values()))
-PHONE_VOCAB = {t: i for i, t in enumerate(PHONE_TOKENS)}
-LETTER_TOKENS = ["<pad>", "|"] + [letter.char for letter in REF.taxonomy.letters.values()] + list("ءأإؤئةى")
-LETTER_VOCAB = {t: i for i, t in enumerate(LETTER_TOKENS)}
-
-
-def frames(tokens: list[str], vocab: dict[str, int], p: float = 0.9) -> AcousticOutput:
-    """Two frames per token with a blank between tokens, each frame confidently its token."""
-    seq: list[int] = []
-    for tok in tokens:
-        seq += [vocab[tok], vocab[tok], 0]
-    lp = np.full((len(seq) + 1, len(vocab)), np.log((1 - p) / (len(vocab) - 1)))
-    for t, k in enumerate(seq):
-        lp[t, k] = np.log(p)
-    lp[-1, 0] = np.log(p)
-    return AcousticOutput(lp, vocab, 0)
+from basira_ai.pronunciation import missing_phone_tokens, routing, score_pronunciation
 
 
 def run(text: str, heard_phones: list[str], heard_letters: list[str] | None = None):

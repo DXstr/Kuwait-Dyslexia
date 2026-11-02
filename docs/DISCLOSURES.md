@@ -11,6 +11,11 @@ Required by the competition and by non-negotiable 10. Add a row in the same PR t
 | librosa | Audio loading/resampling (optional `model` extra) | ISC | A3 | 2026-11-01 |
 | soundfile | Audio decoding (optional `model` extra) | BSD-3-Clause | A3 | 2026-11-01 |
 | gTTS (research notebooks only) | Synthetic Arabic test audio in Colab experiments; never shipped | MIT (client); uses Google Translate TTS | A3 | 2026-11-01 |
+| FastAPI | Scorer HTTP API (`service` extra) | MIT | A6 | 2026-11-01 |
+| uvicorn | ASGI server for the scorer | BSD-3-Clause | A6 | 2026-11-01 |
+| python-multipart | Audio upload parsing | Apache-2.0 | A6 | 2026-11-01 |
+| PyJWT (+ cryptography) | Supabase token verification | MIT (cryptography: Apache-2.0 / BSD) | A6 | 2026-11-01 |
+| httpx | Test client (dev only) | BSD-3-Clause | A6 | 2026-11-01 |
 | pydantic | Contract data models in `ai/` (runtime) | MIT | A1 | 2026-11-01 |
 | datamodel-code-generator | Generates `ai/basira_ai/contracts_gen/models.py` from the schema (dev only) | MIT | A1 | 2026-11-01 |
 | black, isort | Formatting used by the model generator (dev only) | MIT | A1 | 2026-11-01 |
