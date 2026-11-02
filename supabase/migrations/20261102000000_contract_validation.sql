@@ -1,6 +1,6 @@
 -- GENERATED — DO NOT EDIT. Sources: contracts/schemas/basira.schema.json,
 -- contracts/skill-graph.json, contracts/dialect-lexicons.json.
--- SHA-256: 395b827537d68e06b260696f9d2fce6f180d6f2515750f21fcb394f534f0922d
+-- SHA-256: 13dc0c53ec52c57b45311729b5e5619518c56fe6111f3fe429da0493e459e187
 -- Regenerate: cd supabase && npm run generate:contracts
 create schema if not exists basira_private;
 revoke all on schema basira_private from public, anon;

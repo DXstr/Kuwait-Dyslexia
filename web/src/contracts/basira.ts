@@ -1,7 +1,7 @@
 /**
  * GENERATED FILE — DO NOT EDIT.
  * Source: contracts/schemas/basira.schema.json
- * Source SHA-256: 86f4c152529298d6fb2d5a1a865fd5701989bb736005a49590b4ce5269a6db50
+ * Source SHA-256: 9bcfdf03d3dec982d6e74ac9808abbbd5f1cef38aaff595f650ae1e670a4c93d
  * Generator: json-schema-to-typescript (version pinned in package-lock.json).
  * Regenerate from web/: npm run generate:contracts
  * These types are not runtime validation or database authorization.
@@ -10,12 +10,12 @@
 /**
  * Must exist in contracts/skill-graph.json
  *
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "SkillId".
  */
 export type SkillId = string
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "ErrorCategory".
  */
 export type ErrorCategory =
@@ -27,12 +27,12 @@ export type ErrorCategory =
   | 'insertion'
   | 'substitution'
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "ReviewStatus".
  */
 export type ReviewStatus = 'draft' | 'pending_review' | 'approved' | 'rejected' | 'delivered'
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "ItemType".
  */
 export type ItemType =
@@ -45,7 +45,7 @@ export type ItemType =
   | 'minimal_pair'
   | 'vowel_tap'
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "Stage0Construct".
  */
 export type Stage0Construct =
@@ -59,7 +59,7 @@ export type Stage0Construct =
 /**
  * When the app plays a prompt clip (ADR-003). item_retry is the neutral retry cue (non-negotiable 3); hint_* follow the item's error category; omission, insertion and substitution use item_retry
  *
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "PromptTrigger".
  */
 export type PromptTrigger =
@@ -76,11 +76,11 @@ export type PromptTrigger =
 /**
  * Single source of truth for every payload exchanged between workstream A (ai/, content/) and workstream B (web/, supabase/). Change only through a contracts PR approved by both.
  */
-export interface BasiraSharedContractsV020 {
+export interface BasiraSharedContractsV030 {
   [k: string]: unknown
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "PhonemeResult".
  */
 export interface PhonemeResult {
@@ -109,7 +109,7 @@ export interface PhonemeResult {
   end_ms: number
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "SkillEvidence".
  */
 export interface SkillEvidence {
@@ -118,7 +118,7 @@ export interface SkillEvidence {
   source: 'audio' | 'tap' | 'probe'
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "ScoreItemRequestMeta".
  */
 export interface ScoreItemRequestMeta {
@@ -134,7 +134,7 @@ export interface ScoreItemRequestMeta {
   dialect_lexicon_id: string
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "ScoreItemResponse".
  */
 export interface ScoreItemResponse {
@@ -165,7 +165,7 @@ export interface ScoreItemResponse {
   )[]
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "FingerprintRequest".
  */
 export interface FingerprintRequest {
@@ -179,7 +179,7 @@ export interface FingerprintRequest {
   tap_results: SkillEvidence[]
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "FingerprintResponse".
  */
 export interface FingerprintResponse {
@@ -224,7 +224,7 @@ export interface FingerprintResponse {
   review_status: 'pending_review'
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "ProbeRequest".
  */
 export interface ProbeRequest {
@@ -233,7 +233,7 @@ export interface ProbeRequest {
   unseen: ScoreItemResponse[]
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "ProbeResponse".
  */
 export interface ProbeResponse {
@@ -250,7 +250,7 @@ export interface ProbeResponse {
   }[]
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "Stage0ScoreRequest".
  */
 export interface Stage0ScoreRequest {
@@ -265,7 +265,7 @@ export interface Stage0ScoreRequest {
   }[]
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "Stage0ScoreResponse".
  */
 export interface Stage0ScoreResponse {
@@ -283,7 +283,7 @@ export interface Stage0ScoreResponse {
   synthetic: boolean
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "Health".
  */
 export interface Health {
@@ -294,7 +294,7 @@ export interface Health {
   contracts_version: string
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "Error".
  */
 export interface Error {
@@ -311,7 +311,7 @@ export interface Error {
   }
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "ItemBank".
  */
 export interface ItemBank {
@@ -324,7 +324,7 @@ export interface ItemBank {
   items: Item[]
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "Item".
  */
 export interface Item {
@@ -369,7 +369,7 @@ export interface Item {
   }
 }
 /**
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "PromptClip".
  */
 export interface PromptClip {
@@ -402,7 +402,7 @@ export interface PromptClip {
 /**
  * Pre-recorded voice prompts the app plays around practice items (ADR-003); no runtime LLM, no live voice
  *
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "PromptBank".
  */
 export interface PromptBank {
@@ -415,9 +415,140 @@ export interface PromptBank {
   prompts: PromptClip[]
 }
 /**
+ * Sign-off by the named linguist / speech-language pathologist (non-negotiable 13)
+ *
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
+ * via the `definition` "PhoneticReview".
+ */
+export interface PhoneticReview {
+  status: 'unreviewed' | 'approved' | 'rejected'
+  reviewer: string | null
+  reviewed_on: string | null
+}
+/**
+ * Parametric mouth targets for the renderer (IDEA: jaw, lip rounding, lip closure, tongue tip, tongue dorsum, pharyngeal constriction). 0 = rest, 1 = maximum. Draft values until reviewed
+ *
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
+ * via the `definition` "MouthShape".
+ */
+export interface MouthShape {
+  jaw_open: number
+  lip_closure: number
+  lip_rounding: number
+  /**
+   * Labiodental contact (ف)
+   */
+  lower_lip_to_teeth: boolean
+  tongue_tip: {
+    raise: number
+    target: 'rest' | 'between_teeth' | 'upper_teeth' | 'alveolar_ridge' | 'postalveolar'
+  }
+  tongue_dorsum: {
+    raise: number
+    target: 'rest' | 'palate' | 'velum' | 'uvula'
+  }
+  /**
+   * Pharyngeals ح ع and the emphatic secondary articulation
+   */
+  pharyngeal_constriction: number
+}
+/**
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
+ * via the `definition` "PhoneticLetter".
+ */
+export interface PhoneticLetter {
+  /**
+   * Letter id from taxonomy.json
+   */
+  letter_id: string
+  char: string
+  /**
+   * Must equal the taxonomy IPA
+   */
+  ipa: string
+  place:
+    | 'bilabial'
+    | 'labiodental'
+    | 'interdental'
+    | 'dental_alveolar'
+    | 'alveolar'
+    | 'postalveolar'
+    | 'palatal'
+    | 'labial_velar'
+    | 'velar'
+    | 'uvular'
+    | 'pharyngeal'
+    | 'glottal'
+  manner: 'stop' | 'fricative' | 'affricate' | 'nasal' | 'trill' | 'lateral' | 'approximant'
+  voiced: boolean
+  /**
+   * Must equal the taxonomy flag; emphatics add pharyngeal constriction
+   */
+  emphatic: boolean
+  mouth: MouthShape
+  /**
+   * Fully vowelled, gender-neutral (first-person plural) articulation cue; shown to a child only after approval
+   */
+  cue_ar: string
+  /**
+   * Rendering note for the specialist view and reviewers
+   */
+  note_en: string
+  /**
+   * @minItems 1
+   */
+  sources: [string, ...string[]]
+  review: PhoneticReview
+}
+/**
+ * Vowels and sukun/shadda modify the consonant shape (IDEA: 28 letters x each vowel modifier)
+ *
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
+ * via the `definition` "VowelModifier".
+ */
+export interface VowelModifier {
+  /**
+   * Short-vowel id from taxonomy.json, or a long vowel: fatha_long, kasra_long, damma_long
+   */
+  vowel_id: string
+  ipa: string | null
+  /**
+   * null: keep the consonant's value
+   */
+  jaw_open: number | null
+  lip_rounding: number | null
+  lip_spread: number | null
+  /**
+   * null: keep the consonant's tongue
+   */
+  tongue_body: ('front' | 'central' | 'back') | null
+  /**
+   * Hold time relative to a short vowel (shadda doubles the consonant)
+   */
+  duration_factor: number
+  note_en: string
+  review: PhoneticReview
+}
+/**
+ * Drives the mouth-shape generator (IDEA: Mouth-shape generator). Data: contracts/phonetic-inventory.json
+ *
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
+ * via the `definition` "PhoneticInventory".
+ */
+export interface PhoneticInventory {
+  version: string
+  status: string
+  /**
+   * @minItems 1
+   */
+  sources: [string, ...string[]]
+  letters: PhoneticLetter[]
+  vowel_modifiers: VowelModifier[]
+}
+/**
  * Deliberately has no field that can carry a score, a risk level or a label (non-negotiable 2).
  *
- * This interface was referenced by `BasiraSharedContractsV020`'s JSON-Schema
+ * This interface was referenced by `BasiraSharedContractsV030`'s JSON-Schema
  * via the `definition` "ParentReport".
  */
 export interface ParentReport {
