@@ -1,4 +1,4 @@
-# Basira web — B1 scaffold
+# Basira web
 
 A clean-room, standalone Vite + React + TypeScript application. Arabic and RTL are the defaults. The font is bundled locally; production does not need a font CDN. There is no platform-specific runtime, hosted login portal, database or storage dependency.
 
@@ -43,6 +43,25 @@ All React UI copy is in `src/i18n/messages.ts`. An English preference lasts only
 
 These route guards are **navigation only, not authorization**. They must never replace database enforcement. There are no database queries, reports, plans, results, audio recording or session mutations in B1. Consent triggers, approval state transitions and guardian/child RLS must be implemented and tested in B3 before those flows are added. Google and Microsoft sign-in must use Supabase Auth in B4.
 
+## Generated contract types (B2)
+
+`src/contracts/basira.ts` is generated, never hand-edited, from `../contracts/schemas/basira.schema.json` using the exactly pinned `json-schema-to-typescript` development dependency. From `web/`:
+
+```sh
+npm run generate:contracts
+npm run check:contracts
+```
+
+Generation is deterministic, uses LF line endings, and records the canonical schema's SHA-256 rather than a timestamp. `check:contracts` regenerates in memory and fails if the committed file is missing or stale; it never repairs or overwrites output. `npm run typecheck` includes this check, so the existing CI job catches drift without a workflow change. Tests also verify deterministic output, missing/stale failures and assignability of every existing JSON fixture without type casts.
+
+The schema root is a definitions registry, not a payload. The generator's [`unreachableDefinitions` option](https://github.com/bcherny/json-schema-to-typescript#options) exports every named `$def`, even though none is referenced by a root payload. Future consumers should import those named types, not the generated registry wrapper:
+
+```ts
+import type { ScoreItemResponse, Error as ContractError } from './contracts/basira'
+```
+
+The scorer client will consume these types in B5; B2 does not create a client, make network calls or display fixtures. Generated TypeScript is **not runtime validation**: patterns, numeric ranges, date formats and clinical/data-access rules still require schema validation or database enforcement. Contract changes still need their own approved contracts PR; this command never modifies the schema or fixtures. The generator is MIT-licensed; see its [official documentation](https://github.com/bcherny/json-schema-to-typescript) and `../docs/DISCLOSURES.md`.
+
 ## Static build and PWA
 
 Cloudflare Pages can build this directory with `npm ci && npm run build`, using `web` as its root directory and `dist` as the output directory. The committed SPA fallback supports protected direct links. B13 owns connecting and deploying the real Cloudflare Pages project; this PR does not publish anything or provision services.
@@ -51,6 +70,6 @@ The production build includes Arabic install metadata, local PNG/maskable icons 
 
 ## Scope and next steps
 
-B1 is a shell, not an operational screening app. No real or synthetic child profiles, scores or results are shown. No assessment can start; no plan or report can be delivered. B2 owns generated payload types from `../contracts/schemas/basira.schema.json`; no scorer payload types are defined by hand here and type generation is not yet implemented. B3 owns Supabase and database gates, B4 owns Google/Microsoft authentication, and subsequent tasks own scoring and workflows.
+B1 provides the shell and B2 adds generated payload types; this is not an operational screening app. No real or synthetic child profiles, scores or results are shown. No assessment can start; no plan or report can be delivered. No scorer payload types are defined by hand. B3 owns Supabase and database gates, B4 owns Google/Microsoft authentication, and subsequent tasks own scoring and workflows.
 
 Noto Naskh Arabic is distributed under [OFL-1.1](https://fontsource.org/fonts/noto-naskh-arabic/about), copyright 2022 The Noto Project Authors. Its licence ships in `public/licenses/`. Direct dependencies and their licences are disclosed in `../docs/DISCLOSURES.md`.
