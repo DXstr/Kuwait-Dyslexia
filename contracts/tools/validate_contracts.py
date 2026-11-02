@@ -6,6 +6,7 @@ Checks:
   3. Skill-graph prerequisites have no cycles.
   4. Taxonomy letters referenced by the skill graph, dot groups and dialect rules exist.
   5. Dialect rule ids referenced by fixtures exist.
+  6. phonetic-inventory.json validates against $defs/PhoneticInventory and agrees with taxonomy.json.
 Exit code 1 on any failure (CI blocks the PR).
 """
 import json
@@ -110,8 +111,35 @@ for L in lex["lexicons"]:
         if r["letter"] not in letter_ids:
             errors.append(f"dialect-lexicons: {r['id']} unknown letter {r['letter']}")
 
+# 6. phonetic inventory (A12): schema + agreement with the taxonomy
+inv_path = ROOT / "phonetic-inventory.json"
+if inv_path.is_file():
+    inv = load(inv_path)
+    v = Draft202012Validator({"$ref": f"{schema['$id']}#/$defs/PhoneticInventory"}, registry=registry)
+    for e in v.iter_errors(inv):
+        errors.append(f"phonetic-inventory: {'/'.join(map(str, e.absolute_path))}: {e.message}")
+    by_id = {l["id"]: l for l in tax["letters"]}
+    seen = [row["letter_id"] for row in inv.get("letters", [])]
+    if sorted(seen) != sorted(by_id):
+        errors.append(f"phonetic-inventory: letters must be the {len(by_id)} taxonomy letters exactly once")
+    for row in inv.get("letters", []):
+        t = by_id.get(row["letter_id"])
+        if t is None:
+            continue
+        for k_inv, k_tax in (("char", "char"), ("ipa", "ipa"), ("emphatic", "emphatic")):
+            if row[k_inv] != t[k_tax]:
+                errors.append(f"phonetic-inventory: {row['letter_id']} {k_inv}={row[k_inv]!r} but taxonomy has {t[k_tax]!r}")
+        if row["emphatic"] and not row["mouth"]["pharyngeal_constriction"] > 0:
+            errors.append(f"phonetic-inventory: emphatic {row['letter_id']} needs pharyngeal_constriction > 0")
+    vowel_ids = {x["id"] for x in tax["short_vowels"]} | {"fatha_long", "kasra_long", "damma_long"}
+    for vm in inv.get("vowel_modifiers", []):
+        if vm["vowel_id"] not in vowel_ids:
+            errors.append(f"phonetic-inventory: unknown vowel_id {vm['vowel_id']}")
+else:
+    errors.append("phonetic-inventory.json is missing")
+
 if errors:
     print("CONTRACT CHECK FAILED")
     print("\n".join(errors))
     sys.exit(1)
-print(f"Contracts OK: {len(list((ROOT / 'fixtures').glob('*.json')))} fixtures, {len(skill_ids)} skills, {len(rule_ids)} dialect rules")
+print(f"Contracts OK: {len(list((ROOT / 'fixtures').glob('*.json')))} fixtures, {len(skill_ids)} skills, {len(rule_ids)} dialect rules, phonetic inventory")

@@ -73,6 +73,16 @@ def letter_id(ch: str, taxonomy: Taxonomy) -> str | None:
     return letter.id if letter else None
 
 
+def _article_follows(letters: list[tuple[str, frozenset[str]]], i: int) -> bool:
+    """letters[i] is an alif followed by an article laam (sukun, or bare before a sun letter with shadda)."""
+    if i + 1 >= len(letters) or letters[i + 1][0] != LAAM or letters[i][1]:
+        return False
+    laam_marks = letters[i + 1][1]
+    if SUKUN in laam_marks:
+        return True
+    return not laam_marks and i + 2 < len(letters) and SHADDA in letters[i + 2][1]
+
+
 def undiacritized_letters(word: str, taxonomy: Taxonomy) -> list[int]:
     """Indexes of letters in `word` that lack a vowel mark where standard full vowelling requires one.
 
@@ -81,6 +91,7 @@ def undiacritized_letters(word: str, taxonomy: Taxonomy) -> list[int]:
     - the bare alif of the definite article, and its laam when assimilated to a following sun letter with shadda;
     - a word-final letter (pausal sukun), including taa marbuta.
     A shadda must always carry a vowel or tanwin. A stray mark (no letter before it) is always reported.
+    A one-letter proclitic fused to the article (وَالْبَيْتُ) is reported: read in isolation it would be a long "aa".
     """
     letters = split_letters(word)
     bad: list[int] = []
@@ -97,6 +108,9 @@ def undiacritized_letters(word: str, taxonomy: Taxonomy) -> list[int]:
         if marks & VOCALIC:
             continue
         if last:
+            continue
+        if ch == ALIF and i == 1 and _article_follows(letters, i):
+            bad.append(i)  # proclitic + article (وَالـ، فَالـ، كَالـ): the reading rules would say a long "aa"
             continue
         if ch in (ALIF, ALIF_MAQSURA) and prev & {FATHA, TANWIN_FATH}:
             continue

@@ -1,0 +1,124 @@
+{
+  "version": "0.0.1-sample",
+  "status": "DRAFT - every row unreviewed; mouth values are approximate until a linguist/SLP signs off (non-negotiable 13)",
+  "sources": [
+    "Watson, J. (2002) The Phonology and Morphology of Arabic. Oxford University Press."
+  ],
+  "letters": [
+    {
+      "letter_id": "baa",
+      "char": "ب",
+      "ipa": "b",
+      "place": "bilabial",
+      "manner": "stop",
+      "voiced": true,
+      "emphatic": false,
+      "mouth": {
+        "jaw_open": 0.15,
+        "lip_closure": 1.0,
+        "lip_rounding": 0.1,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "tongue_dorsum": {
+          "raise": 0.0,
+          "target": "rest"
+        },
+        "pharyngeal_constriction": 0.0
+      },
+      "cue_ar": "نُطْبِقُ شَفَتَيْنَا ثُمَّ نَفْتَحُهُمَا",
+      "note_en": "Full lip closure, then release.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "letter_id": "saad",
+      "char": "ص",
+      "ipa": "sˤ",
+      "place": "alveolar",
+      "manner": "fricative",
+      "voiced": false,
+      "emphatic": true,
+      "mouth": {
+        "jaw_open": 0.3,
+        "lip_closure": 0.0,
+        "lip_rounding": 0.0,
+        "lower_lip_to_teeth": false,
+        "tongue_tip": {
+          "raise": 0.7,
+          "target": "alveolar_ridge"
+        },
+        "tongue_dorsum": {
+          "raise": 0.5,
+          "target": "uvula"
+        },
+        "pharyngeal_constriction": 0.6
+      },
+      "cue_ar": "نُقَرِّبُ طَرَفَ اللِّسَانِ مِنَ الْأَسْنَانِ وَنُفَخِّمُ الصَّوْتَ",
+      "note_en": "Emphatic س: same tip, plus tongue-root retraction (pharyngeal constriction) and raised back of the tongue.",
+      "sources": [
+        "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
+      ],
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    }
+  ],
+  "vowel_modifiers": [
+    {
+      "vowel_id": "fatha",
+      "ipa": "a",
+      "jaw_open": 0.6,
+      "lip_rounding": 0.0,
+      "lip_spread": 0.2,
+      "tongue_body": "central",
+      "duration_factor": 1,
+      "note_en": "Open jaw, neutral lips.",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "vowel_id": "kasra",
+      "ipa": "i",
+      "jaw_open": 0.25,
+      "lip_rounding": 0.0,
+      "lip_spread": 0.7,
+      "tongue_body": "front",
+      "duration_factor": 1,
+      "note_en": "Near-closed jaw, spread lips, front tongue body.",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    },
+    {
+      "vowel_id": "damma",
+      "ipa": "u",
+      "jaw_open": 0.25,
+      "lip_rounding": 0.9,
+      "lip_spread": 0.0,
+      "tongue_body": "back",
+      "duration_factor": 1,
+      "note_en": "Near-closed jaw, rounded lips, back tongue body.",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": null,
+        "reviewed_on": null
+      }
+    }
+  ]
+}

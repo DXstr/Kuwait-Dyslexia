@@ -1,5 +1,10 @@
 # Contracts changelog
 
+## 0.3.0 — 2026-11-02
+- Add `PhoneticInventory`, `PhoneticLetter`, `MouthShape`, `VowelModifier`, `PhoneticReview` (A12) and the data
+  file `phonetic-inventory.json` (28 letters + 8 vowel modifiers, all unreviewed); fixture `PhoneticInventory.sample.json`.
+- `validate_contracts.py` check 6: the inventory validates and agrees with `taxonomy.json` (ids, char, IPA, emphatic).
+
 ## 0.2.0 — 2026-11-02
 - Add `PromptTrigger`, `PromptClip`, `PromptBank`: pre-recorded voice prompts for Teach (ADR-003); fixture
   `PromptBank.sample.json`.

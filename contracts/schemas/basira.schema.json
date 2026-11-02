@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://basira.local/contracts/basira.schema.json",
-  "title": "Basira shared contracts v0.2.0",
+  "title": "Basira shared contracts v0.3.0",
   "description": "Single source of truth for every payload exchanged between workstream A (ai/, content/) and workstream B (web/, supabase/). Change only through a contracts PR approved by both.",
   "$defs": {
     "SkillId": {
@@ -364,6 +364,102 @@
         "generated_at": { "type": "string", "format": "date-time" },
         "synthetic_audio": { "type": "boolean", "description": "true: prompt audio is TTS" },
         "prompts": { "type": "array", "items": { "$ref": "#/$defs/PromptClip" } }
+      }
+    },
+
+    "PhoneticReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Sign-off by the named linguist / speech-language pathologist (non-negotiable 13)",
+      "required": ["status", "reviewer", "reviewed_on"],
+      "properties": {
+        "status": { "enum": ["unreviewed", "approved", "rejected"] },
+        "reviewer": { "type": ["string", "null"] },
+        "reviewed_on": { "type": ["string", "null"], "format": "date" }
+      }
+    },
+
+    "MouthShape": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Parametric mouth targets for the renderer (IDEA: jaw, lip rounding, lip closure, tongue tip, tongue dorsum, pharyngeal constriction). 0 = rest, 1 = maximum. Draft values until reviewed",
+      "required": ["jaw_open", "lip_closure", "lip_rounding", "lower_lip_to_teeth", "tongue_tip", "tongue_dorsum", "pharyngeal_constriction"],
+      "properties": {
+        "jaw_open": { "type": "number", "minimum": 0, "maximum": 1 },
+        "lip_closure": { "type": "number", "minimum": 0, "maximum": 1 },
+        "lip_rounding": { "type": "number", "minimum": 0, "maximum": 1 },
+        "lower_lip_to_teeth": { "type": "boolean", "description": "Labiodental contact (ف)" },
+        "tongue_tip": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["raise", "target"],
+          "properties": {
+            "raise": { "type": "number", "minimum": 0, "maximum": 1 },
+            "target": { "enum": ["rest", "between_teeth", "upper_teeth", "alveolar_ridge", "postalveolar"] }
+          }
+        },
+        "tongue_dorsum": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["raise", "target"],
+          "properties": {
+            "raise": { "type": "number", "minimum": 0, "maximum": 1 },
+            "target": { "enum": ["rest", "palate", "velum", "uvula"] }
+          }
+        },
+        "pharyngeal_constriction": { "type": "number", "minimum": 0, "maximum": 1, "description": "Pharyngeals ح ع and the emphatic secondary articulation" }
+      }
+    },
+
+    "PhoneticLetter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["letter_id", "char", "ipa", "place", "manner", "voiced", "emphatic", "mouth", "cue_ar", "note_en", "sources", "review"],
+      "properties": {
+        "letter_id": { "type": "string", "description": "Letter id from taxonomy.json" },
+        "char": { "type": "string" },
+        "ipa": { "type": "string", "description": "Must equal the taxonomy IPA" },
+        "place": { "enum": ["bilabial", "labiodental", "interdental", "dental_alveolar", "alveolar", "postalveolar", "palatal", "labial_velar", "velar", "uvular", "pharyngeal", "glottal"] },
+        "manner": { "enum": ["stop", "fricative", "affricate", "nasal", "trill", "lateral", "approximant"] },
+        "voiced": { "type": "boolean" },
+        "emphatic": { "type": "boolean", "description": "Must equal the taxonomy flag; emphatics add pharyngeal constriction" },
+        "mouth": { "$ref": "#/$defs/MouthShape" },
+        "cue_ar": { "type": "string", "description": "Fully vowelled, gender-neutral (first-person plural) articulation cue; shown to a child only after approval" },
+        "note_en": { "type": "string", "description": "Rendering note for the specialist view and reviewers" },
+        "sources": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "review": { "$ref": "#/$defs/PhoneticReview" }
+      }
+    },
+
+    "VowelModifier": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Vowels and sukun/shadda modify the consonant shape (IDEA: 28 letters x each vowel modifier)",
+      "required": ["vowel_id", "ipa", "jaw_open", "lip_rounding", "lip_spread", "tongue_body", "duration_factor", "note_en", "review"],
+      "properties": {
+        "vowel_id": { "type": "string", "description": "Short-vowel id from taxonomy.json, or a long vowel: fatha_long, kasra_long, damma_long" },
+        "ipa": { "type": ["string", "null"] },
+        "jaw_open": { "type": ["number", "null"], "minimum": 0, "maximum": 1, "description": "null: keep the consonant's value" },
+        "lip_rounding": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "lip_spread": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "tongue_body": { "anyOf": [{ "enum": ["front", "central", "back"] }, { "type": "null" }], "description": "null: keep the consonant's tongue" },
+        "duration_factor": { "type": "number", "exclusiveMinimum": 0, "description": "Hold time relative to a short vowel (shadda doubles the consonant)" },
+        "note_en": { "type": "string" },
+        "review": { "$ref": "#/$defs/PhoneticReview" }
+      }
+    },
+
+    "PhoneticInventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Drives the mouth-shape generator (IDEA: Mouth-shape generator). Data: contracts/phonetic-inventory.json",
+      "required": ["version", "status", "sources", "letters", "vowel_modifiers"],
+      "properties": {
+        "version": { "type": "string" },
+        "status": { "type": "string" },
+        "sources": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "letters": { "type": "array", "items": { "$ref": "#/$defs/PhoneticLetter" } },
+        "vowel_modifiers": { "type": "array", "items": { "$ref": "#/$defs/VowelModifier" } }
       }
     },
 
