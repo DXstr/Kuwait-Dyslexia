@@ -21,4 +21,8 @@ ruff check .                              # lint
 pytest -q                                 # tests (includes contract + generated-model drift checks)
 python scripts/gen_contracts.py           # regenerate models after a contracts change
 python scripts/gen_contracts.py --check   # verify generated models are current
+pip install -e ".[model]"                 # heavy: torch + transformers, only to run the real models
+uvicorn service.app:build --factory --port 8000   # scorer API (needs SUPABASE_JWKS_URL or SUPABASE_JWT_SECRET)
 ```
+
+Docker (from the repo root): `docker compose -f ai/compose.yaml up --build` → http://localhost:8000/health
