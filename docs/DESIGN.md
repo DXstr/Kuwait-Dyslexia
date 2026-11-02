@@ -28,7 +28,7 @@ credentials. Practice content is built offline and shipped as static files, so t
 | M0 Contracts | `contracts/` | both | — |
 | M1 Scoring core (pure Python) | `ai/basira_ai/` | A | function signatures returning contract models |
 | M2 Scoring service (FastAPI) | `ai/service/` | A | `contracts/scorer.openapi.yaml` |
-| M3 Content pipeline | `content/` | A | `ItemBank` schema; output `content/dist/` |
+| M3 Content pipeline | `content/` | A | `ItemBank` + `PromptBank` (ADR-003) schemas; output `content/dist/` |
 | M4 Platform | `supabase/` | B | `contracts/data-model.md` |
 | M5 Web app (React, RTL, tablet-first) | `web/` | B | Supabase client + scorer API |
 | M6 Learning-map engine (pure TS) | `web/src/learning-map/` | B | `skill-graph.json` |
