@@ -31,9 +31,10 @@ from fastapi.responses import JSONResponse
 from pydantic import ValidationError
 
 from basira_ai.contracts_gen import ScoreItemRequestMeta
-from basira_ai.contracts_gen.models import FingerprintRequest, FingerprintResponse
+from basira_ai.contracts_gen.models import FingerprintRequest, FingerprintResponse, ProbeRequest, ProbeResponse
 from basira_ai.fingerprint import fingerprint
 from basira_ai.g2p import G2PError
+from basira_ai.probe import probe
 from basira_ai.pronunciation import routing
 from basira_ai.reference import contracts_dir, reference_data
 from service.auth import AuthError, JWKSResolver, SecretResolver, Verifier
@@ -233,6 +234,20 @@ def create_app(
         log.info("fingerprint for session %s by %s: %s", body.session_id, claims.get("sub"),
                  result["referral"]["decision"])
         return JSONResponse(FingerprintResponse.model_validate(result).model_dump(mode="json", by_alias=True))
+
+    @app.post("/probe")
+    async def probe_transfer(
+        request: Request,
+        claims: dict = Depends(scorer_claims),  # noqa: B008 - see /score-item
+    ) -> JSONResponse:
+        limiter.check(str(claims.get("sub", "anonymous")))
+        try:
+            body = ProbeRequest.model_validate_json(await request.body())
+        except ValidationError as e:
+            raise ApiError(422, "invalid_request", f"body does not match ProbeRequest: {e.errors()[:3]}") from e
+        result = probe(body.model_dump(mode="json", by_alias=True))
+        log.info("probe for session %s by %s: %d skills", body.session_id, claims.get("sub"), len(result["per_skill"]))
+        return JSONResponse(ProbeResponse.model_validate(result).model_dump(mode="json", by_alias=True))
 
     return app
 

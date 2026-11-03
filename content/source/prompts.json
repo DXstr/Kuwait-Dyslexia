@@ -1,0 +1,44 @@
+{
+  "version": "0.1.0",
+  "note": "Teach voice prompts (ADR-003). Written offline by Claude (claude-opus-5-5) from the trigger list and the constraints in content/prompts/candidates.md only; no child data. Gender-neutral: first-person plural, and praise adjectives attach to a noun (reading, answer, work), never to the child; fully vowelled MSA, never a word meaning wrong or mistake. All unreviewed until a specialist approves.",
+  "prompts": [
+    {"trigger": "session_start", "text": "هَيَّا نَبْدَأُ!", "gloss": "Let us begin!"},
+    {"trigger": "session_start", "text": "مَرْحَبًا! هَيَّا نَقْرَأُ مَعًا.", "gloss": "Hello! Let us read together."},
+    {"trigger": "session_start", "text": "هَيَّا نَتَعَلَّمُ شَيْئًا جَدِيدًا.", "gloss": "Let us learn something new."},
+
+    {"trigger": "listen_repeat", "text": "لِنَسْتَمِعْ أَوَّلًا، ثُمَّ نَقْرَأْ مَعًا.", "gloss": "Let us listen first, then read together."},
+    {"trigger": "listen_repeat", "text": "هَيَّا نَسْمَعُ الْكَلِمَةَ مَرَّةً أُخْرَى.", "gloss": "Let us hear the word again."},
+    {"trigger": "listen_repeat", "text": "نَسْتَمِعُ جَيِّدًا، ثُمَّ نُعِيدُ.", "gloss": "We listen carefully, then repeat."},
+
+    {"trigger": "item_correct", "text": "قِرَاءَةٌ رَائِعَةٌ!", "gloss": "Wonderful reading!"},
+    {"trigger": "item_correct", "text": "عَمَلٌ جَمِيلٌ!", "gloss": "Lovely work!"},
+    {"trigger": "item_correct", "text": "إِجَابَةٌ مُمْتَازَةٌ! هَيَّا نُكْمِلُ.", "gloss": "Excellent answer! Let us carry on."},
+
+    {"trigger": "item_retry", "text": "هَيَّا نُحَاوِلُ مَرَّةً أُخْرَى.", "gloss": "Let us try again."},
+    {"trigger": "item_retry", "text": "لِنَقْرَأْهَا مَعًا مَرَّةً ثَانِيَةً.", "gloss": "Let us read it together a second time."},
+    {"trigger": "item_retry", "text": "مُحَاوَلَةٌ جَمِيلَةٌ! هَيَّا نُجَرِّبُ مِنْ جَدِيدٍ.", "gloss": "Nice attempt! Let us try once more."},
+
+    {"trigger": "hint_dot_confusion", "text": "لِنَنْظُرْ إِلَى النِّقَاطِ.", "gloss": "Let us look at the dots."},
+    {"trigger": "hint_dot_confusion", "text": "كَمْ نُقْطَةً نَرَى؟ وَأَيْنَ هِيَ؟", "gloss": "How many dots do we see? And where are they?"},
+    {"trigger": "hint_dot_confusion", "text": "النِّقَاطُ تُغَيِّرُ الْحَرْفَ، هَيَّا نَعُدُّهَا.", "gloss": "The dots change the letter; let us count them."},
+
+    {"trigger": "hint_emphatic_confusion", "text": "الْحَرْفُ مُفَخَّمٌ، نَنْطِقُهُ بِصَوْتٍ ثَقِيلٍ.", "gloss": "The letter is emphatic; we say it with a heavy sound."},
+    {"trigger": "hint_emphatic_confusion", "text": "هَلْ نَسْمَعُ الْحَرْفَ ثَقِيلًا أَمْ خَفِيفًا؟", "gloss": "Do we hear the letter heavy or light?"},
+    {"trigger": "hint_emphatic_confusion", "text": "نُفَخِّمُ الْحَرْفَ حَتَّى يَمْتَلِئَ بِهِ الْفَمُ.", "gloss": "We make the letter heavy until it fills the mouth."},
+
+    {"trigger": "hint_short_vowel", "text": "لِنَنْظُرْ إِلَى الْحَرَكَاتِ فَوْقَ الْحُرُوفِ وَتَحْتَهَا.", "gloss": "Let us look at the vowel marks above and below the letters."},
+    {"trigger": "hint_short_vowel", "text": "فَتْحَةٌ أَمْ ضَمَّةٌ أَمْ كَسْرَةٌ؟ هَيَّا نَنْظُرُ جَيِّدًا.", "gloss": "Fatha, damma or kasra? Let us look carefully."},
+    {"trigger": "hint_short_vowel", "text": "الْحَرَكَةُ تُغَيِّرُ النُّطْقَ، هَيَّا نَقْرَأُ بِبُطْءٍ.", "gloss": "The vowel mark changes the sound; let us read slowly."},
+
+    {"trigger": "hint_positional", "text": "لِنَبْحَثْ عَنِ الْحَرْفِ فِي الْكَلِمَةِ.", "gloss": "Let us find the letter in the word."},
+    {"trigger": "hint_positional", "text": "أَيْنَ الْحَرْفُ؟ فِي الْبِدَايَةِ أَمْ فِي الْوَسَطِ أَمْ فِي النِّهَايَةِ؟", "gloss": "Where is the letter? At the start, in the middle or at the end?"},
+    {"trigger": "hint_positional", "text": "يَتَغَيَّرُ شَكْلُ الْحَرْفِ فِي بِدَايَةِ الْكَلِمَةِ وَوَسَطِهَا وَنِهَايَتِهَا.", "gloss": "A letter changes shape at the start, middle and end of a word."},
+
+    {"trigger": "session_end", "text": "قَرَأْنَا كَثِيرًا الْيَوْمَ، شُكْرًا!", "gloss": "We read a lot today, thank you!"},
+    {"trigger": "session_end", "text": "اِنْتَهَيْنَا! نَلْتَقِي فِي الْمَرَّةِ الْقَادِمَةِ.", "gloss": "We have finished! See you next time."},
+    {"trigger": "session_end", "text": "عَمَلٌ رَائِعٌ الْيَوْمَ، إِلَى اللِّقَاءِ!", "gloss": "Wonderful work today, goodbye!"},
+
+    {"trigger": "item_retry", "text": "أَخْطَأْنَا قَلِيلًا، هَيَّا نُعِيدُ.", "gloss": "CONTROL - must be discarded: contains a word meaning 'mistake'.", "expect_rejected": true},
+    {"trigger": "item_correct", "text": "أَحْسَنْتَ!", "gloss": "CONTROL - must be discarded: masculine 'well done (you)'.", "expect_rejected": true}
+  ]
+}
