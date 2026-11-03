@@ -1,8 +1,8 @@
 """Validate every contract artefact. Run from the repo root:  python contracts/tools/validate_contracts.py
 
 Checks:
-  1. Every fixture contracts/fixtures/<Def>.<name>.json validates against $defs/<Def> in basira.schema.json.
-  2. Every skill id referenced in fixtures, prerequisites and the item bank exists in skill-graph.json.
+  1. Every fixture and examples/<Def>.<name>.json validates against $defs/<Def> in basira.schema.json.
+  2. Every skill id referenced in fixtures/examples, prerequisites and the item bank exists in skill-graph.json.
   3. Skill-graph prerequisites have no cycles.
   4. Taxonomy letters referenced by the skill graph, dot groups and dialect rules exist.
   5. Dialect rule ids referenced by fixtures exist.
@@ -39,14 +39,21 @@ skill_ids = {s["id"] for s in graph["skills"]}
 letter_ids = {l["id"] for l in tax["letters"]}
 rule_ids = {r["id"] for L in lex["lexicons"] for r in L["rules"]}
 
-# 1. fixtures vs schema
-for f in sorted((ROOT / "fixtures").glob("*.json")):
+fixture_paths = sorted((ROOT / "fixtures").glob("*.json"))
+example_paths = sorted((ROOT / "examples").glob("*.json"))
+contract_samples = sorted([*fixture_paths, *example_paths])
+
+# 1. fixtures and separately named persistence examples vs schema
+for f in contract_samples:
     definition = f.name.split(".")[0]
     if definition not in schema["$defs"]:
         errors.append(f"{f.name}: no $defs/{definition} in schema")
         continue
     v = Draft202012Validator({"$ref": f"{schema['$id']}#/$defs/{definition}"}, registry=registry)
-    for e in v.iter_errors(load(f)):
+    sample = load(f)
+    if f in example_paths and sample.get("synthetic") is not True:
+        errors.append(f"{f.name}: persistence examples must explicitly be synthetic")
+    for e in v.iter_errors(sample):
         errors.append(f"{f.name}: {'/'.join(map(str, e.absolute_path))}: {e.message}")
 
 
@@ -70,7 +77,7 @@ def walk(o, path, fname):
             walk(x, path, fname)
 
 
-for f in sorted((ROOT / "fixtures").glob("*.json")):
+for f in contract_samples:
     walk(load(f), [], f.name)
 
 for s in graph["skills"]:
@@ -142,4 +149,4 @@ if errors:
     print("CONTRACT CHECK FAILED")
     print("\n".join(errors))
     sys.exit(1)
-print(f"Contracts OK: {len(list((ROOT / 'fixtures').glob('*.json')))} fixtures, {len(skill_ids)} skills, {len(rule_ids)} dialect rules, phonetic inventory")
+print(f"Contracts OK: {len(fixture_paths)} fixtures, {len(example_paths)} persistence examples, {len(skill_ids)} skills, {len(rule_ids)} dialect rules, phonetic inventory")

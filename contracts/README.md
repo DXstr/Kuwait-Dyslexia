@@ -14,6 +14,7 @@ defined here. If it is not in this folder, the other side must not depend on it.
 | `$defs/Stage0TaskSet` | Basira-authored Stage 0 tasks (items, blocks, answers, Arabic instructions); files in `content/dist/stage0/` | A | B's examiner Stage 0 screens (B12) |
 | `data-model.md` | Database tables and approval state machine | B implements | documentation for A |
 | `fixtures/` | One valid example per payload; B mocks the scorer with them | both | both |
+| `examples/` | Schema-validated synthetic persistence examples; never selected as mock scoring outputs | B | database/learning-map implementation review |
 | `tools/validate_contracts.py` | CI check: fixtures vs schema, ids exist, no cycles | — | CI |
 
 ## Rules

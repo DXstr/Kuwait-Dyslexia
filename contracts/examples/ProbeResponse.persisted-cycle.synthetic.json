@@ -1,0 +1,15 @@
+{
+  "session_id": "11111111-1111-4111-8111-111111111111",
+  "model_version": "fixture-persisted-cycle-0.1.0",
+  "synthetic": true,
+  "per_skill": [
+    {
+      "skill_id": "ls.baa",
+      "practised_accuracy": 0.75,
+      "unseen_accuracy": 0.5,
+      "n_practised": 4,
+      "n_unseen": 2,
+      "transfer": "no_transfer_yet"
+    }
+  ]
+}
