@@ -73,6 +73,7 @@ def test_gradio_staging_is_the_free_zerogpu_route(tmp_path):
     load("deploy_hf_space").stage(tmp_path)
     card = (tmp_path / "README.md").read_text(encoding="utf-8")
     assert "sdk: gradio" in card and "app_file: app.py" in card and 'python_version: "3.12"' in card
+    assert 'sdk_version: "5.' in card  # 6.x cannot resolve with transformers<5 (huggingface_hub)
     reqs = (tmp_path / "requirements.txt").read_text(encoding="utf-8")
     assert "torch==2.8.0" in reqs  # ZeroGPU supports torch 2.8.0 and later only
     assert not (tmp_path / "Dockerfile").exists()

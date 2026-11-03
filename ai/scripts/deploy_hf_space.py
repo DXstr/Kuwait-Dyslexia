@@ -44,6 +44,7 @@ Do not edit files here; change the repository and redeploy.
 - Models: facebook/wav2vec2-xlsr-53-espeak-cv-ft and jonatasgrosman/wav2vec2-large-xlsr-53-arabic (Apache-2.0).
 """
 
+# Gradio is pinned: 6.x needs huggingface_hub>=1, which transformers<5 (our validated scoring stack) refuses
 CARD = {
     "gradio": """---
 title: Basira Scorer
@@ -51,6 +52,7 @@ emoji: 📖
 colorFrom: green
 colorTo: blue
 sdk: gradio
+sdk_version: "5.49.1"
 app_file: app.py
 python_version: "3.12"
 pinned: false
