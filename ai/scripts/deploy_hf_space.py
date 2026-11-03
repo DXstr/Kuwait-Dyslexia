@@ -116,7 +116,8 @@ with gr.Blocks(title="Basira scorer") as notice:
 app = gr.mount_gradio_app(api, notice, path="/ui")
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", "7860")))
+    # Not $PORT: on a Gradio Space it names a port already taken (7861); the Space routes traffic to 7860
+    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("GRADIO_SERVER_PORT", "7860")))
 '''
 
 # ZeroGPU supports torch 2.8.0+ only; versions otherwise follow ai/pyproject.toml ([model] + [service] extras)
