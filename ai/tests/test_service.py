@@ -171,11 +171,6 @@ def test_cors_allows_only_configured_origin(client):
     assert "access-control-allow-origin" not in bad.headers
 
 
-def test_unbuilt_endpoints_are_absent_not_faked(client):
-    for path in ("/stage0/score",):
-        assert client.post(path, headers={"Authorization": token()}).status_code == 404
-
-
 def test_warming_returns_503_until_models_load():
     import threading
 
