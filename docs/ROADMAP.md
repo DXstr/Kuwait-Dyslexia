@@ -16,6 +16,8 @@ Basira's own data collection fills this gap, and the resulting corpus is itself 
 - Pretrained phoneme + letter models, each Arabic contrast routed to the model that hears it (ADR-002).
 - Evidence so far: synthetic adult TTS and one adult team member's voice notes (n = 1 per case).
 - Short vowels measured by tap tasks, not audio. Learning map uses simple, explainable mastery rules.
+- Stage 0: Basira-authored pattern, orientation and number-sense tasks (new items, raw score only, not standardized);
+  ITPA and visual agnosia stay LICENSE PENDING (DECISIONS 2026-11-03).
 
 ## Phase 2: voice data collection (after the competition)
 
@@ -40,7 +42,10 @@ specialist of record, audio expiry unless research consent is given).
    synthetic-only rules).
 5. **Learning map:** fit mastery parameters (e.g. Bayesian knowledge tracing) to real progress data, and check that
    unseen-passage probes predict transfer.
-6. **Report results broken down** by grade, sex and dialect background, as `docs/IDEA.md` requires.
+6. **Stage 0 instruments:** request licences (Pearson for Raven's, PRO-ED for ITPA-3, the Azzam 2007 Arabic norms
+   from Ain Shams); build a Basira ITPA-style language task only with a reviewer; add visual agnosia screening only
+   after a physician names the protocol. Collect local norms for the three Basira tasks before any scaled score.
+7. **Report results broken down** by grade, sex and dialect background, as `docs/IDEA.md` requires.
 
 ## Gate for every claim
 
