@@ -101,6 +101,10 @@ def test_generated_space_app_serves_the_unchanged_rest_api(tmp_path, monkeypatch
     fake.Blocks, fake.Markdown = Blocks, lambda *_a, **_k: None
     fake.mount_gradio_app = lambda api, _blocks, path: api
     monkeypatch.setitem(sys.modules, "gradio", fake)
+    fake_spaces = types.ModuleType("spaces")
+    gpu_functions = []
+    fake_spaces.GPU = lambda **_: lambda fn: gpu_functions.append(fn) or fn
+    monkeypatch.setitem(sys.modules, "spaces", fake_spaces)
     monkeypatch.setenv("SUPABASE_JWT_SECRET", "test-only-not-a-real-secret")
     # app.py sets these for the Space; patch them here so they are restored for the tests that run after this one
     monkeypatch.setenv("BASIRA_CONTRACTS_DIR", str(ROOT_CONTRACTS))
@@ -108,6 +112,7 @@ def test_generated_space_app_serves_the_unchanged_rest_api(tmp_path, monkeypatch
     spec = importlib.util.spec_from_file_location("space_app", tmp_path / "app.py")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
+    assert len(gpu_functions) == 1  # ZeroGPU needs one at startup; scoring itself stays on the CPU
     paths = {r.path for r in module.app.routes}
     assert {"/health", "/score-item", "/fingerprint", "/probe"} <= paths
     with TestClient(module.app) as c:
