@@ -1,4 +1,4 @@
-# A13: deploy the scorer to its Hugging Face Docker Space and keep it awake.
+# A13: deploy the scorer to its Hugging Face Space (Gradio SDK on ZeroGPU, the free route) and keep it awake.
 # Needs (Settings -> Secrets and variables -> Actions):
 #   secret   HF_TOKEN           Hugging Face token with write access to the Space
 #   variable HF_SPACE           e.g. dxstr/basira-scorer

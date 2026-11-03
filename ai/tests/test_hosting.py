@@ -60,13 +60,72 @@ def test_checker_fails_when_the_origin_is_not_allowed(server, monkeypatch, capsy
     assert "FAIL  CORS allows https://not-listed.example" in capsys.readouterr().out
 
 
-def test_space_staging_matches_the_docker_context(tmp_path):
-    load("deploy_hf_space").stage(tmp_path)
+def test_docker_staging_matches_the_docker_context(tmp_path):
+    load("deploy_hf_space").stage(tmp_path, "docker")
     assert (tmp_path / "Dockerfile").read_bytes() == (SCRIPTS.parent / "Dockerfile").read_bytes()
     card = (tmp_path / "README.md").read_text(encoding="utf-8")
     assert "sdk: docker" in card and "app_port: 8000" in card
+    _assert_payload(tmp_path)
+
+
+def test_gradio_staging_is_the_free_zerogpu_route(tmp_path):
+    load("deploy_hf_space").stage(tmp_path)
+    card = (tmp_path / "README.md").read_text(encoding="utf-8")
+    assert "sdk: gradio" in card and "app_file: app.py" in card and 'python_version: "3.12"' in card
+    reqs = (tmp_path / "requirements.txt").read_text(encoding="utf-8")
+    assert "torch==2.8.0" in reqs  # ZeroGPU supports torch 2.8.0 and later only
+    assert not (tmp_path / "Dockerfile").exists()
+    _assert_payload(tmp_path)
+
+
+def test_generated_space_app_serves_the_unchanged_rest_api(tmp_path, monkeypatch):
+    """Run the staged app.py with a stand-in gradio module: FastAPI routes stay, / redirects to /docs."""
+    import types
+
+    from fastapi.testclient import TestClient
+
+    load("deploy_hf_space").stage(tmp_path)
+    fake = types.ModuleType("gradio")
+
+    class Blocks:
+        def __init__(self, **_):
+            pass
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_):
+            return False
+
+    fake.Blocks, fake.Markdown = Blocks, lambda *_a, **_k: None
+    fake.mount_gradio_app = lambda api, _blocks, path: api
+    monkeypatch.setitem(sys.modules, "gradio", fake)
+    monkeypatch.setenv("SUPABASE_JWT_SECRET", "test-only-not-a-real-secret")
+    monkeypatch.syspath_prepend(str(tmp_path / "ai"))
+    spec = importlib.util.spec_from_file_location("space_app", tmp_path / "app.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    paths = {r.path for r in module.app.routes}
+    assert {"/health", "/score-item", "/fingerprint", "/probe"} <= paths
+    with TestClient(module.app) as c:
+        assert c.get("/", follow_redirects=False).headers["location"] == "/docs"
+        assert c.post("/score-item").status_code == 401
+
+
+def test_deploy_refuses_without_token_or_verifier(monkeypatch, capsys):
+    deploy = load("deploy_hf_space")
+    monkeypatch.delenv("HF_TOKEN", raising=False)
+    assert deploy.main(["--space", "u/basira-scorer"]) == 2
+    monkeypatch.setenv("HF_TOKEN", "hf_placeholder")
+    monkeypatch.delenv("SUPABASE_JWKS_URL", raising=False)
+    assert deploy.main(["--space", "u/basira-scorer"]) == 2
+    assert "jwks" in capsys.readouterr().err.lower()
+    assert deploy.space_url("DXstr/Basira_Scorer") == "https://dxstr-basira-scorer.hf.space"
+
+
+def _assert_payload(root):
     for rel in ("ai/pyproject.toml", "ai/basira_ai/data/referral-table.json", "ai/service/app.py",
                 "contracts/schemas/basira.schema.json"):
-        assert (tmp_path / rel).is_file(), rel
-    staged = [p for p in tmp_path.rglob("*") if p.is_file()]
+        assert (root / rel).is_file(), rel
+    staged = [p for p in root.rglob("*") if p.is_file()]
     assert not [p for p in staged if "__pycache__" in p.parts or p.suffix == ".pyc" or "tests" in p.parts]
