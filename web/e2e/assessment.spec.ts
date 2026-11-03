@@ -67,6 +67,7 @@ async function installAssessmentApi(page: Page, options: AssessmentApiOptions = 
     const url = new URL(request.url())
     if (request.method() === 'OPTIONS') return json(route, null, 204)
     if (url.pathname === '/rest/v1/profiles') return route.fallback()
+    if (url.pathname === '/rest/v1/sessions' && request.method() === 'GET') return route.fallback()
 
     if (url.pathname === '/rest/v1/children' && request.method() === 'GET') {
       return json(route, [childRow])

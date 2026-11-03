@@ -78,6 +78,10 @@ export async function mockSupabase(page: Page, role: Role, options: { rejectUser
       // B6 reads only RLS-visible assignments. Auth-only cases have no demo child.
       return json([])
     }
+    if (url.pathname === '/rest/v1/sessions' && request.method() === 'GET') {
+      // B7 review has no stored assessment session in auth-only fixtures.
+      return json([])
+    }
     if (url.pathname === '/auth/v1/logout') {
       expect(url.searchParams.get('scope')).toBe('local')
       observed.logout = true
