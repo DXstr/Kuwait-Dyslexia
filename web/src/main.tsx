@@ -13,6 +13,8 @@ import { AssessmentProvider } from './assessment/AssessmentProvider'
 import { createAssessmentRuntime } from './assessment/runtime'
 import { ReviewProvider } from './review/ReviewProvider'
 import { createReviewRepository } from './review/repository'
+import { createLearningMapRepository } from './learning-map/repository'
+import { LearningMapProvider } from './learning-map/LearningMapProvider'
 import './styles.css'
 
 const root = document.getElementById('root')
@@ -22,7 +24,14 @@ const runtime = startBrowserAuth(import.meta.env)
 const scorer = startScorerRuntime(import.meta.env, runtime.controller)
 const assessment = createAssessmentRuntime(runtime.client, runtime.controller, scorer.getClient())
 const review = { repository: createReviewRepository(runtime.client, runtime.controller), scorer: scorer.getClient() }
-import.meta.hot?.dispose(() => { review.repository.dispose(); assessment.dispose(); scorer.dispose(); runtime.dispose() })
+const learningMapRepository = createLearningMapRepository(runtime.client, runtime.controller)
+import.meta.hot?.dispose(() => {
+  learningMapRepository.dispose()
+  review.repository.dispose()
+  assessment.dispose()
+  scorer.dispose()
+  runtime.dispose()
+})
 
 createRoot(root).render(
   <StrictMode>
@@ -30,9 +39,11 @@ createRoot(root).render(
       <ScorerProvider runtime={scorer}>
         <AssessmentProvider runtime={assessment}>
           <ReviewProvider access={review}>
-            <BrowserRouter>
-              <AppRoutes />
-            </BrowserRouter>
+            <LearningMapProvider repository={learningMapRepository}>
+              <BrowserRouter>
+                <AppRoutes />
+              </BrowserRouter>
+            </LearningMapProvider>
           </ReviewProvider>
         </AssessmentProvider>
       </ScorerProvider>
