@@ -1,0 +1,55 @@
+# A13: deploy the scorer to its Hugging Face Docker Space and keep it awake.
+# Needs (Settings -> Secrets and variables -> Actions):
+#   secret   HF_TOKEN           Hugging Face token with write access to the Space
+#   variable HF_SPACE           e.g. dxstr/basira-scorer
+#   variable SCORER_URL         e.g. https://dxstr-basira-scorer.hf.space
+#   variable SUPABASE_JWKS_URL  https://<project>.supabase.co/auth/v1/.well-known/jwks.json (public)
+#   variable ALLOWED_ORIGINS    comma-separated, the first one is used for the CORS check
+# Until they are set, every job skips itself (green), so forks and PRs are unaffected.
+name: Scorer hosting
+on:
+  push:
+    branches: [main]
+    paths: ["ai/basira_ai/**", "ai/service/**", "ai/pyproject.toml", "ai/Dockerfile", "contracts/**"]
+  schedule:
+    - cron: "17 3,15 * * *" # twice a day; a free CPU Space sleeps after 48 h without traffic
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: scorer-hosting
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: ${{ github.event_name != 'schedule' && vars.HF_SPACE != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install "huggingface_hub>=0.23"
+      - name: Push to the Space (Hugging Face builds the image)
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: >
+          python ai/scripts/deploy_hf_space.py --space "${{ vars.HF_SPACE }}"
+          --jwks-url "${{ vars.SUPABASE_JWKS_URL }}" --allowed-origins "${{ vars.ALLOWED_ORIGINS }}"
+
+  check:
+    needs: deploy
+    if: ${{ always() && needs.deploy.result != 'failure' && vars.SCORER_URL != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install "jsonschema>=4.18"
+      - name: Contract checks against the hosted scorer (also the keep-alive ping)
+        env:
+          ALLOWED_ORIGINS: ${{ vars.ALLOWED_ORIGINS }}
+        run: |
+          # after a deploy, give Hugging Face time to start the rebuild so we do not test the old container
+          if [ "${{ github.event_name }}" != "schedule" ]; then sleep 90; fi
+          python ai/scripts/check_hosted.py "${{ vars.SCORER_URL }}" --origin "${ALLOWED_ORIGINS%%,*}" --wait 1500
