@@ -26,3 +26,12 @@ ship as `review.status = "unreviewed"` until an Arabic-language specialist appro
 
 Pseudowords, letter-sound items and vowel-tap items are not authored by the LLM; they are generated
 deterministically by `ai/basira_ai/content/generate.py`.
+
+## Teach voice prompts (A14, ADR-003)
+
+`content/source/prompts.json` was written the same way (Claude, `claude-opus-5-5`, 2026-11-03) from **only** the
+`PromptTrigger` list and these constraints: fully vowelled MSA; gender-neutral (first-person plural "let us / we";
+praise adjectives attach to a noun such as reading, answer or work, never to the child); never a word meaning wrong,
+mistake or failure; short (at most 12 words); 3 variants per trigger. No child data was involved. The validators in
+`ai/basira_ai/content/prompts.py` (script, diacritized, no_negative_words, gender_neutral, length) discard any prompt
+that fails; two deliberate control prompts in the source prove the discard works. All prompts ship `unreviewed`.

@@ -33,10 +33,10 @@ TYPE_ORDER = list(PREFIX)
 
 
 class ContractError(ValueError):
-    """The built bank does not validate against $defs/ItemBank."""
+    """The built bank does not validate against its $defs (ItemBank or PromptBank)."""
 
 
-def check_schema(bank: dict) -> None:
+def check_schema(bank: dict, definition: str = "ItemBank") -> None:
     """Validate against the canonical JSON Schema (not the generated pydantic model, which mis-types the nullable
     `options` array: datamodel-code-generator 0.26.3 drops the null from `type: ["array", "null"]`)."""
     from jsonschema import Draft202012Validator
@@ -44,7 +44,7 @@ def check_schema(bank: dict) -> None:
 
     schema = json.loads((contracts_dir() / "schemas" / "basira.schema.json").read_text(encoding="utf-8"))
     registry = Registry().with_resource(schema["$id"], Resource.from_contents(schema))
-    validator = Draft202012Validator({"$ref": f"{schema['$id']}#/$defs/ItemBank"}, registry=registry)
+    validator = Draft202012Validator({"$ref": f"{schema['$id']}#/$defs/{definition}"}, registry=registry)
     errors = sorted(validator.iter_errors(bank), key=lambda e: list(e.absolute_path))
     if errors:
         first = errors[0]
