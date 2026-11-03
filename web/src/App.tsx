@@ -11,6 +11,7 @@ import { ScorerNotice } from './scorer/ScorerNotice'
 import { ChildAssessmentScreen, SpecialistAssessmentPanel } from './assessment/AssessmentPanels'
 import { useAssessment } from './assessment/context'
 import { ReviewWorkspace } from './review/ReviewWorkspace'
+import { ProgressWorkspace } from './learning-map/ProgressWorkspace'
 
 const authMessages: Record<AuthIssue, MessageKey> = {
   configuration: 'authConfiguration',
@@ -173,6 +174,7 @@ function Workspace({ title, description }: { title: MessageKey; description: Mes
       </section>
     )}
     <ReviewWorkspace />
+    <ProgressWorkspace />
   </>
   return (
     <>

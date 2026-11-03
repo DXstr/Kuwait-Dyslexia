@@ -326,3 +326,46 @@ p:last-child { margin-block-end: 0; }
   .review-toolbar .action-button, .review-detail-heading .action-button { inline-size: 100%; }
   .review-phoneme-actions .action-button { flex: 1 1 100%; }
 }
+
+.learning-map-workspace {
+  margin-block: 2rem;
+  padding: 1.5rem 1.75rem 2rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+.learning-map-heading { display: flex; align-items: start; justify-content: space-between; gap: 1.5rem; }
+.learning-map-heading h2 { margin-block-end: 0.25rem; }
+.learning-map-heading p { color: var(--muted); }
+.learning-map-notice, .learning-map-banner {
+  margin-block: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-inline-start: 4px solid var(--teal);
+  background: #e9f0ec;
+}
+.learning-map-notice p { margin-block-start: 0.25rem; color: var(--muted); }
+.learning-map-banner { font-weight: 700; }
+.learning-map-status { color: var(--muted); font-size: 1rem; }
+.learning-map-controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.5rem; }
+.learning-map-summary, .learning-map-table-section, .learning-map-history, .learning-map-plan, .learning-map-stored {
+  margin-block-start: 1.5rem;
+  padding-block-start: 1.25rem;
+  border-block-start: 1px solid var(--border);
+}
+.learning-map-summary p, .learning-map-plan p, .learning-map-stored p { color: var(--muted); }
+.learning-map-metrics, .learning-map-plan dl { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; margin-block: 1rem 0; }
+.learning-map-metrics div, .learning-map-plan dl div { padding: 0.75rem; border: 1px solid var(--border); border-radius: 0.65rem; background: #f7f6f0; }
+.learning-map-metrics dt, .learning-map-plan dt { color: var(--muted); font-size: 1rem; }
+.learning-map-metrics dd, .learning-map-plan dd { margin: 0; font-weight: 700; overflow-wrap: anywhere; }
+.learning-map-table-wrap { overflow-x: auto; }
+.learning-map-table { width: 100%; border-collapse: collapse; min-inline-size: 46rem; font-size: 1rem; }
+.learning-map-table caption { padding-block: 0.5rem; text-align: start; color: var(--muted); }
+.learning-map-table th, .learning-map-table td { padding: 0.65rem 0.75rem; border-block-end: 1px solid var(--border); text-align: start; vertical-align: top; }
+.learning-map-table thead th { color: var(--muted); font-weight: 700; }
+.learning-map-table tbody th { font-weight: 600; }
+.learning-map-history ol { margin-block: 0.75rem 0; }
+@media (max-width: 700px) {
+  .learning-map-heading { flex-direction: column; }
+  .learning-map-controls, .learning-map-metrics, .learning-map-plan dl { grid-template-columns: 1fr; }
+  .learning-map-workspace { padding: 1.25rem; }
+}

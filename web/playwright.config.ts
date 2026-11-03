@@ -20,7 +20,7 @@ export default defineConfig({
     },
     {
       name: 'mocked-auth-sdk',
-      testMatch: /(?:auth|assessment)\.spec\.ts/,
+      testMatch: /(?:auth|assessment|learning-map)\.spec\.ts/,
       use: {
         ...devices['Desktop Chrome'],
         viewport: { width: 820, height: 1180 },
