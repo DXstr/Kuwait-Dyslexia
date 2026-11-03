@@ -31,7 +31,7 @@ export default defineConfig({
     },
     {
       name: 'real-mode-scorer-http',
-      testMatch: 'scorer.spec.ts',
+      testMatch: /(?:scorer|review)\.spec\.ts/,
       use: { ...devices['Desktop Chrome'], viewport: { width: 820, height: 1180 }, baseURL: 'http://127.0.0.1:4175' },
     },
   ],

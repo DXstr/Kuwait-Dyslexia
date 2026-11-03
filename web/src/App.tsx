@@ -10,6 +10,7 @@ import type { AppRole } from './routing/roles'
 import { ScorerNotice } from './scorer/ScorerNotice'
 import { ChildAssessmentScreen, SpecialistAssessmentPanel } from './assessment/AssessmentPanels'
 import { useAssessment } from './assessment/context'
+import { ReviewWorkspace } from './review/ReviewWorkspace'
 
 const authMessages: Record<AuthIssue, MessageKey> = {
   configuration: 'authConfiguration',
@@ -163,7 +164,16 @@ function OAuthCallback({ role }: { role: AppRole | null }) {
 function Workspace({ title, description }: { title: MessageKey; description: MessageKey }) {
   const { t } = useI18n()
   const assessment = useAssessment()
-  if (title === 'specialistTitle' && assessment) return <SpecialistAssessmentPanel />
+  if (title === 'specialistTitle') return <>
+    {assessment ? <SpecialistAssessmentPanel /> : (
+      <section className="intro" aria-labelledby="workspace-title">
+        <p className="status-note">{t('scaffoldBadge')}</p>
+        <h1 id="workspace-title">{t(title)}</h1>
+        <p className="lead">{t(description)}</p>
+      </section>
+    )}
+    <ReviewWorkspace />
+  </>
   return (
     <>
       <section className="intro" aria-labelledby="workspace-title">
