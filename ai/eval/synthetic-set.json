@@ -1,0 +1,6085 @@
+{
+ "version": "0.1.0",
+ "seed": 7007,
+ "synthetic": true,
+ "item_bank_version": "1.0.0",
+ "untested": [
+  "Kuwaiti ق -> [g] (kw.qaaf-g): no Arabic letter makes a TTS voice say [g]",
+  "Kuwaiti ك -> [tʃ] (kw.kaaf-tsh): no Arabic letter makes a TTS voice say [tʃ]",
+  "insertions: not generated (not detected by the scorer yet, verdict.py)"
+ ],
+ "cases": [
+  {
+   "item_id": "rw-8d178d75",
+   "expected_text": "كِتَاب",
+   "spoken_text": "كِتَاب",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0000"
+  },
+  {
+   "item_id": "rw-8d178d75",
+   "expected_text": "كِتَاب",
+   "spoken_text": "كِتَاب",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0001"
+  },
+  {
+   "item_id": "rw-8d178d75",
+   "expected_text": "كِتَاب",
+   "spoken_text": "كِطَاب",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "ت",
+     "to": "ط"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0002"
+  },
+  {
+   "item_id": "rw-8d178d75",
+   "expected_text": "كِتَاب",
+   "spoken_text": "كِطَاب",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "ت",
+     "to": "ط"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0003"
+  },
+  {
+   "item_id": "rw-8d178d75",
+   "expected_text": "كِتَاب",
+   "spoken_text": "كِطَات",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "ت",
+     "to": "ط"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0004"
+  },
+  {
+   "item_id": "rw-8d178d75",
+   "expected_text": "كِتَاب",
+   "spoken_text": "كِطَات",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "ت",
+     "to": "ط"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0005"
+  },
+  {
+   "item_id": "rw-210e9bd8",
+   "expected_text": "مُسْتَشْفَى",
+   "spoken_text": "مُسْتَشْفَى",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0006"
+  },
+  {
+   "item_id": "rw-210e9bd8",
+   "expected_text": "مُسْتَشْفَى",
+   "spoken_text": "مُسْتَشْفَى",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0007"
+  },
+  {
+   "item_id": "rw-210e9bd8",
+   "expected_text": "مُسْتَشْفَى",
+   "spoken_text": "مُسْتَشْفِى",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 4,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0008"
+  },
+  {
+   "item_id": "rw-210e9bd8",
+   "expected_text": "مُسْتَشْفَى",
+   "spoken_text": "مُسْتَشْفِى",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 4,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0009"
+  },
+  {
+   "item_id": "rw-210e9bd8",
+   "expected_text": "مُسْتَشْفَى",
+   "spoken_text": "مُصْثَشْفَى",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ث"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "س",
+     "to": "ص"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0010"
+  },
+  {
+   "item_id": "rw-210e9bd8",
+   "expected_text": "مُسْتَشْفَى",
+   "spoken_text": "مُصْثَشْفَى",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ث"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "س",
+     "to": "ص"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0011"
+  },
+  {
+   "item_id": "rw-210e9bd8",
+   "expected_text": "مُسْتَشْفَى",
+   "spoken_text": "مُشْطَشْى",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "س",
+     "to": "ش"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ط"
+    },
+    {
+     "category": "omission",
+     "char_index": 4,
+     "from": "ف",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0012"
+  },
+  {
+   "item_id": "rw-210e9bd8",
+   "expected_text": "مُسْتَشْفَى",
+   "spoken_text": "مُشْطَشْى",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "س",
+     "to": "ش"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ط"
+    },
+    {
+     "category": "omission",
+     "char_index": 4,
+     "from": "ف",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0013"
+  },
+  {
+   "item_id": "rw-bdc0c1e1",
+   "expected_text": "قَمَر",
+   "spoken_text": "قَمَر",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0014"
+  },
+  {
+   "item_id": "rw-bdc0c1e1",
+   "expected_text": "قَمَر",
+   "spoken_text": "قَمَر",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0015"
+  },
+  {
+   "item_id": "rw-bdc0c1e1",
+   "expected_text": "قَمَر",
+   "spoken_text": "فَمَر",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ق",
+     "to": "ف"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0016"
+  },
+  {
+   "item_id": "rw-bdc0c1e1",
+   "expected_text": "قَمَر",
+   "spoken_text": "فَمَر",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ق",
+     "to": "ف"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0017"
+  },
+  {
+   "item_id": "rw-bdc0c1e1",
+   "expected_text": "قَمَر",
+   "spoken_text": "فَمِر",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ق",
+     "to": "ف"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0018"
+  },
+  {
+   "item_id": "rw-bdc0c1e1",
+   "expected_text": "قَمَر",
+   "spoken_text": "فَمِر",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ق",
+     "to": "ف"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0019"
+  },
+  {
+   "item_id": "rw-bdc0c1e1",
+   "expected_text": "قَمَر",
+   "spoken_text": "قِز",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "م",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0020"
+  },
+  {
+   "item_id": "rw-bdc0c1e1",
+   "expected_text": "قَمَر",
+   "spoken_text": "قِز",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "م",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0021"
+  },
+  {
+   "item_id": "rw-83ca09ee",
+   "expected_text": "خُبْز",
+   "spoken_text": "خُبْز",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0022"
+  },
+  {
+   "item_id": "rw-83ca09ee",
+   "expected_text": "خُبْز",
+   "spoken_text": "خُبْز",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0023"
+  },
+  {
+   "item_id": "rw-83ca09ee",
+   "expected_text": "خُبْز",
+   "spoken_text": "حُبْز",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "خ",
+     "to": "ح"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0024"
+  },
+  {
+   "item_id": "rw-83ca09ee",
+   "expected_text": "خُبْز",
+   "spoken_text": "حُبْز",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "خ",
+     "to": "ح"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0025"
+  },
+  {
+   "item_id": "rw-83ca09ee",
+   "expected_text": "خُبْز",
+   "spoken_text": "خَتْز",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ُ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0026"
+  },
+  {
+   "item_id": "rw-83ca09ee",
+   "expected_text": "خُبْز",
+   "spoken_text": "خَتْز",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ُ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0027"
+  },
+  {
+   "item_id": "rw-a05724ae",
+   "expected_text": "مَوْز",
+   "spoken_text": "مَوْز",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0028"
+  },
+  {
+   "item_id": "rw-a05724ae",
+   "expected_text": "مَوْز",
+   "spoken_text": "مَوْز",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0029"
+  },
+  {
+   "item_id": "rw-a05724ae",
+   "expected_text": "مَوْز",
+   "spoken_text": "مِوْز",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0030"
+  },
+  {
+   "item_id": "rw-a05724ae",
+   "expected_text": "مَوْز",
+   "spoken_text": "مِوْز",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0031"
+  },
+  {
+   "item_id": "rw-a05724ae",
+   "expected_text": "مَوْز",
+   "spoken_text": "مِوْر",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ز",
+     "to": "ر"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0032"
+  },
+  {
+   "item_id": "rw-a05724ae",
+   "expected_text": "مَوْز",
+   "spoken_text": "مِوْر",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ز",
+     "to": "ر"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0033"
+  },
+  {
+   "item_id": "rw-5f8e4d79",
+   "expected_text": "وَلَد",
+   "spoken_text": "وَلَد",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0034"
+  },
+  {
+   "item_id": "rw-5f8e4d79",
+   "expected_text": "وَلَد",
+   "spoken_text": "وَلَد",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0035"
+  },
+  {
+   "item_id": "rw-5f8e4d79",
+   "expected_text": "وَلَد",
+   "spoken_text": "وَلَض",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "د",
+     "to": "ض"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0036"
+  },
+  {
+   "item_id": "rw-5f8e4d79",
+   "expected_text": "وَلَد",
+   "spoken_text": "وَلَض",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "د",
+     "to": "ض"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0037"
+  },
+  {
+   "item_id": "rw-5f8e4d79",
+   "expected_text": "وَلَد",
+   "spoken_text": "وَلِذ",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "د",
+     "to": "ذ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0038"
+  },
+  {
+   "item_id": "rw-5f8e4d79",
+   "expected_text": "وَلَد",
+   "spoken_text": "وَلِذ",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "د",
+     "to": "ذ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0039"
+  },
+  {
+   "item_id": "rw-38cf4ef0",
+   "expected_text": "ثَعْلَب",
+   "spoken_text": "ثَعْلَب",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0040"
+  },
+  {
+   "item_id": "rw-38cf4ef0",
+   "expected_text": "ثَعْلَب",
+   "spoken_text": "ثَعْلَب",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0041"
+  },
+  {
+   "item_id": "rw-38cf4ef0",
+   "expected_text": "ثَعْلَب",
+   "spoken_text": "ثَغْلَب",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ع",
+     "to": "غ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0042"
+  },
+  {
+   "item_id": "rw-38cf4ef0",
+   "expected_text": "ثَعْلَب",
+   "spoken_text": "ثَغْلَب",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ع",
+     "to": "غ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0043"
+  },
+  {
+   "item_id": "rw-38cf4ef0",
+   "expected_text": "ثَعْلَب",
+   "spoken_text": "تَعْلِب",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ث",
+     "to": "ت"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0044"
+  },
+  {
+   "item_id": "rw-38cf4ef0",
+   "expected_text": "ثَعْلَب",
+   "spoken_text": "تَعْلِب",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ث",
+     "to": "ت"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0045"
+  },
+  {
+   "item_id": "rw-11fd7d1c",
+   "expected_text": "حِصَان",
+   "spoken_text": "حِصَان",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0046"
+  },
+  {
+   "item_id": "rw-11fd7d1c",
+   "expected_text": "حِصَان",
+   "spoken_text": "حِصَان",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0047"
+  },
+  {
+   "item_id": "rw-11fd7d1c",
+   "expected_text": "حِصَان",
+   "spoken_text": "حِسَان",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "ص",
+     "to": "س"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0048"
+  },
+  {
+   "item_id": "rw-11fd7d1c",
+   "expected_text": "حِصَان",
+   "spoken_text": "حِسَان",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "ص",
+     "to": "س"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0049"
+  },
+  {
+   "item_id": "rw-11fd7d1c",
+   "expected_text": "حِصَان",
+   "spoken_text": "حِسَاب",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ن",
+     "to": "ب"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "ص",
+     "to": "س"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0050"
+  },
+  {
+   "item_id": "rw-11fd7d1c",
+   "expected_text": "حِصَان",
+   "spoken_text": "حِسَاب",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ن",
+     "to": "ب"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "ص",
+     "to": "س"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0051"
+  },
+  {
+   "item_id": "rw-677c371b",
+   "expected_text": "مُهَنْدِس",
+   "spoken_text": "مُهَنْدِس",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0052"
+  },
+  {
+   "item_id": "rw-677c371b",
+   "expected_text": "مُهَنْدِس",
+   "spoken_text": "مُهَنْدِس",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0053"
+  },
+  {
+   "item_id": "rw-677c371b",
+   "expected_text": "مُهَنْدِس",
+   "spoken_text": "مُهَنْدِص",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 4,
+     "from": "س",
+     "to": "ص"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0054"
+  },
+  {
+   "item_id": "rw-677c371b",
+   "expected_text": "مُهَنْدِس",
+   "spoken_text": "مُهَنْدِص",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 4,
+     "from": "س",
+     "to": "ص"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0055"
+  },
+  {
+   "item_id": "rw-677c371b",
+   "expected_text": "مُهَنْدِس",
+   "spoken_text": "مُهَبْضِس",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ن",
+     "to": "ب"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 3,
+     "from": "د",
+     "to": "ض"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0056"
+  },
+  {
+   "item_id": "rw-677c371b",
+   "expected_text": "مُهَنْدِس",
+   "spoken_text": "مُهَبْضِس",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ن",
+     "to": "ب"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 3,
+     "from": "د",
+     "to": "ض"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0057"
+  },
+  {
+   "item_id": "rw-677c371b",
+   "expected_text": "مُهَنْدِس",
+   "spoken_text": "مُبْضِس",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ن",
+     "to": "ب"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 3,
+     "from": "د",
+     "to": "ض"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ه",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0058"
+  },
+  {
+   "item_id": "rw-677c371b",
+   "expected_text": "مُهَنْدِس",
+   "spoken_text": "مُبْضِس",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ن",
+     "to": "ب"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 3,
+     "from": "د",
+     "to": "ض"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ه",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0059"
+  },
+  {
+   "item_id": "rw-7384448d",
+   "expected_text": "صَيْدَلِيَّة",
+   "spoken_text": "صَيْدَلِيَّة",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0060"
+  },
+  {
+   "item_id": "rw-7384448d",
+   "expected_text": "صَيْدَلِيَّة",
+   "spoken_text": "صَيْدَلِيَّة",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0061"
+  },
+  {
+   "item_id": "rw-7384448d",
+   "expected_text": "صَيْدَلِيَّة",
+   "spoken_text": "صَيْدَلَيَّة",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 3,
+     "from": "ِ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0062"
+  },
+  {
+   "item_id": "rw-7384448d",
+   "expected_text": "صَيْدَلِيَّة",
+   "spoken_text": "صَيْدَلَيَّة",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 3,
+     "from": "ِ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0063"
+  },
+  {
+   "item_id": "rw-7384448d",
+   "expected_text": "صَيْدَلِيَّة",
+   "spoken_text": "سَيْذَلِيَّة",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "د",
+     "to": "ذ"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "ص",
+     "to": "س"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0064"
+  },
+  {
+   "item_id": "rw-7384448d",
+   "expected_text": "صَيْدَلِيَّة",
+   "spoken_text": "سَيْذَلِيَّة",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "د",
+     "to": "ذ"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "ص",
+     "to": "س"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0065"
+  },
+  {
+   "item_id": "rw-7384448d",
+   "expected_text": "صَيْدَلِيَّة",
+   "spoken_text": "ضَيْدِيَّة",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ص",
+     "to": "ض"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 3,
+     "from": "ل",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0066"
+  },
+  {
+   "item_id": "rw-7384448d",
+   "expected_text": "صَيْدَلِيَّة",
+   "spoken_text": "ضَيْدِيَّة",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ص",
+     "to": "ض"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 3,
+     "from": "ل",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0067"
+  },
+  {
+   "item_id": "rw-1f7ddde1",
+   "expected_text": "ضِفْدَع",
+   "spoken_text": "ضِفْدَع",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0068"
+  },
+  {
+   "item_id": "rw-1f7ddde1",
+   "expected_text": "ضِفْدَع",
+   "spoken_text": "ضِفْدَع",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0069"
+  },
+  {
+   "item_id": "rw-1f7ddde1",
+   "expected_text": "ضِفْدَع",
+   "spoken_text": "ضِقْدَع",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ف",
+     "to": "ق"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0070"
+  },
+  {
+   "item_id": "rw-1f7ddde1",
+   "expected_text": "ضِفْدَع",
+   "spoken_text": "ضِقْدَع",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ف",
+     "to": "ق"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0071"
+  },
+  {
+   "item_id": "rw-1f7ddde1",
+   "expected_text": "ضِفْدَع",
+   "spoken_text": "صِفْدِع",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ض",
+     "to": "ص"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0072"
+  },
+  {
+   "item_id": "rw-1f7ddde1",
+   "expected_text": "ضِفْدَع",
+   "spoken_text": "صِفْدِع",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ض",
+     "to": "ص"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0073"
+  },
+  {
+   "item_id": "rw-1f7ddde1",
+   "expected_text": "ضِفْدَع",
+   "spoken_text": "ضِضَغ",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ع",
+     "to": "غ"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "د",
+     "to": "ض"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ف",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0074"
+  },
+  {
+   "item_id": "rw-1f7ddde1",
+   "expected_text": "ضِفْدَع",
+   "spoken_text": "ضِضَغ",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ع",
+     "to": "غ"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "د",
+     "to": "ض"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ف",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0075"
+  },
+  {
+   "item_id": "rw-5e8c8ac3",
+   "expected_text": "اِخْتِبَار",
+   "spoken_text": "اِخْتِبَار",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0076"
+  },
+  {
+   "item_id": "rw-5e8c8ac3",
+   "expected_text": "اِخْتِبَار",
+   "spoken_text": "اِخْتِبَار",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0077"
+  },
+  {
+   "item_id": "rw-5e8c8ac3",
+   "expected_text": "اِخْتِبَار",
+   "spoken_text": "اِخْتَبَار",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "ِ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0078"
+  },
+  {
+   "item_id": "rw-5e8c8ac3",
+   "expected_text": "اِخْتِبَار",
+   "spoken_text": "اِخْتَبَار",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "ِ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0079"
+  },
+  {
+   "item_id": "rw-5e8c8ac3",
+   "expected_text": "اِخْتِبَار",
+   "spoken_text": "اِخْثِبِار",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ث"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 3,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0080"
+  },
+  {
+   "item_id": "rw-5e8c8ac3",
+   "expected_text": "اِخْتِبَار",
+   "spoken_text": "اِخْثِبِار",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ث"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 3,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0081"
+  },
+  {
+   "item_id": "rw-5e8c8ac3",
+   "expected_text": "اِخْتِبَار",
+   "spoken_text": "اَخْتِاز",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 5,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ِ",
+     "to": "َ"
+    },
+    {
+     "category": "omission",
+     "char_index": 3,
+     "from": "ب",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0082"
+  },
+  {
+   "item_id": "rw-5e8c8ac3",
+   "expected_text": "اِخْتِبَار",
+   "spoken_text": "اَخْتِاز",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 5,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ِ",
+     "to": "َ"
+    },
+    {
+     "category": "omission",
+     "char_index": 3,
+     "from": "ب",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0083"
+  },
+  {
+   "item_id": "rw-7968ba64",
+   "expected_text": "بِنْت",
+   "spoken_text": "بِنْت",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0084"
+  },
+  {
+   "item_id": "rw-7968ba64",
+   "expected_text": "بِنْت",
+   "spoken_text": "بِنْت",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0085"
+  },
+  {
+   "item_id": "rw-7968ba64",
+   "expected_text": "بِنْت",
+   "spoken_text": "بِبْت",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ن",
+     "to": "ب"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0086"
+  },
+  {
+   "item_id": "rw-7968ba64",
+   "expected_text": "بِنْت",
+   "spoken_text": "بِبْت",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ن",
+     "to": "ب"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0087"
+  },
+  {
+   "item_id": "rw-7968ba64",
+   "expected_text": "بِنْت",
+   "spoken_text": "تِنْط",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ط"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0088"
+  },
+  {
+   "item_id": "rw-7968ba64",
+   "expected_text": "بِنْت",
+   "spoken_text": "تِنْط",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ط"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0089"
+  },
+  {
+   "item_id": "rw-bae2408c",
+   "expected_text": "تَمْر",
+   "spoken_text": "تَمْر",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0090"
+  },
+  {
+   "item_id": "rw-bae2408c",
+   "expected_text": "تَمْر",
+   "spoken_text": "تَمْر",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0091"
+  },
+  {
+   "item_id": "rw-bae2408c",
+   "expected_text": "تَمْر",
+   "spoken_text": "طَمْر",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "ت",
+     "to": "ط"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0092"
+  },
+  {
+   "item_id": "rw-bae2408c",
+   "expected_text": "تَمْر",
+   "spoken_text": "طَمْر",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "ت",
+     "to": "ط"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0093"
+  },
+  {
+   "item_id": "rw-bae2408c",
+   "expected_text": "تَمْر",
+   "spoken_text": "تِمْز",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0094"
+  },
+  {
+   "item_id": "rw-bae2408c",
+   "expected_text": "تَمْر",
+   "spoken_text": "تِمْز",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0095"
+  },
+  {
+   "item_id": "rw-3de686b5",
+   "expected_text": "أُذُن",
+   "spoken_text": "أُذُن",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0096"
+  },
+  {
+   "item_id": "rw-3de686b5",
+   "expected_text": "أُذُن",
+   "spoken_text": "أُذُن",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0097"
+  },
+  {
+   "item_id": "rw-3de686b5",
+   "expected_text": "أُذُن",
+   "spoken_text": "أُدُن",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ذ",
+     "to": "د"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0098"
+  },
+  {
+   "item_id": "rw-3de686b5",
+   "expected_text": "أُذُن",
+   "spoken_text": "أُدُن",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ذ",
+     "to": "د"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0099"
+  },
+  {
+   "item_id": "rw-3de686b5",
+   "expected_text": "أُذُن",
+   "spoken_text": "أَذُب",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ن",
+     "to": "ب"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ُ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0100"
+  },
+  {
+   "item_id": "rw-3de686b5",
+   "expected_text": "أُذُن",
+   "spoken_text": "أَذُب",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ن",
+     "to": "ب"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ُ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0101"
+  },
+  {
+   "item_id": "rw-93afeb77",
+   "expected_text": "مَكْتَبَة",
+   "spoken_text": "مَكْتَبَة",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0102"
+  },
+  {
+   "item_id": "rw-93afeb77",
+   "expected_text": "مَكْتَبَة",
+   "spoken_text": "مَكْتَبَة",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0103"
+  },
+  {
+   "item_id": "rw-93afeb77",
+   "expected_text": "مَكْتَبَة",
+   "spoken_text": "مَكْتِبَة",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0104"
+  },
+  {
+   "item_id": "rw-93afeb77",
+   "expected_text": "مَكْتَبَة",
+   "spoken_text": "مَكْتِبَة",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0105"
+  },
+  {
+   "item_id": "rw-93afeb77",
+   "expected_text": "مَكْتَبَة",
+   "spoken_text": "مِكْتَتَة",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0106"
+  },
+  {
+   "item_id": "rw-93afeb77",
+   "expected_text": "مَكْتَبَة",
+   "spoken_text": "مِكْتَتَة",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0107"
+  },
+  {
+   "item_id": "rw-93afeb77",
+   "expected_text": "مَكْتَبَة",
+   "spoken_text": "مَطَتَة",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ط"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ك",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0108"
+  },
+  {
+   "item_id": "rw-93afeb77",
+   "expected_text": "مَكْتَبَة",
+   "spoken_text": "مَطَتَة",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ط"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ك",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0109"
+  },
+  {
+   "item_id": "rw-29f04730",
+   "expected_text": "دَرَّاجَة",
+   "spoken_text": "دَرَّاجَة",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0110"
+  },
+  {
+   "item_id": "rw-29f04730",
+   "expected_text": "دَرَّاجَة",
+   "spoken_text": "دَرَّاجَة",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0111"
+  },
+  {
+   "item_id": "rw-29f04730",
+   "expected_text": "دَرَّاجَة",
+   "spoken_text": "ذَرَّاجَة",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "د",
+     "to": "ذ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0112"
+  },
+  {
+   "item_id": "rw-29f04730",
+   "expected_text": "دَرَّاجَة",
+   "spoken_text": "ذَرَّاجَة",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "د",
+     "to": "ذ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0113"
+  },
+  {
+   "item_id": "rw-29f04730",
+   "expected_text": "دَرَّاجَة",
+   "spoken_text": "ذَرِّاجَة",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "د",
+     "to": "ذ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0114"
+  },
+  {
+   "item_id": "rw-29f04730",
+   "expected_text": "دَرَّاجَة",
+   "spoken_text": "ذَرِّاجَة",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "د",
+     "to": "ذ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0115"
+  },
+  {
+   "item_id": "rw-29f04730",
+   "expected_text": "دَرَّاجَة",
+   "spoken_text": "ضَاخَة",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ج",
+     "to": "خ"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "د",
+     "to": "ض"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ر",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0116"
+  },
+  {
+   "item_id": "rw-29f04730",
+   "expected_text": "دَرَّاجَة",
+   "spoken_text": "ضَاخَة",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ج",
+     "to": "خ"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "د",
+     "to": "ض"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ر",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0117"
+  },
+  {
+   "item_id": "rw-b1ff68fc",
+   "expected_text": "مِلْعَقَة",
+   "spoken_text": "مِلْعَقَة",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0118"
+  },
+  {
+   "item_id": "rw-b1ff68fc",
+   "expected_text": "مِلْعَقَة",
+   "spoken_text": "مِلْعَقَة",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0119"
+  },
+  {
+   "item_id": "rw-b1ff68fc",
+   "expected_text": "مِلْعَقَة",
+   "spoken_text": "مِلْعِقَة",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0120"
+  },
+  {
+   "item_id": "rw-b1ff68fc",
+   "expected_text": "مِلْعَقَة",
+   "spoken_text": "مِلْعِقَة",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0121"
+  },
+  {
+   "item_id": "rw-b1ff68fc",
+   "expected_text": "مِلْعَقَة",
+   "spoken_text": "مَلْعَفَة",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ق",
+     "to": "ف"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ِ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0122"
+  },
+  {
+   "item_id": "rw-b1ff68fc",
+   "expected_text": "مِلْعَقَة",
+   "spoken_text": "مَلْعَفَة",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ق",
+     "to": "ف"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ِ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0123"
+  },
+  {
+   "item_id": "rw-b1ff68fc",
+   "expected_text": "مِلْعَقَة",
+   "spoken_text": "مَلْغَة",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ع",
+     "to": "غ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ِ",
+     "to": "َ"
+    },
+    {
+     "category": "omission",
+     "char_index": 3,
+     "from": "ق",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0124"
+  },
+  {
+   "item_id": "rw-b1ff68fc",
+   "expected_text": "مِلْعَقَة",
+   "spoken_text": "مَلْغَة",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ع",
+     "to": "غ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ِ",
+     "to": "َ"
+    },
+    {
+     "category": "omission",
+     "char_index": 3,
+     "from": "ق",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0125"
+  },
+  {
+   "item_id": "rw-4c5d0bb9",
+   "expected_text": "نَجْم",
+   "spoken_text": "نَجْم",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0126"
+  },
+  {
+   "item_id": "rw-4c5d0bb9",
+   "expected_text": "نَجْم",
+   "spoken_text": "نَجْم",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0127"
+  },
+  {
+   "item_id": "rw-4c5d0bb9",
+   "expected_text": "نَجْم",
+   "spoken_text": "نِجْم",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0128"
+  },
+  {
+   "item_id": "rw-4c5d0bb9",
+   "expected_text": "نَجْم",
+   "spoken_text": "نِجْم",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0129"
+  },
+  {
+   "item_id": "rw-351bb8b8",
+   "expected_text": "عَيْن",
+   "spoken_text": "عَيْن",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0130"
+  },
+  {
+   "item_id": "rw-351bb8b8",
+   "expected_text": "عَيْن",
+   "spoken_text": "عَيْن",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0131"
+  },
+  {
+   "item_id": "rw-351bb8b8",
+   "expected_text": "عَيْن",
+   "spoken_text": "عِيْن",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0132"
+  },
+  {
+   "item_id": "rw-351bb8b8",
+   "expected_text": "عَيْن",
+   "spoken_text": "عِيْن",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0133"
+  },
+  {
+   "item_id": "rw-351bb8b8",
+   "expected_text": "عَيْن",
+   "spoken_text": "عِيْب",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ن",
+     "to": "ب"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0134"
+  },
+  {
+   "item_id": "rw-351bb8b8",
+   "expected_text": "عَيْن",
+   "spoken_text": "عِيْب",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ن",
+     "to": "ب"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0135"
+  },
+  {
+   "item_id": "rw-272eec35",
+   "expected_text": "سُلَحْفَاة",
+   "spoken_text": "سُلَحْفَاة",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0136"
+  },
+  {
+   "item_id": "rw-272eec35",
+   "expected_text": "سُلَحْفَاة",
+   "spoken_text": "سُلَحْفَاة",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0137"
+  },
+  {
+   "item_id": "rw-272eec35",
+   "expected_text": "سُلَحْفَاة",
+   "spoken_text": "سُلِحْفَاة",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0138"
+  },
+  {
+   "item_id": "rw-272eec35",
+   "expected_text": "سُلَحْفَاة",
+   "spoken_text": "سُلِحْفَاة",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0139"
+  },
+  {
+   "item_id": "rw-272eec35",
+   "expected_text": "سُلَحْفَاة",
+   "spoken_text": "سُلِحْقَاة",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ف",
+     "to": "ق"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0140"
+  },
+  {
+   "item_id": "rw-272eec35",
+   "expected_text": "سُلَحْفَاة",
+   "spoken_text": "سُلِحْقَاة",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ف",
+     "to": "ق"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0141"
+  },
+  {
+   "item_id": "rw-272eec35",
+   "expected_text": "سُلَحْفَاة",
+   "spoken_text": "صُلَخْاة",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ح",
+     "to": "خ"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "س",
+     "to": "ص"
+    },
+    {
+     "category": "omission",
+     "char_index": 3,
+     "from": "ف",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0142"
+  },
+  {
+   "item_id": "rw-272eec35",
+   "expected_text": "سُلَحْفَاة",
+   "spoken_text": "صُلَخْاة",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ح",
+     "to": "خ"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "س",
+     "to": "ص"
+    },
+    {
+     "category": "omission",
+     "char_index": 3,
+     "from": "ف",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0143"
+  },
+  {
+   "item_id": "rw-2cac9c61",
+   "expected_text": "عُصْفُور",
+   "spoken_text": "عُصْفُور",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0144"
+  },
+  {
+   "item_id": "rw-2cac9c61",
+   "expected_text": "عُصْفُور",
+   "spoken_text": "عُصْفُور",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0145"
+  },
+  {
+   "item_id": "rw-2cac9c61",
+   "expected_text": "عُصْفُور",
+   "spoken_text": "عُسْفُور",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "ص",
+     "to": "س"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0146"
+  },
+  {
+   "item_id": "rw-2cac9c61",
+   "expected_text": "عُصْفُور",
+   "spoken_text": "عُسْفُور",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "ص",
+     "to": "س"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0147"
+  },
+  {
+   "item_id": "rw-2cac9c61",
+   "expected_text": "عُصْفُور",
+   "spoken_text": "عَصْفُوز",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 4,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ُ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0148"
+  },
+  {
+   "item_id": "rw-2cac9c61",
+   "expected_text": "عُصْفُور",
+   "spoken_text": "عَصْفُوز",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 4,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ُ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0149"
+  },
+  {
+   "item_id": "rw-2cac9c61",
+   "expected_text": "عُصْفُور",
+   "spoken_text": "عُفَوز",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 4,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "ُ",
+     "to": "َ"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ص",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0150"
+  },
+  {
+   "item_id": "rw-2cac9c61",
+   "expected_text": "عُصْفُور",
+   "spoken_text": "عُفَوز",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 4,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "ُ",
+     "to": "َ"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ص",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0151"
+  },
+  {
+   "item_id": "rw-987bda53",
+   "expected_text": "وَرْد",
+   "spoken_text": "وَرْد",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0152"
+  },
+  {
+   "item_id": "rw-987bda53",
+   "expected_text": "وَرْد",
+   "spoken_text": "وَرْد",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0153"
+  },
+  {
+   "item_id": "rw-987bda53",
+   "expected_text": "وَرْد",
+   "spoken_text": "وِرْد",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0154"
+  },
+  {
+   "item_id": "rw-987bda53",
+   "expected_text": "وَرْد",
+   "spoken_text": "وِرْد",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0155"
+  },
+  {
+   "item_id": "rw-987bda53",
+   "expected_text": "وَرْد",
+   "spoken_text": "وِزْد",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0156"
+  },
+  {
+   "item_id": "rw-987bda53",
+   "expected_text": "وَرْد",
+   "spoken_text": "وِزْد",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0157"
+  },
+  {
+   "item_id": "rw-987bda53",
+   "expected_text": "وَرْد",
+   "spoken_text": "وِذ",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "د",
+     "to": "ذ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ر",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0158"
+  },
+  {
+   "item_id": "rw-987bda53",
+   "expected_text": "وَرْد",
+   "spoken_text": "وِذ",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "د",
+     "to": "ذ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ر",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0159"
+  },
+  {
+   "item_id": "rw-daa2cb9d",
+   "expected_text": "سَمَكَة",
+   "spoken_text": "سَمَكَة",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0160"
+  },
+  {
+   "item_id": "rw-daa2cb9d",
+   "expected_text": "سَمَكَة",
+   "spoken_text": "سَمَكَة",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0161"
+  },
+  {
+   "item_id": "rw-daa2cb9d",
+   "expected_text": "سَمَكَة",
+   "spoken_text": "شَمَكَة",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "س",
+     "to": "ش"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0162"
+  },
+  {
+   "item_id": "rw-daa2cb9d",
+   "expected_text": "سَمَكَة",
+   "spoken_text": "شَمَكَة",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "س",
+     "to": "ش"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0163"
+  },
+  {
+   "item_id": "rw-daa2cb9d",
+   "expected_text": "سَمَكَة",
+   "spoken_text": "شَمَكِة",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "س",
+     "to": "ش"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0164"
+  },
+  {
+   "item_id": "rw-daa2cb9d",
+   "expected_text": "سَمَكَة",
+   "spoken_text": "شَمَكِة",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "س",
+     "to": "ش"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0165"
+  },
+  {
+   "item_id": "rw-daa2cb9d",
+   "expected_text": "سَمَكَة",
+   "spoken_text": "شَكِة",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "س",
+     "to": "ش"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "م",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0166"
+  },
+  {
+   "item_id": "rw-daa2cb9d",
+   "expected_text": "سَمَكَة",
+   "spoken_text": "شَكِة",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "س",
+     "to": "ش"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "م",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0167"
+  },
+  {
+   "item_id": "rw-c4d2f4ba",
+   "expected_text": "طَبِيب",
+   "spoken_text": "طَبِيب",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0168"
+  },
+  {
+   "item_id": "rw-c4d2f4ba",
+   "expected_text": "طَبِيب",
+   "spoken_text": "طَبِيب",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0169"
+  },
+  {
+   "item_id": "rw-c4d2f4ba",
+   "expected_text": "طَبِيب",
+   "spoken_text": "ظَبِيب",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ط",
+     "to": "ظ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0170"
+  },
+  {
+   "item_id": "rw-c4d2f4ba",
+   "expected_text": "طَبِيب",
+   "spoken_text": "ظَبِيب",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ط",
+     "to": "ظ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0171"
+  },
+  {
+   "item_id": "rw-c4d2f4ba",
+   "expected_text": "طَبِيب",
+   "spoken_text": "تَبِيت",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "ط",
+     "to": "ت"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0172"
+  },
+  {
+   "item_id": "rw-c4d2f4ba",
+   "expected_text": "طَبِيب",
+   "spoken_text": "تَبِيت",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "ط",
+     "to": "ت"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0173"
+  },
+  {
+   "item_id": "rw-c4d2f4ba",
+   "expected_text": "طَبِيب",
+   "spoken_text": "تَيت",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "ط",
+     "to": "ت"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ب",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0174"
+  },
+  {
+   "item_id": "rw-c4d2f4ba",
+   "expected_text": "طَبِيب",
+   "spoken_text": "تَيت",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "ط",
+     "to": "ت"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ب",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0175"
+  },
+  {
+   "item_id": "rw-9dc535c6",
+   "expected_text": "مَدْرَسَة",
+   "spoken_text": "مَدْرَسَة",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0176"
+  },
+  {
+   "item_id": "rw-9dc535c6",
+   "expected_text": "مَدْرَسَة",
+   "spoken_text": "مَدْرَسَة",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0177"
+  },
+  {
+   "item_id": "rw-9dc535c6",
+   "expected_text": "مَدْرَسَة",
+   "spoken_text": "مَدْرِسَة",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0178"
+  },
+  {
+   "item_id": "rw-9dc535c6",
+   "expected_text": "مَدْرَسَة",
+   "spoken_text": "مَدْرِسَة",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0179"
+  },
+  {
+   "item_id": "rw-9dc535c6",
+   "expected_text": "مَدْرَسَة",
+   "spoken_text": "مَضْرَشَة",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "س",
+     "to": "ش"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "د",
+     "to": "ض"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0180"
+  },
+  {
+   "item_id": "rw-9dc535c6",
+   "expected_text": "مَدْرَسَة",
+   "spoken_text": "مَضْرَشَة",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "س",
+     "to": "ش"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "د",
+     "to": "ض"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0181"
+  },
+  {
+   "item_id": "rw-9dc535c6",
+   "expected_text": "مَدْرَسَة",
+   "spoken_text": "مِدْزَة",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 3,
+     "from": "س",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0182"
+  },
+  {
+   "item_id": "rw-9dc535c6",
+   "expected_text": "مَدْرَسَة",
+   "spoken_text": "مِدْزَة",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 3,
+     "from": "س",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0183"
+  },
+  {
+   "item_id": "rw-15252e5c",
+   "expected_text": "بَيْت",
+   "spoken_text": "بَيْت",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0184"
+  },
+  {
+   "item_id": "rw-15252e5c",
+   "expected_text": "بَيْت",
+   "spoken_text": "بَيْت",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0185"
+  },
+  {
+   "item_id": "rw-15252e5c",
+   "expected_text": "بَيْت",
+   "spoken_text": "بَيْط",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ط"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0186"
+  },
+  {
+   "item_id": "rw-15252e5c",
+   "expected_text": "بَيْت",
+   "spoken_text": "بَيْط",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ط"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0187"
+  },
+  {
+   "item_id": "rw-15252e5c",
+   "expected_text": "بَيْت",
+   "spoken_text": "تَيْط",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ط"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0188"
+  },
+  {
+   "item_id": "rw-15252e5c",
+   "expected_text": "بَيْت",
+   "spoken_text": "تَيْط",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ط"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0189"
+  },
+  {
+   "item_id": "rw-6bbf4557",
+   "expected_text": "حَدِيقَة",
+   "spoken_text": "حَدِيقَة",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0190"
+  },
+  {
+   "item_id": "rw-6bbf4557",
+   "expected_text": "حَدِيقَة",
+   "spoken_text": "حَدِيقَة",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0191"
+  },
+  {
+   "item_id": "rw-6bbf4557",
+   "expected_text": "حَدِيقَة",
+   "spoken_text": "حَضِيقَة",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "د",
+     "to": "ض"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0192"
+  },
+  {
+   "item_id": "rw-6bbf4557",
+   "expected_text": "حَدِيقَة",
+   "spoken_text": "حَضِيقَة",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 1,
+     "from": "د",
+     "to": "ض"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0193"
+  },
+  {
+   "item_id": "rw-6bbf4557",
+   "expected_text": "حَدِيقَة",
+   "spoken_text": "حِذِيقَة",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "د",
+     "to": "ذ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0194"
+  },
+  {
+   "item_id": "rw-6bbf4557",
+   "expected_text": "حَدِيقَة",
+   "spoken_text": "حِذِيقَة",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "د",
+     "to": "ذ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0195"
+  },
+  {
+   "item_id": "rw-6bbf4557",
+   "expected_text": "حَدِيقَة",
+   "spoken_text": "خَدَية",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ح",
+     "to": "خ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "ِ",
+     "to": "َ"
+    },
+    {
+     "category": "omission",
+     "char_index": 3,
+     "from": "ق",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0196"
+  },
+  {
+   "item_id": "rw-6bbf4557",
+   "expected_text": "حَدِيقَة",
+   "spoken_text": "خَدَية",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ح",
+     "to": "خ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "ِ",
+     "to": "َ"
+    },
+    {
+     "category": "omission",
+     "char_index": 3,
+     "from": "ق",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0197"
+  },
+  {
+   "item_id": "rw-4975e4eb",
+   "expected_text": "جَامِعَة",
+   "spoken_text": "جَامِعَة",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0198"
+  },
+  {
+   "item_id": "rw-4975e4eb",
+   "expected_text": "جَامِعَة",
+   "spoken_text": "جَامِعَة",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0199"
+  },
+  {
+   "item_id": "rw-4975e4eb",
+   "expected_text": "جَامِعَة",
+   "spoken_text": "جَامِغَة",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ع",
+     "to": "غ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0200"
+  },
+  {
+   "item_id": "rw-4975e4eb",
+   "expected_text": "جَامِعَة",
+   "spoken_text": "جَامِغَة",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ع",
+     "to": "غ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0201"
+  },
+  {
+   "item_id": "rw-4975e4eb",
+   "expected_text": "جَامِعَة",
+   "spoken_text": "جَامَغَة",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ع",
+     "to": "غ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "ِ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0202"
+  },
+  {
+   "item_id": "rw-4975e4eb",
+   "expected_text": "جَامِعَة",
+   "spoken_text": "جَامَغَة",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ع",
+     "to": "غ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "ِ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0203"
+  },
+  {
+   "item_id": "rw-4975e4eb",
+   "expected_text": "جَامِعَة",
+   "spoken_text": "خَاعِة",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ج",
+     "to": "خ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 3,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 2,
+     "from": "م",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0204"
+  },
+  {
+   "item_id": "rw-4975e4eb",
+   "expected_text": "جَامِعَة",
+   "spoken_text": "خَاعِة",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ج",
+     "to": "خ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 3,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 2,
+     "from": "م",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0205"
+  },
+  {
+   "item_id": "rw-a5ef129e",
+   "expected_text": "شَمْس",
+   "spoken_text": "شَمْس",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0206"
+  },
+  {
+   "item_id": "rw-a5ef129e",
+   "expected_text": "شَمْس",
+   "spoken_text": "شَمْس",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0207"
+  },
+  {
+   "item_id": "rw-a5ef129e",
+   "expected_text": "شَمْس",
+   "spoken_text": "سَمْس",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ش",
+     "to": "س"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0208"
+  },
+  {
+   "item_id": "rw-a5ef129e",
+   "expected_text": "شَمْس",
+   "spoken_text": "سَمْس",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ش",
+     "to": "س"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0209"
+  },
+  {
+   "item_id": "rw-a5ef129e",
+   "expected_text": "شَمْس",
+   "spoken_text": "شِمْش",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "س",
+     "to": "ش"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0210"
+  },
+  {
+   "item_id": "rw-a5ef129e",
+   "expected_text": "شَمْس",
+   "spoken_text": "شِمْش",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "س",
+     "to": "ش"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0211"
+  },
+  {
+   "item_id": "rw-a5ef129e",
+   "expected_text": "شَمْس",
+   "spoken_text": "سَص",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ش",
+     "to": "س"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "س",
+     "to": "ص"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "م",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0212"
+  },
+  {
+   "item_id": "rw-a5ef129e",
+   "expected_text": "شَمْس",
+   "spoken_text": "سَص",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ش",
+     "to": "س"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 2,
+     "from": "س",
+     "to": "ص"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "م",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0213"
+  },
+  {
+   "item_id": "rw-077026bc",
+   "expected_text": "سَمَاء",
+   "spoken_text": "سَمَاء",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0214"
+  },
+  {
+   "item_id": "rw-077026bc",
+   "expected_text": "سَمَاء",
+   "spoken_text": "سَمَاء",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0215"
+  },
+  {
+   "item_id": "rw-077026bc",
+   "expected_text": "سَمَاء",
+   "spoken_text": "صَمَاء",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "س",
+     "to": "ص"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0216"
+  },
+  {
+   "item_id": "rw-077026bc",
+   "expected_text": "سَمَاء",
+   "spoken_text": "صَمَاء",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "س",
+     "to": "ص"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0217"
+  },
+  {
+   "item_id": "rw-077026bc",
+   "expected_text": "سَمَاء",
+   "spoken_text": "شَمِاء",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "س",
+     "to": "ش"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0218"
+  },
+  {
+   "item_id": "rw-077026bc",
+   "expected_text": "سَمَاء",
+   "spoken_text": "شَمِاء",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "س",
+     "to": "ش"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0219"
+  },
+  {
+   "item_id": "rw-56231af3",
+   "expected_text": "مُسْتَقْبَل",
+   "spoken_text": "مُسْتَقْبَل",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0220"
+  },
+  {
+   "item_id": "rw-56231af3",
+   "expected_text": "مُسْتَقْبَل",
+   "spoken_text": "مُسْتَقْبَل",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0221"
+  },
+  {
+   "item_id": "rw-56231af3",
+   "expected_text": "مُسْتَقْبَل",
+   "spoken_text": "مَسْتَقْبَل",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ُ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0222"
+  },
+  {
+   "item_id": "rw-56231af3",
+   "expected_text": "مُسْتَقْبَل",
+   "spoken_text": "مَسْتَقْبَل",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ُ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0223"
+  },
+  {
+   "item_id": "rw-56231af3",
+   "expected_text": "مُسْتَقْبَل",
+   "spoken_text": "مُسْتِقْتَل",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 4,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0224"
+  },
+  {
+   "item_id": "rw-56231af3",
+   "expected_text": "مُسْتَقْبَل",
+   "spoken_text": "مُسْتِقْتَل",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 4,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0225"
+  },
+  {
+   "item_id": "rw-56231af3",
+   "expected_text": "مُسْتَقْبَل",
+   "spoken_text": "مَسْتَتَل",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 4,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ُ",
+     "to": "َ"
+    },
+    {
+     "category": "omission",
+     "char_index": 3,
+     "from": "ق",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0226"
+  },
+  {
+   "item_id": "rw-56231af3",
+   "expected_text": "مُسْتَقْبَل",
+   "spoken_text": "مَسْتَتَل",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 4,
+     "from": "ب",
+     "to": "ت"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ُ",
+     "to": "َ"
+    },
+    {
+     "category": "omission",
+     "char_index": 3,
+     "from": "ق",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0227"
+  },
+  {
+   "item_id": "rw-d6a7fb04",
+   "expected_text": "صَدِيق",
+   "spoken_text": "صَدِيق",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0228"
+  },
+  {
+   "item_id": "rw-d6a7fb04",
+   "expected_text": "صَدِيق",
+   "spoken_text": "صَدِيق",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0229"
+  },
+  {
+   "item_id": "rw-d6a7fb04",
+   "expected_text": "صَدِيق",
+   "spoken_text": "صَدِيف",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ق",
+     "to": "ف"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0230"
+  },
+  {
+   "item_id": "rw-d6a7fb04",
+   "expected_text": "صَدِيق",
+   "spoken_text": "صَدِيف",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ق",
+     "to": "ف"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0231"
+  },
+  {
+   "item_id": "rw-d6a7fb04",
+   "expected_text": "صَدِيق",
+   "spoken_text": "ضَدَيق",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ص",
+     "to": "ض"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "ِ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0232"
+  },
+  {
+   "item_id": "rw-d6a7fb04",
+   "expected_text": "صَدِيق",
+   "spoken_text": "ضَدَيق",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ص",
+     "to": "ض"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "ِ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0233"
+  },
+  {
+   "item_id": "rw-5329a3d4",
+   "expected_text": "ظَرْف",
+   "spoken_text": "ظَرْف",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0234"
+  },
+  {
+   "item_id": "rw-5329a3d4",
+   "expected_text": "ظَرْف",
+   "spoken_text": "ظَرْف",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0235"
+  },
+  {
+   "item_id": "rw-5329a3d4",
+   "expected_text": "ظَرْف",
+   "spoken_text": "ظِرْف",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0236"
+  },
+  {
+   "item_id": "rw-5329a3d4",
+   "expected_text": "ظَرْف",
+   "spoken_text": "ظِرْف",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0237"
+  },
+  {
+   "item_id": "rw-5329a3d4",
+   "expected_text": "ظَرْف",
+   "spoken_text": "ذَزْف",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "ظ",
+     "to": "ذ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0238"
+  },
+  {
+   "item_id": "rw-5329a3d4",
+   "expected_text": "ظَرْف",
+   "spoken_text": "ذَزْف",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "ظ",
+     "to": "ذ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0239"
+  },
+  {
+   "item_id": "rw-5329a3d4",
+   "expected_text": "ظَرْف",
+   "spoken_text": "ذَق",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ف",
+     "to": "ق"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "ظ",
+     "to": "ذ"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ر",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0240"
+  },
+  {
+   "item_id": "rw-5329a3d4",
+   "expected_text": "ظَرْف",
+   "spoken_text": "ذَق",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ف",
+     "to": "ق"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 0,
+     "from": "ظ",
+     "to": "ذ"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ر",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0241"
+  },
+  {
+   "item_id": "rw-878b0fc6",
+   "expected_text": "قَلَم",
+   "spoken_text": "قَلَم",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0242"
+  },
+  {
+   "item_id": "rw-878b0fc6",
+   "expected_text": "قَلَم",
+   "spoken_text": "قَلَم",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0243"
+  },
+  {
+   "item_id": "rw-878b0fc6",
+   "expected_text": "قَلَم",
+   "spoken_text": "قِلَم",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0244"
+  },
+  {
+   "item_id": "rw-878b0fc6",
+   "expected_text": "قَلَم",
+   "spoken_text": "قِلَم",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0245"
+  },
+  {
+   "item_id": "rw-878b0fc6",
+   "expected_text": "قَلَم",
+   "spoken_text": "فَلِم",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ق",
+     "to": "ف"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0246"
+  },
+  {
+   "item_id": "rw-878b0fc6",
+   "expected_text": "قَلَم",
+   "spoken_text": "فَلِم",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ق",
+     "to": "ف"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0247"
+  },
+  {
+   "item_id": "rw-d87b6985",
+   "expected_text": "غَيْمَة",
+   "spoken_text": "غَيْمَة",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0248"
+  },
+  {
+   "item_id": "rw-d87b6985",
+   "expected_text": "غَيْمَة",
+   "spoken_text": "غَيْمَة",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0249"
+  },
+  {
+   "item_id": "rw-d87b6985",
+   "expected_text": "غَيْمَة",
+   "spoken_text": "غِيْمَة",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0250"
+  },
+  {
+   "item_id": "rw-d87b6985",
+   "expected_text": "غَيْمَة",
+   "spoken_text": "غِيْمَة",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0251"
+  },
+  {
+   "item_id": "rw-d87b6985",
+   "expected_text": "غَيْمَة",
+   "spoken_text": "عَيْمِة",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "غ",
+     "to": "ع"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0252"
+  },
+  {
+   "item_id": "rw-d87b6985",
+   "expected_text": "غَيْمَة",
+   "spoken_text": "عَيْمِة",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "غ",
+     "to": "ع"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0253"
+  },
+  {
+   "item_id": "rw-32c88c1b",
+   "expected_text": "مِفْتَاح",
+   "spoken_text": "مِفْتَاح",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0254"
+  },
+  {
+   "item_id": "rw-32c88c1b",
+   "expected_text": "مِفْتَاح",
+   "spoken_text": "مِفْتَاح",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0255"
+  },
+  {
+   "item_id": "rw-32c88c1b",
+   "expected_text": "مِفْتَاح",
+   "spoken_text": "مِفْثَاح",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ث"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0256"
+  },
+  {
+   "item_id": "rw-32c88c1b",
+   "expected_text": "مِفْتَاح",
+   "spoken_text": "مِفْثَاح",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ث"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0257"
+  },
+  {
+   "item_id": "rw-32c88c1b",
+   "expected_text": "مِفْتَاح",
+   "spoken_text": "مَفْثَاح",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ث"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ِ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0258"
+  },
+  {
+   "item_id": "rw-32c88c1b",
+   "expected_text": "مِفْتَاح",
+   "spoken_text": "مَفْثَاح",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ت",
+     "to": "ث"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "ِ",
+     "to": "َ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0259"
+  },
+  {
+   "item_id": "rw-32c88c1b",
+   "expected_text": "مِفْتَاح",
+   "spoken_text": "مِتِاخ",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 4,
+     "from": "ح",
+     "to": "خ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ف",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0260"
+  },
+  {
+   "item_id": "rw-32c88c1b",
+   "expected_text": "مِفْتَاح",
+   "spoken_text": "مِتِاخ",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 4,
+     "from": "ح",
+     "to": "خ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ف",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0261"
+  },
+  {
+   "item_id": "rw-a931e72e",
+   "expected_text": "أَرْنَب",
+   "spoken_text": "أَرْنَب",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0262"
+  },
+  {
+   "item_id": "rw-a931e72e",
+   "expected_text": "أَرْنَب",
+   "spoken_text": "أَرْنَب",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0263"
+  },
+  {
+   "item_id": "rw-a931e72e",
+   "expected_text": "أَرْنَب",
+   "spoken_text": "أَزْنَب",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ر",
+     "to": "ز"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0264"
+  },
+  {
+   "item_id": "rw-a931e72e",
+   "expected_text": "أَرْنَب",
+   "spoken_text": "أَزْنَب",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ر",
+     "to": "ز"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0265"
+  },
+  {
+   "item_id": "rw-a931e72e",
+   "expected_text": "أَرْنَب",
+   "spoken_text": "أَزْنِب",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0266"
+  },
+  {
+   "item_id": "rw-a931e72e",
+   "expected_text": "أَرْنَب",
+   "spoken_text": "أَزْنِب",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ر",
+     "to": "ز"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0267"
+  },
+  {
+   "item_id": "rw-a931e72e",
+   "expected_text": "أَرْنَب",
+   "spoken_text": "أِبَب",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ن",
+     "to": "ب"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ر",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0268"
+  },
+  {
+   "item_id": "rw-a931e72e",
+   "expected_text": "أَرْنَب",
+   "spoken_text": "أِبَب",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ن",
+     "to": "ب"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 1,
+     "from": "ر",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0269"
+  },
+  {
+   "item_id": "rw-8116660a",
+   "expected_text": "نَافِذَة",
+   "spoken_text": "نَافِذَة",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0270"
+  },
+  {
+   "item_id": "rw-8116660a",
+   "expected_text": "نَافِذَة",
+   "spoken_text": "نَافِذَة",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0271"
+  },
+  {
+   "item_id": "rw-8116660a",
+   "expected_text": "نَافِذَة",
+   "spoken_text": "نَافِذِة",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 3,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0272"
+  },
+  {
+   "item_id": "rw-8116660a",
+   "expected_text": "نَافِذَة",
+   "spoken_text": "نَافِذِة",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 3,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0273"
+  },
+  {
+   "item_id": "rw-8116660a",
+   "expected_text": "نَافِذَة",
+   "spoken_text": "نَاقِظَة",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ف",
+     "to": "ق"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 3,
+     "from": "ذ",
+     "to": "ظ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0274"
+  },
+  {
+   "item_id": "rw-8116660a",
+   "expected_text": "نَافِذَة",
+   "spoken_text": "نَاقِظَة",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 2,
+     "from": "ف",
+     "to": "ق"
+    },
+    {
+     "category": "emphatic_confusion",
+     "char_index": 3,
+     "from": "ذ",
+     "to": "ظ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0275"
+  },
+  {
+   "item_id": "rw-8116660a",
+   "expected_text": "نَافِذَة",
+   "spoken_text": "نِادَة",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ذ",
+     "to": "د"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 2,
+     "from": "ف",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0276"
+  },
+  {
+   "item_id": "rw-8116660a",
+   "expected_text": "نَافِذَة",
+   "spoken_text": "نِادَة",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 3,
+     "from": "ذ",
+     "to": "د"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 0,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 2,
+     "from": "ف",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0277"
+  },
+  {
+   "item_id": "rw-906b3ac5",
+   "expected_text": "شَجَرَة",
+   "spoken_text": "شَجَرَة",
+   "lexicon": "msa",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0278"
+  },
+  {
+   "item_id": "rw-906b3ac5",
+   "expected_text": "شَجَرَة",
+   "spoken_text": "شَجَرَة",
+   "lexicon": "kw",
+   "severity": "none",
+   "dialect_cell": null,
+   "injected": [],
+   "synthetic": true,
+   "case_id": "syn-0279"
+  },
+  {
+   "item_id": "rw-906b3ac5",
+   "expected_text": "شَجَرَة",
+   "spoken_text": "شَجَرِة",
+   "lexicon": "msa",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0280"
+  },
+  {
+   "item_id": "rw-906b3ac5",
+   "expected_text": "شَجَرَة",
+   "spoken_text": "شَجَرِة",
+   "lexicon": "kw",
+   "severity": "mild",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0281"
+  },
+  {
+   "item_id": "rw-906b3ac5",
+   "expected_text": "شَجَرَة",
+   "spoken_text": "شَخَرِة",
+   "lexicon": "msa",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ج",
+     "to": "خ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0282"
+  },
+  {
+   "item_id": "rw-906b3ac5",
+   "expected_text": "شَجَرَة",
+   "spoken_text": "شَخَرِة",
+   "lexicon": "kw",
+   "severity": "moderate",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 1,
+     "from": "ج",
+     "to": "خ"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 2,
+     "from": "َ",
+     "to": "ِ"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0283"
+  },
+  {
+   "item_id": "rw-906b3ac5",
+   "expected_text": "شَجَرَة",
+   "spoken_text": "سَجِة",
+   "lexicon": "msa",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ش",
+     "to": "س"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 2,
+     "from": "ر",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0284"
+  },
+  {
+   "item_id": "rw-906b3ac5",
+   "expected_text": "شَجَرَة",
+   "spoken_text": "سَجِة",
+   "lexicon": "kw",
+   "severity": "severe",
+   "dialect_cell": null,
+   "injected": [
+    {
+     "category": "dot_confusion",
+     "char_index": 0,
+     "from": "ش",
+     "to": "س"
+    },
+    {
+     "category": "short_vowel",
+     "char_index": 1,
+     "from": "َ",
+     "to": "ِ"
+    },
+    {
+     "category": "omission",
+     "char_index": 2,
+     "from": "ر",
+     "to": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0285"
+  },
+  {
+   "item_id": "rw-bdc0c1e1",
+   "expected_text": "قَمَر",
+   "spoken_text": "أَمَر",
+   "lexicon": "kw",
+   "severity": "dialect",
+   "dialect_cell": "kw_qaaf_glottal",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 0,
+     "from": "ق",
+     "to": "أ",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0286"
+  },
+  {
+   "item_id": "rw-bdc0c1e1",
+   "expected_text": "قَمَر",
+   "spoken_text": "أَمَر",
+   "lexicon": "msa",
+   "severity": "dialect",
+   "dialect_cell": "msa_qaaf_glottal",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 0,
+     "from": "ق",
+     "to": "أ",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0287"
+  },
+  {
+   "item_id": "rw-29f04730",
+   "expected_text": "دَرَّاجَة",
+   "spoken_text": "دَرَّايَة",
+   "lexicon": "kw",
+   "severity": "dialect",
+   "dialect_cell": "kw_jiim_j",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 3,
+     "from": "ج",
+     "to": "ي",
+     "expect_status": "dialect_variant",
+     "expect_rule": "kw.jiim-j"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0288"
+  },
+  {
+   "item_id": "rw-29f04730",
+   "expected_text": "دَرَّاجَة",
+   "spoken_text": "دَرَّايَة",
+   "lexicon": "msa",
+   "severity": "dialect",
+   "dialect_cell": "msa_jiim_j",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 3,
+     "from": "ج",
+     "to": "ي",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0289"
+  },
+  {
+   "item_id": "rw-b1ff68fc",
+   "expected_text": "مِلْعَقَة",
+   "spoken_text": "مِلْعَأَة",
+   "lexicon": "kw",
+   "severity": "dialect",
+   "dialect_cell": "kw_qaaf_glottal",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 3,
+     "from": "ق",
+     "to": "أ",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0290"
+  },
+  {
+   "item_id": "rw-b1ff68fc",
+   "expected_text": "مِلْعَقَة",
+   "spoken_text": "مِلْعَأَة",
+   "lexicon": "msa",
+   "severity": "dialect",
+   "dialect_cell": "msa_qaaf_glottal",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 3,
+     "from": "ق",
+     "to": "أ",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0291"
+  },
+  {
+   "item_id": "rw-4c5d0bb9",
+   "expected_text": "نَجْم",
+   "spoken_text": "نَيْم",
+   "lexicon": "kw",
+   "severity": "dialect",
+   "dialect_cell": "kw_jiim_j",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 1,
+     "from": "ج",
+     "to": "ي",
+     "expect_status": "dialect_variant",
+     "expect_rule": "kw.jiim-j"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0292"
+  },
+  {
+   "item_id": "rw-4c5d0bb9",
+   "expected_text": "نَجْم",
+   "spoken_text": "نَيْم",
+   "lexicon": "msa",
+   "severity": "dialect",
+   "dialect_cell": "msa_jiim_j",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 1,
+     "from": "ج",
+     "to": "ي",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0293"
+  },
+  {
+   "item_id": "rw-6bbf4557",
+   "expected_text": "حَدِيقَة",
+   "spoken_text": "حَدِيأَة",
+   "lexicon": "kw",
+   "severity": "dialect",
+   "dialect_cell": "kw_qaaf_glottal",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 3,
+     "from": "ق",
+     "to": "أ",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0294"
+  },
+  {
+   "item_id": "rw-6bbf4557",
+   "expected_text": "حَدِيقَة",
+   "spoken_text": "حَدِيأَة",
+   "lexicon": "msa",
+   "severity": "dialect",
+   "dialect_cell": "msa_qaaf_glottal",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 3,
+     "from": "ق",
+     "to": "أ",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0295"
+  },
+  {
+   "item_id": "rw-4975e4eb",
+   "expected_text": "جَامِعَة",
+   "spoken_text": "يَامِعَة",
+   "lexicon": "kw",
+   "severity": "dialect",
+   "dialect_cell": "kw_jiim_j",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 0,
+     "from": "ج",
+     "to": "ي",
+     "expect_status": "dialect_variant",
+     "expect_rule": "kw.jiim-j"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0296"
+  },
+  {
+   "item_id": "rw-4975e4eb",
+   "expected_text": "جَامِعَة",
+   "spoken_text": "يَامِعَة",
+   "lexicon": "msa",
+   "severity": "dialect",
+   "dialect_cell": "msa_jiim_j",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 0,
+     "from": "ج",
+     "to": "ي",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0297"
+  },
+  {
+   "item_id": "rw-56231af3",
+   "expected_text": "مُسْتَقْبَل",
+   "spoken_text": "مُسْتَأْبَل",
+   "lexicon": "kw",
+   "severity": "dialect",
+   "dialect_cell": "kw_qaaf_glottal",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 3,
+     "from": "ق",
+     "to": "أ",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0298"
+  },
+  {
+   "item_id": "rw-56231af3",
+   "expected_text": "مُسْتَقْبَل",
+   "spoken_text": "مُسْتَأْبَل",
+   "lexicon": "msa",
+   "severity": "dialect",
+   "dialect_cell": "msa_qaaf_glottal",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 3,
+     "from": "ق",
+     "to": "أ",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0299"
+  },
+  {
+   "item_id": "rw-d6a7fb04",
+   "expected_text": "صَدِيق",
+   "spoken_text": "صَدِيأ",
+   "lexicon": "kw",
+   "severity": "dialect",
+   "dialect_cell": "kw_qaaf_glottal",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 3,
+     "from": "ق",
+     "to": "أ",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0300"
+  },
+  {
+   "item_id": "rw-d6a7fb04",
+   "expected_text": "صَدِيق",
+   "spoken_text": "صَدِيأ",
+   "lexicon": "msa",
+   "severity": "dialect",
+   "dialect_cell": "msa_qaaf_glottal",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 3,
+     "from": "ق",
+     "to": "أ",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0301"
+  },
+  {
+   "item_id": "rw-878b0fc6",
+   "expected_text": "قَلَم",
+   "spoken_text": "أَلَم",
+   "lexicon": "kw",
+   "severity": "dialect",
+   "dialect_cell": "kw_qaaf_glottal",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 0,
+     "from": "ق",
+     "to": "أ",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0302"
+  },
+  {
+   "item_id": "rw-878b0fc6",
+   "expected_text": "قَلَم",
+   "spoken_text": "أَلَم",
+   "lexicon": "msa",
+   "severity": "dialect",
+   "dialect_cell": "msa_qaaf_glottal",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 0,
+     "from": "ق",
+     "to": "أ",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0303"
+  },
+  {
+   "item_id": "rw-906b3ac5",
+   "expected_text": "شَجَرَة",
+   "spoken_text": "شَيَرَة",
+   "lexicon": "kw",
+   "severity": "dialect",
+   "dialect_cell": "kw_jiim_j",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 1,
+     "from": "ج",
+     "to": "ي",
+     "expect_status": "dialect_variant",
+     "expect_rule": "kw.jiim-j"
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0304"
+  },
+  {
+   "item_id": "rw-906b3ac5",
+   "expected_text": "شَجَرَة",
+   "spoken_text": "شَيَرَة",
+   "lexicon": "msa",
+   "severity": "dialect",
+   "dialect_cell": "msa_jiim_j",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 1,
+     "from": "ج",
+     "to": "ي",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0305"
+  },
+  {
+   "item_id": "rw-52a4aa72",
+   "expected_text": "بُرْتُقَال",
+   "spoken_text": "بُرْتُأَال",
+   "lexicon": "kw",
+   "severity": "dialect",
+   "dialect_cell": "kw_qaaf_glottal",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 3,
+     "from": "ق",
+     "to": "أ",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0306"
+  },
+  {
+   "item_id": "rw-52a4aa72",
+   "expected_text": "بُرْتُقَال",
+   "spoken_text": "بُرْتُأَال",
+   "lexicon": "msa",
+   "severity": "dialect",
+   "dialect_cell": "msa_qaaf_glottal",
+   "injected": [
+    {
+     "category": "dialect",
+     "char_index": 3,
+     "from": "ق",
+     "to": "أ",
+     "expect_status": "error",
+     "expect_rule": null
+    }
+   ],
+   "synthetic": true,
+   "case_id": "syn-0307"
+  }
+ ]
+}
