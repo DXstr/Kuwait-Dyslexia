@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: Basira Scorer API
-  version: 0.3.0
+  version: 0.4.0
   description: |
     Stateless scoring service owned by workstream A (ai/). It never reads or writes the database:
     the web app (workstream B) sends everything the scorer needs and stores what it returns.

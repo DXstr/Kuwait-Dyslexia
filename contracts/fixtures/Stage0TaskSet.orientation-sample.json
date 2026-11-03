@@ -1,0 +1,72 @@
+{
+  "version": "0.1.0",
+  "generated_at": "2026-11-03T00:00:00Z",
+  "instrument_id": "orientation-basira-v0",
+  "construct": "reversal",
+  "title_ar": "اتِّجاهُ الأَشْكالِ وَالحُروفِ",
+  "title_en": "Shape and letter orientation",
+  "notice_ar": "مُهِمَّةُ فَحْصٍ مِنْ إِعْدادِ بَصيرَة، غَيْرُ مُقَنَّنَةٍ",
+  "notice_en": "Basira-authored screening task, not standardized. Raw score only; no norms apply.",
+  "format_source": "Mirror-discrimination format after Houbben & Vannuscorps (2022, GCPN Mons); items newly drawn by Basira. Supplementary only: reversals alone never indicate dyslexia.",
+  "review": {
+    "status": "unreviewed",
+    "reviewer": null,
+    "reviewed_on": null
+  },
+  "blocks": [
+    {
+      "block_id": "letter_mirror",
+      "title_ar": "الحُروفُ وَالمِرْآةُ",
+      "title_en": "Letters and mirror",
+      "instructions_ar": "هَلْ هذا الحَرْفُ مَكْتوبٌ كَما نَكْتُبُهُ، أَمْ كَصورَتِهِ في المِرْآةِ؟",
+      "instructions_en": "Is this letter written the usual way, or as its mirror image?",
+      "scored": true,
+      "items": [
+        {
+          "item_id": "let-p01",
+          "kind": "letter_orientation",
+          "practice": true,
+          "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"حَرْف\"><rect x=\"2.0\" y=\"2.0\" width=\"96.0\" height=\"96.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g><text x=\"50\" y=\"68\" font-size=\"56\" text-anchor=\"middle\" fill=\"#1F2937\" font-family=\"Noto Naskh Arabic, Amiri, Scheherazade New, serif\">ك</text></g></svg>",
+          "stimulus_text": null,
+          "options": [
+            {
+              "option_id": "normal",
+              "svg": null,
+              "text": "كَما نَكْتُبُهُ"
+            },
+            {
+              "option_id": "mirror",
+              "svg": null,
+              "text": "في المِرْآةِ"
+            }
+          ],
+          "response_type": "option_id",
+          "answer": "normal",
+          "rule": "letter:ك"
+        },
+        {
+          "item_id": "let-01",
+          "kind": "letter_orientation",
+          "practice": false,
+          "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"حَرْف\"><rect x=\"2.0\" y=\"2.0\" width=\"96.0\" height=\"96.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g><text x=\"50\" y=\"68\" font-size=\"56\" text-anchor=\"middle\" fill=\"#1F2937\" font-family=\"Noto Naskh Arabic, Amiri, Scheherazade New, serif\">ش</text></g></svg>",
+          "stimulus_text": null,
+          "options": [
+            {
+              "option_id": "normal",
+              "svg": null,
+              "text": "كَما نَكْتُبُهُ"
+            },
+            {
+              "option_id": "mirror",
+              "svg": null,
+              "text": "في المِرْآةِ"
+            }
+          ],
+          "response_type": "option_id",
+          "answer": "normal",
+          "rule": "letter:ش"
+        }
+      ]
+    }
+  ]
+}

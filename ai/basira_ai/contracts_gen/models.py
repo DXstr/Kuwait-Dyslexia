@@ -8,8 +8,8 @@ from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, RootModel
 
 
-class BasiraSharedContractsV030(RootModel[Any]):
-    root: Any = Field(..., title='Basira shared contracts v0.3.0')
+class BasiraSharedContractsV040(RootModel[Any]):
+    root: Any = Field(..., title='Basira shared contracts v0.4.0')
     """
     Single source of truth for every payload exchanged between workstream A (ai/, content/) and workstream B (web/, supabase/). Change only through a contracts PR approved by both.
     """
@@ -344,6 +344,103 @@ class Stage0ScoreResponse(BaseModel):
     note_en: str
     scorer_version: str
     synthetic: bool
+
+
+class Stage0Option(BaseModel):
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    option_id: str
+    svg: str | None = None
+    """
+    Self-contained inline SVG (no script, no external reference, palette colours only, no red)
+    """
+    text: str | None = None
+    """
+    Arabic label when the option is text
+    """
+
+
+class Stage0TaskItem(BaseModel):
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    item_id: str
+    kind: Literal[
+        'pattern_sequence',
+        'pattern_matrix',
+        'pattern_analogy',
+        'same_mirror',
+        'letter_orientation',
+        'same_different',
+        'reaction',
+        'dot_count',
+        'number_compare',
+        'addition',
+    ]
+    practice: bool
+    """
+    true: demonstration item, never scored; send its response or not
+    """
+    stimulus_svg: str | None = None
+    """
+    Inline SVG drawn right to left (Arabic reading order)
+    """
+    stimulus_text: str | None = None
+    """
+    Arabic text stimulus, e.g. an addition with Arabic-Indic digits
+    """
+    options: list[Stage0Option] | None = None
+    """
+    null for keypad (number) and tap responses
+    """
+    response_type: Literal['option_id', 'number', 'tap']
+    """
+    What Stage0ScoreRequest.responses[].response carries: the chosen option_id, the keypad number (1-9), or true for a tap (send time_ms)
+    """
+    answer: str | int | None = None
+    """
+    Expected response; null for unscored reaction trials. The scorer keeps its own copy and scores against it
+    """
+    rule: str
+    """
+    Generator rule, for the reviewer and the specialist; not shown to the child
+    """
+
+
+class Stage0Block(BaseModel):
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    block_id: str
+    title_ar: str
+    title_en: str
+    instructions_ar: str
+    """
+    Fully vowelled, read to the child by the examiner
+    """
+    instructions_en: str
+    """
+    Examiner/specialist English switch only, with administration notes
+    """
+    scored: bool
+    """
+    false: baseline block (e.g. reaction time), never part of raw_score
+    """
+    items: list[Stage0TaskItem] = Field(..., min_length=1)
+
+
+class TaskReview(BaseModel):
+    """
+    Sign-off of generated screening items by the named specialist (psychologist / SLP)
+    """
+
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    status: Literal['unreviewed', 'approved', 'rejected']
+    reviewer: str | None = None
+    reviewed_on: date | None = None
 
 
 class Health(BaseModel):
@@ -712,6 +809,36 @@ class ParentReport(BaseModel):
     home_plan: list[HomePlanItem] = Field(..., max_length=3, min_length=1)
     next_focus_ar: str
     specialist: Specialist
+
+
+class Stage0TaskSet(BaseModel):
+    """
+    A Basira-authored Stage 0 screening task: published task FORMAT, entirely new items, no norms (raw score only). Shown on examiner screens with notice_ar / notice_en.
+    """
+
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    version: str
+    generated_at: datetime
+    instrument_id: str
+    """
+    Send as Stage0ScoreRequest.instrument_id
+    """
+    construct_: Stage0Construct = Field(..., alias='construct')
+    title_ar: str
+    title_en: str
+    notice_ar: str
+    """
+    Must be shown wherever the task or its score is shown
+    """
+    notice_en: str
+    format_source: str
+    """
+    Named source of the task format (non-negotiable 13); the items are not from it
+    """
+    review: TaskReview
+    blocks: list[Stage0Block] = Field(..., min_length=1)
 
 
 class ItemBank(BaseModel):
