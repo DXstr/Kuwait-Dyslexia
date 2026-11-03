@@ -1,5 +1,11 @@
 # Contracts changelog
 
+## 0.4.0 — 2026-11-03
+- Add `Stage0TaskSet`, `Stage0Block`, `Stage0TaskItem`, `Stage0Option`, `TaskReview`: Basira-authored Stage 0
+  screening tasks (published task format, entirely new generated items, raw score only, "not standardized" notice).
+  Fixtures `Stage0TaskSet.orientation-sample.json` and `Stage0TaskSet.number-sense-sample.json`. Additive: no
+  existing payload changes. Task files: `content/dist/stage0/<instrument_id>.json`.
+
 ## 0.3.0 — 2026-11-02
 - Add `PhoneticInventory`, `PhoneticLetter`, `MouthShape`, `VowelModifier`, `PhoneticReview` (A12) and the data
   file `phonetic-inventory.json` (28 letters + 8 vowel modifiers, all unreviewed); fixture `PhoneticInventory.sample.json`.

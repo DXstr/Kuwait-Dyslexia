@@ -8,6 +8,10 @@ real norm table with a named source is added (it is never computed from anything
 Response formats:
 - proportion_correct: one response per item, boolean (true = correct); raw = correct / items.
 - wcpm: one response per timed passage, number = words read correctly, `time_ms` = reading time; raw = words / min.
+- keyed_proportion_correct: Basira-authored task sets (`data/stage0/<instrument_id>.json`, `$defs/Stage0TaskSet`).
+  One response per scored item: the chosen option_id or the keypad number; the scorer compares it with its own copy
+  of the answer. Practice items and unscored (baseline) blocks may be sent and are ignored. Every scored item must be
+  answered; raw = correct / scored items. No norms: never a scaled score.
 """
 
 from __future__ import annotations
@@ -16,7 +20,7 @@ import json
 from functools import lru_cache
 from importlib import resources
 
-SCORER_VERSION = "stage0-0.1.0"
+SCORER_VERSION = "stage0-0.2.0"
 
 
 class Stage0Error(ValueError):
@@ -53,6 +57,51 @@ def _wcpm(responses: list[dict]) -> float:
     return round(words / (ms / 60_000), 1)
 
 
+@lru_cache(maxsize=8)
+def task_set(instrument_id: str) -> dict:
+    path = resources.files("basira_ai").joinpath(f"data/stage0/{instrument_id}.json")
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def answer_key(instrument_id: str) -> dict[str, str | int]:
+    """item_id -> answer for every scored, non-practice item of a Basira-authored task set."""
+    return {item["item_id"]: item["answer"] for block in task_set(instrument_id)["blocks"] if block["scored"]
+            for item in block["items"] if not item["practice"]}
+
+
+ARABIC_INDIC = str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789")
+
+
+def _same(response: object, answer: str | int) -> bool:
+    if isinstance(answer, int):
+        if isinstance(response, bool):
+            return False
+        if isinstance(response, int | float):
+            return response == answer
+        return isinstance(response, str) and response.strip().translate(ARABIC_INDIC) == str(answer)
+    return response == answer
+
+
+def _keyed(responses: list[dict], instrument_id: str) -> float:
+    key = answer_key(instrument_id)
+    known = {i["item_id"] for b in task_set(instrument_id)["blocks"] for i in b["items"]}
+    seen: set[str] = set()
+    correct = 0
+    for r in responses:
+        item_id = r["item_id"]
+        if item_id not in known:
+            raise Stage0Error(f"{item_id}: not an item of {instrument_id}")
+        if item_id in seen:
+            raise Stage0Error(f"{item_id}: answered twice")
+        seen.add(item_id)
+        if item_id in key:
+            correct += _same(r["response"], key[item_id])
+    missing = sorted(set(key) - seen)
+    if missing:
+        raise Stage0Error(f"{len(missing)} scored item(s) not answered, e.g. {missing[:3]}; score the full set")
+    return round(correct / len(key), 4)
+
+
 SCORERS = {"proportion_correct": _proportion_correct, "wcpm": _wcpm}
 
 
@@ -65,7 +114,12 @@ def score(request: dict) -> dict:
         measures = inst["construct"]
         raise Stage0Error(f"instrument {inst['instrument_id']} measures {measures}, not {request['construct']}")
     pending = inst["licence_status"] == "license_pending"
-    raw = None if pending else SCORERS[inst["scoring"]](request["responses"])
+    if pending:
+        raw = None
+    elif inst["scoring"] == "keyed_proportion_correct":
+        raw = _keyed(request["responses"], inst["instrument_id"])
+    else:
+        raw = SCORERS[inst["scoring"]](request["responses"])
     return {
         "construct": inst["construct"],
         "instrument_id": inst["instrument_id"],

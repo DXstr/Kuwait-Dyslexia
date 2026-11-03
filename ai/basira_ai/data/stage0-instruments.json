@@ -1,6 +1,6 @@
 {
-  "version": "0.1.0",
-  "status": "DRAFT - no licensed instrument or norm table has been obtained yet; never invent norms (IDEA, Stage 0)",
+  "version": "0.2.0",
+  "status": "DRAFT - no licensed instrument or norm table has been obtained yet; never invent norms. Three Basira-authored tasks (published format, new items, raw score only) sit beside the still-pending originals (DECISIONS 2026-11-03).",
   "licence_note": "public_domain here means no third-party licence is needed (a public procedure or Basira-authored task); it does not mean the items are validated.",
   "instruments": [
     {
@@ -65,6 +65,33 @@
       "norm_source": null,
       "note_en": "Raw score = words correct per minute on timed Basira passages (curriculum-based measurement, Deno 1985). No Arabic age-band WCPM norms are available yet, so no scaled score.",
       "source": "IDEA Stage 0 construct 7; Deno, S.L. (1985) Curriculum-based measurement: the emerging alternative. Exceptional Children 52(3), 219-232."
+    },
+    {
+      "instrument_id": "nonverbal-pattern-basira-v0",
+      "construct": "nonverbal_iq",
+      "licence_status": "public_domain",
+      "scoring": "keyed_proportion_correct",
+      "norm_source": null,
+      "note_en": "Raw score = proportion of 24 pattern-completion items correct (sequence, grid, analogy). Exclusionary use only; never report as an IQ. Basira-authored screening task, NOT STANDARDIZED and not the original test: entirely new items, so the original's norms do not apply. Items unreviewed until a specialist signs off.",
+      "source": "Format: matrix reasoning (Raven, J.C. 1938, Progressive Matrices). Items: content/dist/stage0/nonverbal-pattern-basira-v0.json"
+    },
+    {
+      "instrument_id": "orientation-basira-v0",
+      "construct": "reversal",
+      "licence_status": "public_domain",
+      "scoring": "keyed_proportion_correct",
+      "norm_source": null,
+      "note_en": "Raw score = proportion of 24 items correct (shape mirror, letter mirror, non-mirror control). Supplementary only; reversals alone never indicate dyslexia. Compare the mirror blocks with the control block in the stored responses. Basira-authored screening task, NOT STANDARDIZED and not the original test: entirely new items, so the original's norms do not apply. Items unreviewed until a specialist signs off.",
+      "source": "Format: mirror discrimination after Houbben & Vannuscorps (2022, GCPN Mons). Items: content/dist/stage0/orientation-basira-v0.json"
+    },
+    {
+      "instrument_id": "number-sense-basira-v0",
+      "construct": "dyscalculia",
+      "licence_status": "public_domain",
+      "scoring": "keyed_proportion_correct",
+      "norm_source": null,
+      "note_en": "Raw score = proportion of 28 items correct (dot counting, number comparison, addition); the reaction-time baseline is not scored. Response times stay in the stored responses. Basira-authored screening task, NOT STANDARDIZED and not the original test: entirely new items, so the original's norms do not apply. Items unreviewed until a specialist signs off.",
+      "source": "Format: block structure after Butterworth, B. (2003) Dyscalculia Screener. Items: content/dist/stage0/number-sense-basira-v0.json"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://basira.local/contracts/basira.schema.json",
-  "title": "Basira shared contracts v0.3.0",
+  "title": "Basira shared contracts v0.4.0",
   "description": "Single source of truth for every payload exchanged between workstream A (ai/, content/) and workstream B (web/, supabase/). Change only through a contracts PR approved by both.",
   "$defs": {
     "SkillId": {
@@ -237,6 +237,81 @@
         "note_en": { "type": "string" },
         "scorer_version": { "type": "string" },
         "synthetic": { "type": "boolean" }
+      }
+    },
+
+    "Stage0Option": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["option_id", "svg", "text"],
+      "properties": {
+        "option_id": { "type": "string" },
+        "svg": { "type": ["string", "null"], "description": "Self-contained inline SVG (no script, no external reference, palette colours only, no red)" },
+        "text": { "type": ["string", "null"], "description": "Arabic label when the option is text" }
+      }
+    },
+
+    "Stage0TaskItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_id", "kind", "practice", "stimulus_svg", "stimulus_text", "options", "response_type", "answer", "rule"],
+      "properties": {
+        "item_id": { "type": "string" },
+        "kind": { "enum": ["pattern_sequence", "pattern_matrix", "pattern_analogy", "same_mirror", "letter_orientation", "same_different", "reaction", "dot_count", "number_compare", "addition"] },
+        "practice": { "type": "boolean", "description": "true: demonstration item, never scored; send its response or not" },
+        "stimulus_svg": { "type": ["string", "null"], "description": "Inline SVG drawn right to left (Arabic reading order)" },
+        "stimulus_text": { "type": ["string", "null"], "description": "Arabic text stimulus, e.g. an addition with Arabic-Indic digits" },
+        "options": { "anyOf": [{ "type": "array", "items": { "$ref": "#/$defs/Stage0Option" } }, { "type": "null" }], "description": "null for keypad (number) and tap responses" },
+        "response_type": { "enum": ["option_id", "number", "tap"], "description": "What Stage0ScoreRequest.responses[].response carries: the chosen option_id, the keypad number (1-9), or true for a tap (send time_ms)" },
+        "answer": { "anyOf": [{ "type": "string" }, { "type": "integer" }, { "type": "null" }], "description": "Expected response; null for unscored reaction trials. The scorer keeps its own copy and scores against it" },
+        "rule": { "type": "string", "description": "Generator rule, for the reviewer and the specialist; not shown to the child" }
+      }
+    },
+
+    "Stage0Block": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["block_id", "title_ar", "title_en", "instructions_ar", "instructions_en", "scored", "items"],
+      "properties": {
+        "block_id": { "type": "string" },
+        "title_ar": { "type": "string" },
+        "title_en": { "type": "string" },
+        "instructions_ar": { "type": "string", "description": "Fully vowelled, read to the child by the examiner" },
+        "instructions_en": { "type": "string", "description": "Examiner/specialist English switch only, with administration notes" },
+        "scored": { "type": "boolean", "description": "false: baseline block (e.g. reaction time), never part of raw_score" },
+        "items": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/Stage0TaskItem" } }
+      }
+    },
+
+    "Stage0TaskSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "A Basira-authored Stage 0 screening task: published task FORMAT, entirely new items, no norms (raw score only). Shown on examiner screens with notice_ar / notice_en.",
+      "required": ["version", "generated_at", "instrument_id", "construct", "title_ar", "title_en", "notice_ar", "notice_en", "format_source", "review", "blocks"],
+      "properties": {
+        "version": { "type": "string" },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "instrument_id": { "type": "string", "description": "Send as Stage0ScoreRequest.instrument_id" },
+        "construct": { "$ref": "#/$defs/Stage0Construct" },
+        "title_ar": { "type": "string" },
+        "title_en": { "type": "string" },
+        "notice_ar": { "type": "string", "description": "Must be shown wherever the task or its score is shown" },
+        "notice_en": { "type": "string" },
+        "format_source": { "type": "string", "description": "Named source of the task format (non-negotiable 13); the items are not from it" },
+        "review": { "$ref": "#/$defs/TaskReview" },
+        "blocks": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/Stage0Block" } }
+      }
+    },
+
+    "TaskReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Sign-off of generated screening items by the named specialist (psychologist / SLP)",
+      "required": ["status", "reviewer", "reviewed_on"],
+      "properties": {
+        "status": { "enum": ["unreviewed", "approved", "rejected"] },
+        "reviewer": { "type": ["string", "null"] },
+        "reviewed_on": { "type": ["string", "null"], "format": "date" }
       }
     },
 

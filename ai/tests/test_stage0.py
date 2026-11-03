@@ -10,7 +10,7 @@ from test_fingerprint import (
 )
 from test_service import token
 
-from basira_ai.stage0 import Stage0Error, instruments, score
+from basira_ai.stage0 import Stage0Error, answer_key, instruments, score
 
 SCHEMA = json.loads((Path(__file__).resolve().parents[2] / "contracts/schemas/basira.schema.json").read_text("utf-8"))
 CONSTRUCTS = SCHEMA["$defs"]["Stage0Construct"]["enum"]
@@ -36,9 +36,12 @@ def test_every_construct_has_an_instrument():
 
 @pytest.mark.parametrize("inst", list(instruments().values()), ids=lambda i: i["instrument_id"])
 def test_no_instrument_ever_has_a_scaled_score_or_invented_norm(inst):
-    responses = {"proportion_correct": [{"item_id": "a", "response": True}] * 4,
-                 "wcpm": [{"item_id": "p", "response": 50, "time_ms": 60000}],
-                 "none": [{"item_id": "x", "response": "LICENSE PENDING placeholder"}]}[inst["scoring"]]
+    if inst["scoring"] == "keyed_proportion_correct":
+        responses = [{"item_id": i, "response": a} for i, a in answer_key(inst["instrument_id"]).items()]
+    else:
+        responses = {"proportion_correct": [{"item_id": "a", "response": True}] * 4,
+                     "wcpm": [{"item_id": "p", "response": 50, "time_ms": 60000}],
+                     "none": [{"item_id": "x", "response": "LICENSE PENDING placeholder"}]}[inst["scoring"]]
     out = run(req(inst["instrument_id"], responses))
     assert out["scaled_score"] is None and out["norm_source"] is None
     if inst["licence_status"] == "license_pending":
