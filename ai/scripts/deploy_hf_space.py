@@ -116,6 +116,8 @@ with gr.Blocks(title="Basira scorer") as notice:
 app = gr.mount_gradio_app(api, notice, path="/ui")
 
 if __name__ == "__main__":
+    # ZeroGPU sends its startup report from a hook on Blocks.launch(), which uvicorn never calls
+    spaces.zero.startup()
     # Not $PORT: on a Gradio Space it names a port already taken (7861); the Space routes traffic to 7860
     uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("GRADIO_SERVER_PORT", "7860")))
 '''
