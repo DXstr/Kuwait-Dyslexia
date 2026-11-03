@@ -1,4 +1,5 @@
-"""CLI: python -m basira_ai.content build [--audio azure] [--generated-at ISO]"""
+"""CLI: python -m basira_ai.content build [--audio azure] [--generated-at ISO]
+         python -m basira_ai.content stage0 [--generated-at ISO]"""
 
 from __future__ import annotations
 
@@ -17,9 +18,13 @@ def main(argv: list[str] | None = None) -> int:
     b = sub.add_parser("build", help="build content/dist/item-bank.json")
     b.add_argument("--audio", choices=["azure"], default=None, help="render item audio with this TTS engine")
     b.add_argument("--generated-at", default=None, help="ISO timestamp to stamp (default: now)")
+    s0 = sub.add_parser("stage0", help="build the Basira-authored Stage 0 task sets")
+    s0.add_argument("--generated-at", default=None, help="ISO timestamp to stamp (default: now)")
     args = parser.parse_args(argv)
 
     root = content_dir()
+    if args.cmd == "stage0":
+        return _stage0(root, args.generated_at)
     engine = make_engine(args.audio) if args.audio else None
     when = datetime.fromisoformat(args.generated_at.replace("Z", "+00:00")) if args.generated_at else None
     result = build(root / "dist", engine=engine, generated_at=when)
@@ -30,6 +35,17 @@ def main(argv: list[str] | None = None) -> int:
     print(f"accepted {r['accepted_total']} {r['accepted']}; rejected {r['rejected_total']}; audio {r['audio']}")
     for rej in r["rejected"]:
         print(f"  rejected [{rej['type']}] {rej['text'][:40]} -> {rej['reason']}")
+    return 0
+
+
+def _stage0(root, generated_at: str | None) -> int:
+    from basira_ai.content.stage0_tasks import build_tasks, package_dir, write_tasks
+
+    when = datetime.fromisoformat(generated_at.replace("Z", "+00:00")) if generated_at else None
+    tasks, report = build_tasks(when)
+    for path in write_tasks(tasks, root / "dist" / "stage0", package_dir()):
+        print(f"wrote {path}")
+    print(f"items {report['items']}; discarded {len(report['rejected'])} draws that failed validation")
     return 0
 
 
