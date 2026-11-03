@@ -91,6 +91,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("base_url")
     p.add_argument("--origin", default="http://localhost:5173", help="an origin listed in ALLOWED_ORIGINS")
     p.add_argument("--wait", type=float, default=900, help="seconds to wait for a cold start (default 900)")
+    p.add_argument("--proxy-echoes-cors", action="store_true",
+                   help="the host's proxy echoes any Origin before the app sees it (Hugging Face Spaces)")
     a = p.parse_args(argv)
     base = a.base_url.rstrip("/")
     check = Checks()
@@ -135,7 +137,11 @@ def main(argv: list[str] | None = None) -> int:
     check(f"CORS allows {a.origin}", got == a.origin, f"got {got!r}; is it in ALLOWED_ORIGINS?")
     _, h, _ = call(f"{base}/score-item", "OPTIONS", headers=pre | {"Origin": "https://evil.example"})
     got = {k.lower(): v for k, v in h.items()}.get("access-control-allow-origin")
-    check("CORS refuses a foreign origin", got is None, f"got {got!r}")
+    if a.proxy_echoes_cors:
+        print(f"NOTE  not enforced on this host: its proxy answered a foreign origin with {got!r}. "
+              "Browsers from any site can reach the API; only the Supabase bearer token protects it.")
+    else:
+        check("CORS refuses a foreign origin", got is None, f"got {got!r}")
 
     # 4. optional authenticated calls with a real demo-account token
     token = os.environ.get("SCORER_TEST_TOKEN")

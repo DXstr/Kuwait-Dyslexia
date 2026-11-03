@@ -52,4 +52,4 @@ jobs:
         run: |
           # after a deploy, give Hugging Face time to start the rebuild so we do not test the old container
           if [ "${{ github.event_name }}" != "schedule" ]; then sleep 90; fi
-          python ai/scripts/check_hosted.py "${{ vars.SCORER_URL }}" --origin "${ALLOWED_ORIGINS%%,*}" --wait 1500
+          python ai/scripts/check_hosted.py "${{ vars.SCORER_URL }}" --origin "${ALLOWED_ORIGINS%%,*}" --wait 1500 --proxy-echoes-cors

@@ -61,6 +61,13 @@ def test_checker_fails_when_the_origin_is_not_allowed(server, monkeypatch, capsy
     assert "FAIL  CORS allows https://not-listed.example" in capsys.readouterr().out
 
 
+def test_checker_reports_rather_than_hides_a_proxy_that_echoes_cors(server, monkeypatch, capsys):
+    monkeypatch.delenv("SCORER_TEST_TOKEN", raising=False)
+    assert load("check_hosted").main([server, "--proxy-echoes-cors", "--wait", "10"]) == 0
+    out = capsys.readouterr().out
+    assert "NOTE  not enforced on this host" in out and "CORS refuses a foreign origin" not in out
+
+
 def test_docker_staging_matches_the_docker_context(tmp_path):
     load("deploy_hf_space").stage(tmp_path, "docker")
     assert (tmp_path / "Dockerfile").read_bytes() == (SCRIPTS.parent / "Dockerfile").read_bytes()
