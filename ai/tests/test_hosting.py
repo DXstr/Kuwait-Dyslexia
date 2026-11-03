@@ -15,6 +15,7 @@ from service.app import create_app
 from service.auth import Verifier
 
 SCRIPTS = Path(__file__).resolve().parents[1] / "scripts"
+ROOT_CONTRACTS = Path(__file__).resolve().parents[2] / "contracts"
 
 
 def load(name):
@@ -101,7 +102,9 @@ def test_generated_space_app_serves_the_unchanged_rest_api(tmp_path, monkeypatch
     fake.mount_gradio_app = lambda api, _blocks, path: api
     monkeypatch.setitem(sys.modules, "gradio", fake)
     monkeypatch.setenv("SUPABASE_JWT_SECRET", "test-only-not-a-real-secret")
-    monkeypatch.syspath_prepend(str(tmp_path / "ai"))
+    # app.py sets these for the Space; patch them here so they are restored for the tests that run after this one
+    monkeypatch.setenv("BASIRA_CONTRACTS_DIR", str(ROOT_CONTRACTS))
+    monkeypatch.setattr(sys, "path", list(sys.path))
     spec = importlib.util.spec_from_file_location("space_app", tmp_path / "app.py")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
