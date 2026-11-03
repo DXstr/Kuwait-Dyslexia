@@ -111,11 +111,14 @@ def test_generated_space_app_serves_the_unchanged_rest_api(tmp_path, monkeypatch
     monkeypatch.setenv("SUPABASE_JWT_SECRET", "test-only-not-a-real-secret")
     # app.py sets these for the Space; patch them here so they are restored for the tests that run after this one
     monkeypatch.setenv("BASIRA_CONTRACTS_DIR", str(ROOT_CONTRACTS))
+    monkeypatch.setenv("BASIRA_DEVICE", "")  # records the original value so it is restored afterwards
+    monkeypatch.delenv("BASIRA_DEVICE")
     monkeypatch.setattr(sys, "path", list(sys.path))
     spec = importlib.util.spec_from_file_location("space_app", tmp_path / "app.py")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     assert len(gpu_functions) == 1  # ZeroGPU needs one at startup; scoring itself stays on the CPU
+    assert module.os.environ["BASIRA_DEVICE"] == "cpu"  # ZeroGPU reports CUDA as available, so never auto-detect
     paths = {r.path for r in module.app.routes}
     assert {"/health", "/score-item", "/fingerprint", "/probe"} <= paths
     with TestClient(module.app) as c:

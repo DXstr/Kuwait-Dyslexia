@@ -89,6 +89,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE / "ai"))
 os.environ.setdefault("BASIRA_CONTRACTS_DIR", str(HERE / "contracts"))
+os.environ.setdefault("BASIRA_DEVICE", "cpu")  # REST handlers run outside @spaces.GPU, so no real GPU is attached
 
 import gradio as gr  # noqa: E402
 import uvicorn  # noqa: E402
