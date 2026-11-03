@@ -44,7 +44,7 @@ dev = [
 include = ["basira_ai*", "service*"]
 
 [tool.setuptools.package-data]
-basira_ai = ["data/*.json"]
+basira_ai = ["data/*.json", "data/stage0/*.json"]
 
 [tool.ruff]
 line-length = 120
