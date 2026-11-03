@@ -29,7 +29,12 @@ import type {
   SkillId,
   Stage0Construct,
   Stage0ScoreRequest,
+  Stage0Block,
+  Stage0Option,
   Stage0ScoreResponse,
+  Stage0TaskItem,
+  Stage0TaskSet,
+  TaskReview,
   VowelModifier,
 } from '../contracts/basira'
 
@@ -49,6 +54,11 @@ export type ContractPayloads = {
   Stage0Construct: Stage0Construct
   Stage0ScoreRequest: Stage0ScoreRequest
   Stage0ScoreResponse: Stage0ScoreResponse
+  Stage0Option: Stage0Option
+  Stage0TaskItem: Stage0TaskItem
+  Stage0Block: Stage0Block
+  Stage0TaskSet: Stage0TaskSet
+  TaskReview: TaskReview
   Health: Health
   Error: Error
   ItemBank: ItemBank
@@ -82,6 +92,11 @@ const CONTRACT_NAMES = [
   'Stage0Construct',
   'Stage0ScoreRequest',
   'Stage0ScoreResponse',
+  'Stage0Option',
+  'Stage0TaskItem',
+  'Stage0Block',
+  'Stage0TaskSet',
+  'TaskReview',
   'Health',
   'Error',
   'ItemBank',

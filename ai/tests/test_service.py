@@ -88,7 +88,7 @@ def post(client, auth=None, audio=None, meta=META):
 
 def test_health_needs_no_auth_and_matches_contract(client):
     r = client.get("/health")
-    assert r.status_code == 200 and r.json()["status"] == "ok" and r.json()["contracts_version"] == "0.3.0"
+    assert r.status_code == 200 and r.json()["status"] == "ok" and r.json()["contracts_version"] == "0.4.0"
     assert valid("Health", r.json()) == []
 
 
@@ -169,11 +169,6 @@ def test_cors_allows_only_configured_origin(client):
     ok, bad = preflight("http://localhost:5173"), preflight("https://evil.example")
     assert ok.headers.get("access-control-allow-origin") == "http://localhost:5173"
     assert "access-control-allow-origin" not in bad.headers
-
-
-def test_unbuilt_endpoints_are_absent_not_faked(client):
-    for path in ("/stage0/score",):
-        assert client.post(path, headers={"Authorization": token()}).status_code == 404
 
 
 def test_warming_returns_503_until_models_load():

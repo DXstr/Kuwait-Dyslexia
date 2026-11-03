@@ -51,6 +51,22 @@ def check_schema(bank: dict, definition: str = "ItemBank") -> None:
         raise ContractError(f"{len(errors)} schema errors; first at {list(first.absolute_path)}: {first.message}")
 
 
+def load_reviews(reviews_dir: Path) -> dict[str, dict]:
+    """item id -> Item.review from the specialist's decision files (content/reviews/*.json, later files win).
+
+    Item ids hash the item's content, so an approval lapses by itself when an item changes. A change request is not
+    an approval: the item stays unreviewed until a new version is approved."""
+    out: dict[str, dict] = {}
+    for f in sorted(reviews_dir.glob("*.json")) if reviews_dir.is_dir() else []:
+        data = json.loads(f.read_text(encoding="utf-8"))
+        for iid, decision in data.get("items", {}).items():
+            if decision in ("approved", "rejected"):
+                out[iid] = {"status": decision, "reviewer": data["reviewer"]}
+            else:
+                out.pop(iid, None)
+    return out
+
+
 def content_dir() -> Path:
     return contracts_dir().parent / "content"
 
@@ -97,9 +113,11 @@ def build(
     engine: TTSEngine | None = None,
     generated_at: datetime | None = None,
     ref: ReferenceData | None = None,
+    reviews_dir: Path | None = None,
 ) -> BuildResult:
     ref = ref or reference_data()
     source_dir = source_dir or content_dir() / "source"
+    reviews = load_reviews(reviews_dir or content_dir() / "reviews")
     cands, ctx = candidates(ref, source_dir)
 
     items: list[tuple[Candidate, dict]] = []
@@ -129,7 +147,7 @@ def build(
                     "answer_index": c.answer_index,
                     "probe_only": c.probe_only,
                     "validation": {"passed": True, "validators": names + ["unique"]},
-                    "review": {"status": "unreviewed", "reviewer": None},
+                    "review": reviews.get(iid, {"status": "unreviewed", "reviewer": None}),
                 },
             )
         )
@@ -154,7 +172,7 @@ def build(
         "rejected_total": len(rejected),
         "rejected": rejected,
         "audio": audio,
-        "review": "all items unreviewed: an Arabic-language specialist must approve them before use with children",
+        "review": dict(Counter(i["review"]["status"] for i in bank["items"])),
     }
     return BuildResult(bank, report)
 

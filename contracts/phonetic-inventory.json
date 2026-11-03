@@ -1,6 +1,6 @@
 {
-  "version": "0.1.0",
-  "status": "DRAFT - every row unreviewed; mouth values are approximate until a linguist/SLP signs off (non-negotiable 13)",
+  "version": "0.2.0",
+  "status": "Reviewed 2026-11-03 by R1 (psychologist; name withheld at the reviewer's request): all 28 letters and 8 vowel modifiers approved, no corrections. Mouth values remain approximate drawing targets, not measurements.",
   "sources": [
     "Watson, J. (2002) The Phonology and Morphology of Arabic. Oxford University Press."
   ],
@@ -34,9 +34,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -68,9 +68,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -102,9 +102,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -136,9 +136,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -170,9 +170,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -204,9 +204,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -238,9 +238,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -272,9 +272,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -306,9 +306,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -340,9 +340,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -374,9 +374,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -408,9 +408,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -442,9 +442,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -476,9 +476,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -510,9 +510,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -544,9 +544,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -578,9 +578,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -612,9 +612,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -646,9 +646,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -680,9 +680,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -714,9 +714,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -748,9 +748,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -782,9 +782,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -816,9 +816,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -850,9 +850,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -884,9 +884,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -918,9 +918,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -952,9 +952,9 @@
         "Watson, J. (2002) The Phonology and Morphology of Arabic. OUP. (reviewer to confirm this row)"
       ],
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     }
   ],
@@ -969,9 +969,9 @@
       "duration_factor": 1,
       "note_en": "Open jaw, neutral lips.",
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -984,9 +984,9 @@
       "duration_factor": 1,
       "note_en": "Near-closed jaw, spread lips, front tongue body.",
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -999,9 +999,9 @@
       "duration_factor": 1,
       "note_en": "Near-closed jaw, rounded lips, back tongue body.",
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -1014,9 +1014,9 @@
       "duration_factor": 2,
       "note_en": "As fatha, held twice as long (alif madd).",
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -1029,9 +1029,9 @@
       "duration_factor": 2,
       "note_en": "As kasra, held twice as long (yaa madd).",
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -1044,9 +1044,9 @@
       "duration_factor": 2,
       "note_en": "As damma, held twice as long (waaw madd).",
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -1059,9 +1059,9 @@
       "duration_factor": 1,
       "note_en": "No vowel: the consonant shape is shown alone.",
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     },
     {
@@ -1074,9 +1074,9 @@
       "duration_factor": 2,
       "note_en": "Gemination: the consonant shape is held twice as long; combine with the vowel that follows.",
       "review": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewed_on": null
+        "status": "approved",
+        "reviewer": "R1 (psychologist; name withheld at the reviewer's request, identity known to the team)",
+        "reviewed_on": "2026-11-03"
       }
     }
   ]

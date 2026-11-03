@@ -33,6 +33,13 @@ def test_cue_is_gender_neutral_and_never_negative(row):
     assert first.startswith("ن") or first.startswith("ي"), first
 
 
-def test_every_row_is_unreviewed_until_signed_off():
+def test_every_row_has_a_named_signoff_or_none():
+    """Approved rows carry the reviewer id and date (R1, name withheld at the reviewer's request); others carry none."""
     rows = INV["letters"] + INV["vowel_modifiers"]
-    assert all(r["review"]["status"] == "unreviewed" and r["review"]["reviewer"] is None for r in rows)
+    for r in rows:
+        review = r["review"]
+        if review["status"] == "unreviewed":
+            assert review["reviewer"] is None and review["reviewed_on"] is None
+        else:
+            assert review["reviewer"].startswith("R1 (psychologist") and review["reviewed_on"] == "2026-11-03"
+    assert all(r["review"]["status"] == "approved" for r in rows)  # R1 approved all 36 rows on 2026-11-03

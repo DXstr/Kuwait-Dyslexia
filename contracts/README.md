@@ -11,6 +11,7 @@ defined here. If it is not in this folder, the other side must not depend on it.
 | `skill-graph.json` | Learning-map skills and prerequisites (53 skills) | A drafts, both approve | B's learning-map engine; A's skill evidence |
 | `dialect-lexicons.json` | Accepted dialect variants per lexicon (`kw`, `msa`) | A | B stores the child's lexicon id; A applies the rules |
 | `phonetic-inventory.json` | 28 letters: place, manner, voicing, emphatic, mouth-shape targets, Arabic cue; vowel modifiers (A12, draft until reviewed) | A | B's mouth-shape renderer (Teach) |
+| `$defs/Stage0TaskSet` | Basira-authored Stage 0 tasks (items, blocks, answers, Arabic instructions); files in `content/dist/stage0/` | A | B's examiner Stage 0 screens (B12) |
 | `data-model.md` | Database tables and approval state machine | B implements | documentation for A |
 | `fixtures/` | One valid example per payload; B mocks the scorer with them | both | both |
 | `tools/validate_contracts.py` | CI check: fixtures vs schema, ids exist, no cycles | — | CI |

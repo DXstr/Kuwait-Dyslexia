@@ -20,12 +20,18 @@ export default defineConfig({
     },
     {
       name: 'mocked-auth-sdk',
-      testMatch: 'auth.spec.ts',
-      use: { ...devices['Desktop Chrome'], viewport: { width: 820, height: 1180 }, baseURL: 'http://127.0.0.1:4174' },
+      testMatch: /(?:auth|assessment)\.spec\.ts/,
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 820, height: 1180 },
+        baseURL: 'http://127.0.0.1:4174',
+        permissions: ['microphone'],
+        launchOptions: { args: ['--use-fake-device-for-media-stream', '--use-fake-ui-for-media-stream'] },
+      },
     },
     {
       name: 'real-mode-scorer-http',
-      testMatch: 'scorer.spec.ts',
+      testMatch: /(?:scorer|review)\.spec\.ts/,
       use: { ...devices['Desktop Chrome'], viewport: { width: 820, height: 1180 }, baseURL: 'http://127.0.0.1:4175' },
     },
   ],

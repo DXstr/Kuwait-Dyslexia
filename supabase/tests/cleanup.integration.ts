@@ -204,3 +204,145 @@ test('actual local Deno entrypoint authenticates and runs a bounded cleanup requ
   const summary = await response.json()
   assert.ok(Number.isInteger(summary.examined) && summary.examined <= 100)
 })
+
+
+test('B6 authenticated assessment stores unchanged synthetic scorer JSON and private expiring WAV bytes', { timeout: 120_000 }, async () => {
+  const demoChild = randomUUID()
+  const consent = randomUUID()
+  const session = randomUUID()
+  const result = randomUUID()
+  const score = JSON.parse(readFileSync(new URL('../../contracts/fixtures/ScoreItemResponse.dialect-variant.json', import.meta.url), 'utf8'))
+  assert.equal(score.synthetic, true)
+  const object = `audio/${demoChild}/${session}/${score.item_id}.wav`
+  const objectSuffix = object.split('/').map(encodeURIComponent).join('/')
+  const specialistHeaders = { ...authenticatedHeaders(specialist), 'content-type': 'application/json', Prefer: 'return=representation' }
+  const guardianHeaders = authenticatedHeaders(guardian)
+  const rest = async (table: string, method: string, body: unknown, filter = '') => fetch(`${api}/rest/v1/${table}${filter}`, {
+    method, headers: specialistHeaders, body: JSON.stringify(body), signal: AbortSignal.timeout(30_000),
+  })
+  const sessionRow = { id: session, child_id: demoChild, run_by: specialist, type: 'assessment', status: 'in_progress' }
+  try {
+    sql(`insert into public.children(id,first_name,grade,birth_month,dialect_lexicon_id,guardian_id,specialist_id,is_demo)
+      values('${demoChild}','تسجيل اصطناعي (ملف تجريبي)',2,'2018-01','kw','${guardian}','${specialist}',true)`)
+    const denied = await rest('sessions', 'POST', sessionRow)
+    assert.ok(!denied.ok, 'no assessment session can start without recorded guardian consent')
+    assert.equal(sql(`select count(*) from public.sessions where id='${session}'`), '0')
+    sql(`insert into public.consents(id,child_id,guardian_id,specialist_id,scope,signed_at,expires_at,evidence_path)
+      values('${consent}','${demoChild}','${guardian}','${specialist}','assessment',now()-interval '1 minute',now()+interval '1 day','synthetic-b6-test-not-real-guardian-consent')`)
+    const started = await rest('sessions', 'POST', sessionRow)
+    assert.equal(started.status, 201, 'assigned specialist can start the consented demo assessment')
+    const startedRow = (await started.json())[0]
+    assert.equal(startedRow.child_id, demoChild)
+    const row = { id: result, session_id: session, item_id: score.item_id, response: score, audio_path: object, synthetic: true }
+    const saved = await rest('item_results', 'POST', row)
+    assert.equal(saved.status, 201)
+    const savedRow = (await saved.json())[0]
+    assert.deepEqual(savedRow.response, score, 'stored scorer JSON is unchanged')
+    assert.equal(savedRow.synthetic, true)
+    assert.equal(Date.parse(savedRow.audio_expires_at) - Date.parse(startedRow.started_at), 30 * 24 * 60 * 60 * 1000, 'expiry is server-owned at session start plus 30 days')
+    const duplicate = await rest('item_results', 'POST', row)
+    assert.equal(duplicate.status, 409, 'stable result ID prevents duplicate rows on retries')
+    const wav = Buffer.alloc(364)
+    wav.write('RIFF', 0); wav.writeUInt32LE(356, 4); wav.write('WAVEfmt ', 8)
+    wav.writeUInt32LE(16, 16); wav.writeUInt16LE(1, 20); wav.writeUInt16LE(1, 22)
+    wav.writeUInt32LE(16000, 24); wav.writeUInt32LE(32000, 28)
+    wav.writeUInt16LE(2, 32); wav.writeUInt16LE(16, 34); wav.write('data', 36); wav.writeUInt32LE(320, 40)
+    const uploaded = await fetch(`${api}/storage/v1/object/audio/${objectSuffix}`, {
+      method: 'POST', headers: { ...authenticatedHeaders(specialist), 'content-type': 'audio/wav' }, body: wav, signal: AbortSignal.timeout(30_000),
+    })
+    assert.equal(uploaded.status, 200, 'actual bytes upload using an authenticated specialist JWT, not service role')
+    const privateRead = await fetch(`${api}/storage/v1/object/authenticated/audio/${objectSuffix}`, { headers: authenticatedHeaders(specialist), signal: AbortSignal.timeout(30_000) })
+    assert.equal(privateRead.status, 200)
+    assert.deepEqual(Buffer.from(await privateRead.arrayBuffer()), wav)
+    const familyRead = await fetch(`${api}/storage/v1/object/authenticated/audio/${objectSuffix}`, { headers: guardianHeaders, signal: AbortSignal.timeout(30_000) })
+    assert.ok(!familyRead.ok, 'guardian cannot retrieve assessment audio')
+    const completed = await rest('sessions', 'PATCH', { status: 'completed' }, `?id=eq.${session}&status=eq.in_progress`)
+    assert.equal(completed.status, 200)
+    assert.equal((await completed.json())[0].status, 'completed')
+    assert.deepEqual(JSON.parse(sql(`select response::text from public.item_results where id='${result}'`)), score)
+  } finally {
+    await removeFixtureObject('audio', object)
+    sql(`delete from public.item_results where id='${result}'; delete from public.sessions where id='${session}'; delete from public.consents where id='${consent}'; delete from public.children where id='${demoChild}';`)
+  }
+})
+
+
+test('B7 review transitions are acknowledged, immutable, attributed and guardian-isolated over authenticated HTTP', { timeout: 120_000 }, async () => {
+  const demoChild = randomUUID()
+  const session = randomUUID()
+  const consent = randomUUID()
+  const fingerprint = randomUUID()
+  const plan = randomUUID()
+  const report = randomUUID()
+  const rejectedPlan = randomUUID()
+  // This UUID-correlated fingerprint is explicitly synthetic TEST data only;
+  // production fixture mode never rewrites a canonical fixture's session ID.
+  const payload = { ...JSON.parse(readFileSync(new URL('../../contracts/fixtures/FingerprintResponse.example.json', import.meta.url), 'utf8')), session_id: session }
+  assert.equal(payload.synthetic, true)
+  const reportContent = JSON.parse(readFileSync(new URL('../../contracts/fixtures/ParentReport.sample.json', import.meta.url), 'utf8'))
+  reportContent.child_first_name = 'مراجعة اصطناعية (ملف تجريبي)'
+  reportContent.specialist.name = 'أخصائي اصطناعي (ملف تجريبي)'
+  const actor = authenticatedHeaders(specialist)
+  const family = authenticatedHeaders(guardian)
+  const request = async (table: string, method: string, filter: string, body?: unknown, as = actor) => fetch(`${api}/rest/v1/${table}${filter}`, {
+    method, headers: { ...as, 'content-type': 'application/json', Prefer: 'return=representation' },
+    ...(body === undefined ? {} : { body: JSON.stringify(body) }), signal: AbortSignal.timeout(30_000),
+  })
+  const readFamily = async (table: string, id: string) => {
+    const response = await request(table, 'GET', `?id=eq.${id}`, undefined, family)
+    assert.equal(response.status, 200)
+    return response.json()
+  }
+  try {
+    sql(`insert into public.children(id,first_name,grade,birth_month,dialect_lexicon_id,guardian_id,specialist_id,is_demo)
+      values('${demoChild}','مراجعة اصطناعية (ملف تجريبي)',2,'2018-01','kw','${guardian}','${specialist}',true);
+      insert into public.consents(id,child_id,guardian_id,specialist_id,scope,signed_at,expires_at,evidence_path)
+      values('${consent}','${demoChild}','${guardian}','${specialist}','assessment',now()-interval '1 minute',now()+interval '1 day','synthetic-b7-test-not-real-consent');`)
+    const start = await request('sessions', 'POST', '', { id: session, child_id: demoChild, type: 'assessment', run_by: specialist })
+    assert.equal(start.status, 201)
+    const done = await request('sessions', 'PATCH', `?id=eq.${session}&status=eq.in_progress`, { status: 'completed' })
+    assert.equal(done.status, 200)
+    const fp = await request('fingerprints', 'POST', '', { id: fingerprint, session_id: session, response: payload, review_status: 'pending_review' })
+    assert.equal(fp.status, 201)
+    assert.deepEqual((await fp.json())[0].response, payload)
+    const planRow = { id: plan, child_id: demoChild, skill_ids: ['decode.real'], item_ids: [], review_status: 'draft' }
+    assert.equal((await request('plans', 'POST', '', planRow)).status, 201)
+    assert.equal((await request('plans', 'POST', '', { ...planRow, id: rejectedPlan, review_status: 'pending_review' })).status, 201)
+    assert.equal((await request('parent_reports', 'POST', '', { id: report, child_id: demoChild, session_id: session, content: reportContent, review_status: 'draft' })).status, 201)
+    assert.deepEqual(await readFamily('plans', plan), [], 'guardian cannot read draft plan')
+    assert.deepEqual(await readFamily('parent_reports', report), [], 'guardian cannot read draft report')
+    const skipped = await request('plans', 'PATCH', `?id=eq.${plan}&review_status=eq.draft`, { review_status: 'approved' })
+    assert.ok(!skipped.ok, 'draft cannot jump directly to approved')
+    const familyAttempt = await request('plans', 'PATCH', `?id=eq.${rejectedPlan}&review_status=eq.pending_review`, { review_status: 'approved' }, family)
+    assert.ok(!familyAttempt.ok || (await familyAttempt.json()).length === 0, 'guardian cannot approve even through direct HTTP')
+    for (const [table, id] of [['plans', plan], ['parent_reports', report]] as const) {
+      const pending = await request(table, 'PATCH', `?id=eq.${id}&review_status=eq.draft`, { review_status: 'pending_review' })
+      assert.equal(pending.status, 200)
+      assert.equal((await pending.json())[0].review_status, 'pending_review')
+      const approved = await request(table, 'PATCH', `?id=eq.${id}&review_status=eq.pending_review`, { review_status: 'approved' })
+      assert.equal(approved.status, 200)
+      const approvedRow = (await approved.json())[0]
+      assert.equal(approvedRow.review_status, 'approved')
+      assert.equal(approvedRow.approved_by, specialist, 'reviewer attribution is server-owned')
+      assert.equal((await readFamily(table, id)).length, 1, 'guardian sees only approved own-family row')
+      const stale = await request(table, 'PATCH', `?id=eq.${id}&review_status=eq.pending_review`, { review_status: 'rejected' })
+      assert.equal(stale.status, 200)
+      assert.deepEqual(await stale.json(), [], 'stale expected-state update changes no row')
+    }
+    const approvedFp = await request('fingerprints', 'PATCH', `?id=eq.${fingerprint}&review_status=eq.pending_review`, { review_status: 'approved', review_note: 'مراجعة اصطناعية للاختبار فقط' })
+    assert.equal(approvedFp.status, 200)
+    const reviewed = (await approvedFp.json())[0]
+    assert.equal(reviewed.reviewed_by, specialist)
+    assert.ok(reviewed.reviewed_at)
+    assert.deepEqual(reviewed.response, payload)
+    assert.equal(reviewed.response.review_status, 'pending_review', 'original scorer payload is never rewritten to mirror DB approval')
+    const changed = await request('fingerprints', 'PATCH', `?id=eq.${fingerprint}`, { response: { ...payload, model_version: 'synthetic-tamper' } })
+    assert.ok(!changed.ok, 'approved original scorer JSON cannot be changed')
+    const rejection = await request('plans', 'PATCH', `?id=eq.${rejectedPlan}&review_status=eq.pending_review`, { review_status: 'rejected' })
+    assert.equal(rejection.status, 200)
+    assert.deepEqual(await readFamily('plans', rejectedPlan), [])
+    assert.ok(Number(sql(`select count(*) from public.audit_log where row_id in ('${fingerprint}','${plan}','${report}','${rejectedPlan}') and actor_id='${specialist}' and action='UPDATE'`)) >= 6, 'every review transition has an attributed append-only audit event')
+  } finally {
+    sql(`delete from public.fingerprints where id='${fingerprint}'; delete from public.plans where id in ('${plan}','${rejectedPlan}'); delete from public.parent_reports where id='${report}'; delete from public.sessions where id='${session}'; delete from public.consents where id='${consent}'; delete from public.children where id='${demoChild}';`)
+  }
+})

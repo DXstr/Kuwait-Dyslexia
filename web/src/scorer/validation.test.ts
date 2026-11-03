@@ -22,6 +22,8 @@ const fixtureContracts: Record<string, ContractName> = {
   'ScoreItemResponse.dot-confusion.json': 'ScoreItemResponse',
   'Stage0ScoreRequest.example.json': 'Stage0ScoreRequest',
   'Stage0ScoreResponse.license-pending.json': 'Stage0ScoreResponse',
+  'Stage0TaskSet.number-sense-sample.json': 'Stage0TaskSet',
+  'Stage0TaskSet.orientation-sample.json': 'Stage0TaskSet',
 }
 
 function fixture(name: string): unknown {

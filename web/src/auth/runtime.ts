@@ -48,6 +48,7 @@ export function startBrowserAuth(environment: Record<string, unknown>, browser: 
   browser.document.addEventListener('visibilitychange', onVisibility)
   return {
     controller,
+    client: connection?.client ?? null,
     dispose() {
       stop()
       browser.removeEventListener('online', revalidate)

@@ -1,0 +1,642 @@
+{
+ "version": "0.1.0",
+ "generated_at": "2026-11-03T00:00:00Z",
+ "instrument_id": "orientation-basira-v0",
+ "construct": "reversal",
+ "title_ar": "اتِّجاهُ الأَشْكالِ وَالحُروفِ",
+ "title_en": "Shape and letter orientation",
+ "notice_ar": "مُهِمَّةُ فَحْصٍ مِنْ إِعْدادِ بَصيرَة، غَيْرُ مُقَنَّنَةٍ",
+ "notice_en": "Basira-authored screening task, not standardized. Raw score only; no norms apply.",
+ "format_source": "Mirror-discrimination format after Houbben & Vannuscorps (2022, GCPN Mons); items newly drawn by Basira. Supplementary only: reversals alone never indicate dyslexia.",
+ "review": {
+  "status": "unreviewed",
+  "reviewer": null,
+  "reviewed_on": null
+ },
+ "blocks": [
+  {
+   "block_id": "shape_mirror",
+   "title_ar": "الأَشْكالُ وَالمِرْآةُ",
+   "title_en": "Shapes and mirror",
+   "instructions_ar": "هَلِ الشَّكْلانِ مُتَشابِهانِ، أَمْ أَحَدُهُما مِثْلُ صورَةِ الآخَرِ في المِرْآةِ؟",
+   "instructions_en": "Are the two shapes the same, or is one a mirror image of the other?",
+   "scored": true,
+   "items": [
+    {
+     "item_id": "mir-p01",
+     "kind": "same_mirror",
+     "practice": true,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"rotate(180 50 50)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"35.0,15.0 70.0,15.0 70.0,55.0 50.0,55.0 50.0,85.0 35.0,85.0\" fill=\"#CA8A04\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"rotate(180 50 50)\"><g transform=\"translate(100.0 0) scale(-1 1)\"><polygon points=\"35.0,15.0 70.0,15.0 70.0,55.0 50.0,55.0 50.0,85.0 35.0,85.0\" fill=\"#CA8A04\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "mirror",
+     "rule": "glyph:hook"
+    },
+    {
+     "item_id": "mir-01",
+     "kind": "same_mirror",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"rotate(180 50 50)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"35.0,15.0 70.0,15.0 70.0,55.0 50.0,55.0 50.0,85.0 35.0,85.0\" fill=\"#CA8A04\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"rotate(180 50 50)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"35.0,15.0 70.0,15.0 70.0,55.0 50.0,55.0 50.0,85.0 35.0,85.0\" fill=\"#CA8A04\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "same",
+     "rule": "glyph:hook"
+    },
+    {
+     "item_id": "mir-02",
+     "kind": "same_mirror",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"rotate(0 50 50)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"35.0,15.0 70.0,15.0 70.0,55.0 50.0,55.0 50.0,85.0 35.0,85.0\" fill=\"#15803D\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"rotate(0 50 50)\"><g transform=\"translate(100.0 0) scale(-1 1)\"><polygon points=\"35.0,15.0 70.0,15.0 70.0,55.0 50.0,55.0 50.0,85.0 35.0,85.0\" fill=\"#15803D\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "mirror",
+     "rule": "glyph:hook"
+    },
+    {
+     "item_id": "mir-03",
+     "kind": "same_mirror",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"rotate(180 50 50)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"20.0,40.0 55.0,40.0 55.0,30.0 80.0,30.0 80.0,70.0 55.0,70.0 55.0,55.0 45.0,55.0 45.0,65.0 35.0,65.0 35.0,55.0 20.0,55.0\" fill=\"#7C3AED\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"rotate(180 50 50)\"><g transform=\"translate(100.0 0) scale(-1 1)\"><polygon points=\"20.0,40.0 55.0,40.0 55.0,30.0 80.0,30.0 80.0,70.0 55.0,70.0 55.0,55.0 45.0,55.0 45.0,65.0 35.0,65.0 35.0,55.0 20.0,55.0\" fill=\"#7C3AED\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "mirror",
+     "rule": "glyph:key"
+    },
+    {
+     "item_id": "mir-04",
+     "kind": "same_mirror",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"rotate(0 50 50)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"30.0,15.0 30.0,85.0 40.0,85.0 40.0,50.0 75.0,38.0 40.0,22.0 40.0,15.0\" fill=\"#CA8A04\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"rotate(0 50 50)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"30.0,15.0 30.0,85.0 40.0,85.0 40.0,50.0 75.0,38.0 40.0,22.0 40.0,15.0\" fill=\"#CA8A04\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "same",
+     "rule": "glyph:flag"
+    },
+    {
+     "item_id": "mir-05",
+     "kind": "same_mirror",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"rotate(90 50 50)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"30.0,15.0 42.0,15.0 42.0,55.0 75.0,55.0 75.0,85.0 65.0,85.0 65.0,67.0 42.0,67.0 42.0,85.0 30.0,85.0\" fill=\"#0F766E\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"rotate(90 50 50)\"><g transform=\"translate(100.0 0) scale(-1 1)\"><polygon points=\"30.0,15.0 42.0,15.0 42.0,55.0 75.0,55.0 75.0,85.0 65.0,85.0 65.0,67.0 42.0,67.0 42.0,85.0 30.0,85.0\" fill=\"#0F766E\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "mirror",
+     "rule": "glyph:chair"
+    },
+    {
+     "item_id": "mir-06",
+     "kind": "same_mirror",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"rotate(270 50 50)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"30.0,15.0 42.0,15.0 42.0,55.0 75.0,55.0 75.0,85.0 65.0,85.0 65.0,67.0 42.0,67.0 42.0,85.0 30.0,85.0\" fill=\"#15803D\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"rotate(270 50 50)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"30.0,15.0 42.0,15.0 42.0,55.0 75.0,55.0 75.0,85.0 65.0,85.0 65.0,67.0 42.0,67.0 42.0,85.0 30.0,85.0\" fill=\"#15803D\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "same",
+     "rule": "glyph:chair"
+    },
+    {
+     "item_id": "mir-07",
+     "kind": "same_mirror",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"rotate(180 50 50)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"30.0,15.0 50.0,15.0 50.0,65.0 80.0,65.0 80.0,85.0 30.0,85.0\" fill=\"#CA8A04\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"rotate(180 50 50)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"30.0,15.0 50.0,15.0 50.0,65.0 80.0,65.0 80.0,85.0 30.0,85.0\" fill=\"#CA8A04\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "same",
+     "rule": "glyph:boot"
+    },
+    {
+     "item_id": "mir-08",
+     "kind": "same_mirror",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"rotate(270 50 50)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"15.0,50.0 45.0,35.0 60.0,15.0 65.0,40.0 88.0,55.0 60.0,60.0 40.0,85.0 40.0,60.0\" fill=\"#2563EB\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"rotate(270 50 50)\"><g transform=\"translate(100.0 0) scale(-1 1)\"><polygon points=\"15.0,50.0 45.0,35.0 60.0,15.0 65.0,40.0 88.0,55.0 60.0,60.0 40.0,85.0 40.0,60.0\" fill=\"#2563EB\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "mirror",
+     "rule": "glyph:bird"
+    }
+   ]
+  },
+  {
+   "block_id": "letter_mirror",
+   "title_ar": "الحُروفُ وَالمِرْآةُ",
+   "title_en": "Letters and mirror",
+   "instructions_ar": "هَلْ هذا الحَرْفُ مَكْتوبٌ كَما نَكْتُبُهُ، أَمْ كَصورَتِهِ في المِرْآةِ؟",
+   "instructions_en": "Is this letter written the usual way, or as its mirror image?",
+   "scored": true,
+   "items": [
+    {
+     "item_id": "let-p01",
+     "kind": "letter_orientation",
+     "practice": true,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"حَرْف\"><rect x=\"2.0\" y=\"2.0\" width=\"96.0\" height=\"96.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g><text x=\"50\" y=\"68\" font-size=\"56\" text-anchor=\"middle\" fill=\"#1F2937\" font-family=\"Noto Naskh Arabic, Amiri, Scheherazade New, serif\">ك</text></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "normal",
+       "svg": null,
+       "text": "كَما نَكْتُبُهُ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "normal",
+     "rule": "letter:ك"
+    },
+    {
+     "item_id": "let-01",
+     "kind": "letter_orientation",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"حَرْف\"><rect x=\"2.0\" y=\"2.0\" width=\"96.0\" height=\"96.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g><text x=\"50\" y=\"68\" font-size=\"56\" text-anchor=\"middle\" fill=\"#1F2937\" font-family=\"Noto Naskh Arabic, Amiri, Scheherazade New, serif\">ش</text></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "normal",
+       "svg": null,
+       "text": "كَما نَكْتُبُهُ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "normal",
+     "rule": "letter:ش"
+    },
+    {
+     "item_id": "let-02",
+     "kind": "letter_orientation",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"حَرْف\"><rect x=\"2.0\" y=\"2.0\" width=\"96.0\" height=\"96.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(100 0) scale(-1 1)\"><text x=\"50\" y=\"68\" font-size=\"56\" text-anchor=\"middle\" fill=\"#1F2937\" font-family=\"Noto Naskh Arabic, Amiri, Scheherazade New, serif\">ي</text></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "normal",
+       "svg": null,
+       "text": "كَما نَكْتُبُهُ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "mirror",
+     "rule": "letter:ي"
+    },
+    {
+     "item_id": "let-03",
+     "kind": "letter_orientation",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"حَرْف\"><rect x=\"2.0\" y=\"2.0\" width=\"96.0\" height=\"96.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(100 0) scale(-1 1)\"><text x=\"50\" y=\"68\" font-size=\"56\" text-anchor=\"middle\" fill=\"#1F2937\" font-family=\"Noto Naskh Arabic, Amiri, Scheherazade New, serif\">ص</text></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "normal",
+       "svg": null,
+       "text": "كَما نَكْتُبُهُ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "mirror",
+     "rule": "letter:ص"
+    },
+    {
+     "item_id": "let-04",
+     "kind": "letter_orientation",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"حَرْف\"><rect x=\"2.0\" y=\"2.0\" width=\"96.0\" height=\"96.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g><text x=\"50\" y=\"68\" font-size=\"56\" text-anchor=\"middle\" fill=\"#1F2937\" font-family=\"Noto Naskh Arabic, Amiri, Scheherazade New, serif\">ن</text></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "normal",
+       "svg": null,
+       "text": "كَما نَكْتُبُهُ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "normal",
+     "rule": "letter:ن"
+    },
+    {
+     "item_id": "let-05",
+     "kind": "letter_orientation",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"حَرْف\"><rect x=\"2.0\" y=\"2.0\" width=\"96.0\" height=\"96.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(100 0) scale(-1 1)\"><text x=\"50\" y=\"68\" font-size=\"56\" text-anchor=\"middle\" fill=\"#1F2937\" font-family=\"Noto Naskh Arabic, Amiri, Scheherazade New, serif\">ع</text></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "normal",
+       "svg": null,
+       "text": "كَما نَكْتُبُهُ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "mirror",
+     "rule": "letter:ع"
+    },
+    {
+     "item_id": "let-06",
+     "kind": "letter_orientation",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"حَرْف\"><rect x=\"2.0\" y=\"2.0\" width=\"96.0\" height=\"96.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g><text x=\"50\" y=\"68\" font-size=\"56\" text-anchor=\"middle\" fill=\"#1F2937\" font-family=\"Noto Naskh Arabic, Amiri, Scheherazade New, serif\">ف</text></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "normal",
+       "svg": null,
+       "text": "كَما نَكْتُبُهُ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "normal",
+     "rule": "letter:ف"
+    },
+    {
+     "item_id": "let-07",
+     "kind": "letter_orientation",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"حَرْف\"><rect x=\"2.0\" y=\"2.0\" width=\"96.0\" height=\"96.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g><text x=\"50\" y=\"68\" font-size=\"56\" text-anchor=\"middle\" fill=\"#1F2937\" font-family=\"Noto Naskh Arabic, Amiri, Scheherazade New, serif\">ر</text></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "normal",
+       "svg": null,
+       "text": "كَما نَكْتُبُهُ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "normal",
+     "rule": "letter:ر"
+    },
+    {
+     "item_id": "let-08",
+     "kind": "letter_orientation",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"حَرْف\"><rect x=\"2.0\" y=\"2.0\" width=\"96.0\" height=\"96.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(100 0) scale(-1 1)\"><text x=\"50\" y=\"68\" font-size=\"56\" text-anchor=\"middle\" fill=\"#1F2937\" font-family=\"Noto Naskh Arabic, Amiri, Scheherazade New, serif\">د</text></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "normal",
+       "svg": null,
+       "text": "كَما نَكْتُبُهُ"
+      },
+      {
+       "option_id": "mirror",
+       "svg": null,
+       "text": "في المِرْآةِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "mirror",
+     "rule": "letter:د"
+    }
+   ]
+  },
+  {
+   "block_id": "control",
+   "title_ar": "مُتَشابِهانِ أَمْ مُخْتَلِفانِ",
+   "title_en": "Same or different (control)",
+   "instructions_ar": "هَلِ الشَّكْلانِ مُتَشابِهانِ تَمامًا، أَمْ مُخْتَلِفانِ؟",
+   "instructions_en": "Are the two shapes exactly the same, or different? (Non-mirror changes: compare with block 1.)",
+   "scored": true,
+   "items": [
+    {
+     "item_id": "ctl-p01",
+     "kind": "same_different",
+     "practice": true,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"30.0,15.0 30.0,85.0 40.0,85.0 40.0,50.0 75.0,38.0 40.0,22.0 40.0,15.0\" fill=\"#CA8A04\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"translate(0.0 0) scale(1 1) translate(50 50) scale(0.7) translate(-50 -50)\"><polygon points=\"30.0,15.0 30.0,85.0 40.0,85.0 40.0,50.0 75.0,38.0 40.0,22.0 40.0,15.0\" fill=\"#CA8A04\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "different",
+       "svg": null,
+       "text": "مُخْتَلِفانِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "different",
+     "rule": "glyph:flag, change:smaller"
+    },
+    {
+     "item_id": "ctl-01",
+     "kind": "same_different",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"15.0,50.0 45.0,35.0 60.0,15.0 65.0,40.0 88.0,55.0 60.0,60.0 40.0,85.0 40.0,60.0\" fill=\"#0F766E\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"15.0,50.0 45.0,35.0 60.0,15.0 65.0,40.0 88.0,55.0 60.0,60.0 40.0,85.0 40.0,60.0\" fill=\"#0F766E\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "different",
+       "svg": null,
+       "text": "مُخْتَلِفانِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "same",
+     "rule": "glyph:bird, change:none"
+    },
+    {
+     "item_id": "ctl-02",
+     "kind": "same_different",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"30.0,85.0 30.0,15.0 78.0,70.0 45.0,70.0 45.0,85.0\" fill=\"#0F766E\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"30.0,85.0 30.0,15.0 78.0,70.0 45.0,70.0 45.0,85.0\" fill=\"#0F766E\" stroke=\"#1F2937\" stroke-width=\"2\"/><circle cx=\"80\" cy=\"80\" r=\"7\" fill=\"#1F2937\"/></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "different",
+       "svg": null,
+       "text": "مُخْتَلِفانِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "different",
+     "rule": "glyph:sail, change:dot"
+    },
+    {
+     "item_id": "ctl-03",
+     "kind": "same_different",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"20.0,85.0 20.0,60.0 45.0,60.0 45.0,35.0 70.0,35.0 70.0,15.0 85.0,15.0 85.0,85.0\" fill=\"#2563EB\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"20.0,85.0 20.0,60.0 45.0,60.0 45.0,35.0 70.0,35.0 70.0,15.0 85.0,15.0 85.0,85.0\" fill=\"#2563EB\" stroke=\"#1F2937\" stroke-width=\"2\"/><circle cx=\"80\" cy=\"80\" r=\"7\" fill=\"#1F2937\"/></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "different",
+       "svg": null,
+       "text": "مُخْتَلِفانِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "different",
+     "rule": "glyph:step, change:dot"
+    },
+    {
+     "item_id": "ctl-04",
+     "kind": "same_different",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"30.0,15.0 30.0,85.0 40.0,85.0 40.0,50.0 75.0,38.0 40.0,22.0 40.0,15.0\" fill=\"#0F766E\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"30.0,15.0 30.0,85.0 40.0,85.0 40.0,50.0 75.0,38.0 40.0,22.0 40.0,15.0\" fill=\"#0F766E\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "different",
+       "svg": null,
+       "text": "مُخْتَلِفانِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "same",
+     "rule": "glyph:flag, change:none"
+    },
+    {
+     "item_id": "ctl-05",
+     "kind": "same_different",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"30.0,15.0 30.0,85.0 40.0,85.0 40.0,50.0 75.0,38.0 40.0,22.0 40.0,15.0\" fill=\"#15803D\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"30.0,15.0 30.0,85.0 40.0,85.0 40.0,50.0 75.0,38.0 40.0,22.0 40.0,15.0\" fill=\"#15803D\" stroke=\"#1F2937\" stroke-width=\"2\"/><circle cx=\"80\" cy=\"80\" r=\"7\" fill=\"#1F2937\"/></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "different",
+       "svg": null,
+       "text": "مُخْتَلِفانِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "different",
+     "rule": "glyph:flag, change:dot"
+    },
+    {
+     "item_id": "ctl-06",
+     "kind": "same_different",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"15.0,50.0 45.0,35.0 60.0,15.0 65.0,40.0 88.0,55.0 60.0,60.0 40.0,85.0 40.0,60.0\" fill=\"#7C3AED\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"15.0,50.0 45.0,35.0 60.0,15.0 65.0,40.0 88.0,55.0 60.0,60.0 40.0,85.0 40.0,60.0\" fill=\"#7C3AED\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "different",
+       "svg": null,
+       "text": "مُخْتَلِفانِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "same",
+     "rule": "glyph:bird, change:none"
+    },
+    {
+     "item_id": "ctl-07",
+     "kind": "same_different",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"15.0,50.0 45.0,35.0 60.0,15.0 65.0,40.0 88.0,55.0 60.0,60.0 40.0,85.0 40.0,60.0\" fill=\"#2563EB\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"15.0,50.0 45.0,35.0 60.0,15.0 65.0,40.0 88.0,55.0 60.0,60.0 40.0,85.0 40.0,60.0\" fill=\"#2563EB\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "different",
+       "svg": null,
+       "text": "مُخْتَلِفانِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "same",
+     "rule": "glyph:bird, change:none"
+    },
+    {
+     "item_id": "ctl-08",
+     "kind": "same_different",
+     "practice": false,
+     "stimulus_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 110\" role=\"img\" aria-label=\"شَكْلانِ\"><rect x=\"5.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(5 5)\"><g transform=\"translate(0.0 0) scale(1 1)\"><polygon points=\"35.0,15.0 70.0,15.0 70.0,55.0 50.0,55.0 50.0,85.0 35.0,85.0\" fill=\"#CA8A04\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g><rect x=\"135.0\" y=\"5.0\" width=\"100.0\" height=\"100.0\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#1F2937\" stroke-width=\"2\"/><g transform=\"translate(135 5)\"><g transform=\"translate(0.0 0) scale(1 1) translate(50 50) scale(0.7) translate(-50 -50)\"><polygon points=\"35.0,15.0 70.0,15.0 70.0,55.0 50.0,55.0 50.0,85.0 35.0,85.0\" fill=\"#CA8A04\" stroke=\"#1F2937\" stroke-width=\"2\"/></g></g></svg>",
+     "stimulus_text": null,
+     "options": [
+      {
+       "option_id": "same",
+       "svg": null,
+       "text": "مُتَشابِهانِ"
+      },
+      {
+       "option_id": "different",
+       "svg": null,
+       "text": "مُخْتَلِفانِ"
+      }
+     ],
+     "response_type": "option_id",
+     "answer": "different",
+     "rule": "glyph:hook, change:smaller"
+    }
+   ]
+  }
+ ]
+}
