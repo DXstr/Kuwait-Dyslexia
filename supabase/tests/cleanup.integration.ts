@@ -204,3 +204,64 @@ test('actual local Deno entrypoint authenticates and runs a bounded cleanup requ
   const summary = await response.json()
   assert.ok(Number.isInteger(summary.examined) && summary.examined <= 100)
 })
+
+
+test('B6 authenticated assessment stores unchanged synthetic scorer JSON and private expiring WAV bytes', { timeout: 120_000 }, async () => {
+  const demoChild = randomUUID()
+  const consent = randomUUID()
+  const session = randomUUID()
+  const result = randomUUID()
+  const score = JSON.parse(readFileSync(new URL('../../contracts/fixtures/ScoreItemResponse.dialect-variant.json', import.meta.url), 'utf8'))
+  assert.equal(score.synthetic, true)
+  const object = `audio/${demoChild}/${session}/${score.item_id}.wav`
+  const objectSuffix = object.split('/').map(encodeURIComponent).join('/')
+  const specialistHeaders = { ...authenticatedHeaders(specialist), 'content-type': 'application/json', Prefer: 'return=representation' }
+  const guardianHeaders = authenticatedHeaders(guardian)
+  const rest = async (table: string, method: string, body: unknown, filter = '') => fetch(`${api}/rest/v1/${table}${filter}`, {
+    method, headers: specialistHeaders, body: JSON.stringify(body), signal: AbortSignal.timeout(30_000),
+  })
+  const sessionRow = { id: session, child_id: demoChild, run_by: specialist, type: 'assessment', status: 'in_progress' }
+  try {
+    sql(`insert into public.children(id,first_name,grade,birth_month,dialect_lexicon_id,guardian_id,specialist_id,is_demo)
+      values('${demoChild}','تسجيل اصطناعي (ملف تجريبي)',2,'2018-01','kw','${guardian}','${specialist}',true)`)
+    const denied = await rest('sessions', 'POST', sessionRow)
+    assert.ok(!denied.ok, 'no assessment session can start without recorded guardian consent')
+    assert.equal(sql(`select count(*) from public.sessions where id='${session}'`), '0')
+    sql(`insert into public.consents(id,child_id,guardian_id,specialist_id,scope,signed_at,expires_at,evidence_path)
+      values('${consent}','${demoChild}','${guardian}','${specialist}','assessment',now()-interval '1 minute',now()+interval '1 day','synthetic-b6-test-not-real-guardian-consent')`)
+    const started = await rest('sessions', 'POST', sessionRow)
+    assert.equal(started.status, 201, 'assigned specialist can start the consented demo assessment')
+    const startedRow = (await started.json())[0]
+    assert.equal(startedRow.child_id, demoChild)
+    const row = { id: result, session_id: session, item_id: score.item_id, response: score, audio_path: object, synthetic: true }
+    const saved = await rest('item_results', 'POST', row)
+    assert.equal(saved.status, 201)
+    const savedRow = (await saved.json())[0]
+    assert.deepEqual(savedRow.response, score, 'stored scorer JSON is unchanged')
+    assert.equal(savedRow.synthetic, true)
+    assert.equal(Date.parse(savedRow.audio_expires_at) - Date.parse(startedRow.started_at), 30 * 24 * 60 * 60 * 1000, 'expiry is server-owned at session start plus 30 days')
+    const duplicate = await rest('item_results', 'POST', row)
+    assert.equal(duplicate.status, 409, 'stable result ID prevents duplicate rows on retries')
+    const wav = Buffer.alloc(364)
+    wav.write('RIFF', 0); wav.writeUInt32LE(356, 4); wav.write('WAVEfmt ', 8)
+    wav.writeUInt32LE(16, 16); wav.writeUInt16LE(1, 20); wav.writeUInt16LE(1, 22)
+    wav.writeUInt32LE(16000, 24); wav.writeUInt32LE(32000, 28)
+    wav.writeUInt16LE(2, 32); wav.writeUInt16LE(16, 34); wav.write('data', 36); wav.writeUInt32LE(320, 40)
+    const uploaded = await fetch(`${api}/storage/v1/object/audio/${objectSuffix}`, {
+      method: 'POST', headers: { ...authenticatedHeaders(specialist), 'content-type': 'audio/wav' }, body: wav, signal: AbortSignal.timeout(30_000),
+    })
+    assert.equal(uploaded.status, 200, 'actual bytes upload using an authenticated specialist JWT, not service role')
+    const privateRead = await fetch(`${api}/storage/v1/object/authenticated/audio/${objectSuffix}`, { headers: authenticatedHeaders(specialist), signal: AbortSignal.timeout(30_000) })
+    assert.equal(privateRead.status, 200)
+    assert.deepEqual(Buffer.from(await privateRead.arrayBuffer()), wav)
+    const familyRead = await fetch(`${api}/storage/v1/object/authenticated/audio/${objectSuffix}`, { headers: guardianHeaders, signal: AbortSignal.timeout(30_000) })
+    assert.ok(!familyRead.ok, 'guardian cannot retrieve assessment audio')
+    const completed = await rest('sessions', 'PATCH', { status: 'completed' }, `?id=eq.${session}&status=eq.in_progress`)
+    assert.equal(completed.status, 200)
+    assert.equal((await completed.json())[0].status, 'completed')
+    assert.deepEqual(JSON.parse(sql(`select response::text from public.item_results where id='${result}'`)), score)
+  } finally {
+    await removeFixtureObject('audio', object)
+    sql(`delete from public.item_results where id='${result}'; delete from public.sessions where id='${session}'; delete from public.consents where id='${consent}'; delete from public.children where id='${demoChild}';`)
+  }
+})

@@ -8,6 +8,8 @@ import type { MessageKey } from './i18n/messages'
 import { canAccess, canUseEnglish, roleHome } from './routing/roles'
 import type { AppRole } from './routing/roles'
 import { ScorerNotice } from './scorer/ScorerNotice'
+import { ChildAssessmentScreen, SpecialistAssessmentPanel } from './assessment/AssessmentPanels'
+import { useAssessment } from './assessment/context'
 
 const authMessages: Record<AuthIssue, MessageKey> = {
   configuration: 'authConfiguration',
@@ -160,6 +162,8 @@ function OAuthCallback({ role }: { role: AppRole | null }) {
 
 function Workspace({ title, description }: { title: MessageKey; description: MessageKey }) {
   const { t } = useI18n()
+  const assessment = useAssessment()
+  if (title === 'specialistTitle' && assessment) return <SpecialistAssessmentPanel />
   return (
     <>
       <section className="intro" aria-labelledby="workspace-title">
@@ -205,6 +209,10 @@ function NotFound() {
   )
 }
 
+function ChildRoute() {
+  return useAssessment() ? <ChildAssessmentScreen /> : <Workspace title="childTitle" description="childDescription" />
+}
+
 export function AppRoutes() {
   const { auth } = useAuth()
   const role = auth.status === 'signedIn' ? auth.role : null
@@ -239,7 +247,7 @@ export function AppRoutes() {
             } />
             <Route path="/child" element={
               <RequireRole role={role} allowed={['specialist', 'examiner']}>
-                <Workspace title="childTitle" description="childDescription" />
+                <ChildRoute />
               </RequireRole>
             } />
             <Route path="*" element={<NotFound />} />

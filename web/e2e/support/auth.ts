@@ -74,6 +74,10 @@ export async function mockSupabase(page: Page, role: Role, options: { rejectUser
       expect(url.searchParams.get('select')?.replaceAll(' ', '')).toBe('id,role')
       return json([{ id: userId, role }])
     }
+    if (url.pathname === '/rest/v1/children' && request.method() === 'GET') {
+      // B6 reads only RLS-visible assignments. Auth-only cases have no demo child.
+      return json([])
+    }
     if (url.pathname === '/auth/v1/logout') {
       expect(url.searchParams.get('scope')).toBe('local')
       observed.logout = true
