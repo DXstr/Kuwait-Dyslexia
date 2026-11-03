@@ -1,0 +1,97 @@
+{
+  "version": "0.2.0",
+  "status": "DRAFT - no licensed instrument or norm table has been obtained yet; never invent norms. Three Basira-authored tasks (published format, new items, raw score only) sit beside the still-pending originals (DECISIONS 2026-11-03).",
+  "licence_note": "public_domain here means no third-party licence is needed (a public procedure or Basira-authored task); it does not mean the items are validated.",
+  "instruments": [
+    {
+      "instrument_id": "itpa-ar-azzam-2007",
+      "construct": "itpa",
+      "licence_status": "license_pending",
+      "scoring": "none",
+      "norm_source": null,
+      "note_en": "LICENSE PENDING: ITPA with Arabic norms (candidate: Azzam 2007, Ain Shams; full thesis requested). No score is produced.",
+      "source": "IDEA Stage 0 construct 1"
+    },
+    {
+      "instrument_id": "reversal-houbben-vannuscorps-2022",
+      "construct": "reversal",
+      "licence_status": "license_pending",
+      "scoring": "none",
+      "norm_source": null,
+      "note_en": "LICENSE PENDING: directional/reversal screening after Houbben & Vannuscorps (2022); materials and permission not yet obtained. Supplementary only. No score is produced.",
+      "source": "IDEA Stage 0 construct 2"
+    },
+    {
+      "instrument_id": "nonverbal-raven-spm",
+      "construct": "nonverbal_iq",
+      "licence_status": "license_pending",
+      "scoring": "none",
+      "norm_source": null,
+      "note_en": "LICENSE PENDING: Raven's Progressive Matrices (commercially licensed) with regional norms. Exclusionary use only. No score is produced.",
+      "source": "IDEA Stage 0 construct 3"
+    },
+    {
+      "instrument_id": "visual-agnosia-protocol-tbd",
+      "construct": "visual_agnosia",
+      "licence_status": "license_pending",
+      "scoring": "none",
+      "norm_source": null,
+      "note_en": "LICENSE PENDING: published visual agnosia screening protocol not yet named; a physician must confirm inclusion. No score is produced.",
+      "source": "IDEA Stage 0 construct 4"
+    },
+    {
+      "instrument_id": "dyscalculia-screener-tbd",
+      "construct": "dyscalculia",
+      "licence_status": "license_pending",
+      "scoring": "none",
+      "norm_source": null,
+      "note_en": "LICENSE PENDING: dyscalculia screener not yet selected (IDEA cites a 2025 comorbidity review). No score is produced.",
+      "source": "IDEA Stage 0 construct 5"
+    },
+    {
+      "instrument_id": "pa-basira-v0",
+      "construct": "phonological_awareness",
+      "licence_status": "public_domain",
+      "scoring": "proportion_correct",
+      "norm_source": null,
+      "note_en": "Raw score = proportion of phonological-awareness items correct (rhyme, blending, segmentation, syllables; Basira-authored, unreviewed). No norms exist yet, so no scaled score.",
+      "source": "IDEA Stage 0 construct 6"
+    },
+    {
+      "instrument_id": "fluency-cbm-basira-v0",
+      "construct": "reading_fluency",
+      "licence_status": "public_domain",
+      "scoring": "wcpm",
+      "norm_source": null,
+      "note_en": "Raw score = words correct per minute on timed Basira passages (curriculum-based measurement, Deno 1985). No Arabic age-band WCPM norms are available yet, so no scaled score.",
+      "source": "IDEA Stage 0 construct 7; Deno, S.L. (1985) Curriculum-based measurement: the emerging alternative. Exceptional Children 52(3), 219-232."
+    },
+    {
+      "instrument_id": "nonverbal-pattern-basira-v0",
+      "construct": "nonverbal_iq",
+      "licence_status": "public_domain",
+      "scoring": "keyed_proportion_correct",
+      "norm_source": null,
+      "note_en": "Raw score = proportion of 24 pattern-completion items correct (sequence, grid, analogy). Exclusionary use only; never report as an IQ. Basira-authored screening task, NOT STANDARDIZED and not the original test: entirely new items, so the original's norms do not apply. Items unreviewed until a specialist signs off.",
+      "source": "Format: matrix reasoning (Raven, J.C. 1938, Progressive Matrices). Items: content/dist/stage0/nonverbal-pattern-basira-v0.json"
+    },
+    {
+      "instrument_id": "orientation-basira-v0",
+      "construct": "reversal",
+      "licence_status": "public_domain",
+      "scoring": "keyed_proportion_correct",
+      "norm_source": null,
+      "note_en": "Raw score = proportion of 24 items correct (shape mirror, letter mirror, non-mirror control). Supplementary only; reversals alone never indicate dyslexia. Compare the mirror blocks with the control block in the stored responses. Basira-authored screening task, NOT STANDARDIZED and not the original test: entirely new items, so the original's norms do not apply. Items unreviewed until a specialist signs off.",
+      "source": "Format: mirror discrimination after Houbben & Vannuscorps (2022, GCPN Mons). Items: content/dist/stage0/orientation-basira-v0.json"
+    },
+    {
+      "instrument_id": "number-sense-basira-v0",
+      "construct": "dyscalculia",
+      "licence_status": "public_domain",
+      "scoring": "keyed_proportion_correct",
+      "norm_source": null,
+      "note_en": "Raw score = proportion of 28 items correct (dot counting, number comparison, addition); the reaction-time baseline is not scored. Response times stay in the stored responses. Basira-authored screening task, NOT STANDARDIZED and not the original test: entirely new items, so the original's norms do not apply. Items unreviewed until a specialist signs off.",
+      "source": "Format: block structure after Butterworth, B. (2003) Dyscalculia Screener. Items: content/dist/stage0/number-sense-basira-v0.json"
+    }
+  ]
+}
