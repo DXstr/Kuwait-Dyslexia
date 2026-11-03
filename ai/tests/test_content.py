@@ -186,12 +186,12 @@ class FakeTTS:
 
 
 def test_build_without_audio_matches_the_contract(tmp_path: Path):
-    result = build(tmp_path, generated_at=WHEN)
+    result = build(tmp_path, generated_at=WHEN, reviews_dir=tmp_path / "no-reviews")
     bank = json.loads((tmp_path / "item-bank.json").read_text(encoding="utf-8"))
     check_schema(bank)
     assert bank["synthetic_audio"] is False
     assert all(i["audio_path"] is None for i in bank["items"])
-    assert all(i["review"]["status"] == "unreviewed" for i in bank["items"])
+    assert all(i["review"]["status"] == "unreviewed" for i in bank["items"])  # nothing approved without a review
     ids = [i["id"] for i in bank["items"]]
     assert len(ids) == len(set(ids))
     types = {i["type"] for i in bank["items"]}
@@ -254,3 +254,26 @@ def test_committed_bank_is_current(tmp_path: Path):
         for i in committed["items"]:
             if i["audio_path"]:
                 assert (content_dir() / "dist" / i["audio_path"]).is_file(), i["audio_path"]
+
+
+def test_specialist_review_applies_by_item_id_and_lapses_on_change(tmp_path: Path):
+    reviews = tmp_path / "reviews"
+    reviews.mkdir()
+    bank = build(tmp_path / "a", generated_at=WHEN, reviews_dir=reviews).bank
+    first, second, third = (i["id"] for i in bank["items"][:3])
+    (reviews / "2026-01-01-R9.json").write_text(json.dumps({
+        "reviewer": "R9 (test)", "reviewed_on": "2026-01-01",
+        "items": {first: "approved", second: "rejected", third: "changes_requested", "rw-gone0000": "approved"},
+    }), encoding="utf-8")
+    by_id = {i["id"]: i["review"] for i in build(tmp_path / "b", generated_at=WHEN, reviews_dir=reviews).bank["items"]}
+    assert by_id[first] == {"status": "approved", "reviewer": "R9 (test)"}
+    assert by_id[second] == {"status": "rejected", "reviewer": "R9 (test)"}
+    assert by_id[third] == {"status": "unreviewed", "reviewer": None}  # a change request is not an approval
+    assert "rw-gone0000" not in by_id  # an id whose content changed simply no longer matches
+
+
+def test_shipped_review_is_r1_with_no_name():
+    data = json.loads((content_dir() / "reviews" / "2026-11-03-R1.json").read_text(encoding="utf-8"))
+    assert data["reviewer"].startswith("R1 (psychologist; name withheld")
+    bank = json.loads((content_dir() / "dist" / "item-bank.json").read_text(encoding="utf-8"))
+    assert all(i["review"] == {"status": "approved", "reviewer": data["reviewer"]} for i in bank["items"])
