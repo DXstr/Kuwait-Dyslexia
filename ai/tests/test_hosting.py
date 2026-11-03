@@ -120,6 +120,12 @@ def test_generated_space_app_serves_the_unchanged_rest_api(tmp_path, monkeypatch
         assert c.post("/score-item").status_code == 401
 
 
+def test_space_cards_pass_the_hub_description_limit():
+    for card in load("deploy_hf_space").CARD.values():
+        line = next(x for x in card.splitlines() if x.startswith("short_description:"))
+        assert len(line.split(":", 1)[1].strip()) <= 60
+
+
 def test_deploy_refuses_without_token_or_verifier(monkeypatch, capsys):
     deploy = load("deploy_hf_space")
     monkeypatch.delenv("HF_TOKEN", raising=False)

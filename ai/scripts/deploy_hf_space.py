@@ -55,7 +55,7 @@ app_file: app.py
 python_version: "3.12"
 pinned: false
 license: apache-2.0
-short_description: Stateless Arabic reading scorer for the Basira app (API only)
+short_description: Stateless Arabic reading scorer for Basira (API only)
 models:
 - facebook/wav2vec2-xlsr-53-espeak-cv-ft
 - jonatasgrosman/wav2vec2-large-xlsr-53-arabic
@@ -70,7 +70,7 @@ sdk: docker
 app_port: 8000
 pinned: false
 license: apache-2.0
-short_description: Stateless Arabic reading scorer for the Basira app (API only)
+short_description: Stateless Arabic reading scorer for Basira (API only)
 ---
 """,
 }
