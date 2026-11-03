@@ -1,0 +1,574 @@
+{
+ "version": "0.1.0",
+ "generated_at": "2026-11-03T00:00:00Z",
+ "synthetic_audio": true,
+ "prompts": [
+  {
+   "id": "pr-session-start-0af1aa",
+   "trigger": "session_start",
+   "text": "هَيَّا نَبْدَأُ!",
+   "text_plain": "هيا نبدأ!",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-session-start-05cba8",
+   "trigger": "session_start",
+   "text": "مَرْحَبًا! هَيَّا نَقْرَأُ مَعًا.",
+   "text_plain": "مرحبا! هيا نقرأ معا.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-session-start-bd10fa",
+   "trigger": "session_start",
+   "text": "هَيَّا نَتَعَلَّمُ شَيْئًا جَدِيدًا.",
+   "text_plain": "هيا نتعلم شيئا جديدا.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-listen-repeat-23e30c",
+   "trigger": "listen_repeat",
+   "text": "لِنَسْتَمِعْ أَوَّلًا، ثُمَّ نَقْرَأْ مَعًا.",
+   "text_plain": "لنستمع أولا، ثم نقرأ معا.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-listen-repeat-5f4d33",
+   "trigger": "listen_repeat",
+   "text": "هَيَّا نَسْمَعُ الْكَلِمَةَ مَرَّةً أُخْرَى.",
+   "text_plain": "هيا نسمع الكلمة مرة أخرى.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-listen-repeat-2bde9c",
+   "trigger": "listen_repeat",
+   "text": "نَسْتَمِعُ جَيِّدًا، ثُمَّ نُعِيدُ.",
+   "text_plain": "نستمع جيدا، ثم نعيد.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-item-correct-009c6e",
+   "trigger": "item_correct",
+   "text": "قِرَاءَةٌ رَائِعَةٌ!",
+   "text_plain": "قراءة رائعة!",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-item-correct-81c74c",
+   "trigger": "item_correct",
+   "text": "عَمَلٌ جَمِيلٌ!",
+   "text_plain": "عمل جميل!",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-item-correct-1a2d30",
+   "trigger": "item_correct",
+   "text": "إِجَابَةٌ مُمْتَازَةٌ! هَيَّا نُكْمِلُ.",
+   "text_plain": "إجابة ممتازة! هيا نكمل.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-item-retry-8f12b0",
+   "trigger": "item_retry",
+   "text": "هَيَّا نُحَاوِلُ مَرَّةً أُخْرَى.",
+   "text_plain": "هيا نحاول مرة أخرى.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-item-retry-bdbb93",
+   "trigger": "item_retry",
+   "text": "لِنَقْرَأْهَا مَعًا مَرَّةً ثَانِيَةً.",
+   "text_plain": "لنقرأها معا مرة ثانية.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-item-retry-95cddc",
+   "trigger": "item_retry",
+   "text": "مُحَاوَلَةٌ جَمِيلَةٌ! هَيَّا نُجَرِّبُ مِنْ جَدِيدٍ.",
+   "text_plain": "محاولة جميلة! هيا نجرب من جديد.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-hint-dot-confusion-f74335",
+   "trigger": "hint_dot_confusion",
+   "text": "لِنَنْظُرْ إِلَى النِّقَاطِ.",
+   "text_plain": "لننظر إلى النقاط.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-hint-dot-confusion-c9dc68",
+   "trigger": "hint_dot_confusion",
+   "text": "كَمْ نُقْطَةً نَرَى؟ وَأَيْنَ هِيَ؟",
+   "text_plain": "كم نقطة نرى؟ وأين هي؟",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-hint-dot-confusion-ec465a",
+   "trigger": "hint_dot_confusion",
+   "text": "النِّقَاطُ تُغَيِّرُ الْحَرْفَ، هَيَّا نَعُدُّهَا.",
+   "text_plain": "النقاط تغير الحرف، هيا نعدها.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-hint-emphatic-confusion-e2ab13",
+   "trigger": "hint_emphatic_confusion",
+   "text": "الْحَرْفُ مُفَخَّمٌ، نَنْطِقُهُ بِصَوْتٍ ثَقِيلٍ.",
+   "text_plain": "الحرف مفخم، ننطقه بصوت ثقيل.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-hint-emphatic-confusion-b5f1d3",
+   "trigger": "hint_emphatic_confusion",
+   "text": "هَلْ نَسْمَعُ الْحَرْفَ ثَقِيلًا أَمْ خَفِيفًا؟",
+   "text_plain": "هل نسمع الحرف ثقيلا أم خفيفا؟",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-hint-emphatic-confusion-9f2603",
+   "trigger": "hint_emphatic_confusion",
+   "text": "نُفَخِّمُ الْحَرْفَ حَتَّى يَمْتَلِئَ بِهِ الْفَمُ.",
+   "text_plain": "نفخم الحرف حتى يمتلئ به الفم.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-hint-short-vowel-5c9aaf",
+   "trigger": "hint_short_vowel",
+   "text": "لِنَنْظُرْ إِلَى الْحَرَكَاتِ فَوْقَ الْحُرُوفِ وَتَحْتَهَا.",
+   "text_plain": "لننظر إلى الحركات فوق الحروف وتحتها.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-hint-short-vowel-f0573f",
+   "trigger": "hint_short_vowel",
+   "text": "فَتْحَةٌ أَمْ ضَمَّةٌ أَمْ كَسْرَةٌ؟ هَيَّا نَنْظُرُ جَيِّدًا.",
+   "text_plain": "فتحة أم ضمة أم كسرة؟ هيا ننظر جيدا.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-hint-short-vowel-98890b",
+   "trigger": "hint_short_vowel",
+   "text": "الْحَرَكَةُ تُغَيِّرُ النُّطْقَ، هَيَّا نَقْرَأُ بِبُطْءٍ.",
+   "text_plain": "الحركة تغير النطق، هيا نقرأ ببطء.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-hint-positional-70a644",
+   "trigger": "hint_positional",
+   "text": "لِنَبْحَثْ عَنِ الْحَرْفِ فِي الْكَلِمَةِ.",
+   "text_plain": "لنبحث عن الحرف في الكلمة.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-hint-positional-8c2dc0",
+   "trigger": "hint_positional",
+   "text": "أَيْنَ الْحَرْفُ؟ فِي الْبِدَايَةِ أَمْ فِي الْوَسَطِ أَمْ فِي النِّهَايَةِ؟",
+   "text_plain": "أين الحرف؟ في البداية أم في الوسط أم في النهاية؟",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-hint-positional-e66d09",
+   "trigger": "hint_positional",
+   "text": "يَتَغَيَّرُ شَكْلُ الْحَرْفِ فِي بِدَايَةِ الْكَلِمَةِ وَوَسَطِهَا وَنِهَايَتِهَا.",
+   "text_plain": "يتغير شكل الحرف في بداية الكلمة ووسطها ونهايتها.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-session-end-8373ba",
+   "trigger": "session_end",
+   "text": "قَرَأْنَا كَثِيرًا الْيَوْمَ، شُكْرًا!",
+   "text_plain": "قرأنا كثيرا اليوم، شكرا!",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-session-end-93ee02",
+   "trigger": "session_end",
+   "text": "اِنْتَهَيْنَا! نَلْتَقِي فِي الْمَرَّةِ الْقَادِمَةِ.",
+   "text_plain": "انتهينا! نلتقي في المرة القادمة.",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  },
+  {
+   "id": "pr-session-end-ea74cf",
+   "trigger": "session_end",
+   "text": "عَمَلٌ رَائِعٌ الْيَوْمَ، إِلَى اللِّقَاءِ!",
+   "text_plain": "عمل رائع اليوم، إلى اللقاء!",
+   "audio_path": null,
+   "validation": {
+    "passed": true,
+    "validators": [
+     "script",
+     "diacritized",
+     "no_negative_words",
+     "gender_neutral",
+     "length"
+    ]
+   },
+   "review": {
+    "status": "unreviewed",
+    "reviewer": null
+   }
+  }
+ ]
+}
