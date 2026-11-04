@@ -15,8 +15,7 @@ export async function generateValidation() {
   for (const ids of [skillIds, dialectIds]) {
     if (!ids.length || ids.some(id => typeof id !== 'string') || new Set(ids).size !== ids.length) throw new Error('Canonical ids must be nonempty unique strings')
   }
-  const names = new Set(['ParentReport'])
-  const visit = (value) => {
+  const visit = (value, names) => {
     if (!value || typeof value !== 'object') return
     if (typeof value.$ref === 'string') {
       if (!value.$ref.startsWith('#/$defs/')) throw new Error('External references are not supported')
@@ -24,21 +23,25 @@ export async function generateValidation() {
       if (!names.has(name)) {
         names.add(name)
         if (!canonical.$defs[name]) throw new Error(`Missing canonical definition ${name}`)
-        visit(canonical.$defs[name])
+        visit(canonical.$defs[name], names)
       }
     }
-    Object.values(value).forEach(visit)
+    Object.values(value).forEach((child) => visit(child, names))
   }
-  visit(canonical.$defs.ParentReport)
-  const document = {
-    $schema: canonical.$schema,
-    $ref: '#/$defs/ParentReport',
-    $defs: Object.fromEntries([...names].sort().map(name => [name,
-      name === 'SkillId' ? { ...canonical.$defs[name], enum: skillIds } : canonical.$defs[name],
-    ])),
+  const schemaFor = (root) => {
+    const names = new Set([root])
+    visit(canonical.$defs[root], names)
+    return {
+      $schema: canonical.$schema,
+      $ref: `#/$defs/${root}`,
+      $defs: Object.fromEntries([...names].sort().map(name => [name,
+        name === 'SkillId' ? { ...canonical.$defs[name], enum: skillIds } : canonical.$defs[name],
+      ])),
+    }
   }
-  const schema = JSON.stringify(document, null, 2)
-  if ([schema, JSON.stringify(skillIds), JSON.stringify(dialectIds)].some(value => value.includes('$basira_'))) throw new Error('SQL delimiter occurs in canonical data')
+  const parentReportSchema = JSON.stringify(schemaFor('ParentReport'), null, 2)
+  const probeResponseSchema = JSON.stringify(schemaFor('ProbeResponse'), null, 2)
+  if ([parentReportSchema, probeResponseSchema, JSON.stringify(skillIds), JSON.stringify(dialectIds)].some(value => value.includes('$basira_'))) throw new Error('SQL delimiter occurs in canonical data')
   const hash = createHash('sha256').update(source).update('\0').update(skillsSource).update('\0').update(dialectsSource).digest('hex')
   return `-- GENERATED — DO NOT EDIT. Sources: contracts/schemas/basira.schema.json,
 -- contracts/skill-graph.json, contracts/dialect-lexicons.json.
@@ -49,7 +52,11 @@ revoke all on schema basira_private from public, anon;
 create extension if not exists pg_jsonschema with schema extensions;
 create function basira_private.parent_report_schema() returns json
 language sql immutable security definer set search_path = '' as $function$
-  select $basira_schema$${schema}$basira_schema$::json
+  select $basira_parent_schema$${parentReportSchema}$basira_parent_schema$::json
+$function$;
+create function basira_private.probe_response_schema() returns json
+language sql immutable security definer set search_path = '' as $function$
+  select $basira_probe_schema$${probeResponseSchema}$basira_probe_schema$::json
 $function$;
 create function basira_private.canonical_skill_ids() returns text[]
 language sql immutable security definer set search_path = '' as $function$
@@ -59,7 +66,7 @@ create function basira_private.canonical_dialect_ids() returns text[]
 language sql immutable security definer set search_path = '' as $function$
   select array(select jsonb_array_elements_text($basira_ids$${JSON.stringify(dialectIds)}$basira_ids$::jsonb))
 $function$;
-revoke all on function basira_private.parent_report_schema(), basira_private.canonical_skill_ids(), basira_private.canonical_dialect_ids() from public, anon, authenticated;
+revoke all on function basira_private.parent_report_schema(), basira_private.probe_response_schema(), basira_private.canonical_skill_ids(), basira_private.canonical_dialect_ids() from public, anon, authenticated;
 `
 }
 

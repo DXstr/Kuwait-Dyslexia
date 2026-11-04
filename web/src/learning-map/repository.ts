@@ -1,5 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { ScoreItemResponse, SkillEvidence, SkillId } from '../contracts/basira'
+import type { ProbeResponse, ScoreItemResponse, SkillEvidence, SkillId } from '../contracts/basira'
 import { parseContract } from '../scorer/validation'
 import { isCanonicalSkillId } from './engine'
 import type { LearningMapEvent, LearningMapProbe } from './types'
@@ -33,6 +33,16 @@ type ItemResultRow = {
   item_id: unknown
   response: unknown
   synthetic: unknown
+}
+
+type ProbeResultRow = {
+  id: unknown
+  session_id: unknown
+  child_id: unknown
+  event_id: unknown
+  response: unknown
+  synthetic: unknown
+  created_at: unknown
 }
 
 type TapResultRow = {
@@ -127,13 +137,30 @@ function rowChild(row: ChildRow, identity: VerifiedAuthSession): LearningMapChil
   return { id: row.id, firstName: row.first_name, isDemo: row.is_demo }
 }
 
-function rowSession(row: SessionRow, childId: string): { id: string; at: number } {
-  if (!isObject(row) || !text(row.id) || row.child_id !== childId || row.status !== 'completed' ||
+function rowSession(row: SessionRow, childId: string): { id: string; at: number; type: string } {
+  if (!isObject(row) || !text(row.id) || typeof row.type !== 'string' || row.child_id !== childId || row.status !== 'completed' ||
       !SESSION_TYPES.includes(row.type as typeof SESSION_TYPES[number])) {
     throw new LearningMapRepositoryError('invalid_data')
   }
   const at = timestamp(row.ended_at ?? row.started_at)
-  return { id: row.id, at }
+  return { id: row.id, at, type: row.type }
+}
+
+function probeEvent(row: ProbeResultRow, sessions: Map<string, { id: string; at: number; type: string }>, childId: string): LearningMapProbe {
+  if (!isObject(row) || !text(row.id) || !text(row.session_id) || !text(row.child_id) || row.child_id !== childId || !text(row.event_id) || !sessions.has(row.session_id) || sessions.get(row.session_id)?.type !== 'probe' || typeof row.synthetic !== 'boolean' || !text(row.created_at)) {
+    throw new LearningMapRepositoryError('invalid_data')
+  }
+  let response: ProbeResponse
+  try { response = parseContract('ProbeResponse', row.response) } catch { throw new LearningMapRepositoryError('invalid_data') }
+  if (response.session_id !== row.session_id || response.synthetic !== row.synthetic) throw new LearningMapRepositoryError('invalid_data')
+  return {
+    childId,
+    sessionId: row.session_id,
+    eventId: row.event_id,
+    at: timestamp(row.created_at),
+    completed: true,
+    response,
+  }
 }
 
 function validateEvidence(value: SkillEvidence): SkillEvidence {
@@ -304,10 +331,12 @@ export function createRepository(client: SupabaseClient | null, controller: Auth
     if (!Array.isArray(sessionResponse.data)) throw new LearningMapRepositoryError('invalid_data')
     const sessions = sessionResponse.data.map((row) => rowSession(row as SessionRow, childId))
     const sessionTimes = new Map(sessions.map((session) => [session.id, session.at]))
+    const sessionMeta = new Map(sessions.map((session) => [session.id, session]))
     const sessionIds = sessions.map((session) => session.id)
 
     let itemRows: unknown[] = []
     let tapRows: unknown[] = []
+    let probeRows: unknown[] = []
     if (sessionIds.length > 0) {
         const itemRequest = withAbort(client!.from('item_results')
         .select('id, session_id, item_id, response, synthetic')
@@ -319,13 +348,23 @@ export function createRepository(client: SupabaseClient | null, controller: Auth
         .in('session_id', sessionIds)
           .order('id', { ascending: true })
         .limit(RESULT_LIMIT), signal)
-      const [itemResponse, tapResponse] = await Promise.all([itemRequest, tapRequest])
+      const probeSessionIds = sessions.filter((session) => session.type === 'probe').map((session) => session.id)
+      const probeRequest = probeSessionIds.length === 0
+        ? Promise.resolve({ data: [] as unknown[], error: null })
+        : withAbort(client!.from('probe_results')
+          .select('id, session_id, child_id, event_id, response, synthetic, created_at')
+          .in('session_id', probeSessionIds)
+          .order('created_at', { ascending: true })
+          .limit(RESULT_LIMIT), signal)
+      const [itemResponse, tapResponse, probeResponse] = await Promise.all([itemRequest, tapRequest, probeRequest])
       assertCurrent(identity, workGeneration, signal)
       if (itemResponse.error) queryFailed(itemResponse.error)
       if (tapResponse.error) queryFailed(tapResponse.error)
-      if (!Array.isArray(itemResponse.data) || !Array.isArray(tapResponse.data)) throw new LearningMapRepositoryError('invalid_data')
+      if (probeResponse.error) queryFailed(probeResponse.error)
+      if (!Array.isArray(itemResponse.data) || !Array.isArray(tapResponse.data) || !Array.isArray(probeResponse.data)) throw new LearningMapRepositoryError('invalid_data')
       itemRows = itemResponse.data
       tapRows = tapResponse.data
+      probeRows = probeResponse.data
     }
 
     const events = [
@@ -338,6 +377,7 @@ export function createRepository(client: SupabaseClient | null, controller: Auth
         return tapEvents(value, sessionTimes.get(value.session_id as string) as number, sessionTimes, childId)
       }),
     ]
+    const probes = probeRows.map((row) => probeEvent(row as ProbeResultRow, sessionMeta, childId))
 
     const masteryRequest = withAbort(client!.from('skill_mastery')
       .select('child_id, skill_id, mastery, updated_at, source_session_id')
@@ -351,12 +391,11 @@ export function createRepository(client: SupabaseClient | null, controller: Auth
     const value: LearningMapRead = {
       child,
       events,
-      // No canonical ProbeResponse is persisted in B8. Do not manufacture probes from scores or mastery rows.
-      probes: [],
+      probes,
       storedMastery,
       sessionsRead: sessions.length,
       sessionsTruncated: sessions.length >= SESSION_LIMIT,
-        resultsTruncated: itemRows.length >= RESULT_LIMIT || tapRows.length >= RESULT_LIMIT || storedMastery.length >= MASTERY_LIMIT,
+        resultsTruncated: itemRows.length >= RESULT_LIMIT || tapRows.length >= RESULT_LIMIT || probeRows.length >= RESULT_LIMIT || storedMastery.length >= MASTERY_LIMIT,
     }
     readCache.set(childId, { identity: identitySignature, value })
     return value

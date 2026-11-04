@@ -14,6 +14,7 @@ import { ReviewWorkspace } from './review/ReviewWorkspace'
 import { ProgressWorkspace } from './learning-map/ProgressWorkspace'
 import { GuardianReportsWorkspace } from './parent-report/GuardianReportsWorkspace'
 import { ParentReportPrintRoute } from './parent-report/ParentReportPrintRoute'
+import { ProbeWorkspace } from './prove/ProbeWorkspace'
 
 const authMessages: Record<AuthIssue, MessageKey> = {
   configuration: 'authConfiguration',
@@ -176,6 +177,7 @@ function Workspace({ title, description }: { title: MessageKey; description: Mes
       </section>
     )}
     <ReviewWorkspace />
+    <ProbeWorkspace />
     <ProgressWorkspace />
   </>
   if (title === 'guardianTitle') return <>

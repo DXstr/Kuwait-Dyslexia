@@ -17,6 +17,8 @@ import { createLearningMapRepository } from './learning-map/repository'
 import { LearningMapProvider } from './learning-map/LearningMapProvider'
 import { ParentReportProvider } from './parent-report/ParentReportProvider'
 import { createParentReportRepository } from './parent-report/repository'
+import { ProbeProvider } from './prove/ProbeProvider'
+import { createProbeRuntime } from './prove/runtime'
 import './styles.css'
 
 const root = document.getElementById('root')
@@ -28,8 +30,10 @@ const assessment = createAssessmentRuntime(runtime.client, runtime.controller, s
 const review = { repository: createReviewRepository(runtime.client, runtime.controller), scorer: scorer.getClient() }
 const learningMapRepository = createLearningMapRepository(runtime.client, runtime.controller)
 const parentReport = { repository: createParentReportRepository(runtime.client, runtime.controller) }
+const probe = createProbeRuntime(runtime.client, runtime.controller, scorer.getClient())
 import.meta.hot?.dispose(() => {
   parentReport.repository.dispose()
+  probe.dispose()
   learningMapRepository.dispose()
   review.repository.dispose()
   assessment.dispose()
@@ -43,13 +47,15 @@ createRoot(root).render(
       <ScorerProvider runtime={scorer}>
         <AssessmentProvider runtime={assessment}>
           <ReviewProvider access={review}>
-                <LearningMapProvider repository={learningMapRepository}>
-                  <ParentReportProvider access={parentReport}>
-                    <BrowserRouter>
-                      <AppRoutes />
-                    </BrowserRouter>
-                  </ParentReportProvider>
-                </LearningMapProvider>
+            <ProbeProvider runtime={probe}>
+              <LearningMapProvider repository={learningMapRepository}>
+                <ParentReportProvider access={parentReport}>
+                  <BrowserRouter>
+                    <AppRoutes />
+                  </BrowserRouter>
+                </ParentReportProvider>
+              </LearningMapProvider>
+            </ProbeProvider>
           </ReviewProvider>
         </AssessmentProvider>
       </ScorerProvider>
