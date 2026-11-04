@@ -15,6 +15,8 @@ import { ReviewProvider } from './review/ReviewProvider'
 import { createReviewRepository } from './review/repository'
 import { createLearningMapRepository } from './learning-map/repository'
 import { LearningMapProvider } from './learning-map/LearningMapProvider'
+import { ParentReportProvider } from './parent-report/ParentReportProvider'
+import { createParentReportRepository } from './parent-report/repository'
 import './styles.css'
 
 const root = document.getElementById('root')
@@ -25,7 +27,9 @@ const scorer = startScorerRuntime(import.meta.env, runtime.controller)
 const assessment = createAssessmentRuntime(runtime.client, runtime.controller, scorer.getClient())
 const review = { repository: createReviewRepository(runtime.client, runtime.controller), scorer: scorer.getClient() }
 const learningMapRepository = createLearningMapRepository(runtime.client, runtime.controller)
+const parentReport = { repository: createParentReportRepository(runtime.client, runtime.controller) }
 import.meta.hot?.dispose(() => {
+  parentReport.repository.dispose()
   learningMapRepository.dispose()
   review.repository.dispose()
   assessment.dispose()
@@ -39,11 +43,13 @@ createRoot(root).render(
       <ScorerProvider runtime={scorer}>
         <AssessmentProvider runtime={assessment}>
           <ReviewProvider access={review}>
-            <LearningMapProvider repository={learningMapRepository}>
-              <BrowserRouter>
-                <AppRoutes />
-              </BrowserRouter>
-            </LearningMapProvider>
+                <LearningMapProvider repository={learningMapRepository}>
+                  <ParentReportProvider access={parentReport}>
+                    <BrowserRouter>
+                      <AppRoutes />
+                    </BrowserRouter>
+                  </ParentReportProvider>
+                </LearningMapProvider>
           </ReviewProvider>
         </AssessmentProvider>
       </ScorerProvider>

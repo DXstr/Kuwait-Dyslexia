@@ -69,7 +69,7 @@ jobs:
       - name: Install Chromium
         working-directory: web
         run: npx playwright install --with-deps chromium
-      - name: End-to-end tests
+      - name: End-to-end tests (including B11 Arabic report/PDF route)
         working-directory: web
         run: npm run test:e2e
 
