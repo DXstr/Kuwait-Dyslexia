@@ -9,7 +9,7 @@ const workflow = readFileSync(
 )
 
 const migration = readFileSync(
-  resolve(new URL('../migrations/20261104000000_keep_alive_rpc.sql', import.meta.url).pathname),
+  resolve(new URL('../migrations/20261104000200_keep_alive_rpc.sql', import.meta.url).pathname),
   'utf8',
 )
 
