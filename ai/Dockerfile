@@ -1,6 +1,7 @@
 # Basira scorer (task A6). Build from the REPO ROOT (it needs contracts/):
 #   docker build -f ai/Dockerfile -t basira-scorer .
 # Both acoustic models are downloaded at build time, so a cold start never fetches 2.5 GB.
+# Hosted as a Hugging Face Docker Space (free CPU Basic): see ai/deploy/README.md.
 FROM python:3.11-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -11,7 +12,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PORT=8000
 
 # CPU-only PyTorch first, so the [model] extra does not pull the multi-GB CUDA build
-RUN pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+RUN pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
 
 WORKDIR /app
 COPY ai/pyproject.toml ai/

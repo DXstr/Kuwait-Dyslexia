@@ -7,6 +7,7 @@ imported lazily so the rest of basira_ai (and CI) works without them.
 from __future__ import annotations
 
 import json
+import os
 from dataclasses import dataclass, field
 
 import numpy as np
@@ -52,7 +53,8 @@ class CTCModel:
             from transformers import AutoFeatureExtractor, AutoModelForCTC
         except ImportError as e:  # pragma: no cover - depends on optional extra
             raise ModelUnavailable('install the model extra: pip install -e ".[model]"') from e
-        self._device = device or ("cuda" if torch.cuda.is_available() else "cpu")
+        # BASIRA_DEVICE overrides detection: ZeroGPU reports CUDA as available even where no real GPU is attached
+        self._device = device or os.environ.get("BASIRA_DEVICE") or ("cuda" if torch.cuda.is_available() else "cpu")
         self._features = AutoFeatureExtractor.from_pretrained(self.name)
         self._model = AutoModelForCTC.from_pretrained(self.name).to(self._device).eval()
         self.vocab = read_vocab(hf_hub_download(self.name, "vocab.json"))
