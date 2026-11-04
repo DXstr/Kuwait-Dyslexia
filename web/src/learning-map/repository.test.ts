@@ -1,5 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { describe, expect, it, vi } from 'vitest'
+import persistedProbeFixture from '../../../contracts/examples/ProbeResponse.persisted-cycle.synthetic.json'
 import scoreFixture from '../../../contracts/fixtures/ScoreItemResponse.dialect-variant.json'
 import { createTestAuth } from '../test/auth'
 import { createRepository, LearningMapRepositoryError } from './repository'
@@ -34,6 +35,7 @@ function validRows() {
     sessions: [{ id: sessionId, child_id: childId, type: 'practice', status: 'completed', started_at: at, ended_at: at }],
     item_results: [{ id: resultId, session_id: sessionId, item_id: scoreFixture.item_id, response: scoreFixture, synthetic: scoreFixture.synthetic }],
     tap_results: [{ id: tapId, session_id: sessionId, item_id: 'tap-1', evidence: { skill_id: 'vowel.fatha', correct: true, source: 'tap' } }],
+    probe_results: [] as unknown[],
     skill_mastery: [{ child_id: childId, skill_id: 'ls.alif', mastery: 0.75, updated_at: at, source_session_id: sessionId }],
   }
 }
@@ -61,6 +63,35 @@ describe('learning-map live repository', () => {
     ]))
     expect(result.probes).toEqual([])
     expect(result.storedMastery[0]).toMatchObject({ skillId: 'ls.alif', mastery: 0.75 })
+  })
+
+  it('consumes only an acknowledged probe row and preserves its stable event identity and server time', async () => {
+    const rows = validRows()
+    const probeSession = '77777777-7777-4777-8777-777777777777'
+    const eventId = '88888888-8888-4888-8888-888888888888'
+    rows.sessions = [{ id: probeSession, child_id: childId, type: 'probe', status: 'completed', started_at: at, ended_at: at }]
+    rows.probe_results = [{
+      id: '99999999-9999-4999-8999-999999999999', session_id: probeSession, child_id: childId,
+      event_id: eventId, response: { ...persistedProbeFixture, session_id: probeSession }, synthetic: true,
+      created_at: '2026-11-03T12:34:56.000Z',
+    }]
+    rows.item_results = []
+    rows.tap_results = []
+    const repository = createRepository(clientFor(rows), specialist.controller)
+    const result = await repository.readChild(childId)
+    expect(result.probes).toEqual([expect.objectContaining({
+      childId, sessionId: probeSession, eventId, at: Date.parse('2026-11-03T12:34:56.000Z'), completed: true,
+    })])
+  })
+
+  it('rejects a probe row whose canonical response does not correlate to the durable session', async () => {
+    const rows = validRows()
+    rows.sessions = [{ id: sessionId, child_id: childId, type: 'probe', status: 'completed', started_at: at, ended_at: at }]
+    rows.probe_results = [{ id: resultId, session_id: sessionId, child_id: childId, event_id: tapId, response: persistedProbeFixture, synthetic: true, created_at: at }]
+    rows.item_results = []
+    rows.tap_results = []
+    const repository = createRepository(clientFor(rows), specialist.controller)
+    await expect(repository.readChild(childId)).rejects.toMatchObject({ code: 'invalid_data' })
   })
 
   it('keeps all ordered evidence for one item event and skips unscored items', async () => {

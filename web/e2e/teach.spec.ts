@@ -50,7 +50,7 @@ function requestBody(route: Route): Record<string, unknown> {
 
 type TeachApiState = {
   planReads: string[]
-  childReads: number
+  assignedChildReads: string[]
   tapBodies: Record<string, unknown>[]
   tapAcknowledgementIds: string[]
   sessionBodies: Record<string, unknown>[]
@@ -62,7 +62,7 @@ type TeachApiOptions = {
 }
 
 async function installTeachApi(page: Page, options: TeachApiOptions): Promise<TeachApiState> {
-  const state: TeachApiState = { planReads: [], childReads: 0, tapBodies: [], tapAcknowledgementIds: [], sessionBodies: [], completedSessions: [] }
+  const state: TeachApiState = { planReads: [], assignedChildReads: [], tapBodies: [], tapAcknowledgementIds: [], sessionBodies: [], completedSessions: [] }
   await page.route(`${api}/rest/v1/**`, async (route) => {
     const request = route.request()
     const url = new URL(request.url())
@@ -88,9 +88,9 @@ async function installTeachApi(page: Page, options: TeachApiOptions): Promise<Te
         return json(route, [childRow])
       }
 
-      state.childReads += 1
       expect(select).toBe('id,first_name,grade,dialect_lexicon_id,is_demo')
       expect(url.searchParams.get('order')).toBe('first_name.asc')
+      state.assignedChildReads.push(childRow.id)
       return json(route, [childRow])
     }
 
@@ -181,8 +181,10 @@ test('does not render a Teach task when the approved-plan read has no approved r
   await expect(page.locator('#teach-child option:checked')).toContainText(ar.assessmentDemoLabel)
   await expect(page.locator('html')).toHaveAttribute('lang', 'ar')
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl')
-  expect(backend.childReads).toBe(5)
+  expect(backend.assignedChildReads.length).toBeGreaterThan(0)
+  expect(backend.assignedChildReads.every((assignedId) => assignedId === childId)).toBe(true)
   expect(backend.planReads).toEqual([childId])
+  expect(backend.assignedChildReads).toContain(backend.planReads[0])
 })
 
 test('reads the approved plan for the assigned demo child, then covers neutral retry, cue/mouth rendering, tracing, and Arabic child copy', async ({ page }, testInfo) => {
@@ -230,8 +232,10 @@ test('reads the approved plan for the assigned demo child, then covers neutral r
 
   await expect.poll(() => backend.tapBodies).toHaveLength(2)
   await expect.poll(() => backend.completedSessions).toEqual([sessionId])
-  expect(backend.childReads).toBe(5)
+  expect(backend.assignedChildReads.length).toBeGreaterThan(0)
+  expect(backend.assignedChildReads.every((assignedId) => assignedId === childId)).toBe(true)
   expect(backend.planReads).toEqual([childId])
+  expect(backend.assignedChildReads).toContain(backend.planReads[0])
   expect(backend.sessionBodies).toEqual([{ child_id: childId, type: 'practice', status: 'in_progress', run_by: userId }])
   expect(backend.tapAcknowledgementIds).toEqual([wrongTapId, correctTapId])
   expect(backend.tapBodies.map((body) => body.evidence)).toEqual([
