@@ -1,5 +1,12 @@
 # Contracts changelog
 
+## data-model.md 0.2.0 — 2026-11-04
+- Define the proposed durable `probe_results` boundary: UUID session/child/event correlation, unchanged canonical
+  `ProbeResponse` persistence, insert-only idempotency, profile-backed access, atomic completion acknowledgement,
+  append-only audit semantics, and B8 consumer mapping. Add a synthetic UUID-session persistence example in
+  `examples/ProbeResponse.persisted-cycle.synthetic.json`, validated in CI without extending or rewriting the
+  scorer's mock fixture catalog. No scorer payload or API schema changed.
+
 ## phonetic-inventory.json 0.2.0 — 2026-11-03
 - Specialist review: all 28 letters and 8 vowel modifiers approved by R1 (psychologist; name withheld at the
   reviewer's request), no corrections (review pack of 2026-11-02). Schema unchanged (still contracts 0.4.0).
