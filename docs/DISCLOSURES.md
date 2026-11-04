@@ -55,3 +55,7 @@ Required by the competition and by non-negotiable 10. Add a row in the same PR t
 | Google OAuth / OpenID Connect | Adult identity provider through Supabase Auth; activation requires a real registration | [Google APIs Terms of Service](https://developers.google.com/terms) and applicable user-data policies | B4 | 2026-11-02 |
 | ajv 8.20.0 | Browser-side, non-mutating JSON Schema draft 2020-12 validation of canonical scorer requests, responses and errors | [MIT](https://github.com/ajv-validator/ajv/blob/master/LICENSE) | B5 | 2026-11-02 |
 | ajv-formats 3.0.1 | Canonical date/date-time format checks in contract validators; no remote schema fetching | [MIT](https://github.com/ajv-validator/ajv-formats/blob/master/LICENSE) | B5 | 2026-11-02 |
+| Hugging Face Spaces (ZeroGPU hardware) | Hosts the stateless scorer API; models run on the Space CPU; audio is scored in memory and not stored by our code | [Hugging Face Terms of Service](https://huggingface.co/terms-of-service) | A13 | 2026-11-04 |
+| gradio 5.49.1 | Required by the Space SDK; one-page API notice at `/ui`, not used for scoring | Apache-2.0 | A13 | 2026-11-04 |
+| spaces 0.51.3 | ZeroGPU runtime on the Space (includes bundled third-party code under its own licences) | Apache-2.0 | A13 | 2026-11-04 |
+| huggingface_hub | Downloads the model files (`model` extra); uploads the Space from the deploy script | Apache-2.0 | A3, A13 | 2026-11-04 |
