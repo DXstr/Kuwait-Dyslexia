@@ -82,6 +82,10 @@ export async function mockSupabase(page: Page, role: Role, options: { rejectUser
       // B7 review has no stored assessment session in auth-only fixtures.
       return json([])
     }
+    if (url.pathname === '/rest/v1/parent_reports' && request.method() === 'GET') {
+      // Auth-only guardian baselines have no approved synthetic report fixture.
+      return json([])
+    }
     if (url.pathname === '/auth/v1/logout') {
       expect(url.searchParams.get('scope')).toBe('local')
       observed.logout = true

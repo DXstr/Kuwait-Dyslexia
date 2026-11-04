@@ -33,7 +33,7 @@ Required by the competition and by non-negotiable 10. Add a row in the same PR t
 | vite-plugin-pwa, Workbox | Install manifest and static-shell-only service worker; build tooling and generated worker | MIT | B1 | 2026-11-02 |
 | vitest, jsdom | Unit/component test runner and DOM (dev only) | MIT | B1 | 2026-11-02 |
 | @testing-library/react, @testing-library/jest-dom, @testing-library/user-event | Accessible UI assertions and interactions (dev only) | MIT | B1 | 2026-11-02 |
-| @playwright/test | Chromium browser tests (dev/CI only) | Apache-2.0 | B1 | 2026-11-02 |
+| @playwright/test | Chromium browser tests (dev/CI only), including the B11 Arabic print/PDF route evidence | Apache-2.0 | B1, B11 | 2026-11-04 |
 | eslint, @eslint/js, typescript-eslint, globals | Web lint configuration and language rules (dev only) | MIT | B1 | 2026-11-02 |
 | eslint-plugin-react-hooks, eslint-plugin-react-refresh | React lint rules (dev only) | MIT | B1 | 2026-11-02 |
 | @types/node, @types/react, @types/react-dom | Type declarations (dev only) | MIT | B1 | 2026-11-02 |
