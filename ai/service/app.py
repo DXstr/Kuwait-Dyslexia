@@ -39,7 +39,7 @@ from basira_ai.contracts_gen.models import (
     Stage0ScoreResponse,
 )
 from basira_ai.fingerprint import fingerprint
-from basira_ai.g2p import G2PError
+from basira_ai.g2p import G2PError, reading_text
 from basira_ai.probe import probe
 from basira_ai.pronunciation import routing
 from basira_ai.reference import contracts_dir, reference_data
@@ -219,6 +219,10 @@ def create_app(
             request_meta = ScoreItemRequestMeta.model_validate_json(meta)
         except ValidationError as e:
             raise ApiError(422, "invalid_request", f"meta does not match ScoreItemRequestMeta: {e.errors()[:3]}") from e
+        text = reading_text(request_meta.expected_text)
+        if not text:
+            raise ApiError(422, "invalid_request", "expected_text has nothing to read")
+        request_meta = request_meta.model_copy(update={"expected_text": text})
         wav = decode_wav(await audio.read())
         listener = holder.get()
         try:

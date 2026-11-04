@@ -15,7 +15,7 @@ from fastapi.testclient import TestClient
 from jsonschema import Draft202012Validator
 from referencing import Registry, Resource
 
-from basira_ai.g2p import to_units
+from basira_ai.g2p import reading_text, to_units
 from basira_ai.pronunciation import score_pronunciation
 from basira_ai.verdict import build_response
 from service.app import create_app, decode_wav
@@ -203,3 +203,33 @@ def test_missing_upload_is_contract_invalid_request(client):
     assert r.status_code == 422 and r.json()["error"]["code"] == "invalid_request"
     assert "audio" in r.json()["error"]["message"]
     assert valid("Error", r.json()) == []
+
+
+def bank_items():
+    bank = Path(__file__).resolve().parents[2] / "content/dist/item-bank.json"
+    return json.loads(bank.read_text("utf-8"))["items"]
+
+
+def meta_for(item_type, text):
+    return json.dumps({"item_id": "x-1", "item_type": item_type, "expected_text": text, "dialect_lexicon_id": "kw"})
+
+
+def test_every_item_in_the_bank_can_be_scored_as_the_app_sends_it():
+    """The app sends Item.text unchanged, including passage punctuation and the "/" of a minimal pair."""
+    for item in bank_items():
+        assert to_units(reading_text(item["text"]), REF.taxonomy), item["id"]
+
+
+@pytest.mark.parametrize("item_type", ["passage_vowelized", "passage_unvowelized", "probe_passage", "minimal_pair"])
+def test_real_passages_and_pairs_score_without_marks_in_the_words(client, item_type):
+    text = next(i["text"] for i in bank_items() if i["type"] == item_type)
+    r = post(client, token(), meta=meta_for(item_type, text))
+    assert r.status_code == 200, r.text
+    assert valid("ScoreItemResponse", r.json()) == []
+    assert [w["text"] for w in r.json()["words"]] == reading_text(text).split()
+    assert not any(mark in " ".join(w["text"] for w in r.json()["words"]) for mark in "،.؟!؛/")
+
+
+def test_text_with_nothing_to_read_is_invalid_request(client):
+    r = post(client, token(), meta=meta_for("real_word", " / . "))
+    assert r.status_code == 422 and r.json()["error"]["code"] == "invalid_request"
