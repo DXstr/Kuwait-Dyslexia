@@ -65,9 +65,6 @@ values
   ('00000000-0000-0000-0000-000000002002', '00000000-0000-0000-0000-000000001001',
    '00000000-0000-0000-0000-000000000101', '00000000-0000-0000-0000-000000000201',
    'practice', now() - interval '1 day', now() + interval '30 days', 'fixture/consent-1-practice', 'fixture-ethics-1'),
-  ('00000000-0000-0000-0000-000000002003', '00000000-0000-0000-0000-000000001001',
-   '00000000-0000-0000-0000-000000000101', '00000000-0000-0000-0000-000000000201',
-   'assessment', now() - interval '10 days', now() - interval '1 day', 'fixture/consent-1-expired', 'fixture-ethics-1'),
   ('00000000-0000-0000-0000-000000002004', '00000000-0000-0000-0000-000000001002',
    '00000000-0000-0000-0000-000000000102', '00000000-0000-0000-0000-000000000202',
    'assessment', now() - interval '1 day', now() + interval '30 days', 'fixture/consent-2-assessment', 'fixture-ethics-2')
@@ -85,12 +82,14 @@ values
   ('00000000-0000-0000-0000-000000003002', '00000000-0000-0000-0000-000000001001',
    'practice', 'in_progress', now() - interval '2 days', null,
    '00000000-0000-0000-0000-000000000201'),
-  ('00000000-0000-0000-0000-000000003003', '00000000-0000-0000-0000-000000001001',
-   'stage0', 'in_progress', now() - interval '1 day', null,
-   '00000000-0000-0000-0000-000000000301'),
   ('00000000-0000-0000-0000-000000003004', '00000000-0000-0000-0000-000000001001',
    'probe', 'in_progress', now() - interval '1 hour', null,
    '00000000-0000-0000-0000-000000000201');
+select pg_temp.set_actor('00000000-0000-0000-0000-000000000301');
+insert into public.sessions (id, child_id, type, status, started_at, ended_at, run_by)
+values ('00000000-0000-0000-0000-000000003003', '00000000-0000-0000-0000-000000001001',
+        'stage0', 'in_progress', now() - interval '1 day', null,
+        '00000000-0000-0000-0000-000000000301');
 
 -- A compact, contract-shaped score response.  The database deliberately does
 -- not duplicate the full B5 validator; unchanged JSON is asserted below.
@@ -182,8 +181,27 @@ select throws_ok($$insert into public.consents (child_id, guardian_id, specialis
   values ('00000000-0000-0000-0000-000000001002', '00000000-0000-0000-0000-000000000101', '00000000-0000-0000-0000-000000000201', 'assessment', now(), now() + interval '1 day', 'x', 'e')$$, NULL::text, NULL::text, 'guardian cannot consent for another child');
 select throws_ok($$insert into public.consents (child_id, guardian_id, specialist_id, scope, signed_at, expires_at, evidence_path, ethics_ref)
   values ('00000000-0000-0000-0000-000000001001', '00000000-0000-0000-0000-000000000101', '00000000-0000-0000-0000-000000000202', 'assessment', now(), now() + interval '1 day', 'x', 'e')$$, NULL::text, NULL::text, 'consent specialist must match child');
-select throws_ok($$insert into public.consents (child_id, guardian_id, specialist_id, scope, signed_at, expires_at, evidence_path, ethics_ref)
-  values ('00000000-0000-0000-0000-000000001001', '00000000-0000-0000-0000-000000000101', '00000000-0000-0000-0000-000000000201', 'assessment', now() + interval '1 hour', now() + interval '1 day', 'x', 'e')$$, NULL::text, NULL::text, 'consent cannot be signed in the future');
+select lives_ok($$insert into public.consents (child_id, guardian_id, specialist_id, scope, signed_at, expires_at, evidence_path, ethics_ref)
+  values ('00000000-0000-0000-0000-000000001001', '00000000-0000-0000-0000-000000000101', '00000000-0000-0000-0000-000000000201', 'assessment', now() + interval '1 hour', now() + interval '1 day', 'x', 'e')$$, 'consent signature time is server-controlled');
+select ok((select signed_at > clock_timestamp() - interval '1 minute' and signed_at <= clock_timestamp()
+  from public.consents
+  where child_id = '00000000-0000-0000-0000-000000001001'
+    and guardian_id = '00000000-0000-0000-0000-000000000101'
+    and specialist_id = '00000000-0000-0000-0000-000000000201'
+    and evidence_path = 'x'), 'inserted consent uses the actual server signature time');
+select lives_ok($$update public.consents
+  set expires_at = clock_timestamp()
+  where child_id = '00000000-0000-0000-0000-000000001001'
+    and guardian_id = '00000000-0000-0000-0000-000000000101'
+    and specialist_id = '00000000-0000-0000-0000-000000000201'
+    and evidence_path = 'x'$$, 'fixture consent can be revoked before denial checks');
+reset role;
+delete from public.consents
+where child_id = '00000000-0000-0000-0000-000000001001'
+  and guardian_id = '00000000-0000-0000-0000-000000000101'
+  and specialist_id = '00000000-0000-0000-0000-000000000201'
+  and evidence_path = 'x';
+set local role authenticated;
 select throws_ok($$update public.consents set scope = 'audio_research' where id = '00000000-0000-0000-0000-000000002001'$$, NULL::text, NULL::text, 'guardian cannot rewrite consent scope');
 select throws_ok($$update public.consents set child_id = '00000000-0000-0000-0000-000000001002' where id = '00000000-0000-0000-0000-000000002001'$$, NULL::text, NULL::text, 'guardian cannot rewrite consent child');
 select throws_ok($$update public.consents set signed_at = now() - interval '2 days' where id = '00000000-0000-0000-0000-000000002001'$$, NULL::text, NULL::text, 'guardian cannot rewrite consent signature time');
@@ -191,7 +209,7 @@ select throws_ok($$update public.consents set guardian_id = '00000000-0000-0000-
 select throws_ok($$update public.consents set specialist_id = '00000000-0000-0000-0000-000000000202' where id = '00000000-0000-0000-0000-000000002001'$$, NULL::text, NULL::text, 'guardian cannot rewrite consent specialist actor');
 select throws_ok($$update public.consents set expires_at = now() + interval '1 year' where id = '00000000-0000-0000-0000-000000002001'$$, NULL::text, NULL::text, 'guardian may not extend consent expiry');
 select lives_ok($$update public.consents set expires_at = now() where id = '00000000-0000-0000-0000-000000002001'$$, 'guardian may revoke by shortening expiry');
-select is((select expires_at <= now() from public.consents where id = '00000000-0000-0000-0000-000000002001'), true, 'revoked consent is shortened');
+select is((select expires_at <= clock_timestamp() from public.consents where id = '00000000-0000-0000-0000-000000002001'), true, 'revoked consent is shortened');
 select pg_temp.set_actor('00000000-0000-0000-0000-000000000201');
 select throws_ok($$insert into public.consents (child_id, guardian_id, specialist_id, scope, signed_at, expires_at, evidence_path, ethics_ref)
   values ('00000000-0000-0000-0000-000000001001', '00000000-0000-0000-0000-000000000101', '00000000-0000-0000-0000-000000000201', 'assessment', now(), now() + interval '1 day', 'x', 'e')$$, NULL::text, NULL::text, 'specialist cannot sign guardian consent');
@@ -218,13 +236,13 @@ alter table public.consents disable trigger guard_consent;
 update public.consents set expires_at = now() + interval '30 days' where id = '00000000-0000-0000-0000-000000002001';
 alter table public.consents enable trigger guard_consent;
 
--- A guardian cannot run, and an examiner cannot create sessions.  Examiner
--- access is limited to the explicitly assigned stage0 session.
+-- A guardian cannot run sessions. An examiner can create only their own
+-- Stage 0 session; access remains limited to explicitly assigned rows.
 select pg_temp.set_actor('00000000-0000-0000-0000-000000000101');
 set local role authenticated;
 select throws_ok($$insert into public.sessions (child_id, type, run_by) values ('00000000-0000-0000-0000-000000001001', 'practice', '00000000-0000-0000-0000-000000000101')$$, NULL::text, NULL::text, 'guardian cannot run a session');
 select pg_temp.set_actor('00000000-0000-0000-0000-000000000301');
-select throws_ok($$insert into public.sessions (child_id, type, run_by) values ('00000000-0000-0000-0000-000000001001', 'stage0', '00000000-0000-0000-0000-000000000301')$$, NULL::text, NULL::text, 'examiner cannot insert sessions');
+select lives_ok($$insert into public.sessions (child_id, type, run_by) values ('00000000-0000-0000-0000-000000001001', 'stage0', '00000000-0000-0000-0000-000000000301')$$, 'examiner can insert their own Stage 0 session');
 select is((select count(*)::int from public.sessions where id = '00000000-0000-0000-0000-000000003003'), 1, 'assigned examiner sees own stage0 session');
 select is((select count(*)::int from public.sessions where id = '00000000-0000-0000-0000-000000003001'), 0, 'examiner cannot see unassigned session');
 

@@ -78,6 +78,9 @@ values
    '11111111-1111-4111-8111-111111111111', '22222222-2222-4222-8222-222222222222', true)
 on conflict (id) do nothing;
 
+-- These rows model historical fixtures. Application inserts are server-timestamped
+-- by guard_consent; this privileged fixture keeps the explicit historical dates.
+alter table public.consents disable trigger guard_consent;
 insert into public.consents
   (id, child_id, guardian_id, specialist_id, scope, signed_at, expires_at, evidence_path, ethics_ref)
 values
@@ -91,9 +94,10 @@ on conflict (id) do update
 set expires_at = excluded.expires_at,
     evidence_path = excluded.evidence_path,
     ethics_ref = excluded.ethics_ref;
+alter table public.consents enable trigger guard_consent;
 
--- Session rows are created through the assigned specialist's authenticated claim
--- so guard_session checks assignment and current consent. Historical start
+-- The first historical row is a specialist-run assessment; the second is an
+-- examiner-run Stage 0 row. Historical start
 -- timestamps are then installed only through a privileged, narrowly scoped
 -- trigger disable; lifecycle fields remain guard-controlled.
 select pg_temp.set_actor('22222222-2222-4222-8222-222222222222');
@@ -101,9 +105,11 @@ set local role authenticated;
 insert into public.sessions (id, child_id, type, status, started_at, ended_at, run_by)
 values
   ('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb', 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
-   'stage0', 'in_progress', now(), null, '22222222-2222-4222-8222-222222222222'),
-  ('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1', 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
-   'stage0', 'in_progress', now(), null, '33333333-3333-4333-8333-333333333333');
+   'assessment', 'in_progress', now(), null, '22222222-2222-4222-8222-222222222222');
+select pg_temp.set_actor('33333333-3333-4333-8333-333333333333');
+insert into public.sessions (id, child_id, type, status, started_at, ended_at, run_by)
+values ('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1', 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
+        'stage0', 'in_progress', now(), null, '33333333-3333-4333-8333-333333333333');
 reset role;
 alter table public.sessions disable trigger guard_session;
 update public.sessions
@@ -239,9 +245,15 @@ select is(
   '2027-12-31T00:00:00Z'::timestamptz,
   'valid research consent extends the default deadline'
 );
+-- This is a historical fixture timestamp. Application revocation is intentionally
+-- server-clocked by guard_consent; preserve the explicit historical date only in
+-- this privileged fixture setup.
+reset role;
+alter table public.consents disable trigger guard_consent;
 update public.consents
 set expires_at = '2026-01-20T00:00:00Z'
 where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaa02';
+alter table public.consents enable trigger guard_consent;
 select is(
   basira_private.audio_retention_deadline('cccccccc-cccc-4ccc-8ccc-cccccccccccd', '2026-02-01T00:00:00Z'),
   '2026-01-31T00:00:00Z'::timestamptz,

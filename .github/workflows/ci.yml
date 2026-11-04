@@ -71,7 +71,7 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: End-to-end tests (including B11 Arabic report/PDF route)
         working-directory: web
-        run: npm run test:e2e
+        run: flock -x /tmp/basira-browser-tests.lock npm run test:e2e
 
   database:
     runs-on: ubuntu-latest
@@ -92,23 +92,23 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y postgresql-client
       - name: Start Supabase local stack
         working-directory: supabase
-        run: npm start
+        run: flock -x /tmp/basira-supabase-tests.lock npm start
       - name: Reset local database with seed
         working-directory: supabase
-        run: npm run reset
+        run: flock -x /tmp/basira-supabase-tests.lock npm run reset
       - name: Run pgTAP database tests
         working-directory: supabase
-        run: npm run test:db
+        run: flock -x /tmp/basira-supabase-tests.lock npm run test:db
       - name: Lint database functions
         working-directory: supabase
-        run: npx supabase db lint --local --level error --workdir ..
+        run: flock -x /tmp/basira-supabase-tests.lock npx supabase db lint --local --level error --workdir ..
       - name: Run database tooling and cleanup unit tests
         working-directory: supabase
         run: npm run test:unit
       - name: Test live Storage deletion and approval policies
         working-directory: supabase
-        run: npm run test:integration
+        run: flock -x /tmp/basira-supabase-tests.lock npm run test:integration
       - name: Stop Supabase local stack
         if: ${{ always() }}
         working-directory: supabase
-        run: npm run stop
+        run: flock -x /tmp/basira-supabase-tests.lock npm run stop

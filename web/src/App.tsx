@@ -14,6 +14,8 @@ import { ReviewWorkspace } from './review/ReviewWorkspace'
 import { ProgressWorkspace } from './learning-map/ProgressWorkspace'
 import { GuardianReportsWorkspace } from './parent-report/GuardianReportsWorkspace'
 import { ParentReportPrintRoute } from './parent-report/ParentReportPrintRoute'
+import { ConsentWorkspace } from './stage0/ConsentWorkspace'
+import { Stage0Workspace } from './stage0/Stage0Workspace'
 
 const authMessages: Record<AuthIssue, MessageKey> = {
   configuration: 'authConfiguration',
@@ -167,6 +169,14 @@ function OAuthCallback({ role }: { role: AppRole | null }) {
 function Workspace({ title, description }: { title: MessageKey; description: MessageKey }) {
   const { t } = useI18n()
   const assessment = useAssessment()
+  if (title === 'examinerTitle') return <>
+    <section className="intro" aria-labelledby="workspace-title">
+      <p className="status-note">{t('scaffoldBadge')}</p>
+      <h1 id="workspace-title">{t(title)}</h1>
+      <p className="lead">{t(description)}</p>
+    </section>
+    <Stage0Workspace />
+  </>
   if (title === 'specialistTitle') return <>
     {assessment ? <SpecialistAssessmentPanel /> : (
       <section className="intro" aria-labelledby="workspace-title">
@@ -257,6 +267,11 @@ export function AppRoutes() {
                 <Workspace title="examinerTitle" description="examinerDescription" />
               </RequireRole>
             } />
+            <Route path="/examiner/stage0" element={
+              <RequireRole role={role} allowed={['examiner']}>
+                <Stage0Workspace />
+              </RequireRole>
+            } />
             <Route path="/guardian" element={
               <RequireRole role={role} allowed={['guardian']}>
                 <Workspace title="guardianTitle" description="guardianDescription" />
@@ -265,6 +280,11 @@ export function AppRoutes() {
             <Route path="/guardian/reports/:reportId/print" element={
               <RequireRole role={role} allowed={['guardian']}>
                 <ParentReportPrintRoute />
+              </RequireRole>
+            } />
+            <Route path="/guardian/consent" element={
+              <RequireRole role={role} allowed={['guardian']}>
+                <ConsentWorkspace />
               </RequireRole>
             } />
             <Route path="/admin" element={
