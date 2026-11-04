@@ -62,7 +62,7 @@ jobs:
         run: npm run lint
       - name: Unit tests
         working-directory: web
-        run: npm test
+        run: npm test -- --maxWorkers=1
       - name: Build
         working-directory: web
         run: npm run build
@@ -72,6 +72,9 @@ jobs:
       - name: End-to-end tests (including B11 Arabic report/PDF route)
         working-directory: web
         run: flock -x /tmp/basira-browser-tests.lock npm run test:e2e
+      - name: Teach browser cases
+        working-directory: web
+        run: flock -x /tmp/basira-browser-tests.lock npm run test:e2e -- --project=mocked-auth-sdk e2e/teach.spec.ts
 
   database:
     runs-on: ubuntu-latest
