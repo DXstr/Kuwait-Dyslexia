@@ -63,8 +63,16 @@ export function createAssessmentRepository(client: SupabaseClient | null) {
     },
 
     async readAssessmentConsent(childId: string, guard?: Guard): Promise<AssessmentConsent> {
+      return this.readConsent(childId, 'assessment', guard)
+    },
+
+    async readPracticeConsent(childId: string, guard?: Guard): Promise<AssessmentConsent> {
+      return this.readConsent(childId, 'practice', guard)
+    },
+
+    async readConsent(childId: string, scope: 'assessment' | 'practice', guard?: Guard): Promise<AssessmentConsent> {
       guard?.()
-      const response = await requireClient().from('consents').select('signed_at, expires_at').eq('child_id', childId).eq('scope', 'assessment').order('expires_at', { ascending: false }).limit(1).maybeSingle()
+      const response = await requireClient().from('consents').select('signed_at, expires_at').eq('child_id', childId).eq('scope', scope).order('expires_at', { ascending: false }).limit(1).maybeSingle()
       guard?.()
       if (response.error) throw repositoryError(response.error)
       const row = response.data as RepositoryConsentRow | null
@@ -72,9 +80,9 @@ export function createAssessmentRepository(client: SupabaseClient | null) {
       return { signedAt: row?.signed_at ?? '', expiresAt: row?.expires_at ?? '', valid }
     },
 
-    async createSession(childId: string, runBy: string, guard?: Guard): Promise<RepositorySessionRow> {
+    async createSession(childId: string, runBy: string, type: 'assessment' | 'practice' = 'assessment', guard?: Guard): Promise<RepositorySessionRow> {
       guard?.()
-      const response = await requireClient().from('sessions').insert({ child_id: childId, type: 'assessment', status: 'in_progress', run_by: runBy }).select('id, child_id, started_at, status').single()
+      const response = await requireClient().from('sessions').insert({ child_id: childId, type, status: 'in_progress', run_by: runBy }).select('id, child_id, started_at, status').single()
       guard?.()
       if (response.error) throw repositoryError(response.error)
       const row = response.data as RepositorySessionRow
