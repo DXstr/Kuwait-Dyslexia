@@ -19,6 +19,8 @@ import { ParentReportProvider } from './parent-report/ParentReportProvider'
 import { createParentReportRepository } from './parent-report/repository'
 import { ProbeProvider } from './prove/ProbeProvider'
 import { createProbeRuntime } from './prove/runtime'
+import { TeachContext } from './teach/context'
+import { createTeachRepository } from './teach/repository'
 import './styles.css'
 
 const root = document.getElementById('root')
@@ -31,9 +33,11 @@ const review = { repository: createReviewRepository(runtime.client, runtime.cont
 const learningMapRepository = createLearningMapRepository(runtime.client, runtime.controller)
 const parentReport = { repository: createParentReportRepository(runtime.client, runtime.controller) }
 const probe = createProbeRuntime(runtime.client, runtime.controller, scorer.getClient())
+const teachRepository = createTeachRepository(runtime.client, runtime.controller)
 import.meta.hot?.dispose(() => {
   parentReport.repository.dispose()
   probe.dispose()
+  teachRepository.dispose()
   learningMapRepository.dispose()
   review.repository.dispose()
   assessment.dispose()
@@ -50,9 +54,11 @@ createRoot(root).render(
             <ProbeProvider runtime={probe}>
               <LearningMapProvider repository={learningMapRepository}>
                 <ParentReportProvider access={parentReport}>
-                  <BrowserRouter>
-                    <AppRoutes />
-                  </BrowserRouter>
+                  <TeachContext.Provider value={teachRepository}>
+                    <BrowserRouter>
+                      <AppRoutes />
+                    </BrowserRouter>
+                  </TeachContext.Provider>
                 </ParentReportProvider>
               </LearningMapProvider>
             </ProbeProvider>

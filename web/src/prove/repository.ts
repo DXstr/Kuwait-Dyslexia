@@ -20,7 +20,7 @@ export function createProbeRepository(client: SupabaseClient | null): ProbeRepos
   const base = createAssessmentRepository(client)
   return {
     listAssignedChildren: base.listAssignedChildren,
-    readAssessmentConsent: base.readAssessmentConsent,
+    readAssessmentConsent: base.readAssessmentConsent.bind(base),
     insertResult: base.insertResult,
     uploadAudio: base.uploadAudio,
     completeSession: base.completeSession,
