@@ -1,0 +1,83 @@
+name: Supabase keep-alive
+
+on:
+  # Scheduled workflows run only from the repository's default branch. Keep this
+  # opt-in until the operator enables the repository variable there.
+  schedule:
+    - cron: '17 3 */3 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: supabase-keep-alive
+  cancel-in-progress: true
+
+jobs:
+  database-activity:
+    # The schedule is deliberately inert until the operator enables it in the
+    # default branch's repository variables; this branch does not enable it.
+    if: ${{ github.ref == 'refs/heads/main' && vars.ENABLE_SUPABASE_KEEP_ALIVE == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_PUBLIC_KEY: ${{ secrets.SUPABASE_PUBLIC_KEY }}
+    steps:
+      - name: Validate public endpoint configuration
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${SUPABASE_URL}" || -z "${SUPABASE_PUBLIC_KEY}" ]]; then
+            echo 'SUPABASE_URL and SUPABASE_PUBLIC_KEY repository secrets are required.' >&2
+            exit 1
+          fi
+          if [[ ! "${SUPABASE_URL}" =~ ^https://[^/?#]+$ ]]; then
+            echo 'SUPABASE_URL must be an HTTPS origin without a path, query, or fragment.' >&2
+            exit 1
+          fi
+          case "${SUPABASE_PUBLIC_KEY}" in
+            sb_publishable_*)
+              ;;
+            sb_secret_*|service_role*|*service_role*)
+              echo 'The keep-alive accepts only a publishable key or legacy anon JWT, never a secret/service-role key.' >&2
+              exit 1
+              ;;
+            *.*.*)
+              # Legacy Supabase anon keys are JWTs. Do not decode or print them.
+              ;;
+            *)
+              echo 'SUPABASE_PUBLIC_KEY must be an sb_publishable_ key or legacy anon JWT.' >&2
+              exit 1
+              ;;
+          esac
+
+      - name: Record constant database activity
+        shell: bash
+        run: |
+          set -euo pipefail
+          endpoint="${SUPABASE_URL%/}/rest/v1/rpc/basira_health_ping"
+          body_file="$(mktemp)"
+          trap 'rm -f "${body_file}"' EXIT
+          status="$(curl \
+            --fail \
+            --silent \
+            --show-error \
+            --retry 3 \
+            --retry-delay 2 \
+            --max-time 20 \
+            --output "${body_file}" \
+            --write-out '%{http_code}' \
+            --header "apikey: ${SUPABASE_PUBLIC_KEY}" \
+            --header 'Accept: application/json' \
+            "${endpoint}")"
+          if [[ "${status}" != '200' ]]; then
+            echo "Supabase RPC returned HTTP ${status}." >&2
+            exit 1
+          fi
+          if [[ "$(<"${body_file}")" != '1' ]]; then
+            echo 'Supabase RPC returned an unexpected scalar response.' >&2
+            exit 1
+          fi
+          echo 'Supabase keep-alive RPC returned the expected scalar response.'

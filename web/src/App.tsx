@@ -14,6 +14,7 @@ import { ReviewWorkspace } from './review/ReviewWorkspace'
 import { ProgressWorkspace } from './learning-map/ProgressWorkspace'
 import { GuardianReportsWorkspace } from './parent-report/GuardianReportsWorkspace'
 import { ParentReportPrintRoute } from './parent-report/ParentReportPrintRoute'
+import { HealthPage } from './hosting/HealthPage'
 
 const authMessages: Record<AuthIssue, MessageKey> = {
   configuration: 'authConfiguration',
@@ -243,9 +244,10 @@ export function AppRoutes() {
   return (
     <I18nProvider allowEnglish={canUseEnglish(role, pathname)}>
       <Shell role={role}>
-        {pending ? <AuthProgress /> : (
+        {pending && pathname !== '/health' ? <AuthProgress /> : (
           <Routes>
             <Route path="/" element={role ? <Navigate to={roleHome[role]} replace /> : <Home />} />
+            <Route path="/health" element={<HealthPage />} />
             <Route path="/auth/callback" element={<OAuthCallback role={role} />} />
             <Route path="/specialist" element={
               <RequireRole role={role} allowed={['specialist']}>

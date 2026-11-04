@@ -77,6 +77,9 @@ a { color: var(--teal); text-underline-offset: 0.25em; }
 main { min-block-size: 65vh; padding-block-end: 2rem; }
 main:focus { outline: none; }
 .intro { max-inline-size: 48rem; padding-block: 3rem 2rem; }
+.health-page { max-inline-size: 52rem; padding-block: 4rem 3rem; }
+.health-status { max-inline-size: 48rem; margin-block: 1.5rem 2rem; padding: 1.5rem 1.75rem; border: 1px solid var(--border); border-inline-start: 5px solid var(--teal); border-radius: 1rem; background: var(--paper); }
+.health-status p { color: var(--muted); }
 .eyebrow { color: var(--teal); font-weight: 600; margin-block: 0 0.75rem; }
 h1, h2, p { overflow-wrap: anywhere; }
 h1 { margin-block: 0 1.25rem; font-size: clamp(2.3rem, 4.5vw, 3.4rem); line-height: 1.65; font-weight: 700; }

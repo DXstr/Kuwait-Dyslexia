@@ -56,6 +56,13 @@ describe('Arabic-first scaffold', () => {
     expect(screen.getByRole('link', { name: ar.backHome })).toHaveAttribute('href', '/')
   })
 
+  it('keeps the public health page available while auth is loading', () => {
+    renderAuth('/health', createTestAuth({ status: 'loading', role: null, issue: null }))
+    expect(screen.getByRole('heading', { name: ar.healthPageTitle })).toBeVisible()
+    expect(screen.queryByRole('heading', { name: ar.authLoadingTitle })).not.toBeInTheDocument()
+    expect(document.documentElement).toHaveAttribute('dir', 'rtl')
+  })
+
   it('does not accept role or language from browser storage or the URL', async () => {
     localStorage.setItem('app_role', 'specialist')
     localStorage.setItem('locale', 'en')
