@@ -25,6 +25,7 @@ MARKS = {FATHA, KASRA, DAMMA, SUKUN, SHADDA, TANWIN_FATH, TANWIN_DAMM, TANWIN_KA
 VOWEL_OF = {FATHA: "a", KASRA: "i", DAMMA: "u", TANWIN_FATH: "a", TANWIN_DAMM: "u", TANWIN_KASR: "i"}
 TANWIN = {TANWIN_FATH, TANWIN_DAMM, TANWIN_KASR}
 HAMZA_FORMS = set("ءأإؤئ")
+NOT_READ_ALOUD = str.maketrans("", "", "،.؟!؛/")
 MADDA_ALIF = "آ"
 TAA_MARBUTA, ALIF, ALIF_MAQSURA, WAW, YAA, LAAM = "ة", "ا", "ى", "و", "ي", "ل"
 SUN_LETTERS = {"taa", "thaa", "daal", "dhaal", "raa", "zaay", "siin", "shiin", "saad", "daad", "ttaa", "zhaa", "laam",
@@ -58,6 +59,11 @@ def _split_letters(word: str) -> list[tuple[str, set[str]]]:
         else:
             out.append((ch, set()))
     return out
+
+
+def reading_text(text: str) -> str:
+    """What is read aloud from an item's display text: no punctuation, no "/" between the words of a minimal pair."""
+    return " ".join(text.translate(NOT_READ_ALOUD).split())
 
 
 def _vowel_marks(marks: set[str]) -> bool:
