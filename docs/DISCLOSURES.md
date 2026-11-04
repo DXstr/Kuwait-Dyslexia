@@ -62,6 +62,7 @@ Required by the competition and by non-negotiable 10. Add a row in the same PR t
 | gradio 5.49.1 | Required by the Space SDK; one-page API notice at `/ui`, not used for scoring | Apache-2.0 | A13 | 2026-11-04 |
 | spaces 0.51.3 | ZeroGPU runtime on the Space (includes bundled third-party code under its own licences) | Apache-2.0 | A13 | 2026-11-04 |
 | huggingface_hub | Downloads the model files (`model` extra); uploads the Space from the deploy script | Apache-2.0 | A3, A13 | 2026-11-04 |
+| B12 Stage 0/consent browser coverage | Synthetic loopback Playwright tests only; uses the existing `@playwright/test` dependency and no external service, child data, browser microphone or native-browser interaction | Apache-2.0 (existing dependency; no new dependency) | B12 | 2026-11-04 |
 
 
 ## B9 Teach disclosure

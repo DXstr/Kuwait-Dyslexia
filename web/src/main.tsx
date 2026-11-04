@@ -17,6 +17,8 @@ import { createLearningMapRepository } from './learning-map/repository'
 import { LearningMapProvider } from './learning-map/LearningMapProvider'
 import { ParentReportProvider } from './parent-report/ParentReportProvider'
 import { createParentReportRepository } from './parent-report/repository'
+import { Stage0Provider } from './stage0/Stage0Provider'
+import { createStage0Repository } from './stage0/repository'
 import { ProbeProvider } from './prove/ProbeProvider'
 import { createProbeRuntime } from './prove/runtime'
 import { TeachContext } from './teach/context'
@@ -32,11 +34,13 @@ const assessment = createAssessmentRuntime(runtime.client, runtime.controller, s
 const review = { repository: createReviewRepository(runtime.client, runtime.controller), scorer: scorer.getClient() }
 const learningMapRepository = createLearningMapRepository(runtime.client, runtime.controller)
 const parentReport = { repository: createParentReportRepository(runtime.client, runtime.controller) }
+const stage0Repository = createStage0Repository(runtime.client, runtime.controller)
 const probe = createProbeRuntime(runtime.client, runtime.controller, scorer.getClient())
 const teachRepository = createTeachRepository(runtime.client, runtime.controller)
 import.meta.hot?.dispose(() => {
   parentReport.repository.dispose()
   probe.dispose()
+  stage0Repository.dispose()
   teachRepository.dispose()
   learningMapRepository.dispose()
   review.repository.dispose()
@@ -53,13 +57,15 @@ createRoot(root).render(
           <ReviewProvider access={review}>
             <ProbeProvider runtime={probe}>
               <LearningMapProvider repository={learningMapRepository}>
-                <ParentReportProvider access={parentReport}>
-                  <TeachContext.Provider value={teachRepository}>
-                    <BrowserRouter>
-                      <AppRoutes />
-                    </BrowserRouter>
-                  </TeachContext.Provider>
-                </ParentReportProvider>
+                <Stage0Provider repository={stage0Repository}>
+                  <ParentReportProvider access={parentReport}>
+                    <TeachContext.Provider value={teachRepository}>
+                      <BrowserRouter>
+                        <AppRoutes />
+                      </BrowserRouter>
+                    </TeachContext.Provider>
+                  </ParentReportProvider>
+                </Stage0Provider>
               </LearningMapProvider>
             </ProbeProvider>
           </ReviewProvider>

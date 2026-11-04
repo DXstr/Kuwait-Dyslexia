@@ -127,5 +127,7 @@ test('guardian navigation cannot show learning-map metrics or read private progr
   await page.goto('/specialist')
   await expect(page.getByRole('heading', { name: ar.unavailableTitle })).toBeVisible()
   await expect(page.locator('.learning-map-workspace')).toHaveCount(0)
-  expect(privateReads).toEqual([])
+  // B12's guardian consent workspace may read the guardian's assigned child
+  // profile; it must never read specialist-only progress tables.
+  expect(privateReads.filter((path) => !path.endsWith('/children'))).toEqual([])
 })

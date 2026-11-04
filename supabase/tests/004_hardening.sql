@@ -14,9 +14,12 @@ insert into public.consents(child_id,guardian_id,specialist_id,scope,signed_at,e
 values('00000000-0000-4000-a000-000000000010','00000000-0000-4000-a000-000000000004','00000000-0000-4000-a000-000000000002','assessment',now()-interval '1 day',now()+interval '1 day','synthetic-test-evidence-only');
 select pg_temp.actor('00000000-0000-4000-a000-000000000002');
 set local role authenticated;
-insert into public.sessions(id,child_id,type,run_by) values
-('00000000-0000-4000-b000-000000000001','00000000-0000-4000-a000-000000000010','assessment','00000000-0000-4000-a000-000000000002'),
-('00000000-0000-4000-b000-000000000002','00000000-0000-4000-a000-000000000010','stage0','00000000-0000-4000-a000-000000000003');
+insert into public.sessions(id,child_id,type,run_by)
+values ('00000000-0000-4000-b000-000000000001','00000000-0000-4000-a000-000000000010','assessment','00000000-0000-4000-a000-000000000002');
+select pg_temp.actor('00000000-0000-4000-a000-000000000003');
+insert into public.sessions(id,child_id,type,run_by)
+values ('00000000-0000-4000-b000-000000000002','00000000-0000-4000-a000-000000000010','stage0','00000000-0000-4000-a000-000000000003');
+select pg_temp.actor('00000000-0000-4000-a000-000000000002');
 
 select throws_ok($$insert into public.plans(child_id,skill_ids,item_ids) values('00000000-0000-4000-a000-000000000010',array['ls.not_a_real_skill'],array['test-item'])$$,'23514',null,'plans reject IDs absent from canonical skill graph');
 select throws_ok($$insert into public.skill_mastery(child_id,skill_id,mastery,source_session_id) values('00000000-0000-4000-a000-000000000010','ls.not_a_real_skill',0.5,'00000000-0000-4000-b000-000000000001')$$,'23514',null,'mastery rejects IDs absent from canonical skill graph');
@@ -63,7 +66,7 @@ values('00000000-0000-4000-a000-000000000011','00000000-0000-4000-a000-000000000
 select pg_temp.actor('00000000-0000-4000-a000-000000000005');
 set local role authenticated;
 select throws_ok($$insert into public.sessions(child_id,type,run_by) values('00000000-0000-4000-a000-000000000011','assessment','00000000-0000-4000-a000-000000000005')$$,'23514',null,'research consent cannot authorize assessment');
-select throws_ok($$insert into public.sessions(child_id,type,run_by) values('00000000-0000-4000-a000-000000000011','stage0','00000000-0000-4000-a000-000000000005')$$,'23514',null,'research consent cannot authorize Stage 0');
+select throws_ok($$insert into public.sessions(child_id,type,run_by) values('00000000-0000-4000-a000-000000000011','stage0','00000000-0000-4000-a000-000000000005')$$,'42501',null,'only an authenticated examiner can start Stage 0');
 select throws_ok($$insert into public.sessions(child_id,type,run_by) values('00000000-0000-4000-a000-000000000011','probe','00000000-0000-4000-a000-000000000005')$$,'23514',null,'research consent cannot authorize probe');
 select throws_ok($$insert into public.sessions(child_id,type,run_by) values('00000000-0000-4000-a000-000000000011','practice','00000000-0000-4000-a000-000000000005')$$,'23514',null,'research consent cannot authorize practice');
 
