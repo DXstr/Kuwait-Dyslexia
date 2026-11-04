@@ -1,0 +1,176 @@
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useI18n } from '../i18n/context'
+import { useStage0RepositoryState } from './context'
+import type { GuardianConsent, Stage0Child } from './repository'
+import { Stage0RepositoryError } from './repository'
+
+function defaultExpiry() {
+  const value = new Date()
+  value.setFullYear(value.getFullYear() + 1)
+  return value.toISOString().slice(0, 10)
+}
+function expiryIso(date: string) {
+  return `${date}T23:59:59.999Z`
+}
+function formatDate(value: string, locale: string) {
+  const parsed = new Date(value)
+  return Number.isFinite(parsed.valueOf()) ? new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'ar-KW', { dateStyle: 'medium', timeStyle: 'short' }).format(parsed) : value
+}
+
+export function ConsentWorkspace() {
+  const { t, locale } = useI18n()
+  const { repository, version, readable } = useStage0RepositoryState()
+  const [children, setChildren] = useState<Stage0Child[]>([])
+  const [consents, setConsents] = useState<Record<string, GuardianConsent[]>>({})
+  const [loadedVersion, setLoadedVersion] = useState<number | null>(null)
+  const [childId, setChildId] = useState('')
+  const [evidencePath, setEvidencePath] = useState('')
+  const [acknowledged, setAcknowledged] = useState(false)
+  const [expiresOn, setExpiresOn] = useState(defaultExpiry)
+  const [loading, setLoading] = useState(Boolean(repository && readable))
+  const [busy, setBusy] = useState(false)
+  const [error, setError] = useState(!repository)
+  const [notice, setNotice] = useState<'saved' | 'revoked' | null>(null)
+
+  const isCurrent = useCallback(() => {
+    const currentVersion = repository?.getVersion?.() ?? version
+    return Boolean(repository && readable && currentVersion === version)
+  }, [readable, repository, version])
+
+  const load = useCallback(async (signal?: AbortSignal) => {
+    setLoadedVersion(null)
+    if (!repository || !readable) {
+      setChildren([])
+      setConsents({})
+      setChildId('')
+      setLoading(false)
+      setError(true)
+      return
+    }
+    setLoading(true)
+    setError(false)
+    const requestVersion = version
+    try {
+      const rows = await repository.listGuardianChildren({ signal })
+      if (signal?.aborted || !isCurrent() || (repository.getVersion?.() ?? requestVersion) !== requestVersion) return
+      const entries = await Promise.all(rows.map(async (child) => [child.id, await repository.listConsents(child.id, 'assessment', { signal })] as const))
+      if (signal?.aborted || !isCurrent() || (repository.getVersion?.() ?? requestVersion) !== requestVersion) return
+      setChildren(rows)
+      setConsents(Object.fromEntries(entries))
+      setChildId((current) => rows.some((child) => child.id === current) ? current : rows[0]?.id || '')
+      setLoadedVersion(requestVersion)
+    } catch (caught) {
+      if (!signal?.aborted && isCurrent()) setError(caught instanceof Stage0RepositoryError && caught.issue === 'cancelled' ? false : true)
+    } finally {
+      if (!signal?.aborted && isCurrent()) setLoading(false)
+    }
+  }, [isCurrent, readable, repository, version])
+
+  useEffect(() => {
+    const controller = new AbortController()
+    const timer = setTimeout(() => { void load(controller.signal) }, 0)
+    return () => {
+      clearTimeout(timer)
+      controller.abort()
+    }
+  }, [load])
+
+  const hasCurrentData = readable && loadedVersion === version
+  const selectedChild = useMemo(() => hasCurrentData ? children.find((child) => child.id === childId) ?? null : null, [children, childId, hasCurrentData])
+  const currentConsent = (selectedChild ? consents[selectedChild.id] ?? [] : []).find((consent) => consent.valid)
+  const submit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    if (!repository || !selectedChild || !evidencePath.trim() || !expiresOn || !acknowledged || !isCurrent()) return
+    const operationVersion = version
+    setBusy(true)
+    setNotice(null)
+    setError(false)
+    try {
+      const consent = await repository.createConsent(selectedChild, evidencePath, expiryIso(expiresOn))
+      if (!isCurrent() || (repository.getVersion?.() ?? operationVersion) !== operationVersion) return
+      setConsents((current) => ({ ...current, [selectedChild.id]: [consent, ...(current[selectedChild.id] ?? [])] }))
+      setEvidencePath('')
+      setAcknowledged(false)
+      setNotice('saved')
+    } catch (caught) {
+      if (isCurrent() && !(caught instanceof Stage0RepositoryError && caught.issue === 'cancelled')) setError(true)
+      setNotice(null)
+    } finally {
+      if (isCurrent()) setBusy(false)
+    }
+  }
+  const revoke = async () => {
+    if (!repository || !currentConsent || !isCurrent()) return
+    const operationVersion = version
+    setBusy(true)
+    setError(false)
+    setNotice(null)
+    try {
+      const revoked = await repository.revokeConsent(currentConsent.id)
+      if (!isCurrent() || (repository.getVersion?.() ?? operationVersion) !== operationVersion) return
+      setConsents((current) => ({ ...current, [revoked.child_id]: (current[revoked.child_id] ?? []).map((consent) => consent.id === revoked.id ? revoked : consent) }))
+      setNotice('revoked')
+    } catch {
+      if (isCurrent()) setError(true)
+    } finally {
+      if (isCurrent()) setBusy(false)
+    }
+  }
+
+  return (
+    <section className="consent-panel" aria-labelledby="consent-title">
+      <div className="consent-intro">
+        <p className="eyebrow">{t('consentGuardianOnly')}</p>
+        <h2 id="consent-title">{t('consentTitle')}</h2>
+        <p>{t('consentDescription')}</p>
+      </div>
+      {!repository && <p className="professional-notice" role="alert">{t('consentLoadError')}</p>}
+      {loading && repository && <p role="status">{t('assessmentLoading')}</p>}
+      {error && repository && <p className="professional-notice" role="alert">{t(notice === 'revoked' ? 'consentRevokeError' : notice === 'saved' ? 'consentSaveError' : 'consentLoadError')}</p>}
+      {!loading && hasCurrentData && children.length === 0 && <p>{t('consentNoChildren')}</p>}
+      {!loading && hasCurrentData && children.length > 0 && (
+        <>
+          <label className="assessment-field">
+            <span>{t('consentChooseChild')}</span>
+            <select value={childId} onChange={(event) => { setChildId(event.target.value); setNotice(null) }}>
+              <option value="">{t('stage0ChooseChildPlaceholder')}</option>
+              {children.map((child) => <option key={child.id} value={child.id}>{child.first_name}{child.is_demo ? ` — ${t('assessmentDemoLabel')}` : ''}</option>)}
+            </select>
+          </label>
+          {selectedChild?.is_demo && <p className="fixture-notice">{t('consentSyntheticWarning')}</p>}
+          {currentConsent && (
+            <section className="consent-current" aria-labelledby="consent-current-title">
+              <h3 id="consent-current-title">{t('consentCurrent')}</h3>
+              <dl>
+                <div><dt>{t('consentSignedAt')}</dt><dd>{formatDate(currentConsent.signed_at, locale)}</dd></div>
+                <div><dt>{t('consentExpiresAt')}</dt><dd>{formatDate(currentConsent.expires_at, locale)}</dd></div>
+                <div><dt>{t('consentEvidence')}</dt><dd>{currentConsent.evidence_path}</dd></div>
+              </dl>
+              <button className="action-button" type="button" disabled={busy} onClick={() => { void revoke() }}>{t('consentRevoke')}</button>
+            </section>
+          )}
+          <form onSubmit={(event) => { void submit(event) }}>
+            <label className="assessment-field">
+              <span>{t('consentEvidenceLabel')}</span>
+              <input required maxLength={500} value={evidencePath} placeholder={t('consentEvidencePlaceholder')} onChange={(event) => setEvidencePath(event.target.value)} />
+              <small>{t('consentEvidenceHelp')}</small>
+            </label>
+            <label className="assessment-field">
+              <span>{t('consentExpiresLabel')}</span>
+              <input required type="date" min={new Date().toISOString().slice(0, 10)} value={expiresOn} onChange={(event) => setExpiresOn(event.target.value)} />
+            </label>
+            <label className="assessment-field">
+              <span><input type="checkbox" checked={acknowledged} onChange={(event) => setAcknowledged(event.target.checked)} /> {t('consentAcknowledgement')}</span>
+            </label>
+            <button className="action-button" type="submit" disabled={busy || !selectedChild || !evidencePath.trim() || !expiresOn || !acknowledged}>
+              {busy ? t('consentCapturing') : t('consentCapture')}
+            </button>
+          </form>
+          {notice === 'saved' && <p className="professional-notice" role="status">{t('consentSaved')}</p>}
+          {notice === 'revoked' && <p className="professional-notice" role="status">{t('consentRevoked')}</p>}
+          <button className="action-button" type="button" disabled={busy} onClick={() => { void load() }}>{t('consentReload')}</button>
+        </>
+      )}
+    </section>
+  )
+}
