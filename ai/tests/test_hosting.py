@@ -68,6 +68,26 @@ def test_checker_reports_rather_than_hides_a_proxy_that_echoes_cors(server, monk
     assert "NOTE  not enforced on this host" in out and "CORS refuses a foreign origin" not in out
 
 
+def _speech_files(tmp_path):
+    clip, meta = tmp_path / "clip.wav", tmp_path / "meta.json"
+    clip.write_bytes(load("check_hosted").silence_wav())
+    meta.write_bytes((ROOT_CONTRACTS / "fixtures" / "ScoreItemRequestMeta.example.json").read_bytes())
+    return ["--speech-clip", str(clip), "--speech-meta", str(meta)]
+
+
+def test_checker_scores_a_speech_clip_and_reports_the_time(server, monkeypatch, capsys, tmp_path):
+    monkeypatch.setenv("SCORER_TEST_TOKEN", token(role="specialist").removeprefix("Bearer "))
+    assert load("check_hosted").main([server, "--wait", "10", *_speech_files(tmp_path)]) == 0
+    out = capsys.readouterr().out
+    assert "PASS  POST /score-item (speech clip)" in out and "speech clip scored in" in out
+
+
+def test_checker_fails_rather_than_skips_a_requested_speech_clip_without_a_token(server, monkeypatch, capsys, tmp_path):
+    monkeypatch.delenv("SCORER_TEST_TOKEN", raising=False)
+    assert load("check_hosted").main([server, "--wait", "10", *_speech_files(tmp_path)]) == 1
+    assert "FAIL  POST /score-item (speech clip)" in capsys.readouterr().out
+
+
 def test_docker_staging_matches_the_docker_context(tmp_path):
     load("deploy_hf_space").stage(tmp_path, "docker")
     assert (tmp_path / "Dockerfile").read_bytes() == (SCRIPTS.parent / "Dockerfile").read_bytes()
@@ -116,6 +136,7 @@ def test_generated_space_app_serves_the_unchanged_rest_api(tmp_path, monkeypatch
     fake_spaces.GPU = lambda **_: lambda fn: gpu_functions.append(fn) or fn
     monkeypatch.setitem(sys.modules, "spaces", fake_spaces)
     monkeypatch.setenv("SUPABASE_JWT_SECRET", "test-only-not-a-real-secret")
+    monkeypatch.setattr("service.app.configure_logging", lambda *_: None)  # keep pytest's own log handlers
     # app.py sets these for the Space; patch them here so they are restored for the tests that run after this one
     monkeypatch.setenv("BASIRA_CONTRACTS_DIR", str(ROOT_CONTRACTS))
     monkeypatch.setenv("BASIRA_DEVICE", "")  # records the original value so it is restored afterwards
