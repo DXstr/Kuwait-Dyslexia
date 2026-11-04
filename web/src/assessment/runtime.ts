@@ -3,7 +3,7 @@ import type { AuthController, VerifiedAuthSession } from '../auth/controller'
 import type { ScorerClient } from '../scorer/client'
 import { createAssessmentQueue } from './queue'
 import { createAssessmentRepository, AssessmentRepositoryError } from './repository'
-import type { ActiveAssessmentSession, AssessmentChild, QueueErrorCode, QueueSnapshot } from './types'
+import type { ActiveAssessmentSession, AssessmentChild, AssessmentItem, QueueErrorCode, QueueSnapshot } from './types'
 import { demoAssessmentItems } from './types'
 
 export type AssessmentRuntimeSnapshot = {
@@ -119,7 +119,7 @@ export function createAssessmentRuntime(client: SupabaseClient | null, auth: Aut
         if (!consent.valid) throw new Error('assessment: valid consent required')
         if (!child.isDemo || scorer?.mode !== 'mock') throw new Error('assessment: approved assessment material unavailable')
         guard()
-        const session = await repository.createSession(child.id, identityId, guard)
+        const session = await repository.createSession(child.id, identityId, 'assessment', guard)
         guard()
         // Clone caller-owned metadata so later panel mutations cannot alter the
         // session that has already been recorded in the database.
@@ -128,6 +128,45 @@ export function createAssessmentRuntime(client: SupabaseClient | null, auth: Aut
           child: { ...child },
           startedAt: session.started_at,
           items: [...demoAssessmentItems],
+          type: 'assessment',
+        }
+        activeOwner = identityId
+        emit()
+        return activeSession
+      })()
+      startOperation = operation.finally(() => {
+        startOperation = null
+        startingChildId = null
+      })
+      return startOperation
+    },
+    startPracticeSession(child: AssessmentChild, items: readonly AssessmentItem[]): Promise<ActiveAssessmentSession> {
+      if (activeSession && !activeSession.completed) return Promise.reject(new Error('assessment: active session already exists'))
+      if (startOperation) {
+        if (startingChildId === child.id) return startOperation
+        return Promise.reject(new Error('assessment: another session is starting'))
+      }
+
+      const identity = currentAuth().identity
+      if (!identity || !isSpecialist(identity)) return Promise.reject(new Error('assessment: specialist verification required'))
+      if (!Array.isArray(items) || items.length === 0) return Promise.reject(new Error('assessment: approved practice material required'))
+      const generation = authGeneration
+      const identityId = identity.id
+      const guard = () => { ensureIdentity(generation, identityId) }
+      startingChildId = child.id
+      const operation = (async () => {
+        const consent = await repository.readPracticeConsent(child.id, guard)
+        guard()
+        if (!consent.valid) throw new Error('assessment: valid practice consent required')
+        guard()
+        const session = await repository.createSession(child.id, identityId, 'practice', guard)
+        guard()
+        activeSession = {
+          id: session.id,
+          child: { ...child },
+          startedAt: session.started_at,
+          items: items.map((item) => ({ ...item })),
+          type: 'practice',
         }
         activeOwner = identityId
         emit()

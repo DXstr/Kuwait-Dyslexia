@@ -41,6 +41,7 @@ export type ActiveAssessmentSession = {
   child: AssessmentChild
   startedAt: string
   items: readonly AssessmentItem[]
+  type: 'assessment' | 'practice'
   completed?: boolean
 }
 

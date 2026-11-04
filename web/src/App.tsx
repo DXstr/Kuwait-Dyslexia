@@ -12,6 +12,7 @@ import { ChildAssessmentScreen, SpecialistAssessmentPanel } from './assessment/A
 import { useAssessment } from './assessment/context'
 import { ReviewWorkspace } from './review/ReviewWorkspace'
 import { ProgressWorkspace } from './learning-map/ProgressWorkspace'
+import { TeachWorkspace } from './teach/TeachWorkspace'
 
 const authMessages: Record<AuthIssue, MessageKey> = {
   configuration: 'authConfiguration',
@@ -222,7 +223,9 @@ function NotFound() {
 }
 
 function ChildRoute() {
-  return useAssessment() ? <ChildAssessmentScreen /> : <Workspace title="childTitle" description="childDescription" />
+  const assessment = useAssessment()
+  if (assessment?.activeSession?.type === 'assessment') return <ChildAssessmentScreen />
+  return <TeachWorkspace />
 }
 
 export function AppRoutes() {
