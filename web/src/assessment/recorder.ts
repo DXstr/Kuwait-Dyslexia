@@ -1,4 +1,5 @@
 import { encodeCapturedPcm } from './pcm'
+import type { ItemType } from '../contracts/basira'
 
 export type RecorderIssue = 'permission_denied' | 'unsupported' | 'cancelled' | 'device_ended' | 'empty' | 'too_long'
 
@@ -16,6 +17,16 @@ type RecorderOptions = {
   mediaDevices?: MediaDevices
   audioContextFactory?: typeof AudioContext
   onIssue?: (issue: RecorderIssue) => void
+}
+
+export const DEFAULT_RECORDING_DURATION_MS = 8_000
+export const PASSAGE_RECORDING_DURATION_MS = 15_000
+export const RECORDER_HARD_CAP_MS = 15_000
+
+export function recordingDurationMs(itemType: ItemType): number {
+  return itemType === 'passage_vowelized' || itemType === 'passage_unvowelized' || itemType === 'probe_passage'
+    ? PASSAGE_RECORDING_DURATION_MS
+    : DEFAULT_RECORDING_DURATION_MS
 }
 
 const workletSource = `
@@ -51,7 +62,7 @@ export class AudioRecorder {
 
   constructor(options: RecorderOptions = {}) {
     this.options = options
-    this.maxDurationMs = Math.min(Math.max(options.maxDurationMs ?? 8_000, 500), 15_000)
+    this.maxDurationMs = Math.min(Math.max(options.maxDurationMs ?? DEFAULT_RECORDING_DURATION_MS, 500), RECORDER_HARD_CAP_MS)
   }
 
   get isRecording() { return this.state === 'recording' }

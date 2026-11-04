@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useAuth } from '../auth/context'
 import { useAssessment } from '../assessment/context'
-import { AudioRecorder, RecorderError } from '../assessment/recorder'
+import { AudioRecorder, RecorderError, recordingDurationMs } from '../assessment/recorder'
 import type { ActiveAssessmentSession, AssessmentChild, AssessmentItem } from '../assessment/types'
 import { useI18n } from '../i18n/context'
 import type { MessageKey } from '../i18n/messages'
@@ -86,7 +86,7 @@ function PracticeSession({ session, teachItems, onFinished }: { session: ActiveA
     if (!assessment || !current || phase !== 'ready' || recorder.current || !controller.getVerifiedSession()) return
     setNotice(null)
     setPhase('starting')
-    const next = new AudioRecorder({ onIssue: () => {
+    const next = new AudioRecorder({ maxDurationMs: recordingDurationMs(current.type), onIssue: () => {
       if (!mounted.current || recorder.current !== next) return
       recorder.current = null
       setPhase('ready')

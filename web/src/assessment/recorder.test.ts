@@ -1,5 +1,12 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { AudioRecorder, RecorderError } from './recorder'
+import {
+  AudioRecorder,
+  DEFAULT_RECORDING_DURATION_MS,
+  PASSAGE_RECORDING_DURATION_MS,
+  RECORDER_HARD_CAP_MS,
+  RecorderError,
+  recordingDurationMs,
+} from './recorder'
 
 class TestTrack extends EventTarget {
   readyState = 'live'
@@ -22,7 +29,7 @@ class TestWorklet {
   disconnect = vi.fn()
   constructor() { TestWorklet.current = this }
 }
-function fixture(getUserMedia?: () => Promise<MediaStream>) {
+function fixture(getUserMedia?: () => Promise<MediaStream>, maxDurationMs = 500) {
   const track = new TestTrack()
   const stream = { getTracks: () => [track], getAudioTracks: () => [track] } as unknown as MediaStream
   vi.stubGlobal('AudioWorkletNode', TestWorklet)
@@ -31,7 +38,7 @@ function fixture(getUserMedia?: () => Promise<MediaStream>) {
   const recorder = new AudioRecorder({
     mediaDevices: { getUserMedia: getUserMedia ?? vi.fn(async () => stream) } as unknown as MediaDevices,
     audioContextFactory: TestContext as unknown as typeof AudioContext,
-    maxDurationMs: 500,
+    maxDurationMs,
     onIssue,
   })
   return { recorder, stream, track, onIssue }
@@ -40,6 +47,51 @@ function fixture(getUserMedia?: () => Promise<MediaStream>) {
 afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals() })
 
 describe('B6 microphone lifecycle (synthetic devices)', () => {
+  it.each([
+    ['passage_vowelized', PASSAGE_RECORDING_DURATION_MS],
+    ['passage_unvowelized', PASSAGE_RECORDING_DURATION_MS],
+    ['probe_passage', PASSAGE_RECORDING_DURATION_MS],
+    ['letter_sound', DEFAULT_RECORDING_DURATION_MS],
+    ['real_word', DEFAULT_RECORDING_DURATION_MS],
+    ['pseudoword', DEFAULT_RECORDING_DURATION_MS],
+    ['minimal_pair', DEFAULT_RECORDING_DURATION_MS],
+    ['vowel_tap', DEFAULT_RECORDING_DURATION_MS],
+  ] as const)('selects %s recording duration from the canonical item type', (itemType, expected) => {
+    expect(recordingDurationMs(itemType)).toBe(expected)
+  })
+
+  it('keeps the passage duration equal to the existing recorder hard cap', () => {
+    expect(PASSAGE_RECORDING_DURATION_MS).toBe(RECORDER_HARD_CAP_MS)
+  })
+
+  it.each(['passage_vowelized', 'passage_unvowelized', 'probe_passage'] as const)(
+    'keeps %s recording beyond eight seconds and stops at the fifteen-second boundary',
+    async (itemType) => {
+      vi.useFakeTimers()
+      const { recorder, track, onIssue } = fixture(undefined, recordingDurationMs(itemType))
+      await recorder.start()
+      await vi.advanceTimersByTimeAsync(DEFAULT_RECORDING_DURATION_MS)
+      expect(recorder.isRecording).toBe(true)
+      expect(onIssue).not.toHaveBeenCalled()
+      await vi.advanceTimersByTimeAsync(PASSAGE_RECORDING_DURATION_MS - DEFAULT_RECORDING_DURATION_MS - 1)
+      expect(recorder.isRecording).toBe(true)
+      await vi.advanceTimersByTimeAsync(1)
+      expect(onIssue).toHaveBeenCalledWith('too_long')
+      expect(track.stop).toHaveBeenCalledOnce()
+      await expect(recorder.stop()).rejects.toMatchObject({ issue: 'too_long' })
+    },
+  )
+
+  it('preserves the eight-second recording boundary for a real-word item', async () => {
+    vi.useFakeTimers()
+    const { recorder, track, onIssue } = fixture(undefined, recordingDurationMs('real_word'))
+    await recorder.start()
+    await vi.advanceTimersByTimeAsync(DEFAULT_RECORDING_DURATION_MS)
+    expect(onIssue).toHaveBeenCalledWith('too_long')
+    expect(track.stop).toHaveBeenCalledOnce()
+    await expect(recorder.stop()).rejects.toMatchObject({ issue: 'too_long' })
+  })
+
   it('stops a late permission response after cancellation, without opening a worklet', async () => {
     let resolve!: (value: MediaStream) => void
     const permission = new Promise<MediaStream>((done) => { resolve = done })
