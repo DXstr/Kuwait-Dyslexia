@@ -1,4 +1,5 @@
 import type { AuthController, VerifiedAuthSession } from '../auth/controller'
+import type { ScoreItemResponse } from '../contracts/basira'
 import type { ScorerClient } from '../scorer/client'
 import { ScorerClientError } from '../scorer/errors'
 import type { AssessmentRepository } from './repository'
@@ -52,7 +53,12 @@ export function createAssessmentQueue(
   repository: AssessmentRepository,
   scorer: ScorerClient | null,
   auth: AuthController,
-  options: { maxQueue?: number; maxAttempts?: number; retryBaseMs?: number } = {},
+  options: {
+    maxQueue?: number
+    maxAttempts?: number
+    retryBaseMs?: number
+    onCompleted?: (record: QueueRecord, response: ScoreItemResponse) => void
+  } = {},
 ) {
   const maxQueue = Math.min(Math.max(options.maxQueue ?? MAX_QUEUE, 1), MAX_QUEUE)
   const maxAttempts = Math.min(Math.max(options.maxAttempts ?? MAX_ATTEMPTS, 1), MAX_ATTEMPTS)
@@ -220,6 +226,7 @@ export function createAssessmentQueue(
       if (!operationIsCurrent(record, generation, identity.id)) {
         return retainAfterInvalidation()
       }
+      options.onCompleted?.(record, record.response)
       record.status = 'done'
       record.audio = new Blob()
       record.response = undefined

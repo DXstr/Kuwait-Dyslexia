@@ -4,7 +4,7 @@ import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { execFileSync } from 'node:child_process'
-import { checkValidation, generateValidation, outputPath } from '../scripts/generate-contract-validation.mjs'
+import { checkValidation, generateUpgradeValidation, generateValidation, outputPath, upgradeOutputPath } from '../scripts/generate-contract-validation.mjs'
 
 test('database report schema is deterministic and committed output matches', async () => {
   const first = await generateValidation()
@@ -14,6 +14,16 @@ test('database report schema is deterministic and committed output matches', asy
   assert.match(first, /"ParentReport"/)
   assert.match(first, /"SkillId"/)
   assert.doesNotMatch(first, /"ScoreItemResponse"/)
+})
+
+test('upgrade schema is canonical, deterministic and committed separately from the deployed baseline', async () => {
+  const first = await generateUpgradeValidation()
+  assert.equal(first, await generateUpgradeValidation())
+  assert.equal(first, await readFile(upgradeOutputPath, 'utf8'))
+  assert.match(first, /create or replace function basira_private\.probe_response_schema\(\)/)
+  assert.match(first, /"ProbeResponse"/)
+  assert.match(first, /to_regprocedure\('basira_private\.probe_response_schema\(\)'\)/)
+  assert.doesNotMatch(first, /"ParentReport"/)
 })
 
 test('drift checking never repairs stale or missing SQL', async () => {
