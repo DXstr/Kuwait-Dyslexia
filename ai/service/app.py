@@ -1,7 +1,6 @@
 """FastAPI app implementing contracts/scorer.openapi.yaml (only the endpoints that are actually built).
 
-Implemented: GET /health, POST /score-item.
-Not registered yet (they return 404 instead of fake data): /fingerprint (A8), /probe (A9), /stage0/score (A10).
+Implemented: GET /health, POST /score-item, /fingerprint, /probe, /stage0/score.
 
 Run:  uvicorn service.app:build --factory --host 0.0.0.0 --port 8000   (from ai/)
 """
@@ -47,6 +46,7 @@ from basira_ai.reference import contracts_dir, reference_data
 from basira_ai.stage0 import Stage0Error
 from basira_ai.stage0 import score as score_stage0
 from service.auth import AuthError, JWKSResolver, SecretResolver, Verifier
+from service.logs import configure_logging
 
 log = logging.getLogger("basira.scorer")
 SAMPLE_RATE = 16_000
@@ -227,7 +227,8 @@ def create_app(
             raise ApiError(422, "invalid_request", f"expected_text: {e}") from e
         except KeyError as e:
             raise ApiError(422, "invalid_request", str(e).strip("'\"")) from e
-        log.info("scored item %s for %s", request_meta.item_id, claims.get("sub"))
+        log.info("scored item", extra={"event": "score_item", "item_id": request_meta.item_id,
+                                       "user": claims.get("sub")})
         return JSONResponse(result.model_dump(mode="json", by_alias=True))
 
     @app.post("/fingerprint")
@@ -241,8 +242,8 @@ def create_app(
         except ValidationError as e:
             raise ApiError(422, "invalid_request", f"body does not match FingerprintRequest: {e.errors()[:3]}") from e
         result = fingerprint(body.model_dump(mode="json", by_alias=True), reference_data())
-        log.info("fingerprint for session %s by %s: %s", body.session_id, claims.get("sub"),
-                 result["referral"]["decision"])
+        log.info("fingerprint", extra={"event": "fingerprint", "session_id": body.session_id, "user": claims.get("sub"),
+                                       "decision": result["referral"]["decision"]})
         return JSONResponse(FingerprintResponse.model_validate(result).model_dump(mode="json", by_alias=True))
 
     @app.post("/probe")
@@ -256,7 +257,8 @@ def create_app(
         except ValidationError as e:
             raise ApiError(422, "invalid_request", f"body does not match ProbeRequest: {e.errors()[:3]}") from e
         result = probe(body.model_dump(mode="json", by_alias=True))
-        log.info("probe for session %s by %s: %d skills", body.session_id, claims.get("sub"), len(result["per_skill"]))
+        log.info("probe", extra={"event": "probe", "session_id": body.session_id, "user": claims.get("sub"),
+                                 "skills": len(result["per_skill"])})
         return JSONResponse(ProbeResponse.model_validate(result).model_dump(mode="json", by_alias=True))
 
     def examiner_claims(authorization: Annotated[str | None, Header()] = None) -> dict:
@@ -276,8 +278,8 @@ def create_app(
             result = score_stage0(body.model_dump(mode="json", by_alias=True, exclude_none=True))
         except Stage0Error as e:
             raise ApiError(422, "invalid_request", str(e)) from e
-        log.info("stage0 %s/%s by %s: %s", result["construct"], body.instrument_id, claims.get("sub"),
-                 result["licence_status"])
+        log.info("stage0", extra={"event": "stage0_score", "construct": result["construct"], "user": claims.get("sub"),
+                                  "instrument_id": body.instrument_id, "licence_status": result["licence_status"]})
         return JSONResponse(Stage0ScoreResponse.model_validate(result).model_dump(mode="json", by_alias=True))
 
     return app
@@ -285,6 +287,6 @@ def create_app(
 
 def build() -> FastAPI:
     """uvicorn factory: configuration comes from environment variables (see .env.example)."""
-    logging.basicConfig(level=os.environ.get("LOG_LEVEL", "INFO"))
+    configure_logging(os.environ.get("LOG_LEVEL", "INFO"))
     os.environ.setdefault("BASIRA_CONTRACTS_DIR", str(Path(__file__).resolve().parents[2] / "contracts"))
     return create_app()
