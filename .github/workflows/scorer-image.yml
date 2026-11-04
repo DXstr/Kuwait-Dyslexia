@@ -1,0 +1,65 @@
+# A6: build the scorer's Docker image and test it under docker compose. Separate from CI because the build downloads
+# torch and both acoustic models, so it only runs when something that goes into the image changes.
+# Uses a throwaway signing secret made for this run. It does not use, or prove, the hosted Supabase sign-in.
+name: Scorer image
+on:
+  pull_request:
+    paths:
+      - "ai/Dockerfile"
+      - "ai/Dockerfile.dockerignore"
+      - "ai/compose.yaml"
+      - "ai/pyproject.toml"
+      - "ai/basira_ai/**"
+      - "ai/service/**"
+      - "ai/scripts/check_hosted.py"
+      - "ai/scripts/smoke_image.py"
+      - "contracts/**"
+      - ".github/workflows/scorer-image.yml"
+  push:
+    branches: [main]
+    paths:
+      - "ai/Dockerfile"
+      - "ai/Dockerfile.dockerignore"
+      - "ai/compose.yaml"
+      - "ai/pyproject.toml"
+      - "ai/basira_ai/**"
+      - "ai/service/**"
+      - "ai/scripts/check_hosted.py"
+      - "ai/scripts/smoke_image.py"
+      - "contracts/**"
+      - ".github/workflows/scorer-image.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install "jsonschema>=4.18" "pyjwt>=2.9"
+      - name: Make a throwaway signing secret for this run
+        run: |
+          secret="$(openssl rand -hex 32)"
+          echo "::add-mask::$secret"
+          echo "SUPABASE_JWT_SECRET=$secret" > .env
+          echo "SUPABASE_JWT_SECRET=$secret" >> "$GITHUB_ENV"
+      - name: Disk space before the build
+        run: df -h /
+      - name: Build the image
+        run: docker compose -f ai/compose.yaml build
+      - name: Image size
+        run: docker images basira-scorer:local
+      - name: Start the scorer
+        run: docker compose -f ai/compose.yaml up -d
+      - name: Test the running scorer
+        run: python ai/scripts/smoke_image.py
+      - name: Scorer logs after a failure
+        if: ${{ failure() }}
+        run: docker compose -f ai/compose.yaml logs --no-log-prefix scorer
+      - name: Stop the scorer
+        if: ${{ always() }}
+        run: docker compose -f ai/compose.yaml down

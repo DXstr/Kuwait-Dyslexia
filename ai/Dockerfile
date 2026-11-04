@@ -1,7 +1,8 @@
 # Basira scorer (task A6). Build from the REPO ROOT (it needs contracts/):
 #   docker build -f ai/Dockerfile -t basira-scorer .
 # Both acoustic models are downloaded at build time, so a cold start never fetches 2.5 GB.
-# Hosted as a Hugging Face Docker Space (free CPU Basic): see ai/deploy/README.md.
+# Local development and the fallback host (docs/DECISIONS.md); the free hosted scorer is a Gradio Space instead.
+# CI builds and tests this image: .github/workflows/scorer-image.yml.
 FROM python:3.11-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \

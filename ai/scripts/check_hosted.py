@@ -6,7 +6,8 @@ Without a token it checks what any caller can see: /health matches the Health sc
 until the models are loaded), every scoring endpoint rejects missing and forged tokens with the contract Error shape,
 and CORS answers only the allowed origin. With SCORER_TEST_TOKEN (a real Supabase access token of a specialist or
 examiner demo account) it also calls /fingerprint with the contract fixture and /score-item with one second of
-silence, and validates those responses. Exit code 0 only if every check passed. Standard library + jsonschema.
+silence, and validates those responses. --speech-clip adds /score-item with a real recording, which must return 200.
+Exit code 0 only if every check passed. Standard library + jsonschema.
 """
 
 from __future__ import annotations
@@ -93,7 +94,11 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--wait", type=float, default=900, help="seconds to wait for a cold start (default 900)")
     p.add_argument("--proxy-echoes-cors", action="store_true",
                    help="the host's proxy echoes any Origin before the app sees it (Hugging Face Spaces)")
+    p.add_argument("--speech-clip", type=Path, help="16 kHz mono 16-bit WAV of speech; needs SCORER_TEST_TOKEN")
+    p.add_argument("--speech-meta", type=Path, help="ScoreItemRequestMeta JSON for --speech-clip")
     a = p.parse_args(argv)
+    if bool(a.speech_clip) != bool(a.speech_meta):
+        p.error("--speech-clip and --speech-meta go together")
     base = a.base_url.rstrip("/")
     check = Checks()
 
@@ -147,6 +152,8 @@ def main(argv: list[str] | None = None) -> int:
     token = os.environ.get("SCORER_TEST_TOKEN")
     if not token:
         print("SKIP  authenticated calls (set SCORER_TEST_TOKEN to a specialist/examiner demo token)")
+        if a.speech_clip:
+            check("POST /score-item (speech clip)", False, "--speech-clip needs SCORER_TEST_TOKEN")
     else:
         auth = {"Authorization": f"Bearer {token}"}
         status, _, raw = call(f"{base}/fingerprint", "POST", fp, auth | {"Content-Type": "application/json"})
@@ -159,6 +166,17 @@ def main(argv: list[str] | None = None) -> int:
         defn = "ScoreItemResponse" if status == 200 else "Error"
         check(f"POST /score-item (1 s silence) -> {status} valid {defn}", status in (200, 422) and
               not schema_errors(defn, body), f"{status} {schema_errors(defn, body)[:2]}")
+        if a.speech_clip:
+            clip = {"audio": ("clip.wav", "audio/wav", a.speech_clip.read_bytes()),
+                    "meta": (None, "application/json", a.speech_meta.read_bytes())}
+            form, ctype = multipart(clip)
+            started = time.monotonic()
+            status, _, raw = call(f"{base}/score-item", "POST", form, auth | {"Content-Type": ctype}, timeout=300)
+            seconds, body = time.monotonic() - started, json.loads(raw)
+            errs = schema_errors("ScoreItemResponse" if status == 200 else "Error", body)
+            check("POST /score-item (speech clip) -> 200 valid ScoreItemResponse", status == 200 and not errs,
+                  f"{status} {errs[:2] or body}")
+            print(f"      speech clip scored in {seconds:.1f} s on this host")
 
     print(f"\n{'ALL CHECKS PASSED' if not check.failed else f'{check.failed} CHECK(S) FAILED'} for {base}")
     return 1 if check.failed else 0
