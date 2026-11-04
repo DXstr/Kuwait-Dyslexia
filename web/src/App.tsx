@@ -12,6 +12,8 @@ import { ChildAssessmentScreen, SpecialistAssessmentPanel } from './assessment/A
 import { useAssessment } from './assessment/context'
 import { ReviewWorkspace } from './review/ReviewWorkspace'
 import { ProgressWorkspace } from './learning-map/ProgressWorkspace'
+import { GuardianReportsWorkspace } from './parent-report/GuardianReportsWorkspace'
+import { ParentReportPrintRoute } from './parent-report/ParentReportPrintRoute'
 import { TeachWorkspace } from './teach/TeachWorkspace'
 
 const authMessages: Record<AuthIssue, MessageKey> = {
@@ -177,6 +179,14 @@ function Workspace({ title, description }: { title: MessageKey; description: Mes
     <ReviewWorkspace />
     <ProgressWorkspace />
   </>
+  if (title === 'guardianTitle') return <>
+    <section className="intro" aria-labelledby="workspace-title">
+      <p className="status-note">{t('parentReportGuardianBadge')}</p>
+      <h1 id="workspace-title">{t(title)}</h1>
+      <p className="lead">{t(description)}</p>
+    </section>
+    <GuardianReportsWorkspace />
+  </>
   return (
     <>
       <section className="intro" aria-labelledby="workspace-title">
@@ -253,6 +263,11 @@ export function AppRoutes() {
             <Route path="/guardian" element={
               <RequireRole role={role} allowed={['guardian']}>
                 <Workspace title="guardianTitle" description="guardianDescription" />
+              </RequireRole>
+            } />
+            <Route path="/guardian/reports/:reportId/print" element={
+              <RequireRole role={role} allowed={['guardian']}>
+                <ParentReportPrintRoute />
               </RequireRole>
             } />
             <Route path="/admin" element={

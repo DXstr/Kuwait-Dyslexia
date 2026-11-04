@@ -5,6 +5,7 @@ import type { ReviewStatus, ScoreItemResponse } from '../contracts/basira'
 import { useI18n } from '../i18n/context'
 import type { MessageKey } from '../i18n/messages'
 import { ScorerFixtureNotice } from '../scorer/ScorerNotice'
+import { SpecialistReportDraftForm } from '../parent-report/SpecialistReportDraftForm'
 import { useReviewAccess } from './context'
 import { ReviewRepositoryError } from './repository'
 import skillGraph from '../../../contracts/skill-graph.json'
@@ -578,7 +579,7 @@ export function ReviewWorkspace() {
           <section className="review-section" aria-labelledby="review-items-title"><h3 id="review-items-title">{t('reviewItemsTitle')}</h3>{detail.items.length ? detail.items.map((item) => <ItemResult key={item.id} item={item} detail={detail} locale={locale} t={t} onError={setMessage} />) : <p className="review-empty">{t('reviewNoItems')}</p>}</section>
           <section className="review-section" aria-labelledby="review-fingerprints-title"><h3 id="review-fingerprints-title">{t('reviewFingerprintsTitle')}</h3>{detail.fingerprints.length ? detail.fingerprints.map((fingerprint) => <FingerprintCard key={fingerprint.id} fingerprint={fingerprint} locale={locale} t={t} note={notes[fingerprint.id] ?? fingerprint.review_note ?? ''} onNote={(value) => setNotes((current) => ({ ...current, [fingerprint.id]: value }))} onTransition={transition} busy={Boolean(busyRow || fingerprintBusy)} />) : <p className="review-empty">{t('reviewNoFingerprints')}</p>}</section>
           <section className="review-section" aria-labelledby="review-plans-title"><h3 id="review-plans-title">{t('reviewPlansTitle')}</h3>{detail.plans.length ? detail.plans.map((plan) => <PlanCard key={plan.id} plan={plan} locale={locale} t={t} note="" onNote={() => {}} onTransition={transition} busy={Boolean(busyRow || fingerprintBusy)} childIsDemo={detail.child.is_demo} />) : <p className="review-empty">{t('reviewNoPlans')}</p>}</section>
-          <section className="review-section" aria-labelledby="review-reports-title"><h3 id="review-reports-title">{t('reviewReportsTitle')}</h3>{detail.reports.length ? detail.reports.map((report) => <ReportCard key={report.id} report={report} t={t} note="" onNote={() => {}} onTransition={transition} busy={Boolean(busyRow || fingerprintBusy)} childIsDemo={detail.child.is_demo} />) : <p className="review-empty">{t('reviewNoReports')}</p>}</section>
+          <section className="review-section" aria-labelledby="review-reports-title"><h3 id="review-reports-title">{t('reviewReportsTitle')}</h3><SpecialistReportDraftForm detail={detail} onCreated={() => { void loadDetail(detail.session.id) }} />{detail.reports.length ? detail.reports.map((report) => <ReportCard key={report.id} report={report} t={t} note="" onNote={() => {}} onTransition={transition} busy={Boolean(busyRow || fingerprintBusy)} childIsDemo={detail.child.is_demo} />) : <p className="review-empty">{t('reviewNoReports')}</p>}</section>
         </>
       )}
     </section>
