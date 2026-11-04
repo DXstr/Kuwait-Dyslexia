@@ -15,6 +15,7 @@ import { ProgressWorkspace } from './learning-map/ProgressWorkspace'
 import { GuardianReportsWorkspace } from './parent-report/GuardianReportsWorkspace'
 import { ParentReportPrintRoute } from './parent-report/ParentReportPrintRoute'
 import { HealthPage } from './hosting/HealthPage'
+import { TeachWorkspace } from './teach/TeachWorkspace'
 
 const authMessages: Record<AuthIssue, MessageKey> = {
   configuration: 'authConfiguration',
@@ -233,7 +234,9 @@ function NotFound() {
 }
 
 function ChildRoute() {
-  return useAssessment() ? <ChildAssessmentScreen /> : <Workspace title="childTitle" description="childDescription" />
+  const assessment = useAssessment()
+  if (assessment?.activeSession?.type === 'assessment') return <ChildAssessmentScreen />
+  return <TeachWorkspace />
 }
 
 export function AppRoutes() {

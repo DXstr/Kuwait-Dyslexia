@@ -62,3 +62,8 @@ Required by the competition and by non-negotiable 10. Add a row in the same PR t
 | gradio 5.49.1 | Required by the Space SDK; one-page API notice at `/ui`, not used for scoring | Apache-2.0 | A13 | 2026-11-04 |
 | spaces 0.51.3 | ZeroGPU runtime on the Space (includes bundled third-party code under its own licences) | Apache-2.0 | A13 | 2026-11-04 |
 | huggingface_hub | Downloads the model files (`model` extra); uploads the Space from the deploy script | Apache-2.0 | A3, A13 | 2026-11-04 |
+
+
+## B9 Teach disclosure
+
+B9 Teach adds no external runtime component or service. It uses the already disclosed React, Supabase SDK, canonical contract validation, self-hosted Noto Naskh Arabic font, and Playwright/Vitest development tooling; reviewed item-bank audio and phonetic inventory data remain repository assets, with no child data sent to a model or external generator.
