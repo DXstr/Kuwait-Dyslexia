@@ -3,7 +3,7 @@ import { useAuth } from '../auth/context'
 import { useI18n } from '../i18n/context'
 import type { MessageKey } from '../i18n/messages'
 import { ScorerFixtureNotice } from '../scorer/ScorerNotice'
-import { AudioRecorder, RecorderError } from '../assessment/recorder'
+import { AudioRecorder, RecorderError, recordingDurationMs } from '../assessment/recorder'
 import { useProbe } from './context'
 import type { ProbeChild, ProbeResult } from './types'
 
@@ -126,7 +126,7 @@ export function ProbeWorkspace() {
     if (!runtime || !active || !item || phase !== 'ready' || recorder.current || !controller.getVerifiedSession()) return
     setMessage(null)
     setPhase('starting')
-    const next = new AudioRecorder({ onIssue: () => {
+    const next = new AudioRecorder({ maxDurationMs: recordingDurationMs(item.type), onIssue: () => {
       if (!mounted.current || recorder.current !== next) return
       recorder.current = null
       setPhase('ready')

@@ -4,7 +4,7 @@ import { useAuth } from '../auth/context'
 import { useI18n } from '../i18n/context'
 import type { MessageKey } from '../i18n/messages'
 import { useAssessment } from './context'
-import { AudioRecorder, RecorderError } from './recorder'
+import { AudioRecorder, RecorderError, recordingDurationMs } from './recorder'
 import type { ActiveAssessmentSession, AssessmentChild, AssessmentConsent } from './types'
 import type { AssessmentRuntime } from './runtime'
 
@@ -130,10 +130,10 @@ function ActiveChildAssessment({ session, runtime }: { session: ActiveAssessment
   const item = session.items[index]
   const finished = !item
   const begin = async () => {
-    if (phase !== 'ready' || recorder.current || !controller.getVerifiedSession()) return
+    if (!item || phase !== 'ready' || recorder.current || !controller.getVerifiedSession()) return
     setNotice(null)
     setPhase('starting')
-    const next = new AudioRecorder({ onIssue: () => {
+    const next = new AudioRecorder({ maxDurationMs: recordingDurationMs(item.type), onIssue: () => {
       if (!mounted.current || recorder.current !== next) return
       recorder.current = null
       setPhase('ready')
