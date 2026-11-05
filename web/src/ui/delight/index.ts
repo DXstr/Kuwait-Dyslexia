@@ -1,0 +1,6 @@
+export { DelightControls, DelightProvider, useDelight } from './DelightProvider'
+export type { DelightControlsProps, DelightContextValue, DelightProviderProps, MotionPreference } from './DelightProvider'
+export { recordingQuietGate } from './recordingQuietGate'
+export type { QuietGateListener, QuietGateRelease } from './recordingQuietGate'
+export { DelightSoundEngine } from './soundEngine'
+export type { DelightSound } from './soundEngine'

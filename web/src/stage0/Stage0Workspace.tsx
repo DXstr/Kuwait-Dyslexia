@@ -5,25 +5,25 @@ import { useI18n } from '../i18n/context'
 import type { MessageKey } from '../i18n/messages'
 import { useScorer } from '../scorer/context'
 import { ScorerClientError } from '../scorer/errors'
+import { ExaminerSidebar } from '../ui/pages/examiner/ExaminerSidebar'
+import { WorkspaceShell } from '../ui/pages/examiner/ExaminerWorkspaceShell'
+import { constructItems, constructLabels } from '../ui/pages/examiner/constructs'
 import { useStage0RepositoryState } from './context'
 import { STAGE0_CONSTRUCTS, isSafeStimulusSvg, scoredItemsForTaskSet, stage0Catalog } from './catalog'
 import type { Stage0Child, Stage0Result, Stage0Session } from './repository'
 import { Stage0RepositoryError } from './repository'
 
-const constructLabel: Record<Stage0Construct, MessageKey> = {
-  itpa: 'stage0ConstructItpa', reversal: 'stage0ConstructReversal', nonverbal_iq: 'stage0ConstructNonverbalIq',
-  visual_agnosia: 'stage0ConstructVisualAgnosia', dyscalculia: 'stage0ConstructDyscalculia',
-  phonological_awareness: 'stage0ConstructPhonologicalAwareness', reading_fluency: 'stage0ConstructReadingFluency',
-}
 function monthsOld(birthMonth: string, at = new Date()) {
   const match = /^(\d{4})-(\d{2})$/.exec(birthMonth)
   if (!match) return null
   const months = (at.getUTCFullYear() - Number(match[1])) * 12 + (at.getUTCMonth() + 1 - Number(match[2]))
   return Number.isInteger(months) && months >= 60 && months <= 160 ? months : null
 }
+
 function safeItemSvg(value: string | null) {
   return isSafeStimulusSvg(value) ? <span className="stage0-svg" aria-hidden="true" dangerouslySetInnerHTML={{ __html: value }} /> : null
 }
+
 function responseComplete(item: Stage0TaskItem, value: string | number | boolean | undefined) {
   if (value === undefined) return false
   if (item.response_type === 'number') return typeof value === 'number' && Number.isInteger(value) && value >= 1 && value <= 9
@@ -43,15 +43,24 @@ function TaskCard({ item, value, onResponse }: { item: Stage0TaskItem; value: st
       {item.stimulus_text && <p className="stage0-stimulus-text">{item.stimulus_text}</p>}
       <div className="stage0-response" aria-label={`${t('stage0RecordResponse')}: ${item.item_id}`}>
         {item.response_type === 'option_id' && item.options?.map((option) => (
-          <button className={`stage0-option${value === option.option_id ? ' stage0-option-selected' : ''}`} type="button" key={option.option_id} onClick={() => onResponse(option.option_id)}>
+          <button
+            className={`stage0-option${value === option.option_id ? ' stage0-option-selected' : ''}`}
+            type="button"
+            key={option.option_id}
+            aria-pressed={value === option.option_id}
+            onClick={() => onResponse(option.option_id)}
+          >
             {safeItemSvg(option.svg)}
             {option.text && <span>{option.text}</span>}
           </button>
         ))}
         {item.response_type === 'number' && (
-          <label className="stage0-number-field"><span>{t('stage0NumberAnswer')}</span><input type="number" min={1} max={9} value={typeof value === 'number' ? value : ''} onChange={(event) => { const number = Number(event.target.value); if (Number.isInteger(number) && number >= 1 && number <= 9) onResponse(number) }} /></label>
+          <label className="stage0-number-field">
+            <span>{t('stage0NumberAnswer')}</span>
+            <input type="number" min={1} max={9} value={typeof value === 'number' ? value : ''} onChange={(event) => { const number = Number(event.target.value); if (Number.isInteger(number) && number >= 1 && number <= 9) onResponse(number) }} />
+          </label>
         )}
-        {item.response_type === 'tap' && <button className={`action-button${value === true ? ' stage0-option-selected' : ''}`} type="button" onClick={() => onResponse(true, 0)}>{t('stage0Tap')}</button>}
+        {item.response_type === 'tap' && <button className={`action-button${value === true ? ' stage0-option-selected' : ''}`} type="button" aria-pressed={value === true} onClick={() => onResponse(true, 0)}>{t('stage0Tap')}</button>}
       </div>
     </article>
   )
@@ -180,7 +189,6 @@ export function Stage0Workspace() {
       setActiveConstruct(null)
       setResponses({})
     } catch (error) {
-      // No fallback to a fixture or locally manufactured result.
       if (isCurrent()) setErrorKey(error instanceof ScorerClientError && error.issue === 'fixtureUnavailable' ? 'stage0FixtureUnavailable' : 'stage0StartError')
     } finally {
       if (isCurrent()) setBusy(false)
@@ -203,69 +211,84 @@ export function Stage0Workspace() {
     }
   }
 
+  const items = constructItems(saved, activeConstruct)
+  const sidebar = (
+    <ExaminerSidebar
+      childName={currentSession && child ? child.first_name : undefined}
+      childIsDemo={Boolean(currentSession && child?.is_demo)}
+      sessionStatus={currentSession ? (currentSession.status === 'completed' ? 'stage0SessionComplete' : 'stage0SessionStarted') : undefined}
+      items={items}
+      activeConstruct={activeConstruct}
+      onSelect={chooseConstruct}
+    />
+  )
+
   return (
-    <section className="stage0-panel" aria-labelledby="stage0-title">
-      <div className="stage0-intro">
-        <p className="eyebrow">{t('stage0ExaminerOnly')}</p>
-        <h2 id="stage0-title">{t('stage0Title')}</h2>
-        <p>{t('stage0Description')}</p>
-      </div>
-      {!repository && <p className="professional-notice" role="alert">{t('stage0LoadError')}</p>}
-      {errorKey && <p className="professional-notice" role="alert">{t(errorKey)}</p>}
-      {loading && repository && <p role="status">{t('assessmentLoading')}</p>}
-      {!loading && hasCurrentChildren && children.length === 0 && <p>{t('consentNoChildren')}</p>}
-      {!loading && hasCurrentChildren && children.length > 0 && !currentSession && (
-        <div className="stage0-launch">
-          <label className="assessment-field">
-            <span>{t('stage0ChooseChild')}</span>
-            <select value={childId} onChange={(event) => setChildId(event.target.value)}>
-              <option value="">{t('stage0ChooseChildPlaceholder')}</option>
-              {children.map((row) => <option key={row.id} value={row.id}>{row.first_name}{row.is_demo ? ` — ${t('assessmentDemoLabel')}` : ''}</option>)}
-            </select>
-          </label>
-          <p className="professional-notice">{t('stage0ConsentValid')}</p>
-          <button className="action-button" type="button" disabled={busy || !child} onClick={() => { void start() }}>{t('stage0Start')}</button>
-          <button className="action-button" type="button" disabled={busy} onClick={() => { void loadChildren() }}>{t('stage0ConsentReload')}</button>
-        </div>
-      )}
-      {currentSession && child && (
-        <>
-          <p className="professional-notice" role="status">{currentSession.status === 'completed' ? t('stage0SessionComplete') : t('stage0SessionStarted')}</p>
-          {child.is_demo && <p className="fixture-notice">{t('consentSyntheticWarning')}</p>}
-          <div className="stage0-construct-grid">
-            {stage0Catalog.map((entry) => {
-              const result = saved[entry.construct]
-              return (
-                <article className={`stage0-construct-card${entry.unavailable ? ' stage0-construct-unavailable' : ''}`} key={entry.construct}>
-                  <h3>{t(constructLabel[entry.construct])}</h3>
-                  <p className="stage0-construct-id">{entry.construct}</p>
-                  {entry.unavailable ? <p className="professional-notice">{t('stage0TaskUnavailable')}</p> : <p>{t('stage0TaskAvailable')}</p>}
-                  {result && <p className="fixture-notice">{result.response.synthetic ? t('stage0ResultSynthetic') : t('stage0ConstructSaved')} {t('stage0ResultPending')}</p>}
-                  {!entry.unavailable && !result && currentSession.status === 'in_progress' && <button className="action-button" type="button" disabled={busy} onClick={() => chooseConstruct(entry.construct)}>{t('stage0ChooseConstruct')}</button>}
-                </article>
-              )
-            })}
+    <WorkspaceShell id="stage0-title" className="stage0-workspace-shell" eyebrow="stage0ExaminerOnly" title="stage0Title" description="stage0Description" aside={sidebar}>
+      <section className="stage0-panel" aria-busy={busy}>
+        {!repository && <p className="professional-notice" role="alert">{t('stage0LoadError')}</p>}
+        {errorKey && <p className="professional-notice" role="alert">{t(errorKey)}</p>}
+        {loading && repository && <p role="status" aria-live="polite">{t('assessmentLoading')}</p>}
+        {!loading && hasCurrentChildren && children.length === 0 && <p className="workspace-empty-state">{t('consentNoChildren')}</p>}
+        {!loading && hasCurrentChildren && children.length > 0 && !currentSession && (
+          <div className="stage0-launch">
+            <label className="assessment-field" htmlFor="stage0-child">
+              <span>{t('stage0ChooseChild')}</span>
+              <select id="stage0-child" value={childId} onChange={(event) => setChildId(event.target.value)}>
+                <option value="">{t('stage0ChooseChildPlaceholder')}</option>
+                {children.map((row) => <option key={row.id} value={row.id}>{row.first_name}{row.is_demo ? ` — ${t('assessmentDemoLabel')}` : ''}</option>)}
+              </select>
+            </label>
+            <p className="professional-notice">{t('stage0ConsentValid')}</p>
+            <div className="workspace-actions">
+              <button className="action-button" type="button" disabled={busy || !child} onClick={() => { void start() }}>{t('stage0Start')}</button>
+              <button className="action-button action-button-secondary" type="button" disabled={busy} onClick={() => { void loadChildren() }}>{t('stage0ConsentReload')}</button>
+            </div>
           </div>
-          {activeConstruct && stage0Catalog.find((entry) => entry.construct === activeConstruct)?.taskSet && (
-            <form className="stage0-task" onSubmit={(event) => { void submitConstruct(event) }}>
-              {(() => {
-                const taskSet = stage0Catalog.find((entry) => entry.construct === activeConstruct)?.taskSet
-                if (!taskSet) return null
-                return <>
-                  <h3>{taskSet.title_ar}</h3>
-                  <p className="professional-notice">{taskSet.notice_ar}</p>
-                  <p><strong>{t('stage0FormatSource')}:</strong> {taskSet.format_source}</p>
-                  {taskSet.review.status === 'unreviewed' && <p className="fixture-notice">{t('stage0Unreviewed')}</p>}
-                  {taskSet.blocks.map((block) => <section className="stage0-block" key={block.block_id}><h4>{block.title_ar}</h4><p><strong>{t('stage0BlockInstructions')}:</strong> {block.instructions_ar}</p>{block.items.map((item) => <TaskCard key={item.item_id} item={item} value={responses[item.item_id]} onResponse={(value, timeMs) => setResponses((current) => ({ ...current, [item.item_id]: value, ...(timeMs === undefined ? {} : {}) }))} />)}</section>)}
-                  <button className="action-button" type="submit" disabled={busy}>{t('stage0SubmitConstruct')}</button>
-                </>
-              })()}
-            </form>
-          )}
-          {currentSession.status === 'in_progress' && !activeConstruct && <button className="action-button" type="button" disabled={busy} onClick={() => { void finish() }}>{t('stage0SessionCompleteButton')}</button>}
-        </>
-      )}
-    </section>
+        )}
+        {currentSession && child && (
+          <>
+            <div className="workspace-status-row">
+              <p className="professional-notice" role="status">{currentSession.status === 'completed' ? t('stage0SessionComplete') : t('stage0SessionStarted')}</p>
+              {child.is_demo && <p className="fixture-notice">{t('consentSyntheticWarning')}</p>}
+            </div>
+            <div className="stage0-construct-grid" aria-label={t('stage0Title')}>
+              {stage0Catalog.map((entry) => {
+                const result = saved[entry.construct]
+                return (
+                  <article className={`stage0-construct-card${entry.unavailable ? ' stage0-construct-unavailable' : ''}`} key={entry.construct}>
+                    <h3>{t(constructLabels[entry.construct])}</h3>
+                    <p className="stage0-construct-id">{entry.construct}</p>
+                    {entry.unavailable ? <p className="professional-notice">{t('stage0TaskUnavailable')}</p> : <p>{t('stage0TaskAvailable')}</p>}
+                    {result && <p className="fixture-notice">{result.response.synthetic ? t('stage0ResultSynthetic') : t('stage0ConstructSaved')} {t('stage0ResultPending')}</p>}
+                    {!entry.unavailable && !result && currentSession.status === 'in_progress' && <button className="action-button" type="button" disabled={busy} onClick={() => chooseConstruct(entry.construct)}>{t('stage0ChooseConstruct')}</button>}
+                  </article>
+                )
+              })}
+            </div>
+            {activeConstruct && stage0Catalog.find((entry) => entry.construct === activeConstruct)?.taskSet && (
+              <form className="stage0-task" onSubmit={(event) => { void submitConstruct(event) }}>
+                {(() => {
+                  const taskSet = stage0Catalog.find((entry) => entry.construct === activeConstruct)?.taskSet
+                  if (!taskSet) return null
+                  return <>
+                    <h3>{taskSet.title_ar}</h3>
+                    <p className="professional-notice">{taskSet.notice_ar}</p>
+                    <p><strong>{t('stage0FormatSource')}:</strong> {taskSet.format_source}</p>
+                    {taskSet.review.status === 'unreviewed' && <p className="fixture-notice">{t('stage0Unreviewed')}</p>}
+                    {taskSet.blocks.map((block) => <section className="stage0-block" key={block.block_id}><h4>{block.title_ar}</h4><p><strong>{t('stage0BlockInstructions')}:</strong> {block.instructions_ar}</p>{block.items.map((item) => <TaskCard key={item.item_id} item={item} value={responses[item.item_id]} onResponse={(value, timeMs) => setResponses((current) => ({ ...current, [item.item_id]: value, ...(timeMs === undefined ? {} : {}) }))} />)}</section>)}
+                    <div className="workspace-actions">
+                      <button className="action-button" type="submit" disabled={busy}>{t('stage0SubmitConstruct')}</button>
+                    </div>
+                  </>
+                })()}
+              </form>
+            )}
+            {currentSession.status === 'in_progress' && !activeConstruct && <button className="action-button" type="button" disabled={busy} onClick={() => { void finish() }}>{t('stage0SessionCompleteButton')}</button>}
+          </>
+        )}
+      </section>
+    </WorkspaceShell>
   )
 }
 

@@ -51,7 +51,7 @@ export function SpecialistReportDraftForm({ detail, onCreated }: { detail: Revie
   }
 
   return (
-    <section className="parent-report-draft-form" aria-labelledby="parent-report-draft-title">
+    <section className="parent-report-draft-form specialist-card" aria-labelledby="parent-report-draft-title">
       <div>
         <p className="review-kicker">{t('parentReportDraftKicker')}</p>
         <h3 id="parent-report-draft-title">{t('parentReportDraftTitle')}</h3>
@@ -67,8 +67,8 @@ export function SpecialistReportDraftForm({ detail, onCreated }: { detail: Revie
         <label className="review-note-field"><span>{t('parentReportDraftSpecialistName')}</span><input value={specialistName} onChange={(event) => setSpecialistName(event.target.value)} /></label>
         <label className="review-note-field"><span>{t('parentReportDraftSpecialistContact')}</span><input dir="ltr" value={specialistContact} onChange={(event) => setSpecialistContact(event.target.value)} /></label>
       </div>
-      {message && <p className="professional-notice" role="alert">{message}</p>}
-      <button className="action-button" type="button" disabled={busy} onClick={() => { void submit() }}>{t(busy ? 'parentReportDraftSaving' : 'parentReportDraftSave')}</button>
+      {message && <p className="professional-notice" role="alert" aria-live="assertive">{message}</p>}
+      <button className="action-button review-action--submit" type="button" aria-busy={busy} disabled={busy} onClick={() => { void submit() }}>{t(busy ? 'parentReportDraftSaving' : 'parentReportDraftSave')}</button>
     </section>
   )
 }

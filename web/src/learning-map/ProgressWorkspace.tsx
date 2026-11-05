@@ -4,6 +4,7 @@ import { useI18n } from '../i18n/context'
 import { SKILL_GRAPH_STATUS } from './engine'
 import { useLearningMap } from './context'
 import type { MasteryBand } from './types'
+import '../ui/pages/specialist/specialist.css'
 
 const bandMessage: Record<MasteryBand, 'learningMapBandUnknown' | 'learningMapBandWorking' | 'learningMapBandGrowing' | 'learningMapBandProbeDue' | 'learningMapBandMastered'> = {
   unknown: 'learningMapBandUnknown',
@@ -41,8 +42,8 @@ export function ProgressWorkspace() {
   const hasMasteryRows = Boolean(learningMap.read?.storedMastery.length)
 
   return (
-    <section className="learning-map-workspace" aria-labelledby="learning-map-title">
-      <div className="learning-map-heading">
+    <section id="learning-map-workspace" className="learning-map-workspace specialist-workspace-module" aria-labelledby="learning-map-title">
+      <div className="learning-map-heading specialist-module__heading">
         <div>
           <p className="eyebrow">{t('learningMapKicker')}</p>
           <h2 id="learning-map-title">{t('learningMapTitle')}</h2>

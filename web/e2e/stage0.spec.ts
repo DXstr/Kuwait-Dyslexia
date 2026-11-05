@@ -1,5 +1,6 @@
 import { expect, test, type Page, type Route } from '@playwright/test'
 import { ar } from '../src/i18n/messages'
+import { landingCopy } from '../src/ui/pages/landing/copy'
 import { api, defaultOrigin, mockSupabase, userId } from './support/auth'
 
 // Every record below is a clearly labelled synthetic fixture intercepted at the
@@ -94,11 +95,11 @@ test('guardian records consent with an evidence reference and can revoke it', as
   await mockSupabase(page, 'guardian')
   const observed = await installConsentApi(page)
   await page.goto('/')
-  await page.getByRole('button', { name: ar.authGoogle }).click()
+  await page.getByRole('button', { name: landingCopy.hero.primaryAction }).first().click()
   await expect(page).toHaveURL(`${defaultOrigin}/guardian`)
   await page.goto(`${defaultOrigin}/guardian/consent`)
   await expect(page).toHaveURL(`${defaultOrigin}/guardian/consent`)
-  await expect(page.getByRole('heading', { name: ar.consentTitle })).toBeVisible()
+  await expect(page.getByRole('heading', { name: ar.consentTitle, level: 2 })).toBeVisible()
   await expect(page.getByText(ar.consentSyntheticWarning)).toBeVisible()
 
   await page.getByPlaceholder(ar.consentEvidencePlaceholder).fill('synthetic/evidence-reference')
@@ -129,14 +130,14 @@ test('examiner Stage 0 remains blocked by the database consent gate', async ({ p
     throw new Error(`Unexpected synthetic Stage 0 REST request: ${request.method()} ${url.pathname}`)
   })
   await page.goto('/')
-  await page.getByRole('button', { name: ar.authGoogle }).click()
+  await page.getByRole('button', { name: landingCopy.hero.primaryAction }).first().click()
   await expect(page).toHaveURL(`${defaultOrigin}/examiner`)
   await expect(page.getByRole('heading', { name: ar.stage0Title })).toBeVisible()
 
   await page.getByRole('button', { name: ar.stage0Start }).click()
   await expect(page.getByRole('alert')).toContainText(ar.stage0ConsentMissing)
   expect(sessionAttempts).toBe(1)
-  await expect(page.getByText(ar.stage0SessionStarted)).toHaveCount(0)
+  await expect(page.getByRole('region', { name: ar.stage0Title, exact: true }).getByRole('status').filter({ hasText: ar.stage0SessionStarted })).toHaveCount(0)
 })
 
 test('examiner Stage 0 shows only synthetic task material after a permitted session starts', async ({ page }) => {
@@ -154,13 +155,13 @@ test('examiner Stage 0 shows only synthetic task material after a permitted sess
     throw new Error(`Unexpected synthetic Stage 0 REST request: ${request.method()} ${url.pathname}`)
   })
   await page.goto('/')
-  await page.getByRole('button', { name: ar.authGoogle }).click()
+  await page.getByRole('button', { name: landingCopy.hero.primaryAction }).first().click()
   await expect(page).toHaveURL(`${defaultOrigin}/examiner`)
   await page.getByRole('button', { name: ar.stage0Start }).click()
-  await expect(page.getByText(ar.stage0SessionStarted)).toBeVisible()
+  await expect(page.getByRole('region', { name: ar.stage0Title, exact: true }).getByRole('status').filter({ hasText: ar.stage0SessionStarted })).toBeVisible()
   await expect(page.getByText(ar.stage0ResultSynthetic)).toHaveCount(0)
-  await expect(page.getByText(ar.stage0TaskUnavailable, { exact: true })).toHaveCount(4)
-  await expect(page.getByText(ar.stage0TaskAvailable, { exact: true })).toHaveCount(3)
+  await expect(page.locator('.stage0-construct-grid').getByText(ar.stage0TaskUnavailable, { exact: true })).toHaveCount(4)
+  await expect(page.locator('.stage0-construct-grid').getByText(ar.stage0TaskAvailable, { exact: true })).toHaveCount(3)
   await expect(page.getByText(ar.consentSyntheticWarning)).toBeVisible()
   await expect(page.locator('html')).toHaveAttribute('lang', 'ar')
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl')

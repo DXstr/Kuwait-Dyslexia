@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react'
 import { Link, Navigate, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import { useAuth } from './auth/context'
-import type { AuthIssue } from './auth/controller'
 import { I18nProvider } from './i18n/I18nProvider'
 import { useI18n } from './i18n/context'
 import type { MessageKey } from './i18n/messages'
@@ -19,34 +18,31 @@ import { ConsentWorkspace } from './stage0/ConsentWorkspace'
 import { Stage0Workspace } from './stage0/Stage0Workspace'
 import { ProbeWorkspace } from './prove/ProbeWorkspace'
 import { TeachWorkspace } from './teach/TeachWorkspace'
-
-const authMessages: Record<AuthIssue, MessageKey> = {
-  configuration: 'authConfiguration',
-  unavailable: 'authUnavailable',
-  callback: 'authCallbackError',
-  session: 'authSessionError',
-  profile: 'authProfileError',
-  role: 'authRoleError',
-  signIn: 'authSignInError',
-  signOut: 'authSignOutError',
-}
+import { BrandMark } from './ui/core'
+import { DelightControls, DelightProvider } from './ui/delight'
+import { AuthExperience } from './ui/pages/auth'
+import { LandingExperience } from './ui/pages/landing'
+import { SpecialistWorkspaceShell } from './ui/pages/specialist/SpecialistShell'
 
 function Shell({ role, children }: { role: AppRole | null; children: ReactNode }) {
   const { t, locale, canSwitchLanguage, setLocale } = useI18n()
   const { controller } = useAuth()
   const { pathname } = useLocation()
   const isChildScreen = pathname === '/child'
+  const isPublicLanding = pathname === '/' && !role
   const homeLabel: MessageKey = role ? `${role}Title` : 'home'
 
+  if (isPublicLanding) return <>{children}</>
+
   return (
-    <div className={`app-shell${isChildScreen ? ' child-shell' : ''}`}>
+    <div className={`app-shell premium-shell${isChildScreen ? ' child-shell' : ''}`}>
       <a className="skip-link" href="#main-content">{t('skipToContent')}</a>
       <header className="app-header">
         <Link className="brand" to="/" aria-label={t('home')}>
-          <img className="brand-mark" src="/icons/icon.svg" alt="" width="48" height="48" />
-          <span className="brand-name">{t('appName')}</span>
+          <BrandMark name={t('appName')} size={48} />
         </Link>
         <div className="header-actions">
+          <DelightControls className="app-delight-controls" />
           {canSwitchLanguage && (
             <button
               className="language-switch"
@@ -81,30 +77,6 @@ function Shell({ role, children }: { role: AppRole | null; children: ReactNode }
   )
 }
 
-function AuthControls() {
-  const { t } = useI18n()
-  const { auth, controller } = useAuth()
-  const unconfigured = auth.status === 'unconfigured'
-  const disabled = unconfigured || !['signedOut', 'error'].includes(auth.status)
-  const issue = unconfigured ? 'configuration' : auth.issue
-  return (
-    <section className="auth-panel" aria-labelledby="auth-sign-in-title">
-      <h2 id="auth-sign-in-title">{t('authSignInTitle')}</h2>
-      <p>{t('authSignInDescription')}</p>
-      {issue && <p className="auth-notice" role="alert">{t(authMessages[issue])}</p>}
-      <div className="oauth-actions">
-        <button className="action-button" type="button" disabled={disabled} onClick={() => { void controller.signIn('google') }}>
-          {t('authGoogle')}
-        </button>
-      </div>
-      {issue && !unconfigured && (
-        <button className="action-button" type="button" onClick={() => { void controller.retry() }}>{t('authRetry')}</button>
-      )}
-      <p className="auth-explanation">{t('authRoleProvisioning')}</p>
-    </section>
-  )
-}
-
 function AuthProgress() {
   const { auth } = useAuth()
   const { t } = useI18n()
@@ -118,55 +90,12 @@ function AuthProgress() {
 }
 
 function Home() {
-  const { t } = useI18n()
-  return (
-    <>
-      <section className="intro" aria-labelledby="welcome-title">
-        <p className="eyebrow">{t('welcomeEyebrow')}</p>
-        <h1 id="welcome-title">{t('welcomeTitle')}</h1>
-        <p className="lead">{t('welcomeDescription')}</p>
-      </section>
-      <AuthControls />
-      <section className="foundation-panel" aria-labelledby="foundation-title">
-        <span className="status-note">{t('scaffoldBadge')}</span>
-        <h2 id="foundation-title">{t('foundationTitle')}</h2>
-        <p>{t('foundationDescription')}</p>
-      </section>
-      <div className="audience-panels">
-        <section aria-labelledby="family-title">
-          <h2 id="family-title">{t('familyTitle')}</h2>
-          <p>{t('familyDescription')}</p>
-        </section>
-        <section aria-labelledby="professional-title">
-          <h2 id="professional-title">{t('professionalTitle')}</h2>
-          <p>{t('professionalDescription')}</p>
-        </section>
-      </div>
-      <section className="before-starting" aria-labelledby="before-starting-title">
-        <h2 id="before-starting-title">{t('beforeStartingTitle')}</h2>
-        <ul>
-          <li>{t('signInPending')}</li>
-          <li>{t('consentPending')}</li>
-          <li>{t('reviewPending')}</li>
-        </ul>
-      </section>
-    </>
-  )
+  return <LandingExperience />
 }
 
 function OAuthCallback({ role }: { role: AppRole | null }) {
-  const { t } = useI18n()
   if (role) return <Navigate to={roleHome[role]} replace />
-  return (
-    <>
-      <section className="intro">
-        <h1>{t('authCallbackTitle')}</h1>
-        <p className="lead">{t('authCallbackDescription')}</p>
-        <Link className="action-link" to="/">{t('backHome')}</Link>
-      </section>
-      <AuthControls />
-    </>
-  )
+  return <AuthExperience className="auth-callback-experience" />
 }
 
 function Workspace({ title, description }: { title: MessageKey; description: MessageKey }) {
@@ -180,7 +109,7 @@ function Workspace({ title, description }: { title: MessageKey; description: Mes
     </section>
     <Stage0Workspace />
   </>
-  if (title === 'specialistTitle') return <>
+  if (title === 'specialistTitle') return <SpecialistWorkspaceShell activeSection="review" showHeader={false}>
     {assessment ? <SpecialistAssessmentPanel /> : (
       <section className="intro" aria-labelledby="workspace-title">
         <p className="status-note">{t('scaffoldBadge')}</p>
@@ -191,7 +120,7 @@ function Workspace({ title, description }: { title: MessageKey; description: Mes
     <ReviewWorkspace />
     <ProbeWorkspace />
     <ProgressWorkspace />
-  </>
+  </SpecialistWorkspaceShell>
   if (title === 'guardianTitle') return <>
     <section className="intro" aria-labelledby="workspace-title">
       <p className="status-note">{t('parentReportGuardianBadge')}</p>
@@ -251,7 +180,7 @@ function ChildRoute() {
   return <TeachWorkspace />
 }
 
-export function AppRoutes() {
+function AppRoutesContent() {
   const { auth } = useAuth()
   const role = auth.status === 'signedIn' ? auth.role : null
   const { pathname } = useLocation()
@@ -309,5 +238,13 @@ export function AppRoutes() {
         )}
       </Shell>
     </I18nProvider>
+  )
+}
+
+export function AppRoutes() {
+  return (
+    <DelightProvider>
+      <AppRoutesContent />
+    </DelightProvider>
   )
 }

@@ -1,0 +1,189 @@
+.basira-auth {
+  --auth-purple: #35287a;
+  --auth-purple-deep: #251b5c;
+  --auth-gold: #f5b425;
+  --auth-cream: #fff7ea;
+  --auth-lavender: #ebe1f6;
+  --auth-mint: #dcefe5;
+  --auth-ink: #241b3e;
+  --auth-muted: #574f68;
+  --auth-border: #c8badb;
+  display: grid;
+  min-block-size: 100svh;
+  place-items: center;
+  padding-block: clamp(1.25rem, 4vw, 3.5rem);
+  padding-inline: clamp(1rem, 4vw, 3.5rem);
+  background:
+    radial-gradient(circle at 12% 10%, rgb(245 180 37 / 15%), transparent 28%),
+    linear-gradient(135deg, var(--auth-lavender), var(--auth-cream) 70%);
+  direction: rtl;
+}
+
+.basira-auth__frame {
+  inline-size: min(100%, 42rem);
+}
+
+.basira-auth__card {
+  border-color: #d1c2e4;
+  background: var(--auth-cream);
+  box-shadow: 0 1rem 2.75rem rgb(53 40 122 / 16%);
+}
+
+.basira-auth__header {
+  display: grid;
+  justify-items: center;
+  margin-block-end: 1.7rem;
+  text-align: center;
+}
+
+.basira-auth__header .noor-ui-brand-mark {
+  margin-block-end: 1.25rem;
+}
+
+.basira-auth__eyebrow {
+  margin: 0 0 0.45rem;
+  color: var(--auth-purple);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+.basira-auth__header h1 {
+  max-inline-size: 22rem;
+  margin: 0;
+  color: var(--auth-purple-deep);
+  font-size: clamp(1.65rem, 4vw, 2.35rem);
+  line-height: 1.35;
+}
+
+.basira-auth__description {
+  max-inline-size: 34rem;
+  margin: 0.75rem 0 0;
+  color: var(--auth-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.basira-auth__content {
+  display: grid;
+  gap: 1rem;
+}
+
+.basira-auth__content .noor-ui-notice {
+  font-size: 0.98rem;
+}
+
+.basira-auth__google-button {
+  inline-size: 100%;
+  min-block-size: 3.5rem;
+  font-size: 1.05rem;
+}
+
+.basira-auth__google-icon {
+  display: inline-grid;
+  flex: 0 0 auto;
+  inline-size: 1.7rem;
+  block-size: 1.7rem;
+  place-items: center;
+  border-radius: 50%;
+  background: #fffdf9;
+}
+
+.basira-auth__google-mark {
+  display: block;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+}
+
+.basira-auth__retry-button {
+  inline-size: 100%;
+}
+
+.basira-auth__waiting-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.basira-auth__waiting-dot {
+  display: inline-block;
+  inline-size: 0.65rem;
+  block-size: 0.65rem;
+  border: 2px solid var(--auth-purple);
+  border-inline-end-color: transparent;
+  border-radius: 50%;
+  animation: basira-auth-spin 900ms linear infinite;
+}
+
+.basira-auth__role-note {
+  margin: 0;
+  color: var(--auth-muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.basira-auth__privacy {
+  margin-block-start: 1.75rem;
+  padding-block-start: 1.25rem;
+  border-block-start: 1px solid var(--auth-border);
+  color: var(--auth-muted);
+}
+
+.basira-auth__privacy h2 {
+  margin: 0 0 0.45rem;
+  color: var(--auth-purple-deep);
+  font-size: 1rem;
+}
+
+.basira-auth__privacy p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.basira-auth__privacy p + p {
+  margin-block-start: 0.55rem;
+}
+
+.basira-auth .noor-ui-button:focus-visible {
+  outline: 3px solid var(--auth-purple-deep);
+  outline-offset: 4px;
+}
+
+@keyframes basira-auth-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 42rem) {
+  .basira-auth {
+    align-items: start;
+    padding-block-start: 1rem;
+  }
+
+  .basira-auth__card {
+    padding: 1.1rem;
+  }
+
+  .basira-auth__header {
+    margin-block-end: 1.35rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .basira-auth__card {
+    padding: 2.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .basira-auth__waiting-dot {
+    animation: none;
+  }
+}
+
+[data-motion='reduced'] .basira-auth__waiting-dot {
+  animation: none;
+}

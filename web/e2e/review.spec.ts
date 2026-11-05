@@ -7,6 +7,7 @@ import dotConfusionResponse from '../../contracts/fixtures/ScoreItemResponse.dot
 import parentReportFixture from '../../contracts/fixtures/ParentReport.sample.json' with { type: 'json' }
 import health from '../../contracts/fixtures/Health.ok.json' with { type: 'json' }
 import { ar } from '../src/i18n/messages'
+import { landingCopy } from '../src/ui/pages/landing/copy'
 import { api, mockSupabase, userId } from './support/auth'
 
 // These tests intercept every Supabase/scorer/storage request at loopback. They do not
@@ -266,7 +267,7 @@ async function installReviewApi(page: Page, options: ReviewApiOptions = {}): Pro
 
 async function signInSpecialist(page: Page) {
   await page.goto('/')
-  await page.getByRole('button', { name: ar.authGoogle }).click()
+  await page.getByRole('button', { name: landingCopy.hero.primaryAction }).first().click()
   await expect(page).toHaveURL(`${origin}/specialist`)
   await expect(page.getByRole('heading', { name: ar.reviewTitle })).toBeVisible()
 }
@@ -375,7 +376,7 @@ test('guardian navigation cannot render specialist review or read sessions', asy
   })
   await mockSupabase(page, 'guardian', { origin })
   await page.goto('/')
-  await page.getByRole('button', { name: ar.authGoogle }).click()
+  await page.getByRole('button', { name: landingCopy.hero.primaryAction }).first().click()
   await expect(page).toHaveURL(`${origin}/guardian`)
   await page.goto(`${origin}/specialist`)
   await expect(page.getByText(ar.unavailableTitle)).toBeVisible()

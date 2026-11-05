@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import type { PhoneticLetter } from '../contracts/basira'
+import '../ui/pages/child/child.css'
 
 export function MouthShapeRenderer({ letter, label }: { letter: PhoneticLetter; label: string }) {
   const { mouth } = letter

@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 import health from '../../contracts/fixtures/Health.ok.json' with { type: 'json' }
 import { ar } from '../src/i18n/messages'
+import { landingCopy } from '../src/ui/pages/landing/copy'
 import { mockSupabase } from './support/auth'
 
 // Real-mode client code and browser HTTP, with synthetic intercepted responses.
@@ -24,7 +25,7 @@ test('env-only real mode warms up anonymously only after identity/profile verifi
   })
   await page.goto('/')
   expect(calls).toBe(0)
-  await page.getByRole('button', { name: ar.authGoogle }).click()
+  await page.getByRole('button', { name: landingCopy.hero.primaryAction }).first().click()
   await expect(page).toHaveURL(`${origin}/specialist`)
   await expect(page.getByText(ar.scorerReady)).toBeVisible()
   await expect(page.getByText(ar.scorerFixture)).toHaveCount(0)
@@ -47,7 +48,7 @@ test('invalid real health JSON never blocks sign-in or silently switches to fixt
     await route.fulfill({ contentType: 'application/json', headers: { 'access-control-allow-origin': origin }, body: JSON.stringify(calls === 1 ? { private_service_detail: 'synthetic-invalid-payload' } : health) })
   })
   await page.goto('/')
-  await page.getByRole('button', { name: ar.authGoogle }).click()
+  await page.getByRole('button', { name: landingCopy.hero.primaryAction }).first().click()
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(ar.specialistTitle)
   await expect(page.getByText(ar.scorerUnavailable)).toBeVisible()
   await expect(page.getByText('synthetic-invalid-payload')).toHaveCount(0)

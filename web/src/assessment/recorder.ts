@@ -1,5 +1,6 @@
 import { encodeCapturedPcm } from './pcm'
 import type { ItemType } from '../contracts/basira'
+import { recordingQuietGate } from '../ui/delight/recordingQuietGate'
 
 export type RecorderIssue = 'permission_denied' | 'unsupported' | 'cancelled' | 'device_ended' | 'empty' | 'too_long'
 
@@ -59,6 +60,7 @@ export class AudioRecorder {
   private state: 'idle' | 'starting' | 'recording' | 'stopping' | 'stopped' = 'idle'
   private terminalIssue: RecorderIssue | null = null
   private generation = 0
+  private releaseRecordingQuiet: (() => void) | null = null
 
   constructor(options: RecorderOptions = {}) {
     this.options = options
@@ -74,6 +76,7 @@ export class AudioRecorder {
     if (!devices?.getUserMedia || typeof Context !== 'function') throw new RecorderError('unsupported')
     this.state = 'starting'
     const generation = ++this.generation
+    this.releaseRecordingQuiet = recordingQuietGate.acquire()
     const check = () => {
       if (generation !== this.generation || this.state !== 'starting') throw new RecorderError('cancelled')
     }
@@ -171,5 +174,8 @@ export class AudioRecorder {
     if (context && context.state !== 'closed') {
       try { await context.close() } catch { /* The microphone tracks are already stopped. */ }
     }
+    const releaseRecordingQuiet = this.releaseRecordingQuiet
+    this.releaseRecordingQuiet = null
+    releaseRecordingQuiet?.()
   }
 }

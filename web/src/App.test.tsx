@@ -10,6 +10,8 @@ import type { MessageKey } from './i18n/messages'
 import { roleHome } from './routing/roles'
 import type { AppRole } from './routing/roles'
 import { createTestAuth } from './test/auth'
+import { authCopy, authIssueCopy } from './ui/pages/auth/copy'
+import { landingCopy } from './ui/pages/landing/copy'
 
 function renderAuth(path: string, fixture: ReturnType<typeof createTestAuth>) {
   const router = createMemoryRouter(
@@ -36,18 +38,16 @@ const workspaces: { role: AppRole; title: MessageKey }[] = [
 const paths = ['/guardian', '/specialist', '/examiner', '/admin', '/child']
 
 describe('Arabic-first scaffold', () => {
-  it('renders Arabic sign-in controls that stay disabled without configuration', () => {
+  it('renders the Arabic-first landing and keeps Google sign-in disabled without configuration', () => {
     renderApp()
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(ar.welcomeTitle)
-    expect(screen.getByText(ar.scaffoldBadge)).toBeVisible()
-    expect(screen.getByText(ar.foundationDescription)).toBeVisible()
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(landingCopy.hero.title)
+    expect(screen.getByText(landingCopy.demo.body)).toBeVisible()
     expect(document.documentElement).toHaveAttribute('lang', 'ar')
     expect(document.documentElement).toHaveAttribute('dir', 'rtl')
     expect(document.title).toBe(ar.appTitle)
-    expect(screen.getByRole('button', { name: ar.authGoogle })).toBeDisabled()
+    expect(screen.getAllByRole('button', { name: landingCopy.hero.primaryAction })[0]).toBeDisabled()
     expect(screen.queryByRole('button', { name: /Microsoft|مايكروسوفت/i })).not.toBeInTheDocument()
-    expect(screen.getByRole('alert')).toHaveTextContent(ar.authConfiguration)
-    expect(screen.getByRole('link', { name: ar.skipToContent })).toHaveAttribute('href', '#main-content')
+    expect(screen.getByText(landingCopy.auth.unavailable)).toBeVisible()
   })
 
   it('renders an Arabic not-found page', () => {
@@ -67,7 +67,7 @@ describe('Arabic-first scaffold', () => {
     localStorage.setItem('app_role', 'specialist')
     localStorage.setItem('locale', 'en')
     const router = renderApp('/specialist?role=specialist&locale=en')
-    expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent(ar.welcomeTitle)
+    expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent(landingCopy.hero.title)
     expect(router.state.location.pathname).toBe('/')
     expect(document.documentElement).toHaveAttribute('lang', 'ar')
     localStorage.clear()
@@ -77,7 +77,7 @@ describe('Arabic-first scaffold', () => {
 describe('role routing (navigation only, not database authorization)', () => {
   it.each(paths)('sends an unauthenticated visit to %s back to the public shell', async (path) => {
     const router = renderApp(path)
-    expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent(ar.welcomeTitle)
+    expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent(landingCopy.hero.title)
     expect(router.state.location.pathname).toBe('/')
   })
 
@@ -131,7 +131,9 @@ describe('professional-only English catalogue', () => {
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(ar.childTitle)
     expect(document.documentElement).toHaveAttribute('lang', 'ar')
     expect(document.documentElement).toHaveAttribute('dir', 'rtl')
-    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: ar.authSignOut })).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: ar.languageSwitch })).not.toBeInTheDocument()
+    expect(screen.getByRole('group', { name: 'إعدادات الصوت والحركة' })).toBeVisible()
     const childText = within(screen.getByRole('main')).getByRole('heading', { level: 1 }).textContent
     expect(childText).not.toMatch(/[a-z]/i)
     expect(screen.getByRole('main')).not.toHaveTextContent(/wrong|score|risk|خطر|درجة|خطأ/i)
@@ -152,7 +154,7 @@ describe('Supabase auth UI boundary (in-memory component fixtures only)', () => 
     const fixture = createTestAuth({ status: 'signedOut', role: null, issue: null })
     renderAuth('/', fixture)
     const user = userEvent.setup()
-    await user.click(screen.getByRole('button', { name: ar.authGoogle }))
+    await user.click(screen.getAllByRole('button', { name: landingCopy.hero.primaryAction })[0])
     expect(fixture.controller.signIn).toHaveBeenCalledExactlyOnceWith('google')
     expect(screen.queryByRole('button', { name: /Microsoft|مايكروسوفت/i })).not.toBeInTheDocument()
     expect(screen.queryByRole('combobox')).not.toBeInTheDocument()
@@ -176,8 +178,9 @@ describe('Supabase auth UI boundary (in-memory component fixtures only)', () => 
     await userEvent.setup().click(screen.getByRole('button', { name: ar.languageSwitch }))
     expect(document.documentElement).toHaveAttribute('lang', 'en')
     act(() => fixture.update({ status: 'error', role: null, issue: 'unavailable' }))
-    expect(await screen.findByRole('alert')).toHaveTextContent(ar.authUnavailable)
-    expect(screen.queryByRole('navigation')).not.toBeInTheDocument()
+    expect(screen.getByText(landingCopy.auth.unavailable)).toBeVisible()
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(landingCopy.hero.title)
+    expect(screen.queryByRole('navigation', { name: ar.navigation })).not.toBeInTheDocument()
     expect(document.documentElement).toHaveAttribute('lang', 'ar')
     expect(document.documentElement).toHaveAttribute('dir', 'rtl')
   })
@@ -189,14 +192,15 @@ describe('Supabase auth UI boundary (in-memory component fixtures only)', () => 
     expect(router.state.location.pathname).toBe('/guardian')
   })
 
-  it.each(['callback', 'session', 'profile', 'role', 'signIn', 'signOut', 'unavailable'] as const)(
-    'surfaces a safe Arabic %s issue with an explicit retry', async (issue) => {
+    it.each(['callback', 'session', 'profile', 'role', 'signIn', 'signOut', 'unavailable'] as const)(
+      'surfaces a safe Arabic %s issue with an explicit retry', async (issue) => {
       const snapshot: AuthSnapshot = { status: 'error', role: null, issue }
       const fixture = createTestAuth(snapshot)
       renderAuth('/auth/callback', fixture)
       expect(screen.getByRole('alert')).toBeVisible()
-      expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(ar.authCallbackTitle)
-      await userEvent.setup().click(screen.getByRole('button', { name: ar.authRetry }))
+      expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(authCopy.title)
+      expect(screen.getByRole('alert')).toHaveTextContent(authIssueCopy[issue])
+      await userEvent.setup().click(screen.getByRole('button', { name: authCopy.retry }))
       expect(fixture.controller.retry).toHaveBeenCalledOnce()
       expect(document.documentElement).toHaveAttribute('dir', 'rtl')
     },

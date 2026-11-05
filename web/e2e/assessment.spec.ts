@@ -2,6 +2,8 @@ import { expect, test, type Page, type Route } from '@playwright/test'
 import dialectVariantResponse from '../../contracts/fixtures/ScoreItemResponse.dialect-variant.json' with { type: 'json' }
 import dotConfusionResponse from '../../contracts/fixtures/ScoreItemResponse.dot-confusion.json' with { type: 'json' }
 import { ar } from '../src/i18n/messages'
+import { childCopy } from '../src/ui/pages/child/copy'
+import { landingCopy } from '../src/ui/pages/landing/copy'
 import { api, defaultOrigin, mockSupabase } from './support/auth'
 
 // These are intercepted loopback responses only. They prove browser/runtime behavior against
@@ -144,7 +146,7 @@ async function preparePage(page: Page, options: AssessmentApiOptions = {}) {
   await mockSupabase(page, 'specialist')
   const backend = await installAssessmentApi(page, options)
   await page.goto('/')
-  await page.getByRole('button', { name: ar.authGoogle }).click()
+  await page.getByRole('button', { name: landingCopy.hero.primaryAction }).first().click()
   await expect(page).toHaveURL(`${defaultOrigin}/specialist`)
   await expect(page.locator('#assessment-child')).toHaveValue(childId)
   return backend
@@ -157,7 +159,7 @@ async function beginSession(page: Page) {
   await start.click()
   await expect(page).toHaveURL(`${defaultOrigin}/child`)
   await expect(page.getByRole('heading', { name: 'قَلَم' })).toBeVisible()
-  await expect(page.getByText(ar.assessmentDemoLabel)).toBeVisible()
+  await expect(page.getByText(childCopy.boundary.synthetic)).toBeVisible()
   await expect(page.getByRole('heading', { name: ar.assessmentQueueTitle })).toHaveCount(0)
 }
 

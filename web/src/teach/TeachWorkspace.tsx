@@ -5,6 +5,10 @@ import { AudioRecorder, RecorderError, recordingDurationMs } from '../assessment
 import type { ActiveAssessmentSession, AssessmentChild, AssessmentItem } from '../assessment/types'
 import { useI18n } from '../i18n/context'
 import type { MessageKey } from '../i18n/messages'
+import { Button, Notice, SectionHeader, Surface } from '../ui/core'
+import { ChildChoiceGrid, ChildWorld, RecordingOrb } from '../ui/pages/child/ChildWorld'
+import { childCopy } from '../ui/pages/child/copy'
+import { useDelight } from '../ui/delight/DelightProvider'
 import { useLearningMap } from '../learning-map/context'
 import { getCanonicalTeachBank, itemLetter, selectApprovedTeachItems, type ApprovedTeachPlan, type TeachItem } from './catalogue'
 import { useTeachRepository } from './context'
@@ -44,6 +48,7 @@ function planErrorMessage(error: unknown): MessageKey {
 function PracticeSession({ session, teachItems, onFinished }: { session: ActiveAssessmentSession; teachItems: readonly TeachItem[]; onFinished?: () => void }) {
   const { t } = useI18n()
   const { controller } = useAuth()
+  const { playAdvance, playCompletion, playNeutralAttention, playTap } = useDelight()
   const assessment = useAssessment()
   const repository = useTeachRepository()
   const recorder = useRef<AudioRecorder | null>(null)
@@ -69,6 +74,7 @@ function PracticeSession({ session, teachItems, onFinished }: { session: ActiveA
   const finish = () => {
     if (completed.current) return
     completed.current = true
+    playCompletion()
     void assessment?.runtime.completeSession().catch(() => assessment.runtime.reportIssue('network'))
     onFinished?.()
   }
@@ -79,6 +85,7 @@ function PracticeSession({ session, teachItems, onFinished }: { session: ActiveA
     setTapAttempts(0)
     setMode('read')
     if (next >= session.items.length) finish()
+    else playAdvance()
     setIndex(next)
   }
 
@@ -149,6 +156,7 @@ function PracticeSession({ session, teachItems, onFinished }: { session: ActiveA
         setTapAttempts((value) => value + 1)
         setNotice('teachNeutralRetry')
         setHelperOpen(true)
+        playNeutralAttention()
       }
     } catch {
       setNotice('teachTapSaveError')
@@ -156,31 +164,44 @@ function PracticeSession({ session, teachItems, onFinished }: { session: ActiveA
   }
 
   if (finished) return (
-    <section className="teach-finished" aria-labelledby="teach-finished-title">
-      <p className="child-kicker">{t('teachKicker')}</p>
-      <h1 id="teach-finished-title">{t('teachFinishedTitle')}</h1>
-      <p className="lead">{t('teachFinishedDescription')}</p>
-      {assessment?.snapshot.pending ? <p className="teach-queue-note">{t('teachQueueNote')}</p> : null}
-    </section>
+    <ChildWorld
+      className="teach-finished"
+      pose="encouraging"
+      noorAlt={childCopy.shell.encouragingAlt}
+      title={t('teachFinishedTitle')}
+      titleId="teach-finished-title"
+      progress={t('teachProgress')}
+    >
+      <div className="child-finished-copy" role="status" aria-live="polite">
+        <p className="lead">{t('teachFinishedDescription')}</p>
+        {assessment?.snapshot.pending ? <p className="teach-queue-note">{t('teachQueueNote')}</p> : null}
+      </div>
+    </ChildWorld>
   )
 
   const isTap = material.type === 'vowel_tap' && Array.isArray(material.options) && typeof material.answer_index === 'number'
+  const orbState = phase === 'recording' ? 'recording' : phase === 'ready' ? 'ready' : 'processing'
   return (
-    <section className="teach-session" aria-labelledby="teach-title">
-      <p className="child-kicker">{t('teachKicker')}</p>
-      <p className="teach-progress" aria-live="polite">{t('teachProgress')} {index + 1} / {session.items.length}</p>
-      <h1 id="teach-title" className="teach-prompt">{material.text}</h1>
-      <div className="teach-actions" role="group" aria-label={t('teachActivityChoices')}>
-        <button className={`action-button${mode === 'read' ? ' teach-action-selected' : ''}`} type="button" onClick={() => { setMode('read'); setNotice(null) }}>{t('teachReadMode')}</button>
-        <button className={`action-button${mode === 'trace' ? ' teach-action-selected' : ''}`} type="button" onClick={() => { setMode('trace'); setNotice(null) }}>{t('teachTraceMode')}</button>
+    <ChildWorld
+      className="teach-session"
+      pose="teaching"
+      noorAlt={childCopy.shell.teachingAlt}
+      title={<span className="teach-prompt">{material.text}</span>}
+      titleId="teach-title"
+      progress={`${t('teachProgress')} ${index + 1} / ${session.items.length}`}
+      boundary={session.child.isDemo ? childCopy.boundary.adultOnly : undefined}
+    >
+      <div className="noor-child-world__modes" role="group" aria-label={t('teachActivityChoices')}>
+        <button className={`noor-child-world__mode-button${mode === 'read' ? ' noor-child-world__mode-button--selected' : ''}`} type="button" onClick={() => { setMode('read'); setNotice(null); playTap() }}>{t('teachReadMode')}</button>
+        <button className={`noor-child-world__mode-button${mode === 'trace' ? ' noor-child-world__mode-button--selected' : ''}`} type="button" onClick={() => { setMode('trace'); setNotice(null); playTap() }}>{t('teachTraceMode')}</button>
       </div>
-      {notice && <p className="child-neutral-notice" role="status" aria-live="polite">{t(notice)}</p>}
-      <div className="teach-helper-actions">
-        <button className="action-button" type="button" onClick={() => setHelperOpen((open) => !open)} aria-expanded={helperOpen}>{t('teachShowCue')}</button>
+      {notice && <p className="noor-child-world__neutral" role="status" aria-live="polite">{t(notice)}</p>}
+      <div className="noor-child-world__helpers">
+        <button className="noor-child-world__helper-button" type="button" onClick={() => { setHelperOpen((open) => !open); playTap() }} aria-expanded={helperOpen}>{t('teachShowCue')}</button>
         {tapAttempts > 0 && <span className="teach-attempt-note">{t('teachTryAgain')}</span>}
       </div>
       {helperOpen && letter && (
-        <aside className="teach-helper" aria-labelledby="teach-helper-title">
+        <aside className="noor-child-world__mouth-card" aria-labelledby="teach-helper-title">
           <h2 id="teach-helper-title">{t('teachCueTitle')}</h2>
           <MouthShapeRenderer letter={letter} label={t('teachMouthLabel')} />
           <p>{letter.cue_ar}</p>
@@ -188,36 +209,42 @@ function PracticeSession({ session, teachItems, onFinished }: { session: ActiveA
         </aside>
       )}
       {mode === 'trace' ? (
-        <TracePad
-          label={t('teachTraceTitle')}
-          resetLabel={t('teachTraceReset')}
-          completeLabel={t('teachTraceComplete')}
-          note={t('teachTraceNote')}
-          canvasLabel={t('teachTraceCanvasLabel')}
-          onComplete={advance}
-        />
+        <div className="noor-child-world__trace-card">
+          <TracePad
+            label={t('teachTraceTitle')}
+            resetLabel={t('teachTraceReset')}
+            completeLabel={t('teachTraceComplete')}
+            note={t('teachTraceNote')}
+            canvasLabel={t('teachTraceCanvasLabel')}
+            onComplete={advance}
+          />
+        </div>
       ) : isTap ? (
-        <div className="teach-tap" aria-labelledby="teach-tap-title">
+        <div className="noor-child-world__tap-card" aria-labelledby="teach-tap-title">
           <h2 id="teach-tap-title">{t('teachTapTitle')}</h2>
           <p>{t('teachTapDescription')}</p>
-          <div className="teach-option-grid">
+          <ChildChoiceGrid label={t('teachActivityChoices')}>
             {material.options?.map((option, optionIndex) => (
-              <button className="teach-option" key={`${material.id}-${option}`} type="button" disabled={tapBusy} onClick={() => { void chooseTap(optionIndex) }}>{option}</button>
+              <button className="noor-child-world__choice teach-option" key={`${material.id}-${option}`} type="button" disabled={tapBusy} onClick={() => { void chooseTap(optionIndex) }}>{option}</button>
             ))}
-          </div>
+          </ChildChoiceGrid>
         </div>
       ) : (
-        <div className="teach-read">
+        <div className="noor-child-world__tap-card">
           <p>{t('teachReadDescription')}</p>
-          {phase === 'recording' ? (
-            <button className="child-mic-button child-mic-button-recording" type="button" onClick={() => { void stopRecording() }}>{t('teachReadStop')}</button>
-          ) : (
-            <button className="child-mic-button" type="button" disabled={phase !== 'ready'} onClick={() => { void beginRecording() }}>{t(phase === 'starting' ? 'childMicPreparing' : phase === 'finalizing' ? 'childMicFinalizing' : 'teachReadStart')}</button>
-          )}
-          <p className="child-neutral-hint">{t('teachNeutralHint')}</p>
+          <RecordingOrb
+            className="child-mic-button"
+            state={orbState}
+            disabled={phase !== 'ready' && phase !== 'recording'}
+            label={t(phase === 'recording' ? 'teachReadStop' : 'teachReadStart')}
+            onClick={() => { void (phase === 'recording' ? stopRecording() : beginRecording()) }}
+          >
+            {t(phase === 'starting' ? 'childMicPreparing' : phase === 'finalizing' ? 'childMicFinalizing' : phase === 'recording' ? 'teachReadStop' : 'teachReadStart')}
+          </RecordingOrb>
+          <p className="noor-child-world__hint">{t('teachNeutralHint')}</p>
         </div>
       )}
-    </section>
+    </ChildWorld>
   )
 }
 
@@ -296,15 +323,17 @@ export function TeachWorkspace() {
   if (activePractice) return <PracticeSession session={activePractice} teachItems={items.length ? items : sessionItems(activePractice)} />
 
   return (
-    <>
-      <section className="intro child-guidance" aria-labelledby="teach-intro-title">
-        <p className="child-kicker">{t('teachKicker')}</p>
-        <h1 id="teach-intro-title">{t('childTitle')}</h1>
-        <p className="lead">{t('teachDescription')}</p>
-        {!plan && <p>{t('noSessionDescription')}</p>}
-      </section>
-      <section className="teach-launch" aria-labelledby="teach-launch-title">
+    <div className="noor-pro-shell">
+      <SectionHeader
+        className="child-guidance"
+        eyebrow={t('teachKicker')}
+        title={t('childTitle')}
+        description={t('teachDescription')}
+        level={1}
+      />
+      <Surface className="teach-launch" aria-labelledby="teach-launch-title">
         <h2 id="teach-launch-title">{t('teachLaunchTitle')}</h2>
+        {!plan && <p>{t('noSessionDescription')}</p>}
         {loading && <p role="status">{t('teachLoading')}</p>}
         <label className="assessment-field" htmlFor="teach-child">
           <span>{t('teachChildLabel')}</span>
@@ -314,12 +343,12 @@ export function TeachWorkspace() {
           </select>
         </label>
         {planLoading && <p role="status">{t('teachPlanLoading')}</p>}
-        {plan && <p className="teach-approval-note">{t('teachApprovedPlanNotice')} {items.length}</p>}
-        {displayedMessage && <p className="child-neutral-notice" role="alert">{t(displayedMessage)}</p>}
+        {plan && <Notice className="teach-approval-note" tone="positive">{t('teachApprovedPlanNotice')} {items.length}</Notice>}
+        {displayedMessage && <Notice className="child-neutral-notice" tone="caution" role="alert">{t(displayedMessage)}</Notice>}
         {plan && items.length > 0 && (
-          <button className="child-mic-button" type="button" disabled={!selectedChild || planLoading} onClick={() => { void start() }}>{t('teachStart')}</button>
+          <Button className="child-mic-button" type="button" disabled={!selectedChild || planLoading} onClick={() => { void start() }}>{t('teachStart')}</Button>
         )}
-      </section>
-    </>
+      </Surface>
+    </div>
   )
 }
