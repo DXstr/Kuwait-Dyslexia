@@ -1,0 +1,74 @@
+.noor-delight-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--noor-muted, #574f68);
+  font-family: 'IBM Plex Sans Arabic', 'Noto Naskh Arabic', sans-serif;
+}
+
+.noor-delight-controls__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-block-size: 2.75rem;
+  min-inline-size: 3rem;
+  padding-block: 0.55rem;
+  padding-inline: 0.85rem;
+  border: 1px solid var(--noor-border, #c8badb);
+  border-radius: 999px;
+  background: var(--noor-paper, #fffdf9);
+  color: var(--noor-purple-deep, #251b5c);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.noor-delight-controls__button:hover {
+  border-color: var(--noor-purple-soft, #5f4ca0);
+  background: var(--noor-lavender, #ebe1f6);
+  box-shadow: 0 0.25rem 0 rgb(53 40 122 / 12%);
+  transform: translateY(-1px);
+}
+
+.noor-delight-controls__button:focus-visible {
+  outline: 3px solid var(--noor-focus, #211556);
+  outline-offset: 3px;
+}
+
+.noor-delight-controls__button[aria-pressed='true'] {
+  border-color: var(--noor-purple, #35287a);
+  background: var(--noor-lavender, #ebe1f6);
+}
+
+@media (max-width: 42rem) {
+  .noor-delight-controls {
+    align-items: stretch;
+  }
+
+  .noor-delight-controls__button {
+    flex: 1 1 10rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .noor-delight-controls__button {
+    transition: none;
+  }
+
+  .noor-delight-controls__button:hover {
+    transform: none;
+  }
+}
+
+[data-motion='reduced'] .noor-delight-controls__button {
+  transition: none;
+}
+
+[data-motion='reduced'] .noor-delight-controls__button:hover {
+  transform: none;
+}

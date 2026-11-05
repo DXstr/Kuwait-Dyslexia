@@ -6,6 +6,7 @@ import { useI18n } from '../i18n/context'
 import type { MessageKey } from '../i18n/messages'
 import { ScorerFixtureNotice } from '../scorer/ScorerNotice'
 import { SpecialistReportDraftForm } from '../parent-report/SpecialistReportDraftForm'
+import { Button } from '../ui/core'
 import { useReviewAccess } from './context'
 import { ReviewRepositoryError } from './repository'
 import skillGraph from '../../../contracts/skill-graph.json'
@@ -171,18 +172,18 @@ function ReviewActions({
   return (
     <div className="review-actions">
       {status === 'draft' && (
-        <button className="action-button" type="button" disabled={busy} onClick={() => onTransition(kind, row, 'pending_review', note)}>
+        <Button className="review-action--submit" variant="soft" disabled={busy} onClick={() => onTransition(kind, row, 'pending_review', note)}>
           {t('reviewSubmit')}
-        </button>
+        </Button>
       )}
       {status === 'pending_review' && (
         <>
-          <button className="action-button" type="button" disabled={busy} onClick={() => onTransition(kind, row, 'approved', note)}>
+          <Button className="review-action--approve" variant="gold" disabled={busy} onClick={() => onTransition(kind, row, 'approved', note)}>
             {t('reviewApprove')}
-          </button>
-          <button className="action-button" type="button" disabled={busy} onClick={() => onTransition(kind, row, 'rejected', note)}>
+          </Button>
+          <Button className="review-action--reject" variant="outline" disabled={busy} onClick={() => onTransition(kind, row, 'rejected', note)}>
             {t('reviewReject')}
-          </button>
+          </Button>
         </>
       )}
       {kind === 'fingerprints' && <label className="review-note-field"><span>{t('reviewNote')}</span><textarea value={note} onChange={(event) => onNote(event.target.value)} /></label>}
@@ -565,8 +566,8 @@ export function ReviewWorkspace() {
   if (!access || !repository) return <section className="review-panel review-protected" aria-labelledby="review-title"><h2 id="review-title">{t('reviewTitle')}</h2><p className="professional-notice" role="status">{t('reviewUnavailable')}</p></section>
 
   return (
-    <section className="review-panel" aria-labelledby="review-title">
-      <div className="intro review-intro"><p className="status-note">{t('reviewBadge')}</p><h2 id="review-title">{t('reviewTitle')}</h2><p className="lead">{t('reviewDescription')}</p></div>
+    <section id="review-workspace" className="review-panel specialist-workspace" aria-labelledby="review-title">
+      <header className="review-intro"><h2 id="review-title">{t('reviewTitle')}</h2><p>{t('reviewDescription')}</p></header>
       <div className="review-toolbar"><label className="review-field" htmlFor="review-session"><span>{t('reviewChooseSession')}</span><select id="review-session" value={selectedId} disabled={loading || detailLoading || Boolean(busyRow || fingerprintBusy) || sessions.length === 0} onChange={(event) => { setSelectedId(event.target.value); setMessage(null) }}><option value="">{t('reviewChooseSessionPlaceholder')}</option>{sessions.map((session) => <option key={session.id} value={session.id}>{session.child_display_name}{session.child_is_demo ? ` — ${t('reviewDemoChild')}` : ''} · {formatDate(session.started_at, locale)}</option>)}</select></label><button className="action-button" type="button" disabled={loading || Boolean(busyRow || fingerprintBusy)} onClick={() => { void loadSessions() }}>{t('reviewReload')}</button></div>
       {loading && <p role="status" aria-live="polite">{t('reviewLoadingSessions')}</p>}
       {message && <p className="professional-notice" role="alert">{t(message.key)}{message.detail ? ` — ${message.detail}` : ''}</p>}

@@ -2,6 +2,8 @@ import { expect, test, type Page, type Route } from '@playwright/test'
 import parentReportFixture from '../../contracts/fixtures/ParentReport.sample.json' with { type: 'json' }
 import type { ParentReport } from '../src/contracts/basira'
 import { ar } from '../src/i18n/messages'
+import { guardianCopy } from '../src/ui/pages/guardian/copy'
+import { landingCopy } from '../src/ui/pages/landing/copy'
 import { api, defaultOrigin, mockSupabase, userId } from './support/auth'
 
 // This is the canonical contract fixture served through intercepted loopback HTTP only.
@@ -85,7 +87,7 @@ async function signInGuardian(page: Page, options: ParentReportApiOptions) {
   const auth = await mockSupabase(page, 'guardian')
   const reports = await installParentReportsApi(page, options)
   await page.goto('/')
-  await page.getByRole('button', { name: ar.authGoogle }).click()
+  await page.getByRole('button', { name: landingCopy.hero.primaryAction }).first().click()
   await expect(page).toHaveURL(`${defaultOrigin}/guardian`)
   await expect(page.getByRole('heading', { name: ar.guardianTitle, exact: true })).toBeVisible()
   return { auth, reports }
@@ -94,7 +96,9 @@ async function signInGuardian(page: Page, options: ParentReportApiOptions) {
 async function expectNoRenderableReport(page: Page, message: string) {
   await expect(page.locator('.parent-report-document')).toHaveCount(0)
   await expect(page.getByRole('button', { name: ar.parentReportSavePdf })).toHaveCount(0)
-  await expect(page.getByRole('alert')).toHaveText(message)
+  const expected = page.url().endsWith('/print') ? message : message === ar.parentReportUnavailable ? guardianCopy.unavailable : guardianCopy.loadError
+  await expect(page.getByRole('alert')).toContainText(expected)
+  await expect(page.getByRole('link', { name: guardianCopy.openPrint })).toHaveCount(0)
 }
 
 for (const invalidCase of [
@@ -129,12 +133,12 @@ test('guardian sees an approved synthetic report, opens the real print route, an
   const { auth, reports } = await signInGuardian(page, { listBody: [approvedRow()], detailBody: approvedRow() })
 
   await expect(page.getByRole('heading', { name: ar.parentReportAvailable })).toBeVisible()
-  await expect(page.getByText(canonicalParentReport.child_first_name, { exact: true })).toBeVisible()
-  await expect(page.getByText(ar.parentReportDemo)).toBeVisible()
-  await expect(page.getByRole('link', { name: ar.parentReportPrint })).toHaveAttribute('href', `/guardian/reports/${reportId}/print`)
+  await expect(page.locator('.parent-report-document').getByText(canonicalParentReport.child_first_name, { exact: true })).toBeVisible()
+  await expect(page.getByText(guardianCopy.demoNotice)).toBeVisible()
+  await expect(page.getByRole('link', { name: guardianCopy.openPrint })).toHaveAttribute('href', `/guardian/reports/${reportId}/print`)
   expect(reports.listRequests).toBe(1)
 
-  await page.getByRole('link', { name: ar.parentReportPrint }).click()
+  await page.getByRole('link', { name: guardianCopy.openPrint }).click()
   await expect(page).toHaveURL(`${defaultOrigin}/guardian/reports/${reportId}/print`)
   await expect(page.locator('.parent-report-document')).toBeVisible()
   await expect(page.getByRole('button', { name: ar.parentReportSavePdf })).toBeVisible()
@@ -142,7 +146,7 @@ test('guardian sees an approved synthetic report, opens the real print route, an
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl')
   await expect(page.locator('.parent-report-document')).toHaveAttribute('lang', 'ar')
   await expect(page.locator('.parent-report-document')).toHaveAttribute('dir', 'rtl')
-  await expect(page.getByText(canonicalParentReport.child_first_name, { exact: true })).toBeVisible()
+  await expect(page.locator('.parent-report-document').getByText(canonicalParentReport.child_first_name, { exact: true })).toBeVisible()
   await expect(page.getByText(canonicalParentReport.specialist.contact, { exact: true })).toBeVisible()
   await expect(page.getByText(/score|risk|diagnosis|error|درجة|مخاطر|تشخيص|خطأ/i)).toHaveCount(0)
   expect(reports.detailRequests).toBe(1)
@@ -167,6 +171,6 @@ test('guardian sees an approved synthetic report, opens the real print route, an
   await page.getByRole('button', { name: ar.authSignOut }).click()
   await expect(page).toHaveURL(`${defaultOrigin}/`)
   await expect(page.locator('.parent-report-document')).toHaveCount(0)
-  await expect(page.getByRole('button', { name: ar.authGoogle })).toBeEnabled()
+  await expect(page.getByRole('button', { name: landingCopy.hero.primaryAction }).first()).toBeEnabled()
   expect(auth.observed.logout).toBe(true)
 })

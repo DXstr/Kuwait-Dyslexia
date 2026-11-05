@@ -1,0 +1,660 @@
+.specialist-cockpit,
+.specialist-module,
+.specialist-access {
+  --specialist-purple: #35287a;
+  --specialist-purple-deep: #251b5c;
+  --specialist-purple-soft: #5f4ca0;
+  --specialist-gold: #f5b425;
+  --specialist-cream: #fff7ea;
+  --specialist-lavender: #ebe1f6;
+  --specialist-mint: #dcefe5;
+  --specialist-ink: #241b3e;
+  --specialist-muted: #574f68;
+  --specialist-border: #c8badb;
+  --specialist-paper: #fffdf9;
+  --specialist-focus: #211556;
+  color: var(--specialist-ink);
+  font-family: 'IBM Plex Sans Arabic', 'Noto Naskh Arabic', sans-serif;
+}
+
+.specialist-cockpit {
+  display: grid;
+  grid-template-areas: 'rail main';
+  grid-template-columns: minmax(13rem, 17rem) minmax(0, 1fr);
+  gap: 0;
+  margin-block: 1.5rem 2.5rem;
+  overflow: hidden;
+  border: 1px solid var(--specialist-border);
+  border-radius: 1.5rem;
+  background: var(--specialist-cream);
+  box-shadow: 0 1.2rem 3rem rgb(53 40 122 / 12%);
+}
+
+.specialist-cockpit__rail {
+  grid-area: rail;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-block-size: 44rem;
+  padding: clamp(1.25rem, 3vw, 2rem) 1.25rem;
+  background: var(--specialist-purple);
+  color: #fffdf9;
+}
+
+.specialist-cockpit__brand {
+  color: #fffdf9;
+}
+
+.specialist-cockpit__brand .noor-ui-brand-mark__name {
+  color: #fffdf9;
+}
+
+.specialist-cockpit__rail-copy {
+  display: grid;
+  gap: 0.5rem;
+  color: #eee8fb;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.specialist-cockpit__rail-copy p,
+.specialist-cockpit__header p {
+  margin: 0;
+}
+
+.specialist-cockpit__eyebrow {
+  color: var(--specialist-gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.specialist-cockpit__nav {
+  display: grid;
+  gap: 0.5rem;
+  margin-block-start: 0.5rem;
+}
+
+.specialist-cockpit__nav a {
+  display: flex;
+  align-items: center;
+  min-block-size: 3rem;
+  padding-inline: 0.85rem;
+  border: 1px solid transparent;
+  border-radius: 0.8rem;
+  color: #fffdf9;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.specialist-cockpit__nav a:hover {
+  border-color: rgb(255 255 255 / 35%);
+  background: rgb(255 255 255 / 10%);
+  transform: translateX(-2px);
+}
+
+.specialist-cockpit__nav a.is-active {
+  border-color: var(--specialist-gold);
+  background: var(--specialist-gold);
+  color: var(--specialist-purple-deep);
+}
+
+.specialist-cockpit__rail-status {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-block-start: auto;
+  padding-block-start: 1rem;
+  border-block-start: 1px solid rgb(255 255 255 / 24%);
+  color: #fff3d0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.specialist-cockpit__status-dot {
+  flex: 0 0 auto;
+  inline-size: 0.6rem;
+  block-size: 0.6rem;
+  border-radius: 50%;
+  background: var(--specialist-gold);
+  box-shadow: 0 0 0 0.25rem rgb(245 180 37 / 16%);
+}
+
+.specialist-cockpit__main {
+  grid-area: main;
+  min-inline-size: 0;
+  padding: clamp(1.15rem, 3vw, 2.5rem);
+  background: var(--specialist-cream);
+}
+
+.specialist-cockpit__header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block-end: 1.5rem;
+  border-block-end: 1px solid var(--specialist-border);
+}
+
+.specialist-cockpit__header h1 {
+  margin: 0.4rem 0 0.55rem;
+  color: var(--specialist-purple-deep);
+  font-size: clamp(1.65rem, 3.4vw, 2.7rem);
+  line-height: 1.3;
+}
+
+.specialist-cockpit__header p:last-child {
+  max-inline-size: 52rem;
+  color: var(--specialist-muted);
+  line-height: 1.75;
+}
+
+.specialist-cockpit__role-badge {
+  flex: 0 0 auto;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #a8d2bc;
+  border-radius: 999px;
+  background: var(--specialist-mint);
+  color: #245d43;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.specialist-workspace,
+.specialist-workspace-module {
+  display: grid;
+  gap: 1.15rem;
+  margin-block: 1.25rem 2rem;
+}
+
+.specialist-workspace__toolbar,
+.specialist-module-toolbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--specialist-border);
+  border-radius: 1rem;
+  background: var(--specialist-paper);
+}
+
+.specialist-module {
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border: 1px solid var(--specialist-border);
+  border-radius: 1.35rem;
+  background: var(--specialist-cream);
+  box-shadow: 0 0.7rem 2rem rgb(53 40 122 / 8%);
+}
+
+.specialist-module__heading,
+.specialist-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.specialist-module__heading h2,
+.specialist-section-heading h2,
+.specialist-section-heading h3 {
+  margin: 0;
+  color: var(--specialist-purple-deep);
+}
+
+.specialist-module__heading p,
+.specialist-section-heading p {
+  margin-block: 0.3rem 0;
+  color: var(--specialist-muted);
+  line-height: 1.65;
+}
+
+.specialist-card,
+.review-card,
+.assessment-panel,
+.probe-results,
+.learning-map-summary,
+.learning-map-table-section,
+.learning-map-history,
+.learning-map-plan,
+.learning-map-stored,
+.parent-report-draft-form {
+  border-color: var(--specialist-border);
+  border-radius: 1rem;
+  background: var(--specialist-paper);
+  box-shadow: 0 0.4rem 1.3rem rgb(53 40 122 / 6%);
+}
+
+.review-panel,
+.probe-panel,
+.learning-map-workspace {
+  display: grid;
+  gap: 1.1rem;
+  margin-block: 1.25rem 2rem;
+}
+
+.review-panel {
+  margin-block: 0;
+}
+
+.review-intro {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.review-toolbar,
+.learning-map-controls,
+.oauth-actions,
+.review-actions,
+.review-fingerprint-control,
+.parent-report-form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.review-toolbar,
+.learning-map-controls {
+  align-items: end;
+  padding: 1rem;
+  border: 1px solid var(--specialist-border);
+  border-radius: 1rem;
+  background: var(--specialist-paper);
+}
+
+.review-field,
+.assessment-field,
+.review-note-field {
+  display: grid;
+  gap: 0.35rem;
+  min-inline-size: min(100%, 18rem);
+  color: var(--specialist-purple-deep);
+  font-weight: 700;
+}
+
+.review-field select,
+.assessment-field select,
+.review-note-field input,
+.review-note-field textarea {
+  min-block-size: 3rem;
+  border: 1px solid var(--specialist-border);
+  border-radius: 0.65rem;
+  background: #fff;
+  color: var(--specialist-ink);
+  font: inherit;
+  padding-inline: 0.75rem;
+}
+
+.review-note-field textarea {
+  min-block-size: 7rem;
+  padding-block: 0.65rem;
+  resize: vertical;
+}
+
+.review-field select:focus-visible,
+.assessment-field select:focus-visible,
+.review-note-field input:focus-visible,
+.review-note-field textarea:focus-visible,
+.specialist-cockpit__nav a:focus-visible {
+  outline: 3px solid var(--specialist-focus);
+  outline-offset: 3px;
+}
+
+.review-detail-heading,
+.learning-map-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem;
+  border-radius: 1rem;
+  background: var(--specialist-lavender);
+}
+
+.review-detail-heading h3,
+.learning-map-heading h2 {
+  margin: 0;
+  color: var(--specialist-purple-deep);
+}
+
+.review-section,
+.learning-map-table-section,
+.learning-map-history,
+.learning-map-plan,
+.learning-map-stored {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.review-section {
+  padding-block-start: 0.4rem;
+}
+
+.review-section > h3,
+.learning-map-table-section > h3,
+.learning-map-history > h3,
+.learning-map-plan > h3,
+.learning-map-stored > h3 {
+  margin: 0;
+  color: var(--specialist-purple-deep);
+  font-size: 1.25rem;
+}
+
+.review-card,
+.assessment-panel,
+.probe-results,
+.learning-map-summary,
+.learning-map-table-section,
+.learning-map-history,
+.learning-map-plan,
+.learning-map-stored,
+.parent-report-draft-form {
+  padding: clamp(1rem, 2.2vw, 1.5rem);
+  border: 1px solid var(--specialist-border);
+}
+
+.review-card-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.review-card h3,
+.review-card h4 {
+  color: var(--specialist-purple-deep);
+}
+
+.review-status,
+.review-item-type,
+.review-chip,
+.review-phoneme-status {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2rem;
+  padding-inline: 0.6rem;
+  border: 1px solid var(--specialist-border);
+  border-radius: 999px;
+  background: var(--specialist-lavender);
+  color: var(--specialist-purple-deep);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.review-status-approved,
+.review-status-delivered,
+.review-phoneme-correct {
+  border-color: #a8d2bc;
+  background: var(--specialist-mint);
+  color: #245d43;
+}
+
+.review-status-rejected,
+.review-status-draft,
+.review-status-pending_review,
+.review-phoneme-unscored,
+.review-phoneme-dialect_variant,
+.review-phoneme-error {
+  border-color: var(--specialist-border);
+  background: #f8f5fb;
+  color: var(--specialist-muted);
+}
+
+.review-actions .noor-ui-button,
+.review-actions .action-button,
+.review-fingerprint-control .noor-ui-button,
+.review-fingerprint-control .action-button,
+.oauth-actions .noor-ui-button,
+.oauth-actions .action-button {
+  min-block-size: 3rem;
+}
+
+.review-actions .review-action--approve,
+.review-actions .review-action--approve.action-button {
+  border-color: var(--specialist-gold);
+  background: var(--specialist-gold);
+  color: var(--specialist-purple-deep);
+}
+
+.review-actions .review-action--reject,
+.review-actions .review-action--reject.action-button {
+  border-color: var(--specialist-purple);
+  background: transparent;
+  color: var(--specialist-purple-deep);
+}
+
+.review-actions .review-action--submit,
+.review-actions .review-action--submit.action-button {
+  border-color: var(--specialist-lavender);
+  background: var(--specialist-lavender);
+  color: var(--specialist-purple-deep);
+}
+
+.review-metadata,
+.review-feature-grid,
+.learning-map-metrics,
+.learning-map-plan dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.7rem;
+  margin: 0;
+}
+
+.review-metadata > div,
+.review-feature-grid > div,
+.learning-map-metrics > div,
+.learning-map-plan dl > div {
+  padding: 0.8rem;
+  border: 1px solid #d8c8e9;
+  border-radius: 0.7rem;
+  background: var(--specialist-lavender);
+}
+
+.review-metadata dt,
+.review-feature-grid dt,
+.learning-map-metrics dt,
+.learning-map-plan dt {
+  color: var(--specialist-muted);
+  font-size: 0.86rem;
+}
+
+.review-metadata dd,
+.review-feature-grid dd,
+.learning-map-metrics dd,
+.learning-map-plan dd {
+  margin: 0.2rem 0 0;
+  color: var(--specialist-purple-deep);
+  font-weight: 700;
+}
+
+.review-table-wrap,
+.probe-table-wrap,
+.learning-map-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--specialist-border);
+  border-radius: 0.8rem;
+  background: #fff;
+}
+
+.review-table,
+.probe-table,
+.learning-map-table {
+  inline-size: 100%;
+  min-inline-size: 42rem;
+  border-collapse: collapse;
+}
+
+.review-table th,
+.review-table td,
+.probe-table th,
+.probe-table td,
+.learning-map-table th,
+.learning-map-table td {
+  padding: 0.75rem;
+  border-block-end: 1px solid #e2d9ec;
+  text-align: start;
+  vertical-align: top;
+}
+
+.review-table thead th,
+.probe-table thead th,
+.learning-map-table thead th {
+  background: var(--specialist-lavender);
+  color: var(--specialist-purple-deep);
+  font-size: 0.9rem;
+}
+
+.review-table tbody tr:last-child > *,
+.probe-table tbody tr:last-child > *,
+.learning-map-table tbody tr:last-child > * {
+  border-block-end: 0;
+}
+
+.learning-map-notice,
+.learning-map-banner,
+.learning-map-status,
+.professional-notice,
+.probe-panel .demo-label,
+.assessment-check {
+  padding: 0.85rem 1rem;
+  border-inline-start: 0.3rem solid var(--specialist-purple);
+  border-radius: 0.5rem;
+  background: var(--specialist-lavender);
+  color: var(--specialist-purple-deep);
+}
+
+.learning-map-notice p {
+  margin-block: 0.3rem 0 0;
+}
+
+.learning-map-heading > div,
+.review-detail-heading > div {
+  min-inline-size: 0;
+}
+
+.learning-map-history ol {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding-inline-start: 1.5rem;
+}
+
+.probe-prompt {
+  padding: 1.1rem;
+  border: 1px solid #d8c8e9;
+  border-radius: 1rem;
+  background: var(--specialist-lavender);
+  color: var(--specialist-purple-deep);
+  text-align: center;
+}
+
+.probe-raw pre {
+  max-block-size: 24rem;
+  overflow: auto;
+  padding: 1rem;
+  border: 1px solid var(--specialist-border);
+  border-radius: 0.7rem;
+  background: #f8f5fb;
+  color: var(--specialist-ink);
+  font: 0.86rem/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.parent-report-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.parent-report-form-grid .review-note-field:first-child,
+.parent-report-form-grid .review-note-field:nth-child(2),
+.parent-report-form-grid .review-note-field:nth-child(6) {
+  grid-column: 1 / -1;
+}
+
+.specialist-access {
+  margin-block: 1.5rem;
+}
+
+.sr-only {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 56rem) {
+  .specialist-cockpit {
+    grid-template-areas: 'rail' 'main';
+    grid-template-columns: 1fr;
+  }
+
+  .specialist-cockpit__rail {
+    min-block-size: auto;
+  }
+
+  .specialist-cockpit__nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .specialist-cockpit__rail-status {
+    margin-block-start: 0;
+  }
+}
+
+@media (max-width: 42rem) {
+  .specialist-cockpit__header,
+  .specialist-module__heading,
+  .specialist-section-heading,
+  .specialist-workspace__toolbar,
+  .specialist-module-toolbar,
+  .review-detail-heading,
+  .learning-map-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .specialist-cockpit__nav,
+  .parent-report-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .specialist-cockpit__nav a {
+    min-block-size: 2.85rem;
+  }
+
+  .parent-report-form-grid .review-note-field:first-child,
+  .parent-report-form-grid .review-note-field:nth-child(2),
+  .parent-report-form-grid .review-note-field:nth-child(6) {
+    grid-column: auto;
+  }
+
+  .specialist-cockpit__main {
+    padding: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .specialist-cockpit__nav a {
+    transition: none;
+  }
+
+  .specialist-cockpit__nav a:hover {
+    transform: none;
+  }
+}
+
+[data-motion='reduced'] .specialist-cockpit__nav a {
+  transition: none;
+}
+
+[data-motion='reduced'] .specialist-cockpit__nav a:hover {
+  transform: none;
+}

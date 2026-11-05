@@ -23,6 +23,7 @@ import { ProbeProvider } from './prove/ProbeProvider'
 import { createProbeRuntime } from './prove/runtime'
 import { TeachContext } from './teach/context'
 import { createTeachRepository } from './teach/repository'
+import './ui/core/core.css'
 import './styles.css'
 
 const root = document.getElementById('root')

@@ -6,6 +6,7 @@ import { ScorerFixtureNotice } from '../scorer/ScorerNotice'
 import { AudioRecorder, RecorderError, recordingDurationMs } from '../assessment/recorder'
 import { useProbe } from './context'
 import type { ProbeChild, ProbeResult } from './types'
+import '../ui/pages/specialist/specialist.css'
 
 const noSubscribe = () => () => {}
 const noSnapshot = () => null
@@ -187,12 +188,12 @@ export function ProbeWorkspace() {
   if (!runtime || !snapshot) return <section className="review-panel"><p className="professional-notice">{t('reviewUnavailable')}</p></section>
 
   return (
-    <section className="probe-panel" aria-labelledby="prove-title">
-      <div className="intro review-intro"><p className="status-note">{t('proveBadge')}</p><h2 id="prove-title">{t('proveTitle')}</h2><p className="lead">{t('proveDescription')}</p></div>
+    <section id="prove-workspace" className="probe-panel specialist-workspace-module" aria-labelledby="prove-title">
+      <div className="specialist-module__heading"><div><p className="status-note">{t('proveBadge')}</p><h2 id="prove-title">{t('proveTitle')}</h2><p className="lead">{t('proveDescription')}</p></div></div>
       {!active && (
-        <section className="assessment-panel" aria-labelledby="prove-start-title">
+        <section className="assessment-panel specialist-card" aria-labelledby="prove-start-title">
           <h2 id="prove-start-title">{t('proveTitle')}</h2>
-          <p>{t('proveItemsAvailable')}: 2</p>
+          <p>{t('proveItemsAvailable')}</p>
           {loading && <p role="status">{t('assessmentLoading')}</p>}
           <label className="assessment-field" htmlFor="prove-child"><span>{t('proveChooseChild')}</span><select id="prove-child" value={selectedId} disabled={loading || starting || children.length === 0} onChange={(event) => { setSelectedId(event.target.value); setMessage(null) }}><option value="">{t('assessmentChooseChild')}</option>{children.map((child) => <option key={child.id} value={child.id}>{child.firstName}{child.isDemo ? ` — ${t('assessmentDemoLabel')}` : ''}</option>)}</select></label>
           {selected && <p className="assessment-check">{consentValid ? t('proveConsentValid') : t('proveConsentRequired')}</p>}

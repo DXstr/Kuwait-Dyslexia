@@ -7,6 +7,7 @@ import {
   RecorderError,
   recordingDurationMs,
 } from './recorder'
+import { recordingQuietGate } from '../ui/delight/recordingQuietGate'
 
 class TestTrack extends EventTarget {
   readyState = 'live'
@@ -105,6 +106,27 @@ describe('B6 microphone lifecycle (synthetic devices)', () => {
     expect(track.stop).toHaveBeenCalledOnce()
     expect(TestContext.current.close).toHaveBeenCalledOnce()
     expect(recorder.isRecording).toBe(false)
+    expect(recordingQuietGate.locked).toBe(false)
+  })
+
+  it('locks UI sound before permission is requested and releases after capture cleanup', async () => {
+    const { recorder, track } = fixture()
+    const start = recorder.start()
+    await Promise.resolve()
+    expect(recordingQuietGate.locked).toBe(true)
+    await start
+    expect(recordingQuietGate.locked).toBe(true)
+    TestWorklet.current.port.onmessage?.({ data: new Float32Array([0.1]) } as MessageEvent<Float32Array>)
+    await recorder.stop()
+    expect(track.stop).toHaveBeenCalledOnce()
+    expect(recordingQuietGate.locked).toBe(false)
+  })
+
+  it('releases quiet lock on denied permission and preserves the permission error', async () => {
+    const denied = new DOMException('permission denied', 'NotAllowedError')
+    const { recorder } = fixture(() => Promise.reject(denied))
+    await expect(recorder.start()).rejects.toMatchObject({ issue: 'permission_denied' })
+    expect(recordingQuietGate.locked).toBe(false)
   })
 
   it('encodes captured PCM at the actual source rate into 16 kHz mono WAV and tears down', async () => {

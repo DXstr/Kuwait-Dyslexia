@@ -3,6 +3,10 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth/context'
 import { useI18n } from '../i18n/context'
 import type { MessageKey } from '../i18n/messages'
+import { Button, Notice, SectionHeader, Surface } from '../ui/core'
+import { ChildWorld, RecordingOrb } from '../ui/pages/child/ChildWorld'
+import { childCopy } from '../ui/pages/child/copy'
+import { useDelight } from '../ui/delight/DelightProvider'
 import { useAssessment } from './context'
 import { AudioRecorder, RecorderError, recordingDurationMs } from './recorder'
 import type { ActiveAssessmentSession, AssessmentChild, AssessmentConsent } from './types'
@@ -63,13 +67,14 @@ export function SpecialistAssessmentPanel() {
   }
 
   return (
-    <>
-      <section className="intro" aria-labelledby="workspace-title">
-        <p className="status-note">{t('assessmentPanelBadge')}</p>
-        <h1 id="workspace-title">{t('specialistTitle')}</h1>
-        <p className="lead">{t('assessmentPanelDescription')}</p>
-      </section>
-      <section className="assessment-panel" aria-labelledby="assessment-launch-title">
+    <div className="noor-pro-shell">
+      <SectionHeader
+        eyebrow={t('assessmentPanelBadge')}
+        title={t('specialistTitle')}
+        description={t('assessmentPanelDescription')}
+        level={1}
+      />
+      <Surface className="assessment-panel" aria-labelledby="assessment-launch-title">
         <h2 id="assessment-launch-title">{t('assessmentLaunchTitle')}</h2>
         <p>{t('assessmentLaunchDescription')}</p>
         {loading && <p role="status">{t('assessmentLoading')}</p>}
@@ -81,23 +86,22 @@ export function SpecialistAssessmentPanel() {
           </select>
         </label>
         {selected && (
-          <div className="assessment-check" aria-live="polite">
-            <strong>{t('assessmentConsentCheck')}</strong>
+          <Notice className="assessment-check" tone={consent?.valid ? 'positive' : 'caution'} title={t('assessmentConsentCheck')}>
             <span>{consent?.valid ? t('assessmentConsentValid') : t('assessmentConsentMissing')}</span>
             {selected.isDemo && <span>{t('assessmentDemoMaterial')}</span>}
-          </div>
+          </Notice>
         )}
-        {message && <p className="professional-notice" role="alert">{t(message)}</p>}
+        {message && <Notice className="professional-notice" tone="caution" role="alert">{t(message)}</Notice>}
         {assessment.activeSession && !assessment.activeSession.completed ? (
           <div className="oauth-actions">
             <Link className="action-link" to="/child">{t('assessmentResume')}</Link>
-            <button className="action-button" type="button" onClick={() => { void abandon() }}>{t('assessmentAbandon')}</button>
+            <Button className="action-button" variant="outline" type="button" onClick={() => { void abandon() }}>{t('assessmentAbandon')}</Button>
           </div>
         ) : (
-          <button className="action-button" type="button" disabled={starting || !selected || !consent?.valid || queue.frozen} onClick={() => { void start() }}>{t('assessmentStartButton')}</button>
+          <Button className="action-button" type="button" disabled={starting || !selected || !consent?.valid || queue.frozen} onClick={() => { void start() }}>{t('assessmentStartButton')}</Button>
         )}
-      </section>
-      <section className="assessment-panel" aria-labelledby="queue-title">
+      </Surface>
+      <Surface className="assessment-panel" aria-labelledby="queue-title" tone="quiet">
         <h2 id="queue-title">{t('assessmentQueueTitle')}</h2>
         <p>{t('assessmentQueueSummary')}</p>
         <dl className="queue-counts">
@@ -105,18 +109,19 @@ export function SpecialistAssessmentPanel() {
           <div><dt>{t('assessmentQueueProcessing')}</dt><dd>{queue.processing}</dd></div>
           <div><dt>{t('assessmentQueueExhausted')}</dt><dd>{queue.exhausted}</dd></div>
         </dl>
-        {queue.frozen && <p className="professional-notice">{t('assessmentQueueFrozen')}</p>}
-        {queue.lastError && <p className="professional-notice" role="alert">{t('assessmentQueueIssue')}</p>}
-        {queue.exhausted > 0 && <button className="action-button" type="button" onClick={() => assessment.queue.retryExhausted()}>{t('assessmentRetryButton')}</button>}
+        {queue.frozen && <Notice className="professional-notice" tone="caution">{t('assessmentQueueFrozen')}</Notice>}
+        {queue.lastError && <Notice className="professional-notice" tone="caution" role="alert">{t('assessmentQueueIssue')}</Notice>}
+        {queue.exhausted > 0 && <Button className="action-button" variant="outline" type="button" onClick={() => assessment.queue.retryExhausted()}>{t('assessmentRetryButton')}</Button>}
         <p className="assessment-small-print">{t('assessmentUnloadWarning')}</p>
-      </section>
-    </>
+      </Surface>
+    </div>
   )
 }
 
 function ActiveChildAssessment({ session, runtime }: { session: ActiveAssessmentSession; runtime: AssessmentRuntime }) {
   const { t } = useI18n()
   const { controller } = useAuth()
+  const { playAdvance, playCompletion, playNeutralAttention } = useDelight()
   const recorder = useRef<AudioRecorder | null>(null)
   const mounted = useRef(false)
   const [index, setIndex] = useState(0)
@@ -170,40 +175,57 @@ function ActiveChildAssessment({ session, runtime }: { session: ActiveAssessment
       setIndex(nextIndex)
       setPhase('ready')
       if (nextIndex >= session.items.length) {
+        playCompletion()
         void runtime.completeSession().catch(() => runtime.reportIssue('network'))
-      }
+      } else playAdvance()
     } catch {
       if (!mounted.current) return
       recorder.current = null
       setPhase('ready')
       setNotice('childNeutralNotice')
+      playNeutralAttention()
       runtime.reportIssue('unknown')
     }
   }
 
+  if (finished) return (
+    <ChildWorld
+      className="child-assessment"
+      pose="celebrating"
+      noorAlt={childCopy.shell.celebratingAlt}
+      title={t('childFinishedTitle')}
+      titleId="child-assessment-title"
+      progress={t('childItemProgress')}
+    >
+      <div className="child-finished-copy" role="status" aria-live="polite">
+        <p className="lead">{t('childFinishedDescription')}</p>
+      </div>
+    </ChildWorld>
+  )
+
+  const orbState = phase === 'recording' ? 'recording' : phase === 'ready' ? 'ready' : 'processing'
   return (
-    <section className="child-assessment" aria-labelledby="child-assessment-title">
-      <p className="child-kicker">{t('childSessionKicker')}</p>
-      {session.child.isDemo && <p className="demo-label">{t('assessmentDemoLabel')} — {t('assessmentDemoMaterial')}</p>}
-      {finished ? (
-        <div className="child-finished" role="status" aria-live="polite">
-          <h1 id="child-assessment-title">{t('childFinishedTitle')}</h1>
-          <p className="lead">{t('childFinishedDescription')}</p>
-        </div>
-      ) : (
-        <>
-          <h1 id="child-assessment-title" className="child-prompt">{item.text}</h1>
-          <p className="child-step" aria-live="polite">{t('childItemProgress')} {index + 1} / {session.items.length}</p>
-          {notice && <p className="child-neutral-notice" role="status">{t(notice)}</p>}
-          {phase === 'recording' ? (
-            <button className="child-mic-button child-mic-button-recording" type="button" onClick={() => { void stop() }}>{t('childMicStop')}</button>
-          ) : (
-            <button className="child-mic-button" type="button" disabled={phase !== 'ready'} onClick={() => { void begin() }}>{t(phase === 'starting' ? 'childMicPreparing' : phase === 'finalizing' ? 'childMicFinalizing' : 'childMicStart')}</button>
-          )}
-          <p className="child-neutral-hint">{t('childNeutralHint')}</p>
-        </>
-      )}
-    </section>
+    <ChildWorld
+      className="child-assessment"
+      pose="reading"
+      noorAlt={childCopy.shell.readingAlt}
+      title={<span className="child-prompt">{item.text}</span>}
+      titleId="child-assessment-title"
+      progress={`${t('childItemProgress')} ${index + 1} / ${session.items.length}`}
+      boundary={session.child.isDemo ? childCopy.boundary.adultOnly : undefined}
+    >
+      {notice && <p className="noor-child-world__neutral" role="status">{t(notice)}</p>}
+      <RecordingOrb
+        className="child-mic-button"
+        state={orbState}
+        disabled={phase !== 'ready' && phase !== 'recording'}
+        label={t(phase === 'recording' ? 'childMicStop' : 'childMicStart')}
+        onClick={() => { void (phase === 'recording' ? stop() : begin()) }}
+      >
+        {t(phase === 'starting' ? 'childMicPreparing' : phase === 'finalizing' ? 'childMicFinalizing' : phase === 'recording' ? 'childMicStop' : 'childMicStart')}
+      </RecordingOrb>
+      <p className="noor-child-world__hint">{t('childNeutralHint')}</p>
+    </ChildWorld>
   )
 }
 
@@ -211,12 +233,17 @@ export function ChildAssessmentScreen() {
   const { t } = useI18n()
   const assessment = useAssessment()
   if (!assessment?.activeSession) return (
-    <section className="intro child-guidance" aria-labelledby="no-session-title">
-      <h1 id="no-session-title">{t('childTitle')}</h1>
+    <ChildWorld
+      className="child-guidance"
+      pose="curious"
+      noorAlt={childCopy.shell.curiousAlt}
+      title={t('childTitle')}
+      titleId="no-session-title"
+    >
       <h2>{t('noSessionTitle')}</h2>
       <p className="lead">{t('noSessionDescription')}</p>
       <p>{t('childStartGuidance')}</p>
-    </section>
+    </ChildWorld>
   )
   return <ActiveChildAssessment key={assessment.activeSession.id} session={assessment.activeSession} runtime={assessment.runtime} />
 }

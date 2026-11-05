@@ -1,0 +1,482 @@
+.noor-child-world {
+  --child-purple: #35287a;
+  --child-purple-deep: #251b5c;
+  --child-gold: #f5b425;
+  --child-cream: #fff7ea;
+  --child-lavender: #ebe1f6;
+  --child-mint: #dcefe5;
+  --child-ink: #241b3e;
+  --child-muted: #574f68;
+  --child-border: #c8badb;
+  --child-focus: #211556;
+  min-block-size: min(46rem, calc(100vh - 8rem));
+  padding-block: clamp(1rem, 4vw, 3rem) clamp(2rem, 7vw, 5rem);
+  padding-inline: clamp(0.75rem, 4vw, 4rem);
+  color: var(--child-ink);
+  background: var(--child-cream);
+  font-family: 'IBM Plex Sans Arabic', 'Noto Naskh Arabic', sans-serif;
+}
+
+.noor-child-world__layout {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.72fr) minmax(0, 1.55fr);
+  grid-template-areas: 'noor task';
+  align-items: center;
+  gap: clamp(1rem, 5vw, 5rem);
+  inline-size: min(74rem, 100%);
+  min-block-size: min(39rem, calc(100vh - 12rem));
+  margin-inline: auto;
+  direction: ltr;
+}
+
+.noor-child-world__noor {
+  display: grid;
+  grid-area: noor;
+  place-items: center;
+  min-block-size: 15rem;
+  direction: rtl;
+}
+
+.noor-child-world__noor .noor-ui-noor {
+  filter: drop-shadow(0 1.1rem 1.35rem rgb(53 40 122 / 12%));
+}
+
+.noor-child-world__task {
+  grid-area: task;
+  min-inline-size: 0;
+  padding: clamp(1.15rem, 3.8vw, 3rem);
+  border: 1px solid var(--child-border);
+  border-radius: clamp(1.5rem, 3vw, 2.5rem);
+  background: rgb(255 253 249 / 94%);
+  box-shadow: 0 1rem 3rem rgb(53 40 122 / 11%);
+  direction: rtl;
+}
+
+.noor-child-world__task-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-block-end: 0.6rem;
+}
+
+.noor-child-world__eyebrow,
+.noor-child-world__progress {
+  margin: 0;
+  color: var(--child-purple);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.noor-child-world__progress {
+  color: var(--child-muted);
+  font-size: 0.9rem;
+}
+
+.noor-child-world__title {
+  max-inline-size: 27ch;
+  margin: 0;
+  color: var(--child-purple-deep);
+  font-family: 'IBM Plex Sans Arabic', 'Noto Naskh Arabic', sans-serif;
+  font-size: clamp(1.55rem, 3vw, 2.45rem);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.noor-child-world__content {
+  margin-block-start: clamp(1.25rem, 3vw, 2.4rem);
+}
+
+.noor-child-world__boundary {
+  margin-block-start: 1rem;
+  padding: 0.7rem 0.85rem;
+  font-size: 0.85rem;
+}
+
+.noor-child-world__boundary .noor-ui-notice__title {
+  font-size: 0.88rem;
+}
+
+.noor-child-world__boundary .noor-ui-notice__content {
+  color: var(--child-muted);
+  font-size: 0.82rem;
+}
+
+.noor-child-world__record-orb {
+  display: grid;
+  place-items: center;
+  inline-size: clamp(8.5rem, 22vw, 11rem);
+  block-size: clamp(8.5rem, 22vw, 11rem);
+  margin-block: 1.25rem 0.6rem;
+  margin-inline: auto;
+  padding: 1rem;
+  border: 0.4rem solid #f9ce58;
+  border-radius: 50%;
+  background: var(--child-gold);
+  color: var(--child-purple-deep);
+  box-shadow: 0 0.55rem 0 #c99314, 0 1rem 2rem rgb(245 180 37 / 25%);
+  cursor: pointer;
+  font: inherit;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.noor-child-world__record-orb:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.02);
+  background: #f7c344;
+}
+
+.noor-child-world__record-orb:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 0.2rem 0 #c99314, 0 0.55rem 1.25rem rgb(245 180 37 / 22%);
+}
+
+.noor-child-world__record-orb:focus-visible,
+.noor-child-world__choice:focus-visible,
+.noor-child-world__mode-button:focus-visible,
+.noor-child-world__helper-button:focus-visible {
+  outline: 3px solid var(--child-focus);
+  outline-offset: 4px;
+}
+
+.noor-child-world__record-orb:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.noor-child-world__record-orb--recording {
+  background: var(--child-lavender);
+  border-color: #c7b6e0;
+  box-shadow: 0 0.55rem 0 #9c89c5, 0 1rem 2rem rgb(53 40 122 / 17%);
+}
+
+.noor-child-world__record-orb--processing {
+  background: var(--child-mint);
+  border-color: #a8d2bc;
+  box-shadow: 0 0.55rem 0 #79aa8f, 0 1rem 2rem rgb(44 104 78 / 15%);
+}
+
+.noor-child-world__record-orb-icon {
+  display: grid;
+  place-items: center;
+  inline-size: 2.7rem;
+  block-size: 2.7rem;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.noor-child-world__record-orb-label {
+  max-inline-size: 8ch;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.noor-child-world__neutral,
+.noor-child-world__hint {
+  margin-block: 0.6rem 0;
+  color: var(--child-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.noor-child-world__neutral {
+  padding: 0.75rem 1rem;
+  border: 1px solid #c8badb;
+  border-radius: 1rem;
+  background: var(--child-lavender);
+}
+
+.noor-child-world__choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.55rem, 2vw, 1rem);
+  max-inline-size: 34rem;
+  margin-block-start: 1.25rem;
+  margin-inline: auto;
+}
+
+.noor-child-world__choice {
+  min-block-size: clamp(4.5rem, 11vw, 6.25rem);
+  padding: 0.75rem;
+  border: 2px solid var(--child-purple);
+  border-radius: 1.25rem;
+  background: var(--child-paper, #fffdf9);
+  color: var(--child-purple-deep);
+  cursor: pointer;
+  font: 700 clamp(2rem, 5vw, 3.25rem) 'Noto Naskh Arabic', serif;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.noor-child-world__choice:hover:not(:disabled) {
+  border-color: var(--child-gold);
+  background: #fff4d6;
+  transform: translateY(-2px);
+}
+
+.noor-child-world__choice:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+.noor-child-world__modes,
+.noor-child-world__helpers,
+.noor-child-world__trace-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-block: 1rem;
+}
+
+.noor-child-world__mode-button,
+.noor-child-world__helper-button,
+.noor-child-world__trace-actions button {
+  min-block-size: 2.9rem;
+  padding-block: 0.55rem;
+  padding-inline: 1rem;
+  border: 1px solid var(--child-purple);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--child-purple-deep);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.noor-child-world__mode-button:hover:not(:disabled),
+.noor-child-world__helper-button:hover:not(:disabled),
+.noor-child-world__trace-actions button:hover:not(:disabled) {
+  background: var(--child-lavender);
+  transform: translateY(-2px);
+}
+
+.noor-child-world__mode-button--selected {
+  border-color: var(--child-gold);
+  background: #fff1c6;
+}
+
+.noor-child-world__mouth-card,
+.noor-child-world__trace-card,
+.noor-child-world__tap-card {
+  margin-block-start: 1.25rem;
+  padding-block-start: 1.25rem;
+  border-block-start: 1px solid var(--child-border);
+}
+
+.noor-child-world__mouth-card {
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+}
+
+.noor-child-world__mouth-card p,
+.noor-child-world__tap-card p,
+.noor-child-world__trace-card p {
+  margin-block: 0.25rem;
+  color: var(--child-muted);
+  line-height: 1.65;
+}
+
+.noor-child-world__mouth-card h2,
+.noor-child-world__tap-card h2,
+.noor-child-world__trace-card h3 {
+  margin-block: 0;
+  color: var(--child-purple-deep);
+  font-size: 1.2rem;
+}
+
+.teach-mouth {
+  display: block;
+  inline-size: min(100%, 15rem);
+  block-size: auto;
+}
+
+.teach-mouth-face { fill: var(--child-lavender); stroke: var(--child-purple); stroke-width: 3; }
+.teach-mouth-throat { fill: #d8c8e9; }
+.teach-mouth-teeth { fill: #fffdf9; stroke: var(--child-purple); stroke-width: 2; }
+.teach-mouth-lips { fill: var(--child-purple); }
+.teach-mouth-rounding { fill: var(--child-cream); }
+.teach-mouth-tongue { fill: #ae9ccf; stroke: var(--child-purple); stroke-width: 2; }
+.teach-mouth-contact { fill: none; stroke: #8c7311; stroke-width: 4; stroke-linecap: round; }
+.teach-mouth-letter { fill: var(--child-ink); font: 700 24px 'Noto Naskh Arabic', serif; }
+
+.teach-trace-pad {
+  display: block;
+  inline-size: min(100%, 38rem);
+  block-size: 15rem;
+  margin-inline: auto;
+  touch-action: none;
+  border: 2px dashed var(--child-purple);
+  border-radius: 1rem;
+  background: #fffdf9;
+}
+
+.noor-child-world .child-finished-copy {
+  text-align: center;
+}
+
+.noor-child-world .child-finished-copy h2 {
+  margin-block: 0;
+  color: var(--child-purple-deep);
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  line-height: 1.45;
+}
+
+.noor-child-world .child-finished-copy p {
+  color: var(--child-muted);
+  line-height: 1.8;
+}
+
+.noor-pro-shell {
+  inline-size: min(70rem, 100%);
+  margin-inline: auto;
+}
+
+.noor-pro-shell .noor-ui-surface {
+  margin-block: 1.25rem;
+}
+
+.noor-pro-shell .noor-ui-section-header {
+  margin-block-end: 0;
+}
+
+.noor-pro-shell .assessment-field select,
+.noor-pro-shell select {
+  min-block-size: 3.1rem;
+  border-color: var(--child-border);
+  border-radius: 0.85rem;
+  background: #fffdf9;
+}
+
+.noor-pro-shell .action-button,
+.noor-pro-shell .action-link {
+  border-color: var(--child-purple);
+  background: var(--child-purple);
+  color: #fffdf9;
+}
+
+@media (max-width: 48rem) {
+  .noor-child-world {
+    min-block-size: 0;
+    padding-block-start: 0.75rem;
+  }
+
+  .noor-child-world__layout {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'noor' 'task';
+    gap: 0.5rem;
+    min-block-size: 0;
+  }
+
+  .noor-child-world__noor {
+    min-block-size: 7rem;
+  }
+
+  .noor-child-world__task {
+    padding: 1.1rem;
+    border-radius: 1.5rem;
+  }
+
+  .noor-child-world__title {
+    max-inline-size: none;
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
+
+  .noor-child-world__choice-grid {
+    gap: 0.55rem;
+  }
+
+  .noor-child-world__choice {
+    min-block-size: 4.35rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .noor-child-world__task {
+    padding-inline: clamp(2rem, 5vw, 4.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .noor-child-world__record-orb,
+  .noor-child-world__choice,
+  .noor-child-world__mode-button,
+  .noor-child-world__helper-button,
+  .noor-child-world__trace-actions button {
+    transition: none;
+  }
+
+  .noor-child-world__record-orb:hover:not(:disabled),
+  .noor-child-world__record-orb:active:not(:disabled),
+  .noor-child-world__choice:hover:not(:disabled),
+  .noor-child-world__mode-button:hover:not(:disabled),
+  .noor-child-world__helper-button:hover:not(:disabled),
+  .noor-child-world__trace-actions button:hover:not(:disabled) {
+    transform: none;
+  }
+}
+
+[data-motion='reduced'] .noor-child-world__record-orb,
+[data-motion='reduced'] .noor-child-world__choice,
+[data-motion='reduced'] .noor-child-world__mode-button,
+[data-motion='reduced'] .noor-child-world__helper-button,
+[data-motion='reduced'] .noor-child-world__trace-actions button {
+  transition: none;
+}
+
+.noor-child-world .child-prompt,
+.noor-child-world .teach-prompt {
+  display: block;
+  margin: 0;
+  color: var(--child-purple-deep);
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: clamp(3rem, 10vw, 6.5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.noor-child-world .child-mic-button {
+  margin-block: 1.3rem 0.6rem;
+}
+
+.noor-child-world .teach-queue-note,
+.noor-child-world .teach-attempt-note {
+  color: var(--child-muted);
+  line-height: 1.65;
+}
+
+.noor-pro-shell .teach-launch {
+  margin-block-start: 1.25rem;
+}
+
+.noor-pro-shell .teach-launch .child-mic-button {
+  min-block-size: 3.2rem;
+  inline-size: auto;
+  padding-block: 0.7rem;
+  padding-inline: 1.25rem;
+  border: 1px solid var(--child-gold);
+  border-radius: 999px;
+  background: var(--child-gold);
+  color: var(--child-purple-deep);
+  box-shadow: 0 0.25rem 0 #c99314;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.noor-pro-shell .teach-launch .child-mic-button:hover:not(:disabled) {
+  background: #f7c344;
+}
+
+@media (max-width: 48rem) {
+  .noor-child-world .child-prompt,
+  .noor-child-world .teach-prompt {
+    font-size: clamp(2.6rem, 14vw, 4.5rem);
+  }
+}

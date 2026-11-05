@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 import scoreFixture from '../../contracts/fixtures/ScoreItemResponse.dialect-variant.json' with { type: 'json' }
 import { ar } from '../src/i18n/messages'
+import { landingCopy } from '../src/ui/pages/landing/copy'
 import { api, defaultOrigin, mockSupabase, userId } from './support/auth'
 
 // Explicitly synthetic intercepted HTTP, not real OAuth, a model result or a
@@ -71,7 +72,7 @@ async function progressTransport(page: Parameters<typeof mockSupabase>[0], optio
 
 async function signIn(page: Parameters<typeof mockSupabase>[0]) {
   await page.goto('/')
-  await page.getByRole('button', { name: ar.authGoogle }).click()
+  await page.getByRole('button', { name: landingCopy.hero.primaryAction }).first().click()
   await expect(page).toHaveURL(/\/specialist$/)
 }
 
@@ -122,7 +123,7 @@ test('guardian navigation cannot show learning-map metrics or read private progr
     if (/\/rest\/v1\/(children|sessions|item_results|tap_results|skill_mastery)$/.test(path)) privateReads.push(path)
   })
   await page.goto('/')
-  await page.getByRole('button', { name: ar.authGoogle }).click()
+  await page.getByRole('button', { name: landingCopy.hero.primaryAction }).first().click()
   await expect(page).toHaveURL(/\/guardian$/)
   await page.goto('/specialist')
   await expect(page.getByRole('heading', { name: ar.unavailableTitle })).toBeVisible()

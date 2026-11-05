@@ -2,6 +2,7 @@ import { expect, test, type Page, type Route } from '@playwright/test'
 import itemBankDocument from '../../content/dist/item-bank.json' with { type: 'json' }
 import phoneticInventoryDocument from '../../contracts/phonetic-inventory.json' with { type: 'json' }
 import { ar } from '../src/i18n/messages'
+import { landingCopy } from '../src/ui/pages/landing/copy'
 import { api, defaultOrigin, mockSupabase, userId } from './support/auth'
 
 // These are synthetic intercepted HTTP responses only. The browser uses the real
@@ -152,7 +153,7 @@ async function installTeachApi(page: Page, options: TeachApiOptions): Promise<Te
 
 async function signInSpecialist(page: Page) {
   await page.goto('/')
-  await page.getByRole('button', { name: ar.authGoogle }).click()
+  await page.getByRole('button', { name: landingCopy.hero.primaryAction }).first().click()
   await expect(page).toHaveURL(`${defaultOrigin}/specialist`)
   await page.goto(`${defaultOrigin}/child`)
   await expect(page.locator('#teach-child')).toBeVisible()
