@@ -1,8 +1,7 @@
-# web/ — owned by Mahmoud (workstream B)
+# web/ — Mahmoud's main folder (workstream B); either person may edit it
 
 Read the root `CLAUDE.md` and `docs/briefs/B-app.md` first.
 
-- Edit only `web/` and `supabase/`. Read `contracts/` and `content/dist/` but never edit them here.
 - Types for every payload come from `contracts/schemas/basira.schema.json` via `json-schema-to-typescript`
   into `web/src/contracts/` (generated; do not hand-edit).
 - All scorer calls go through `web/src/scorer/`; it validates responses against the schema and honours

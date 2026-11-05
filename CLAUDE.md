@@ -2,16 +2,16 @@
 
 Two people build this in parallel, each with their own Claude. Read this file fully before any change.
 
-## Who owns what
+## Who works where
 
-| Workstream | Person | Owns (may edit) | Must not edit |
-| --- | --- | --- | --- |
-| A — AI & scoring | Ayman (@DXstr) | `ai/`, `content/` | `web/`, `supabase/` |
-| B — Product & app | Mahmoud (@mvvhmxd) | `web/`, `supabase/` | `ai/`, `content/` |
-| Shared | both | `contracts/`, `docs/`, `.github/`, root files | — (change only in a dedicated PR both approve) |
+| Workstream | Person | Main folders |
+| --- | --- | --- |
+| A — AI & scoring | Ayman (@DXstr) | `ai/`, `content/` |
+| B — Product & app | Mahmoud (@mvvhmxd) | `web/`, `supabase/` |
+| Shared | both | `contracts/`, `docs/`, `.github/`, root files |
 
-If your task seems to need a change outside your folders, STOP and tell your human. Propose a contracts PR
-instead of working around the contract.
+Both people may edit any folder when the work needs it. Tell the other person when you change their main folders or
+`contracts/`. A contract change still updates the schema and regenerates its types, rather than working around them.
 
 ## Contracts are the interface
 
@@ -54,9 +54,10 @@ instead of working around the contract.
 
 ## Git workflow
 
-- `main` is protected. Branch `feat/<task-code>-<short-name>` named after the GitHub issue's task code, e.g.
-  `feat/a1-ai-scaffold`, `feat/b3-supabase` (or `contract/<name>` for contract changes, `chore/<name>` for docs/tooling).
-- One PR per issue (`Closes #N` in the PR body), filled-in PR template, CI green, reviewed and merged by the **other** person.
+- Either person may push or merge to `main` without a review; force-pushing and deleting `main` stay blocked.
+  Branches are optional: `feat/<task-code>-<short-name>`, e.g. `feat/a1-ai-scaffold` (or `contract/<name>` for contract
+  changes, `chore/<name>` for docs/tooling).
+- CI no longer blocks a merge, so check its result after every push to `main` and fix a failure straight away.
 - New task branches start from an up-to-date `main` after the previous PR merges; no long-lived branches.
 - Log any departure from `docs/IDEA.md` or `docs/DESIGN.md` in `docs/DECISIONS.md` before continuing.
 - Commit messages: imperative, scoped, e.g. `ai: add forced alignment`, `web: specialist review screen`.

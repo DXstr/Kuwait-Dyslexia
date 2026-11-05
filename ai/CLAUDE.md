@@ -1,8 +1,7 @@
-# ai/ — owned by Ayman (workstream A)
+# ai/ — Ayman's main folder (workstream A); either person may edit it
 
 Read the root `CLAUDE.md` and `docs/briefs/A-ai.md` first.
 
-- Edit only `ai/` and `content/`. Read `contracts/`; never edit it outside a `contract/*` PR.
 - `ai/basira_ai/` is a pure library (no web framework). `ai/service/` is a thin FastAPI adapter implementing
   `contracts/scorer.openapi.yaml` exactly.
 - The service is stateless: no database credentials, no writes, no stored audio.
