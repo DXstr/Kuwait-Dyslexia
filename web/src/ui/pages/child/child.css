@@ -9,11 +9,13 @@
   --child-muted: #574f68;
   --child-border: #c8badb;
   --child-focus: #211556;
-  min-block-size: min(46rem, calc(100vh - 8rem));
-  padding-block: clamp(1rem, 4vw, 3rem) clamp(2rem, 7vw, 5rem);
+  padding-block: clamp(2rem, 7vw, 5rem);
   padding-inline: clamp(0.75rem, 4vw, 4rem);
   color: var(--child-ink);
-  background: var(--child-cream);
+  background:
+    radial-gradient(ellipse 60rem 32rem at 85% -10%, rgb(245 180 37 / 12%), transparent 60%),
+    radial-gradient(ellipse 50rem 30rem at -10% 110%, rgb(220 239 229 / 55%), transparent 60%),
+    var(--child-cream);
   font-family: 'IBM Plex Sans Arabic', 'Noto Naskh Arabic', sans-serif;
 }
 
@@ -24,7 +26,6 @@
   align-items: center;
   gap: clamp(1rem, 5vw, 5rem);
   inline-size: min(74rem, 100%);
-  min-block-size: min(39rem, calc(100vh - 12rem));
   margin-inline: auto;
   direction: ltr;
 }
