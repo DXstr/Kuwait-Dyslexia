@@ -45,7 +45,7 @@ describe('ConsentWorkspace', () => {
     await user.click(screen.getByRole('checkbox'))
     expect(capture).toBeEnabled()
     await user.click(capture)
-    await waitFor(() => expect(value.createConsent).toHaveBeenCalledWith(child, 'fixture/evidence', expect.stringMatching(/T23:59:59\.999Z$/)))
+    await waitFor(() => expect(value.createConsent).toHaveBeenCalledWith(child, 'fixture/evidence', expect.stringMatching(/T23:59:59\.999Z$/), 'assessment'))
   })
 
   it('does not show a saved notice when the server rejects the consent', async () => {

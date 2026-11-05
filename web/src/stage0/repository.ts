@@ -236,15 +236,16 @@ export function createStage0Repository(client: SupabaseClient | null, auth: Auth
         return response.data.map((row) => parseConsent(row))
       }, allowedRoles, options)
     },
-    async createConsent(child: Stage0Child, evidencePath: string, expiresAt: string, options?: Stage0RepositoryOptions) {
+    async createConsent(child: Stage0Child, evidencePath: string, expiresAt: string, scope: GuardianConsent['scope'] = 'assessment', options?: Stage0RepositoryOptions) {
       return call(async (db, identity, requestOptions) => {
         const evidence = evidencePath.trim()
         if (!evidence || evidence.length > 500 || !Number.isFinite(Date.parse(expiresAt)) || Date.parse(expiresAt) <= Date.now()) throw new Stage0RepositoryError('schema')
-        const query = withAbort(db.from('consents').insert({ child_id: child.id, guardian_id: identity.id, specialist_id: child.specialist_id, scope: 'assessment', expires_at: expiresAt, evidence_path: evidence }).select('id, child_id, guardian_id, specialist_id, scope, signed_at, expires_at, evidence_path, ethics_ref'), requestOptions.signal as AbortSignal)
+        if (scope !== 'assessment' && scope !== 'practice' && scope !== 'audio_research') throw new Stage0RepositoryError('schema')
+        const query = withAbort(db.from('consents').insert({ child_id: child.id, guardian_id: identity.id, specialist_id: child.specialist_id, scope, expires_at: expiresAt, evidence_path: evidence }).select('id, child_id, guardian_id, specialist_id, scope, signed_at, expires_at, evidence_path, ethics_ref'), requestOptions.signal as AbortSignal)
         const response = await query.single()
         if (response.error) throw new Stage0RepositoryError(errorIssue(response.error))
         const consent = parseConsent(response.data)
-        if (consent.guardian_id !== identity.id || consent.child_id !== child.id || consent.specialist_id !== child.specialist_id || consent.scope !== 'assessment') throw new Stage0RepositoryError('schema')
+        if (consent.guardian_id !== identity.id || consent.child_id !== child.id || consent.specialist_id !== child.specialist_id || consent.scope !== scope) throw new Stage0RepositoryError('schema')
         return consent
       }, ['guardian'], options)
     },

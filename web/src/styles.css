@@ -459,6 +459,19 @@ p:last-child { margin-block-end: 0; }
 .consent-current dl div { display: grid; grid-template-columns: minmax(12rem, 0.8fr) 1.4fr; gap: 1rem; }
 .consent-current dt { color: var(--muted); font-weight: 700; }
 .consent-current dd { margin: 0; overflow-wrap: anywhere; }
+.consent-scope-status, #consent-scope {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--paper);
+}
+.consent-scope-status legend, #consent-scope legend { padding: 0; font-weight: 800; }
+.consent-scope-status p { margin: 0; }
+#consent-scope { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+#consent-scope legend { inline-size: 100%; }
 .consent-panel input:not([type='radio']):not([type='checkbox']), .stage0-panel input, .stage0-panel select {
   min-block-size: 3rem;
   padding: 0.5rem 0.75rem;

@@ -50,6 +50,7 @@ export function ConsentWorkspace() {
   const [consents, setConsents] = useState<Record<string, GuardianConsent[]>>({})
   const [loadedVersion, setLoadedVersion] = useState<number | null>(null)
   const [childId, setChildId] = useState('')
+  const [scope, setScope] = useState<GuardianConsent['scope']>('assessment')
   const [evidencePath, setEvidencePath] = useState('')
   const [acknowledged, setAcknowledged] = useState(false)
   const [expiresOn, setExpiresOn] = useState(defaultExpiry)
@@ -79,7 +80,7 @@ export function ConsentWorkspace() {
     try {
       const rows = await repository.listGuardianChildren({ signal })
       if (signal?.aborted || !isCurrent() || (repository.getVersion?.() ?? requestVersion) !== requestVersion) return
-      const entries = await Promise.all(rows.map(async (child) => [child.id, await repository.listConsents(child.id, 'assessment', { signal })] as const))
+      const entries = await Promise.all(rows.map(async (child) => [child.id, await repository.listConsents(child.id, undefined, { signal })] as const))
       if (signal?.aborted || !isCurrent() || (repository.getVersion?.() ?? requestVersion) !== requestVersion) return
       setChildren(rows)
       setConsents(Object.fromEntries(entries))
@@ -103,7 +104,10 @@ export function ConsentWorkspace() {
 
   const hasCurrentData = readable && loadedVersion === version
   const selectedChild = useMemo(() => hasCurrentData ? children.find((child) => child.id === childId) ?? null : null, [children, childId, hasCurrentData])
-  const currentConsent = (selectedChild ? consents[selectedChild.id] ?? [] : []).find((consent) => consent.valid)
+  const childConsents = selectedChild ? consents[selectedChild.id] ?? [] : []
+  const currentAssessmentConsent = childConsents.find((consent) => consent.valid && consent.scope === 'assessment')
+  const currentPracticeConsent = childConsents.find((consent) => consent.valid && consent.scope === 'practice')
+  const currentConsent = scope === 'practice' ? currentPracticeConsent : currentAssessmentConsent
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     if (!repository || !selectedChild || !evidencePath.trim() || !expiresOn || !acknowledged || !isCurrent()) return
@@ -112,7 +116,7 @@ export function ConsentWorkspace() {
     setNotice(null)
     setError(false)
     try {
-      const consent = await repository.createConsent(selectedChild, evidencePath, expiryIso(expiresOn))
+      const consent = await repository.createConsent(selectedChild, evidencePath, expiryIso(expiresOn), scope)
       if (!isCurrent() || (repository.getVersion?.() ?? operationVersion) !== operationVersion) return
       setConsents((current) => ({ ...current, [selectedChild.id]: [consent, ...(current[selectedChild.id] ?? [])] }))
       setEvidencePath('')
@@ -160,9 +164,14 @@ export function ConsentWorkspace() {
               </select>
             </label>
             {selectedChild?.is_demo && <p className="fixture-notice">{t('consentSyntheticWarning')}</p>}
+            <fieldset className="consent-scope-status">
+              <legend>{t('consentScopeStatusTitle')}</legend>
+              <p>{t('consentScopeAssessment')}: {currentAssessmentConsent ? t('consentScopeActive') : t('consentScopeMissing')}</p>
+              <p>{t('consentScopePractice')}: {currentPracticeConsent ? t('consentScopeActive') : t('consentScopeMissing')}</p>
+            </fieldset>
             {currentConsent && (
               <section className="consent-current" aria-labelledby="consent-current-title">
-                <h3 id="consent-current-title">{t('consentCurrent')}</h3>
+                <h3 id="consent-current-title">{t('consentCurrent')} — {scope === 'practice' ? t('consentScopePractice') : t('consentScopeAssessment')}</h3>
                 <dl>
                   <div><dt>{t('consentSignedAt')}</dt><dd>{formatDate(currentConsent.signed_at, locale)}</dd></div>
                   <div><dt>{t('consentExpiresAt')}</dt><dd>{formatDate(currentConsent.expires_at, locale)}</dd></div>
@@ -172,6 +181,17 @@ export function ConsentWorkspace() {
               </section>
             )}
             <form className="consent-form" onSubmit={(event) => { void submit(event) }}>
+              <fieldset className="assessment-field" id="consent-scope">
+                <legend>{t('consentScopeLabel')}</legend>
+                <label className="consent-checkbox" htmlFor="consent-scope-assessment">
+                  <input id="consent-scope-assessment" type="radio" name="consent-scope" value="assessment" checked={scope === 'assessment'} onChange={() => setScope('assessment')} />
+                  <span>{t('consentScopeAssessment')}</span>
+                </label>
+                <label className="consent-checkbox" htmlFor="consent-scope-practice">
+                  <input id="consent-scope-practice" type="radio" name="consent-scope" value="practice" checked={scope === 'practice'} onChange={() => setScope('practice')} />
+                  <span>{t('consentScopePractice')}</span>
+                </label>
+              </fieldset>
               <label className="assessment-field" htmlFor="consent-evidence">
                 <span>{t('consentEvidenceLabel')}</span>
                 <input id="consent-evidence" required maxLength={500} value={evidencePath} placeholder={t('consentEvidencePlaceholder')} onChange={(event) => setEvidencePath(event.target.value)} />
