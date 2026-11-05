@@ -6,25 +6,31 @@
 begin;
 
 insert into auth.users (instance_id,id,aud,role,email,encrypted_password,email_confirmed_at,raw_app_meta_data,raw_user_meta_data,created_at,updated_at,confirmation_token,recovery_token,email_change_token_new,email_change)
-values ('00000000-0000-0000-0000-000000000000','d0000000-0000-4000-a000-000000000001','authenticated','authenticated','demo-specialist@basira-demo.example','$2a$10$PWgicDvO8am3l/J0oneiLuOjvGYey9YOjP/5bTtFI5pVHOx6Z7hui',now(),'{"provider":"email","providers":["email"]}'::jsonb,'{"full_name": "اختصاصي العرض التجريبي"}'::jsonb,now(),now(),'','','','');
+values ('00000000-0000-0000-0000-000000000000','d0000000-0000-4000-a000-000000000001','authenticated','authenticated','demo-specialist@basira-demo.example','$2a$10$YP.vacjb9Y7xINqedWMm9OCFD1AP9W/CswAhwKjzEE9adGU6E5g/W',now(),'{"provider":"email","providers":["email"]}'::jsonb,'{"full_name": "اختصاصي العرض التجريبي"}'::jsonb,now(),now(),'','','','');
 insert into auth.identities (provider_id,user_id,identity_data,provider,last_sign_in_at,created_at,updated_at)
 values ('d0000000-0000-4000-a000-000000000001','d0000000-0000-4000-a000-000000000001',jsonb_build_object('sub','d0000000-0000-4000-a000-000000000001','email','demo-specialist@basira-demo.example','email_verified',true),'email',now(),now(),now());
+alter table public.profiles disable trigger guard_profile;
 update public.profiles set role='specialist' where id='d0000000-0000-4000-a000-000000000001';
+alter table public.profiles enable trigger guard_profile;
 
 insert into auth.users (instance_id,id,aud,role,email,encrypted_password,email_confirmed_at,raw_app_meta_data,raw_user_meta_data,created_at,updated_at,confirmation_token,recovery_token,email_change_token_new,email_change)
-values ('00000000-0000-0000-0000-000000000000','d0000000-0000-4000-a000-000000000002','authenticated','authenticated','demo-guardian@basira-demo.example','$2a$10$PWgicDvO8am3l/J0oneiLuOjvGYey9YOjP/5bTtFI5pVHOx6Z7hui',now(),'{"provider":"email","providers":["email"]}'::jsonb,'{"full_name": "ولي أمر تجريبي"}'::jsonb,now(),now(),'','','','');
+values ('00000000-0000-0000-0000-000000000000','d0000000-0000-4000-a000-000000000002','authenticated','authenticated','demo-guardian@basira-demo.example','$2a$10$YP.vacjb9Y7xINqedWMm9OCFD1AP9W/CswAhwKjzEE9adGU6E5g/W',now(),'{"provider":"email","providers":["email"]}'::jsonb,'{"full_name": "ولي أمر تجريبي"}'::jsonb,now(),now(),'','','','');
 insert into auth.identities (provider_id,user_id,identity_data,provider,last_sign_in_at,created_at,updated_at)
 values ('d0000000-0000-4000-a000-000000000002','d0000000-0000-4000-a000-000000000002',jsonb_build_object('sub','d0000000-0000-4000-a000-000000000002','email','demo-guardian@basira-demo.example','email_verified',true),'email',now(),now(),now());
 
 insert into auth.users (instance_id,id,aud,role,email,encrypted_password,email_confirmed_at,raw_app_meta_data,raw_user_meta_data,created_at,updated_at,confirmation_token,recovery_token,email_change_token_new,email_change)
-values ('00000000-0000-0000-0000-000000000000','d0000000-0000-4000-a000-000000000003','authenticated','authenticated','demo-examiner@basira-demo.example','$2a$10$PWgicDvO8am3l/J0oneiLuOjvGYey9YOjP/5bTtFI5pVHOx6Z7hui',now(),'{"provider":"email","providers":["email"]}'::jsonb,'{"full_name": "فاحص تجريبي"}'::jsonb,now(),now(),'','','','');
+values ('00000000-0000-0000-0000-000000000000','d0000000-0000-4000-a000-000000000003','authenticated','authenticated','demo-examiner@basira-demo.example','$2a$10$YP.vacjb9Y7xINqedWMm9OCFD1AP9W/CswAhwKjzEE9adGU6E5g/W',now(),'{"provider":"email","providers":["email"]}'::jsonb,'{"full_name": "فاحص تجريبي"}'::jsonb,now(),now(),'','','','');
 insert into auth.identities (provider_id,user_id,identity_data,provider,last_sign_in_at,created_at,updated_at)
 values ('d0000000-0000-4000-a000-000000000003','d0000000-0000-4000-a000-000000000003',jsonb_build_object('sub','d0000000-0000-4000-a000-000000000003','email','demo-examiner@basira-demo.example','email_verified',true),'email',now(),now(),now());
+alter table public.profiles disable trigger guard_profile;
 update public.profiles set role='examiner' where id='d0000000-0000-4000-a000-000000000003';
+alter table public.profiles enable trigger guard_profile;
 
 insert into public.children (id,first_name,grade,birth_month,dialect_lexicon_id,guardian_id,specialist_id,is_demo)
 values ('d0000000-0000-4000-b000-000000000001','سارة (ملف تجريبي)',3,'2018-03','kw','d0000000-0000-4000-a000-000000000002','d0000000-0000-4000-a000-000000000001',true);
 
+-- Signed as the demo guardian, which is what guard_consent requires.
+select set_config('request.jwt.claims', '{"sub": "d0000000-0000-4000-a000-000000000002", "role": "authenticated"}', true);
 insert into public.consents (child_id,guardian_id,specialist_id,scope,signed_at,expires_at,evidence_path)
 values ('d0000000-0000-4000-b000-000000000001','d0000000-0000-4000-a000-000000000002','d0000000-0000-4000-a000-000000000001','assessment',now(),now()+interval '2 years','demo/synthetic-demo-consent'),
        ('d0000000-0000-4000-b000-000000000001','d0000000-0000-4000-a000-000000000002','d0000000-0000-4000-a000-000000000001','practice',now(),now()+interval '2 years','demo/synthetic-demo-consent');
