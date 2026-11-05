@@ -6,7 +6,8 @@ import { parseContract } from '../scorer/validation'
 
 const ARABIC_CHAR = /^\p{Script=Arabic}$/u
 const ARABIC_MARK = /^\p{Mark}$/u
-const SAFE_PUNCTUATION = /^[\s،؛؟!.,:٠-٩]+$/u
+// "/" separates the two words of a minimal pair.
+const SAFE_PUNCTUATION = /^[\s،؛؟!.,:/٠-٩]+$/u
 
 type RawPlan = {
   id?: unknown
@@ -95,6 +96,23 @@ function approvedItem(item: Item): boolean {
   return item.review.status === 'approved' && item.validation.passed === true && !item.probe_only &&
     typeof item.audio_path === 'string' && item.audio_path.startsWith('audio/') &&
     arabicOnly(item.text) && arabicOnly(item.text_plain)
+}
+
+/** Picks practice material for a plan: items on the focus skills first, topped up with varied starter items. */
+export function buildPlanSelection(focusSkillIds: readonly string[], maxItems = 9, bank: ItemBank = parsedBank()): { skillIds: SkillId[]; itemIds: string[] } {
+  const usable = bank.items.filter(approvedItem)
+  const focus = new Set(focusSkillIds)
+  const focused = usable.filter((item) => item.skill_ids.some((skill) => focus.has(skill)))
+  const picked: Item[] = []
+  const seenTypes = new Map<string, number>()
+  for (const item of [...focused, ...usable]) {
+    if (picked.length >= maxItems) break
+    const typeCount = seenTypes.get(item.type) ?? 0
+    if (picked.includes(item) || typeCount >= 3) continue
+    picked.push(item)
+    seenTypes.set(item.type, typeCount + 1)
+  }
+  return { skillIds: [...new Set(picked.flatMap((item) => item.skill_ids))], itemIds: picked.map((item) => item.id) }
 }
 
 export function selectApprovedTeachItems(

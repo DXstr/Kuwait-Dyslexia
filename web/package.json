@@ -15,6 +15,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "prebuild": "node scripts/copy-content-audio.mjs",
+    "predev": "node scripts/copy-content-audio.mjs",
     "build": "vite build",
     "preview": "vite preview"
   },

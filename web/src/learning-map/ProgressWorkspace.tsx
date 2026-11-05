@@ -3,6 +3,9 @@ import graphDocument from '../../../contracts/skill-graph.json'
 import { useI18n } from '../i18n/context'
 import { SKILL_GRAPH_STATUS } from './engine'
 import { useLearningMap } from './context'
+import { SkillMap } from './SkillMap'
+import { buildPlanSelection } from '../teach/catalogue'
+import { useTeachRepository } from '../teach/context'
 import type { MasteryBand } from './types'
 import '../ui/pages/specialist/specialist.css'
 
@@ -27,6 +30,8 @@ export function ProgressWorkspace() {
   const { t, locale } = useI18n()
   const learningMap = useLearningMap()
   const [selectedSkillId, setSelectedSkillId] = useState<string>('')
+  const teachRepository = useTeachRepository()
+  const [planState, setPlanState] = useState<'idle' | 'busy' | 'done' | 'error'>('idle')
 
   const selectedSkill = learningMap?.map?.skills.find((skill) => skill.skill_id === selectedSkillId) ?? learningMap?.map?.skills[0] ?? null
   const selectedLabel = useMemo(() => {
@@ -36,6 +41,18 @@ export function ProgressWorkspace() {
 
   if (!learningMap) return null
   if (learningMap.state === 'unavailable') return null
+
+  const approvePlan = async () => {
+    const childId = learningMap.selectedChildId
+    if (!teachRepository || !childId) return
+    setPlanState('busy')
+    try {
+      await teachRepository.createApprovedPlan(childId, buildPlanSelection(learningMap.nextPlan?.focusSkillIds ?? []))
+      setPlanState('done')
+    } catch {
+      setPlanState('error')
+    }
+  }
 
   const graphSkills = graphDocument.skills
   const hasEvents = Boolean(learningMap.read?.events.length)
@@ -91,6 +108,11 @@ export function ProgressWorkspace() {
 
       {learningMap.map && (
         <>
+          <section aria-labelledby="skill-map-title">
+            <h3 id="skill-map-title">{t('skillMapTitle')}</h3>
+            <SkillMap map={learningMap.map} selectedSkillId={selectedSkill?.skill_id} onSelect={setSelectedSkillId} />
+          </section>
+
           <section className="learning-map-summary" aria-labelledby="learning-map-summary-title">
             <h3 id="learning-map-summary-title">{t('learningMapSummaryTitle')}</h3>
             <p>{t('learningMapSummaryDescription')}</p>
@@ -146,6 +168,11 @@ export function ProgressWorkspace() {
               <div><dt>{t('learningMapReviewTargets')}</dt><dd>{learningMap.nextPlan?.reviewSkillIds.length ?? 0}</dd></div>
               <div><dt>{t('learningMapProbeDueTargets')}</dt><dd>{learningMap.nextPlan?.probeDueIds.length ?? 0}</dd></div>
             </dl>
+            <div className="plan-builder">
+              <button className="action-button" type="button" disabled={planState === 'busy' || !teachRepository} onClick={() => { void approvePlan() }}>{t('planBuilderAction')}</button>
+              {planState === 'done' && <p role="status">{t('planBuilderDone')}</p>}
+              {planState === 'error' && <p className="professional-notice" role="alert">{t('planBuilderError')}</p>}
+            </div>
           </section>
         </>
       )}

@@ -33,6 +33,8 @@ export interface AuthController {
   start(): () => void
   retry(): Promise<void>
   signIn(provider: OAuthProvider): Promise<void>
+  /** One-click entry to the shared, public demo accounts. */
+  signInDemo?(email: string, password: string): Promise<void>
   signOut(): Promise<void>
 }
 
@@ -505,6 +507,17 @@ export function createAuthController(
       await trackVerification(verifySession(workGeneration))
     },
 
+    signInDemo: async (email, password) => {
+      if (!client) {
+        fail('configuration')
+        return
+      }
+      const response = await client.auth.signInWithPassword({ email, password })
+      if (response.error) {
+        safeWarning('signIn', 'signIn')
+        fail('signIn')
+      }
+    },
     signIn: async (provider) => {
       if (snapshot.status === 'redirecting') return
       if (signOutOperation) {

@@ -5,6 +5,7 @@ import { createAssessmentQueue } from './queue'
 import { createAssessmentRepository, AssessmentRepositoryError } from './repository'
 import type { ActiveAssessmentSession, AssessmentChild, AssessmentItem, QueueErrorCode, QueueSnapshot } from './types'
 import { demoAssessmentItems } from './types'
+import { selectScreeningItems } from './screening'
 
 export type AssessmentRuntimeSnapshot = {
   activeSession: ActiveAssessmentSession | null
@@ -117,7 +118,9 @@ export function createAssessmentRuntime(client: SupabaseClient | null, auth: Aut
         const consent = await repository.readAssessmentConsent(child.id, guard)
         guard()
         if (!consent.valid) throw new Error('assessment: valid consent required')
-        if (!child.isDemo || scorer?.mode !== 'mock') throw new Error('assessment: approved assessment material unavailable')
+        // Fixture answers only exist for the fixture items; the real scorer takes the approved bank.
+        const items = scorer?.mode === 'mock' ? [...demoAssessmentItems] : selectScreeningItems(child)
+        if (items.length === 0) throw new Error('assessment: approved assessment material unavailable')
         guard()
         const session = await repository.createSession(child.id, identityId, 'assessment', guard)
         guard()
@@ -127,7 +130,7 @@ export function createAssessmentRuntime(client: SupabaseClient | null, auth: Aut
           id: session.id,
           child: { ...child },
           startedAt: session.started_at,
-          items: [...demoAssessmentItems],
+          items,
           type: 'assessment',
         }
         activeOwner = identityId
