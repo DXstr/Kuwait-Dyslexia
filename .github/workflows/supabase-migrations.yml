@@ -1,0 +1,51 @@
+name: Supabase migrations
+
+# Applies supabase/migrations/ to the hosted production database. Before this
+# workflow existed, every migration had to be pushed by hand with a personal
+# access token typed into a local shell -- easy to forget, and the push never
+# showed up anywhere CI-visible. This makes it automatic on every change to
+# supabase/migrations/ that reaches main, and still runnable on demand.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'supabase/migrations/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: supabase-migrations-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Push migrations to the hosted project
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: supabase/package-lock.json
+
+      - name: Install Supabase CLI
+        working-directory: supabase
+        run: npm ci
+
+      - name: Link the hosted project
+        working-directory: supabase
+        run: npx supabase link --project-ref ${{ vars.SUPABASE_PROJECT_REF }}
+
+      - name: Push pending migrations
+        working-directory: supabase
+        run: npx supabase db push --remote --yes
