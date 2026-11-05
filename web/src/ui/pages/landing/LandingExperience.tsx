@@ -1,6 +1,7 @@
 import { useAuth } from '../../../auth/context'
 import { useI18n } from '../../../i18n/context'
 import { BrandMark, Button, Noor, Notice } from '../../core'
+import { DemoAccess } from './DemoAccess'
 import { coreCopy } from '../../core/copy'
 import { DelightControls } from '../../delight'
 import { landingCopy } from './copy'
@@ -50,6 +51,7 @@ function AuthAction({ onGoogleSignIn }: { onGoogleSignIn: () => void }) {
         <span>{label}</span>
       </Button>
       <p className="landing-auth-hint">{landingCopy.hero.signInHint}</p>
+      <DemoAccess />
       {isUnavailable && (
         <p className="landing-auth-status" role="status">{landingCopy.auth.unavailable}</p>
       )}

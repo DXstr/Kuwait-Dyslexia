@@ -10,6 +10,7 @@ import { ChildChoiceGrid, ChildWorld, RecordingOrb } from '../ui/pages/child/Chi
 import { childCopy } from '../ui/pages/child/copy'
 import { useDelight } from '../ui/delight/DelightProvider'
 import { useLearningMap } from '../learning-map/context'
+import { ChildJourney } from '../learning-map/SkillMap'
 import { getCanonicalTeachBank, itemLetter, selectApprovedTeachItems, type ApprovedTeachPlan, type TeachItem } from './catalogue'
 import { useTeachRepository } from './context'
 import { TeachRepositoryError } from './repository'
@@ -232,6 +233,9 @@ function PracticeSession({ session, teachItems, onFinished }: { session: ActiveA
       ) : (
         <div className="noor-child-world__tap-card">
           <p>{t('teachReadDescription')}</p>
+          {material.audio_path && (
+            <button className="noor-child-world__helper-button" type="button" disabled={phase !== 'ready'} onClick={() => { playTap(); void new Audio(`/${material.audio_path}`).play().catch(() => setNotice('childNeutralNotice')) }}>{t('teachListen')}</button>
+          )}
           <RecordingOrb
             className="child-mic-button"
             state={orbState}
@@ -331,13 +335,14 @@ export function TeachWorkspace() {
         description={t('teachDescription')}
         level={1}
       />
+      {learningMap?.map && learningMap.selectedChildId === selectedId && <ChildJourney map={learningMap.map} />}
       <Surface className="teach-launch" aria-labelledby="teach-launch-title">
         <h2 id="teach-launch-title">{t('teachLaunchTitle')}</h2>
         {!plan && <p>{t('noSessionDescription')}</p>}
         {loading && <p role="status">{t('teachLoading')}</p>}
         <label className="assessment-field" htmlFor="teach-child">
           <span>{t('teachChildLabel')}</span>
-          <select id="teach-child" value={selectedId} onChange={(event) => setSelectedId(event.target.value)} disabled={loading || planLoading || children.length === 0}>
+          <select id="teach-child" value={selectedId} onChange={(event) => { setSelectedId(event.target.value); learningMap?.selectChild(event.target.value) }} disabled={loading || planLoading || children.length === 0}>
             <option value="">{t('teachChooseChild')}</option>
             {children.map((child) => <option key={child.id} value={child.id}>{child.firstName}{child.isDemo ? ` — ${t('assessmentDemoLabel')}` : ''}</option>)}
           </select>

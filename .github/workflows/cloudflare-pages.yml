@@ -25,6 +25,7 @@ jobs:
       VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
       VITE_SCORER_MODE: ${{ vars.VITE_SCORER_MODE }}
       VITE_SCORER_URL: ${{ vars.VITE_SCORER_URL }}
+      VITE_DEMO_PASSWORD: ${{ vars.VITE_DEMO_PASSWORD }}
     steps:
       - name: Check out main
         uses: actions/checkout@v4

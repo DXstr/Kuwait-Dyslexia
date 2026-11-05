@@ -32,6 +32,8 @@ function mapError(value: unknown): TeachRepositoryError {
 
 export type TeachRepository = {
   readApprovedPracticePlan(childId: string, options?: ReadOptions): Promise<ApprovedTeachPlan | null>
+  /** The signed-in specialist of record writes and approves a plan; the database records who approved it. */
+  createApprovedPlan(childId: string, selection: { skillIds: readonly string[]; itemIds: readonly string[] }, options?: ReadOptions): Promise<void>
   insertTapResult(input: { sessionId: string; childId: string; itemId: string; evidence: SkillEvidence }, options?: ReadOptions): Promise<void>
   dispose(): void
 }
@@ -83,6 +85,29 @@ export function createTeachRepository(client: SupabaseClient | null, auth: AuthC
       } catch (error) {
         if (error instanceof TeachRepositoryError) throw error
         if (error instanceof TeachCatalogueError) throw new TeachRepositoryError('schema')
+        throw mapError(error)
+      }
+    },
+
+    async createApprovedPlan(childId, selection, options) {
+      if (typeof childId !== 'string' || childId.trim().length === 0 || selection.itemIds.length === 0) throw new TeachRepositoryError('schema')
+      const { identity, operationGeneration } = requireIdentity(options?.signal)
+      try {
+        check(identity, operationGeneration, options?.signal)
+        const inserted = await client!.from('plans').insert({
+          child_id: childId,
+          skill_ids: [...selection.skillIds],
+          item_ids: [...selection.itemIds],
+          review_status: 'pending_review',
+        }).select('id').single() as { data: { id?: unknown } | null; error: unknown | null }
+        check(identity, operationGeneration, options?.signal)
+        if (inserted.error) throw mapError(inserted.error)
+        if (typeof inserted.data?.id !== 'string') throw new TeachRepositoryError('schema')
+        const approved = await client!.from('plans').update({ review_status: 'approved' }).eq('id', inserted.data.id)
+        check(identity, operationGeneration, options?.signal)
+        if (approved.error) throw mapError(approved.error)
+      } catch (error) {
+        if (error instanceof TeachRepositoryError) throw error
         throw mapError(error)
       }
     },

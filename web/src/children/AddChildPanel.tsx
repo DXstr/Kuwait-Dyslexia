@@ -3,6 +3,7 @@ import type { FormEvent } from 'react'
 import { useAuth } from '../auth/context'
 import { useI18n } from '../i18n/context'
 import { useAssessment } from '../assessment/context'
+import { DEMO_SPECIALIST_ID } from '../ui/pages/landing/DemoAccess'
 
 const GRADES = [1, 2, 3, 4, 5, 6] as const
 const DIALECTS = [
@@ -23,7 +24,7 @@ export function AddChildPanel() {
   const [busy, setBusy] = useState(false)
   const [notice, setNotice] = useState<{ kind: 'success' | 'error'; text: string } | null>(null)
 
-  if (!repository) return null
+  if (!repository || controller.getVerifiedSession()?.id === DEMO_SPECIALIST_ID) return null
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()

@@ -77,7 +77,8 @@ describe('ProgressWorkspace', () => {
 
   it('does not show a mastery claim or a no-gain flag when live probes are absent', () => {
     renderWorkspace(value())
-    expect(screen.queryByText(ar.learningMapBandMastered)).not.toBeInTheDocument()
+    // The map legend names every band, so a mastery claim is only one made in the skill table.
+    expect(document.querySelector('.learning-map-table')?.textContent).not.toContain(ar.learningMapBandMastered)
     expect(screen.queryByText(ar.learningMapFlagged)).not.toBeInTheDocument()
     expect(screen.queryByText(ar.learningMapNoEvents)).not.toBeInTheDocument()
   })

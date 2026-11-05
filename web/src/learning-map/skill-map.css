@@ -1,0 +1,27 @@
+.skill-map { display: grid; gap: 1rem; margin-block: 1rem; }
+.skill-map__legend { display: flex; flex-wrap: wrap; gap: .5rem 1.1rem; list-style: none; margin: 0; padding: 0; font-size: .9rem; }
+.skill-map__legend li { display: inline-flex; align-items: center; gap: .4rem; }
+.skill-map__swatch { display: inline-block; inline-size: 1rem; block-size: 1rem; border-radius: 50%; border: 2px solid transparent; }
+.skill-map__path { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; position: relative; }
+.skill-map__path::before { content: ''; position: absolute; inset-block: 1rem; inset-inline-start: 1.05rem; border-inline-start: 3px dashed #c9c2e8; }
+.skill-map__station { position: relative; padding-inline-start: 3rem; }
+.skill-map__station h4 { display: flex; align-items: center; gap: .6rem; margin: 0 0 .5rem; font-size: 1.02rem; }
+.skill-map__number { position: absolute; inset-inline-start: 0; inline-size: 2.2rem; block-size: 2.2rem; display: grid; place-items: center; border-radius: 50%; background: #35287a; color: #fff; font-weight: 700; }
+.skill-map__nodes { display: flex; flex-wrap: wrap; gap: .45rem; }
+.skill-map__node { min-inline-size: 2.75rem; min-block-size: 2.75rem; padding: .3rem .7rem; border-radius: 1.4rem; border: 2px solid transparent; font: inherit; font-weight: 600; cursor: pointer; }
+.skill-map__node--mastered { background: #1e7d4f; color: #fff; }
+.skill-map__node--probe_due { background: #e9b949; color: #2a2150; }
+.skill-map__node--growing { background: #bfe3d0; color: #123f2a; }
+.skill-map__node--working_on { background: #cfe0f7; color: #17365f; }
+.skill-map__node--unknown { background: #eeecf5; color: #4a4566; }
+.skill-map__node--locked { border: 2px dashed #a8a2c4; opacity: .75; }
+.skill-map__node--selected { outline: 3px solid #35287a; outline-offset: 2px; }
+.skill-map__node:focus-visible { outline: 3px solid #35287a; outline-offset: 2px; }
+.plan-builder { display: grid; gap: .6rem; margin-block-start: .8rem; justify-items: start; }
+
+.child-journey { margin-block: 1rem; padding: 1rem; border-radius: 1.2rem; background: #f5f2ff; }
+.child-journey h2 { margin: 0 0 .7rem; font-size: 1.2rem; }
+.child-journey__path { list-style: none; display: flex; flex-wrap: wrap; gap: .6rem; margin: 0; padding: 0; }
+.child-journey__stop { flex: 1 1 8.5rem; display: grid; justify-items: center; gap: .2rem; padding: .7rem .5rem; border-radius: 1rem; background: #fff; border: 2px solid #e4dff5; text-align: center; font-weight: 600; }
+.child-journey__stop--active { border-color: #1e7d4f; }
+.child-journey__stars { color: #b98900; font-size: 1.25rem; letter-spacing: .1em; }
