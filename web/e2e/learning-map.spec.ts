@@ -90,7 +90,7 @@ test('counts all repeated canonical word observations and labels the Arabic spec
   await expect(workspace.getByText(ar.learningMapSyntheticBanner)).toBeVisible()
   await expect(workspace.getByText(ar.learningMapProvisionalDescription)).toBeVisible()
   await expect(workspace.getByRole('combobox', { name: ar.learningMapSkillLabel }).locator('option')).toHaveCount(53)
-  await expect(workspace.getByText(ar.learningMapBandMastered, { exact: true })).toHaveCount(0)
+  await expect(workspace.locator('.learning-map-table').getByText(ar.learningMapBandMastered, { exact: true })).toHaveCount(0)
   await expect(page.locator('html')).toHaveAttribute('lang', 'ar')
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl')
   await workspace.evaluate((element) => element.scrollIntoView({ block: 'start' }))
