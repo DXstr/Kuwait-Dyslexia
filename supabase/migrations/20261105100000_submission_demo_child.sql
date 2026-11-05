@@ -3,6 +3,11 @@
 -- specialist login has something to select in ConsentWorkspace/Assessment.
 -- No consent row is created here -- that must be a genuine action by the
 -- signed-in guardian account through the product UI, never fabricated.
+--
+-- The referenced guardian/specialist profiles only exist in the hosted
+-- production database (they are real accounts, not seed data), so this insert
+-- is a no-op on any fresh database -- such as CI's local Supabase stack or a
+-- new contributor's local stack -- where those profiles are absent.
 
 begin;
 
@@ -16,7 +21,7 @@ insert into public.children (
   specialist_id,
   is_demo
 )
-values (
+select
   '00000000-0000-4000-b000-000000000001',
   'جود (ملف تجريبي)',
   3,
@@ -25,7 +30,8 @@ values (
   'cfb0a8c3-360b-4d14-ae17-715691d3fd36', -- guardian demo account
   '2494dc60-e825-4777-a88f-f1c1de662b89', -- specialist demo account
   true
-)
+where exists (select 1 from public.profiles where id = 'cfb0a8c3-360b-4d14-ae17-715691d3fd36' and role = 'guardian')
+  and exists (select 1 from public.profiles where id = '2494dc60-e825-4777-a88f-f1c1de662b89' and role = 'specialist')
 on conflict (id) do nothing;
 
 commit;
