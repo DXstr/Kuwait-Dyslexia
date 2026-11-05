@@ -18,6 +18,7 @@ import { ConsentWorkspace } from './stage0/ConsentWorkspace'
 import { Stage0Workspace } from './stage0/Stage0Workspace'
 import { ProbeWorkspace } from './prove/ProbeWorkspace'
 import { TeachWorkspace } from './teach/TeachWorkspace'
+import { AddChildPanel } from './children/AddChildPanel'
 import { BrandMark } from './ui/core'
 import { DelightControls, DelightProvider } from './ui/delight'
 import { AuthExperience } from './ui/pages/auth'
@@ -69,6 +70,9 @@ function Shell({ role, children }: { role: AppRole | null; children: ReactNode }
           {(role === 'specialist' || role === 'examiner') && (
             <NavLink to="/child">{t('childNavigation')}</NavLink>
           )}
+          {role === 'guardian' && (
+            <NavLink to="/guardian/consent">{t('consentTitle')}</NavLink>
+          )}
         </nav>
       )}
       <main id="main-content" tabIndex={-1}>{children}</main>
@@ -117,6 +121,7 @@ function Workspace({ title, description }: { title: MessageKey; description: Mes
         <p className="lead">{t(description)}</p>
       </section>
     )}
+    <AddChildPanel />
     <ReviewWorkspace />
     <ProbeWorkspace />
     <ProgressWorkspace />

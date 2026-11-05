@@ -439,7 +439,7 @@ p:last-child { margin-block-end: 0; }
   .parent-report-card { border: 0; padding: 0; }
 }
 /* B12 examiner Stage 0 and guardian consent */
-.consent-panel, .stage0-panel {
+.consent-panel, .stage0-panel, .add-child-panel {
   display: grid;
   gap: 1.25rem;
   margin-block: 2rem;
@@ -472,6 +472,25 @@ p:last-child { margin-block-end: 0; }
 .consent-scope-status p { margin: 0; }
 #consent-scope { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
 #consent-scope legend { inline-size: 100%; }
+.add-child-panel input:not([type='radio']), .add-child-panel select {
+  min-block-size: 3rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  font: inherit;
+}
+#add-child-dialect {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin: 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--paper);
+}
+#add-child-dialect legend { inline-size: 100%; padding: 0; font-weight: 800; }
 .consent-panel input:not([type='radio']):not([type='checkbox']), .stage0-panel input, .stage0-panel select {
   min-block-size: 3rem;
   padding: 0.5rem 0.75rem;

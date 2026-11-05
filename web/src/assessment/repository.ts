@@ -160,6 +160,31 @@ export function createAssessmentRepository(client: SupabaseClient | null) {
       const row = response.data as { id?: string; status?: string } | null
       if (!row || row.id !== sessionId || row.status !== 'abandoned') throw new AssessmentRepositoryError('repository: abandonment acknowledgement mismatch', 'schema', false)
     },
+
+    async findGuardianByEmail(email: string, guard?: Guard): Promise<string | null> {
+      guard?.()
+      const response = await requireClient().rpc('find_guardian_by_email', { p_email: email })
+      guard?.()
+      if (response.error) throw repositoryError(response.error)
+      const value = response.data as string | null
+      if (value !== null && typeof value !== 'string') throw new AssessmentRepositoryError('repository: invalid guardian lookup response', 'schema', false)
+      return value
+    },
+
+    async createChildForGuardian(input: { firstName: string; grade: number; birthMonth: string; dialectLexiconId: string; guardianId: string; specialistId: string }, guard?: Guard): Promise<AssessmentChild> {
+      guard?.()
+      const response = await requireClient().from('children').insert({
+        first_name: input.firstName,
+        grade: input.grade,
+        birth_month: input.birthMonth,
+        dialect_lexicon_id: input.dialectLexiconId,
+        guardian_id: input.guardianId,
+        specialist_id: input.specialistId,
+      }).select('id, first_name, grade, dialect_lexicon_id, is_demo').single()
+      guard?.()
+      if (response.error) throw repositoryError(response.error)
+      try { return childFromRow(response.data as RepositoryChildRow) } catch { throw new AssessmentRepositoryError('repository: invalid created-child response', 'schema', false) }
+    },
   }
 }
 
